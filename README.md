@@ -17,4 +17,4 @@ FROMENT Antonin
 
 # Liens utiles :
 
-[Framacal](https://lite.framacalc.org/9nif-2021_zeldiablo_groupe_abbgf)
+[Framacalc](https://lite.framacalc.org/9nif-2021_zeldiablo_groupe_abbgf)
