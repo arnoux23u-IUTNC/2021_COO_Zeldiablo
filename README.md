@@ -3,4 +3,12 @@ COO Project
 
 **Introduction avec TP14 (Fonctionnalités)**
 
-ARNOUX BELMONT BRESSON GERMONVILLE-BELLET FROMENT 
+ARNOUX Guillaume
+
+BELMONT Tristan
+
+BRESSON Jules
+
+GERMONVILLE-BELLET Alexandre
+
+FROMENT Antonin
