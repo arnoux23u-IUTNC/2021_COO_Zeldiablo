@@ -1,0 +1,6 @@
+creer joueur
+créer une partie
+creer un labyrinthe 
+créer une entrée
+deplacer le joueur
+verifier si une case est vide
