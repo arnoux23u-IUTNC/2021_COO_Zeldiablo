@@ -5,9 +5,6 @@ class Jeu{
 }
 
 class Joueur{
-- pdv : int
-- degats : int
-+ seDeplacer()
 }
 
 class Labyrinthe{
