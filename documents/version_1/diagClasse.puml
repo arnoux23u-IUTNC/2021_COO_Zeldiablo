@@ -1,0 +1,28 @@
+@startuml
+title Diagramme de Classe - Zeldiablo
+
+class Jeu{
+}
+
+class Joueur{
+- pdv : int
+- degats : int
++ seDeplacer()
+}
+
+class Labyrinthe{
+}
+
+class Case{
+}
+
+class Entree{
+
+}
+
+Jeu "1" -down-> "1" Labyrinthe: " - labyrinthe"
+Labyrinthe "1" -down-> "1" Entree: " - entree "
+Labyrinthe "1" -right-> "*" Case: " - cases "
+Jeu "1" -right-> "1" Joueur: " - joueur "
+
+@enduml
