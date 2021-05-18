@@ -1,4 +1,5 @@
 @startuml
+
 title Diagramme de Classe - Zeldiablo
 
 class Jeu{
