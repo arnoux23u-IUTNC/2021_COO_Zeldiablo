@@ -1,6 +1,37 @@
-creer joueur
-créer une partie
-creer un labyrinthe 
-créer une entrée
-deplacer le joueur
-verifier si une case est vide
+* Fonctionnalités version 1
+
+- fonctionnalité 1 : creer joueur
+- descriptif texte : création  et initialisation du joueur
+- critères de validation :
+- critère 1 : le joueur doit exister
+- critère 2 : les conditions de créations sont reunies
+
+- fonctionnalité 2 : créer une partie
+- descriptif texte : création  et initialisation d'une partie
+- critères de validation :
+- critère 1 : la partie doit exister
+- critère 2 : les conditions de créations sont reunies
+
+- fonctionnalité 3 : creer un labyrinthe 
+- descriptif texte : création  et initialisation d'un labyrinthe
+- critères de validation :
+- critère 1 : le labyrinthe doit exister
+- critère 2 : les conditions de créations sont reunies
+
+- fonctionnalité 4 : créer une entrée
+- descriptif texte : création  et initialisation d'une entrée
+- critères de validation :
+- critère 1 : le labyrinthe doit exister
+- critère 2 : les conditions de créations sont reunies
+
+- fonctionnalité 5 : deplacer le joueur
+- descriptif texte : deplace le joueur dans le labyrinthe
+- critères de validation :
+- critère 1 : le joueur doit exister
+
+- fonctionnalité 6 : verifier si une case est vide
+- descriptif texte : verifie si la case est vide pour que le joueur puisse s'y deplacer
+- critères de validation :
+- critère 1 : la labyrinthe doit exister
+
+
