@@ -3,18 +3,37 @@
 title Diagramme de Classe - Zeldiablo
 
 class Jeu{
+    + Jeu()
 }
 
-class Joueur{
+class Personnage{
+    + Personnage()
+    + seDeplacer(d : Direction) : boolean
 }
 
 class Labyrinthe{
+    + Labyrinthe()
+    + creerEntree(x : int, y : int) : boolean
 }
 
 class Case{
 }
 
 class Entree{
+    - x : int
+    - y : int
+    + Entree(x : int, y : int)
+}
+
+class Joueur{
+    + Joueur()
+}
+
+enum Direction{
+    NORTH
+    SOUTH
+    EAST
+    WEST
 }
 
 Jeu "1" -down-> "1" Labyrinthe: " - labyrinthe"

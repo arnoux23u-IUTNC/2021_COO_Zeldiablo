@@ -1,0 +1,23 @@
+@startuml
+
+title "Création d'un jeu"
+
+participant "Main" as main
+participant "j : Jeu" as j
+participant "l1 : Labyrinthe" as l1
+participant "j1 : Joueur " as j1
+
+main -> j : new Jeu()
+activate j
+j -> l1 : new Labyrinthe()
+activate l1
+l1 --> j
+deactivate l1
+j -> j1 : new Joueur()
+activate j1
+j1 --> j
+deactivate j1
+j --> main
+deactivate j
+
+@enduml
