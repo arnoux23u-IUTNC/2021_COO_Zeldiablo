@@ -5,8 +5,11 @@ title "Déplacement d'un joueur"
 participant "j : Jeu" as j
 participant "p1 : Personnage" as p1
 
-
-j -> p1 : seDeplacer(10, 10)
-p1 -> j : p : Point
+activate j
+j -> p1 : seDeplacer(Directions.NORTH)
+activate p1
+p1 --> j : true
+deactivate p1
+deactivate j
 
 @enduml
