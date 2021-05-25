@@ -5,15 +5,15 @@ COO Project
 
 # Membres
 
-ARNOUX Guillaume
+ARNOUX Guillaume (est désespéré)
 
-BELMONT Tristan
+BELMONT Tristan (travaille)
 
-BRESSON Jules
+BRESSON Jules (rigole aux harceleurs de twitter)
 
-GERMONVILLE-BELLET Alexandre
+GERMONVILLE-BELLET Alexandre (passe son temps à harcerler celui en dessous sur twitter)
 
-FROMENT Antonin
+FROMENT Antonin (passe son temps à se faire harcerler par celui au dessus sur twitter)
 
 # Liens utiles :
 
