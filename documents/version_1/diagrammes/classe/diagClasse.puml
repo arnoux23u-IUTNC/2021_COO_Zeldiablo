@@ -6,26 +6,43 @@ class Jeu{
     + Jeu()
 }
 
-class Personnage{
+abstract class Personnage{
+    - position : Case
     + Personnage()
     + seDeplacer(d : Direction) : boolean
 }
 
 class Labyrinthe{
-    + Labyrinthe()
+    - joueur : Joueur
+    + Labyrinthe(j : Joueur)
     + creerEntree(x : int, y : int) : boolean
+    + peutBouger(p : Personnage, d : Direction) : boolean
 }
 
-class Case{
-}
-
-class Entree{
+interface Case{
     - x : int
     - y : int
+    + Case(x : int, y : int)
+}
+
+class Chemin implements Case{
+    + Chemin(x : int, y : int)
+}
+
+abstract class Obstacle implements Case{
+    + Obstacle(x : int, y : int)
+}
+
+class Mur extends Obstacle{
+    + Mur(x : int, y : int)
+}
+
+class Entree implements Case{
+
     + Entree(x : int, y : int)
 }
 
-class Joueur{
+class Joueur extends Personnage{
     + Joueur()
 }
 
@@ -37,8 +54,8 @@ enum Direction{
 }
 
 Jeu "1" -down-> "1" Labyrinthe: " - labyrinthe"
-Labyrinthe "1" -down-> "1" Entree: " - entree "
+Labyrinthe "1" -down-> "                1" Entree: " - entree "
 Labyrinthe "1" -right-> "*" Case: " - cases "
-Jeu "1" -right-> "1" Joueur: " - joueur "
+Labyrinthe "1" -left-> "1" Joueur: " - joueur "
 
 @enduml
