@@ -1,5 +1,5 @@
 /**
- * Interface modelisant une case, qui peut etre traversable ou non
+ * Interface modelisant une case dans le labyrinthe
  *
  * @author AGJMX
  */
@@ -17,11 +17,21 @@ public abstract class Case {
 
     /**
      * Constructeur public par defaut a deux parametres
+     *
+     * @param x abscisse
+     * @param y ordonnee
      */
-    public Case(int x, int y){
+    public Case(int x, int y) {
         //TODO PEUT ETRE VERIFICATIONS
         this.x = x;
         this.y = y;
-    };
+    }
+
+    /**
+     * Methode abstraite pour verifier si un personnage peut passer sur cette classe
+     *
+     * @return booleen, a vrai si "p" peut passer dessus
+     */
+    public abstract boolean peutTraverser(Personnage p);
 
 }

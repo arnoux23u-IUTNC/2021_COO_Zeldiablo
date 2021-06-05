@@ -1,9 +1,15 @@
 /**
- * Classe representant un chemin vide
+ * Classe modelisant une porte
  *
  * @author AGJMX
  */
-public class Chemin extends Case {
+public class Porte extends Case {
+
+    /**
+     * Booleen, a vrai si la porte est fermee
+     * Une porte est par defaut ouverte, elle se ferme quand le joueur y passe
+     */
+    private boolean ferme;
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -11,8 +17,18 @@ public class Chemin extends Case {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Chemin(int x, int y) {
+    public Porte(int x, int y) {
         super(x, y);
+        ferme = false;
+    }
+
+    /**
+     * Setter ferme
+     *
+     * @param b etat de la porte
+     */
+    public void setFerme(boolean b) {
+        this.ferme = b;
     }
 
     /**
@@ -22,11 +38,14 @@ public class Chemin extends Case {
      */
     @Override
     public boolean peutTraverser(Personnage p) {
+        //TODO VERIFIER FERME
         switch (p.getClass().getName()) {
             case "Joueur":
+
                 return true;
         }
         return false;
     }
+
 
 }
