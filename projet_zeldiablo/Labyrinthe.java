@@ -49,7 +49,7 @@ public class Labyrinthe {
         boolean res = false;
         switch (d) {
             case NORTH -> {
-                Case nord = new Case((p.getCase().x - 1), p.getCase().y);
+                Case nord = cases[p.getCase().x][p.getCase().y - 1];
                 if (nord.x >= 0) {
                     if (nord instanceof Chemin) {
                         res = true;
@@ -57,7 +57,7 @@ public class Labyrinthe {
                 }
             }
             case SOUTH -> {
-                Case sud = new Case((p.getCase().x + 1), p.getCase().y);
+                Case sud = cases[p.getCase().x][p.getCase().y + 1];;
                 if (sud.x <= 14) {
                     if (sud instanceof Chemin) {
                         res = true;
@@ -65,7 +65,7 @@ public class Labyrinthe {
                 }
             }
             case EAST -> {
-                Case est = new Case((p.getCase().x), p.getCase().y + 1);
+                Case est = cases[p.getCase().x + 1][p.getCase().y];
                 if (est.y <= 14) {
                     if (est instanceof Chemin) {
                         res = true;
@@ -73,7 +73,7 @@ public class Labyrinthe {
                 }
             }
             case WEST -> {
-                Case ouest = new Case((p.getCase().x), p.getCase().y - 1);
+                Case ouest = cases[p.getCase().x - 1][p.getCase().y];
                 if (ouest.y >= 0) {
                     if (ouest instanceof Chemin) {
                         res = true;
