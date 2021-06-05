@@ -1,16 +1,17 @@
-import javax.swing.text.Position;
-
+/**
+ * Classe modelisant un personnage, de type joueur
+ */
 public class Personnage {
+
+    /**
+     * Position du joueur
+     */
     private Case position;
 
-    public Personnage() {
+    public Personnage(Entree entry) {
+        position = entry;
     }
 
-    public boolean seDeplacer(Direction d){
-        boolean res = true;
-        //je sais pas trop quoi faire
-        return res;
-    }
 
     public Case getCase(){
         return position;
