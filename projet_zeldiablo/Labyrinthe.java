@@ -42,6 +42,7 @@ public class Labyrinthe {
 
     public boolean creerEntree(int x, int y) {
         boolean res = false;
+        //TODO
 
     }
     public boolean peutBouger(Personnage p, Direction d){
