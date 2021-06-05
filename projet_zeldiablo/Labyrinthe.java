@@ -46,6 +46,7 @@ public class Labyrinthe {
 
     }
     public boolean peutBouger(Personnage p, Direction d){
+        boolean res = false;
         switch (d) {
             case NORTH:
                 Case nord = new Case((p.getCase().x - 1), p.getCase().y);
