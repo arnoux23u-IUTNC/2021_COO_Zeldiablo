@@ -19,7 +19,7 @@ class Labyrinthe{
     + peutBouger(p : Personnage, d : Direction) : boolean
 }
 
-interface Case{
+abstract class Case{
     - x : int
     - y : int
     + Case(x : int, y : int)

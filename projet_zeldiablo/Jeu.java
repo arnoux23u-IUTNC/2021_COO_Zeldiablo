@@ -1,7 +1,9 @@
 public class Jeu {
-    private Labyrinthe labyrinthe;
 
-    public Jeu() {
-        labyrinthe = new Labyrinthe();
+    public static void main(String[] args) {
+        Labyrinthe l = new Labyrinthe();
+        //TODO METHODE JOUER PRINCIPALE
+        l.jouer();
     }
+
 }
