@@ -8,16 +8,47 @@ public abstract class Personnage {
      */
     private Case position;
 
-    public Personnage(Case depart) {
+    /**
+     * Labyrinthe actuel
+     */
+    private final Labyrinthe l;
+
+    /**
+     * Constructeur public par defaut a deux parametres
+     *
+     * @param l      labyrinthe
+     * @param depart position de depart
+     */
+    public Personnage(Labyrinthe l, Case depart) {
         position = depart;
+        this.l = l;
     }
 
-
-    public Case getCase(){
+    /**
+     * Getter position
+     *
+     * @return position du personnage
+     */
+    public Case getCase() {
         return position;
     }
 
+    /**
+     * Setter position
+     *
+     * @param position nouvelle position du joueur
+     */
     public void setPosition(Case position) {
         this.position = position;
+    }
+
+    /**
+     * Methode pour deplacer un personnage
+     *
+     * @param d direction voulue
+     * @return booleen, a vrai s'il a ete deplace
+     */
+    public boolean seDeplacer(Direction d) {
+        return l.deplacerJoueur(this, d);
     }
 }
