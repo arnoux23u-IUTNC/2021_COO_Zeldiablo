@@ -1,8 +1,10 @@
-public class Personnage {
-    private String nom;
+import javax.swing.text.Position;
 
-    public Personnage(String n) {
-        this.nom = n;
+public class Personnage {
+    private Case position;
+
+    public Personnage() {
+        position = new Case();
     }
 
     public boolean seDeplacer(Direction d){
@@ -10,5 +12,4 @@ public class Personnage {
         //je sais pas trop quoi faire
         return res;
     }
-
 }

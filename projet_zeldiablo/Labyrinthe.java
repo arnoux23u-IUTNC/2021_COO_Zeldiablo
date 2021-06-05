@@ -30,11 +30,11 @@ public class Labyrinthe {
         for (int i = 0 ; i < lab.length(); i++){
             char c = lab.charAt(i);
             if (c == "x"){
-                Chemin c1 = new Chemin();
+                Chemin c1 = new Chemin(i, i);
                 cases.add(c1);
             }
             if (c == "o"){
-                Mur m1 = new Mur();
+                Mur m1 = new Mur(i, i);
                 cases.add(m1);
             }
         }

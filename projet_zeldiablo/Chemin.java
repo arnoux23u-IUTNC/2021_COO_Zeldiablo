@@ -4,10 +4,10 @@ public class Chemin implements Case {
 
     public Chemin(int abs, int ord) {
         if (abs < 0) {
-            abs -= abs;
+            abs = (-1) * abs;
         }
         if (ord < 0) {
-            ord -= ord;
+            ord = (-1) * ord;
         }
         this.x = abs;
         this.y = ord;
