@@ -1,15 +1,15 @@
 /**
- * Classe modelisant un personnage, de type joueur
+ * Classe modelisant un personnage, de type passif (joueur) ou actif (monstre)
  */
-public class Personnage {
+public abstract class Personnage {
 
     /**
      * Position du joueur
      */
     private Case position;
 
-    public Personnage(Entree entry) {
-        position = entry;
+    public Personnage(Case depart) {
+        position = depart;
     }
 
 
@@ -17,7 +17,7 @@ public class Personnage {
         return position;
     }
 
-    public void setPositionDepart(Case position) {
+    public void setPosition(Case position) {
         this.position = position;
     }
 }

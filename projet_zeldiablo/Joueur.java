@@ -1,11 +1,7 @@
-public class Joueur {
-    private Personnage p;
+public class Joueur extends Personnage {
 
-    public Joueur() {
-        p = new Personnage();
+    public Joueur(Case depart) {
+        super(depart);
     }
 
-    public Personnage getP() {
-        return p;
-    }
 }

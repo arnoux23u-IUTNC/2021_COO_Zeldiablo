@@ -1,11 +1,9 @@
 /**
- * Classe modelisa
+ * Classe modelisant un obstacle
  */
 public abstract class Obstacle extends Case {
-    private int x;
-    private int y;
 
-    public Obstacle(int abs, int ord) {
-        super(abs,ord);
+    public Obstacle(int x, int y) {
+        super(x, y);
     }
 }
