@@ -9,8 +9,15 @@ participant "l : Labyrinthe" as l
 activate j
 j -> p1 : seDeplacer(Directions.NORTH)
 activate p1
-p1 -> l : peutBouger(p1, Directions.NORTH)
+p1 -> l : deplacerJoueur(p1, Directions.NORTH)
 activate l
+l -> l : peutBouger(p1, Directions.NORTH)
+alt true
+    l -> l : getDestination(p1, Directions.NORTH)
+    l --> l : case
+    l -> p1 : setPosition(case)
+    p1 --> l : true
+end
 l --> p1 : true
 deactivate l
 p1 --> j : true

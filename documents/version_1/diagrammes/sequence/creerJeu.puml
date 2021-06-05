@@ -5,19 +5,36 @@ title "Création d'un jeu"
 participant "Main" as main
 participant "j : Jeu" as j
 participant "l1 : Labyrinthe" as l1
-participant "j1 : Joueur " as j1
 
+create j
+activate main
 main -> j : new Jeu()
+create l1
 activate j
 j -> l1 : new Labyrinthe()
 activate l1
-l1 --> j
-deactivate l1
-j -> j1 : new Joueur()
+create Case
+loop 225 times
+l1 -> Case : new Case(x, y)
+note left
+Voir
+diagramme
+creerEntree
+end note
+end
+participant "j1 : Joueur " as j1
+create j1
+l1 -> j1 : new Joueur(l1, entree)
 activate j1
-j1 --> j
-deactivate j1
+create Porte
+j1 -[hidden]-> Porte : new
+
+j1 -> Porte : setFerme(true)
+activate Porte
+Porte --> j1
+deactivate Porte
+j -> l1 : jouer()
+l1 --> j
 j --> main
-deactivate j
 
 @enduml
