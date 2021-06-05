@@ -25,7 +25,7 @@ public class Labyrinthe {
                 "ooxxxxooooxxxxx";
 
         for (int i = 0 ; i < lab.length(); i++){
-            String c = lab.charAt(i);
+            char c = lab.charAt(i);
             if (c == "x"){
                 Chemin c1 = new Chemin();
                 cases.add(c1);
@@ -39,6 +39,6 @@ public class Labyrinthe {
 
     public boolean creerEntree(int x, int y) {
         boolean res = false;
-        if ()
+        
     }
 }
