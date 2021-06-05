@@ -1,7 +1,8 @@
-public class Joueur extends Personnage {
+public class Joueur extends Personnage{
 
-    public Joueur(Case depart) {
-        super(depart);
+    private Case position;
+
+    public Joueur(Entree e) {
+        super(e);
     }
-
 }

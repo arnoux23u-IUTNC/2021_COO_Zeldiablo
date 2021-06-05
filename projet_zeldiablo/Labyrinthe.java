@@ -6,7 +6,6 @@ public class Labyrinthe {
     private Entree entree;
 
     public Labyrinthe() {
-        this.joueur = new Joueur();
 
         //x = chemin
         //o = obstacle
@@ -27,22 +26,27 @@ public class Labyrinthe {
                 "ooxooxxxooxooox" +
                 "ooxxxxooooxxxex";
 
-        for (int i = 0 ; i < lab.length(); i++){
-            char c = lab.charAt(i);
-            if (c == 'x'){
-                Chemin c1 = new Chemin(i, i);
-                cases[i][i]=c1;
+        for (int i = 0 ; i < 15; i++){
+            for(int j = 0; j < 15; j++){
+                int cursor = 0;
+                char c = lab.charAt(cursor);
+                if (c == 'x'){
+                    Chemin c1 = new Chemin(i, j);
+                    cases[i][j]=c1;
+                }
+                if (c == 'o'){
+                    Mur m1 = new Mur(i, j);
+                    cases[i][j]=m1;
+                }
+                if (c == 'e'){
+                    entree = new Entree(i, j);
+                    cases[i][j]=entree;
+                }
+                cursor++;
             }
-            if (c == 'o'){
-                Mur m1 = new Mur(i, i);
-                cases[i][i]=m1;
-            }
-            if (c == 'e'){
-                entree = new Entree(i, i);
-                joueur.getP().setPositionDepart(entree);
-                cases[i][i]=entree;
-            }
+
         }
+        this.joueur = new Joueur(entree);
     }
 
     public boolean peutBouger(Personnage p, Direction d){
