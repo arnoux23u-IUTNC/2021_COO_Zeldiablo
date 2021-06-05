@@ -8,12 +8,12 @@ public abstract class Case {
     /**
      * Attribut representant l'abscisse de la case
      */
-    public final int x;
+    public int x;
 
     /**
      * Attribut representant l'ordonnee de la case
      */
-    public final int y;
+    public int y;
 
     /**
      * Constructeur public par defaut a deux parametres

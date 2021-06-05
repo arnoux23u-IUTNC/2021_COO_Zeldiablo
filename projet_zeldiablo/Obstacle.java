@@ -1,15 +1,8 @@
-public abstract class Obstacle implements Case {
+public abstract class Obstacle extends Case {
     private int x;
     private int y;
 
     public Obstacle(int abs, int ord) {
-        if (abs < 0) {
-            abs = (-1) * abs;
-        }
-        if (ord < 0) {
-            ord = (-1) * ord;
-        }
-        this.x = abs;
-        this.y = ord;
+        super(abs,ord);
     }
 }

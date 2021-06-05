@@ -4,4 +4,8 @@ public class Joueur {
     public Joueur() {
         p = new Personnage();
     }
+
+    public Personnage getP() {
+        return p;
+    }
 }
