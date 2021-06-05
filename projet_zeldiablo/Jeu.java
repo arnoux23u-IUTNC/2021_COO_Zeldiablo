@@ -1,9 +1,22 @@
+/**
+ * Classe modelisant un Objet Jeu
+ * Celui ci est l'element mere
+ *
+ * @author AGJMX
+ */
 public class Jeu {
 
-    public static void main(String[] args) {
-        Labyrinthe l = new Labyrinthe();
-        //TODO METHODE JOUER PRINCIPALE
-        l.jouer();
+    /**
+     * Labyrinthe concernce par le jeu
+     */
+    private Labyrinthe l;
+
+    /**
+     * Constructeur public par defaut
+     */
+    public Jeu() {
+        this.l = new Labyrinthe();
+        this.l.jouer();
     }
 
 }
