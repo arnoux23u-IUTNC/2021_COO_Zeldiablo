@@ -3,8 +3,11 @@ import java.util.*;
 public class Labyrinthe {
     private List<Case> cases;
     private Entree e;
+    private Joueur joueur;
 
     public Labyrinthe() {
+        this.joueur = new Joueur();
+
         //x = chemin
         //o = obstacle
         String lab =
@@ -39,6 +42,43 @@ public class Labyrinthe {
 
     public boolean creerEntree(int x, int y) {
         boolean res = false;
-        
+
+    }
+    public boolean peutBouger(Personnage p, Direction d){
+        switch (d) {
+            case NORTH:
+                Case nord = new Case((p.getCase().x - 1), p.getCase().y);
+                if (nord.x >= 0) {
+                    if (nord instanceof Chemin) {
+                        res = true;
+                    }
+                }
+                break;
+            case SOUTH:
+                Case sud = new Case((p.getCase().x + 1), p.getCase().y);
+                if (sud.x <= 14){
+                    if (sud instanceof Chemin) {
+                        res = true;
+                    }
+                }
+                break;
+            case EAST:
+                Case est = new Case((p.getCase().x),p.getCase().y+1);
+                if (est.y <= 14) {
+                    if (est instanceof Chemin) {
+                        res = true;
+                    }
+                }
+                break;
+            case WEST:
+                Case ouest = new Case((p.getCase().x),p.getCase().y-1);
+                if (ouest.y >= 0) {
+                    if (ouest instanceof Chemin) {
+                        res = true;
+                    }
+                }
+                break;
+        }
+        return res;
     }
 }
