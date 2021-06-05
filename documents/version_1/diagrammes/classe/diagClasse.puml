@@ -1,49 +1,59 @@
 @startuml
 
-title Diagramme de Classe - Zeldiablo
+title Diagramme de Classe - Zeldiablo V1
 
 class Jeu{
     + Jeu()
 }
 
 abstract class Personnage{
-    - position : Case
-    + Personnage()
+    + Personnage(l : Labyrinthe, depart : Case)
+    + setPosition(position : Case)
+    + getCase() : Case
     + seDeplacer(d : Direction) : boolean
 }
 
 class Labyrinthe{
-    - joueur : Joueur
-    + Labyrinthe(j : Joueur)
-    + creerEntree(x : int, y : int) : boolean
-    + peutBouger(p : Personnage, d : Direction) : boolean
+    + Labyrinthe()
+    + deplacerJoueur(p : Personnage, d : Direction) : boolean
+    - peutBouger(p : Personnage, d : Direction) : boolean
+    - getDestination(p : Personnage, d : Destination) : Case
+}
+
+class Main{
+    +main(args : String[])
 }
 
 abstract class Case{
     - x : int
     - y : int
     + Case(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
 }
 
-class Chemin implements Case{
+class Chemin extends Case{
     + Chemin(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
 }
 
-abstract class Obstacle implements Case{
+abstract class Obstacle extends Case{
     + Obstacle(x : int, y : int)
 }
 
 class Mur extends Obstacle{
     + Mur(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
 }
 
-class Entree implements Case{
-
-    + Entree(x : int, y : int)
+class Porte extends Case{
+    - ferme : boolean
+    + Porte(x : int, y : int)
+    + setFerme(boolean b)
+    + peutTraverser(p : Personnage) : boolean
 }
 
 class Joueur extends Personnage{
-    + Joueur()
+    + Joueur(l : Labyrinthe, e : Porte)
 }
 
 enum Direction{
@@ -53,9 +63,12 @@ enum Direction{
     WEST
 }
 
-Jeu "1" -down-> "1" Labyrinthe: " - labyrinthe"
-Labyrinthe "1" -down-> "                1" Entree: " - entree "
-Labyrinthe "1" -right-> "*" Case: " - cases "
+Jeu "1" --> "1" Labyrinthe: " - labyrinthe"
+Labyrinthe "1" --> "1" Porte: " - entree "
+Labyrinthe "1" --> "1" Porte: " - sortie "
+Labyrinthe "1" --> "*" Case: " - cases "
+Personnage "*" --> "1" Case: " - position "
+Personnage "*" --> "1" Labyrinthe: " - l "
 Labyrinthe "1" -left-> "1" Joueur: " - joueur "
 
 @enduml
