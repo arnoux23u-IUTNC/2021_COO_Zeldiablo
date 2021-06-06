@@ -1,3 +1,5 @@
+package jeu;
+
 /**
  * Classe modelisant un Objet Jeu
  * Celui ci est l'element mere
@@ -9,7 +11,7 @@ public class Jeu {
     /**
      * Labyrinthe concernce par le jeu
      */
-    private Labyrinthe l;
+    private final Labyrinthe l;
 
     /**
      * Constructeur public par defaut

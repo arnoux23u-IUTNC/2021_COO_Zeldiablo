@@ -1,3 +1,11 @@
+package jeu;
+
+import jeu.entites.*;
+import jeu.cases.*;
+import jeu.utils.*;
+
+import java.util.Arrays;
+
 /**
  * Classe modelisant un labyrinthe
  *
@@ -66,7 +74,42 @@ public class Labyrinthe {
                         if (this.entree == null) {
                             this.entree = p;
                         } else {
-                            sortie = p;
+                            this.sortie = p;
+                        }
+                        break;
+                }
+                cursor++;
+            }
+        }
+        this.joueur = new Joueur(this, entree);
+    }
+
+    /**
+     * Constructeur public qui prends un parametre map
+     *
+     * @param lab carte du labyrinthe
+     */
+    public Labyrinthe(String lab) {
+        cases = new Case[15][15];
+        int cursor = 0;
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
+                switch (lab.charAt(cursor)) {
+                    case 'x':
+                        Case c1 = new Chemin(i, j);
+                        cases[i][j] = c1;
+                        break;
+                    case 'o':
+                        Case m1 = new Mur(i, j);
+                        cases[i][j] = m1;
+                        break;
+                    case 'e':
+                        Porte p = new Porte(i, j);
+                        cases[i][j] = p;
+                        if (this.entree == null) {
+                            this.entree = p;
+                        } else {
+                            this.sortie = p;
                         }
                         break;
                 }
@@ -97,7 +140,8 @@ public class Labyrinthe {
     }
 
     public void jouer() {
-        //TODO METHODE PRINCIPALE
+        System.out.println("Bienvenue");
+        System.out.println(this);
     }
 
     /**
@@ -128,22 +172,53 @@ public class Labyrinthe {
         Case destination = null;
         switch (d) {
             case NORTH:
-                destination = cases[actuel.x][actuel.y - 1];
+                destination = cases[actuel.x - 1][actuel.y];
                 break;
             case SOUTH:
-                destination = cases[actuel.x][actuel.y + 1];
-                break;
-            case EAST:
                 destination = cases[actuel.x + 1][actuel.y];
                 break;
+            case EAST:
+                destination = cases[actuel.x][actuel.y + 1];
+                break;
             case WEST:
-                destination = cases[actuel.x - 1][actuel.y];
+                destination = cases[actuel.x][actuel.y - 1];
                 break;
         }
         return destination;
     }
 
+    /**
+     * Getter joueur
+     *
+     * @return joueur principal
+     */
     public Joueur getJoueur() {
         return joueur;
+    }
+
+
+    /**
+     * Methode toString
+     *
+     * @return String, affichage
+     */
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        for (Case[] caseL : cases) {
+            for (Case tile : caseL) {
+                s.append(tile.getIdentifier());
+            }
+            s.append("\n");
+        }
+        return s.toString();
+    }
+
+    /**
+     * Getter entree
+     * @return entree du labyrinthe
+     */
+    public Porte getEntree() {
+        return entree;
     }
 }

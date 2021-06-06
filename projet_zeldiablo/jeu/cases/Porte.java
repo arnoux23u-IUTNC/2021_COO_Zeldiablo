@@ -1,9 +1,28 @@
+package jeu.cases;
+
+import jeu.entites.Personnage;
+
 /**
  * Classe modelisant une porte
  *
  * @author AGJMX
  */
 public class Porte extends Case {
+
+    /**
+     * Caractere permettant l'identification sur une map
+     */
+    public static final char IDENTIFIER = 'E';
+
+    /**
+     * Methode getIdentifier
+     *
+     * @return String, caractere d'identification
+     */
+    @Override
+    public String getIdentifier() {
+        return Character.toString(IDENTIFIER);
+    }
 
     /**
      * Booleen, a vrai si la porte est fermee
@@ -39,7 +58,10 @@ public class Porte extends Case {
     @Override
     public boolean peutTraverser(Personnage p) {
         //TODO VERIFIER FERME
-        switch (p.getClass().getName()) {
+        if(ferme){
+            return false;
+        }
+        switch (p.getClass().getSimpleName()) {
             case "Joueur":
 
                 return true;

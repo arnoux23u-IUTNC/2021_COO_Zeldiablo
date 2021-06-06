@@ -1,3 +1,9 @@
+package jeu.entites;
+
+import jeu.Labyrinthe;
+import jeu.cases.Case;
+import jeu.utils.Direction;
+
 /**
  * Classe modelisant un personnage, de type passif (joueur) ou actif (monstre)
  */

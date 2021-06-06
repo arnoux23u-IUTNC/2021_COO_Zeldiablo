@@ -1,3 +1,5 @@
+package jeu.utils;
+
 /**
  * Enumeration representant les directions de navigation
  *
@@ -5,17 +7,17 @@
  */
 public enum Direction {
     /**
-     * Direction EST
+     * DIRECTION EST
      */
     EAST,
 
     /**
-     * Direction NORD
+     * DIRECTION NORD
      */
     NORTH,
 
     /**
-     * Direction SUD
+     * DIRECTION SUD
      */
     SOUTH,
 

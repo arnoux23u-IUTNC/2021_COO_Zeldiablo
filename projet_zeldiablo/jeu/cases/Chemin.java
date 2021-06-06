@@ -1,9 +1,28 @@
+package jeu.cases;
+
+import jeu.entites.Personnage;
+
 /**
  * Classe representant un chemin vide
  *
  * @author AGJMX
  */
 public class Chemin extends Case {
+
+    /**
+     * Caractere permettant l'identification sur une map
+     */
+    private static final char IDENTIFIER = 'X';
+
+    /**
+     * Methode getIdentifier
+     *
+     * @return String, caractere d'identification
+     */
+    @Override
+    public String getIdentifier() {
+        return Character.toString(IDENTIFIER);
+    }
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -22,7 +41,7 @@ public class Chemin extends Case {
      */
     @Override
     public boolean peutTraverser(Personnage p) {
-        switch (p.getClass().getName()) {
+        switch (p.getClass().getSimpleName()) {
             case "Joueur":
                 return true;
         }

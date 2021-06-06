@@ -1,3 +1,5 @@
+package jeu.cases;
+
 /**
  * Classe modelisant un obstacle
  *

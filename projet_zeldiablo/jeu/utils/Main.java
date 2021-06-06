@@ -1,3 +1,7 @@
+package jeu.utils;
+
+import jeu.Jeu;
+
 /**
  * Classe Main
  *
@@ -7,6 +11,7 @@ public class Main {
 
     /**
      * Methode main, cree un Jeu
+     *
      * @param args arguments
      */
     public static void main(String[] args) {

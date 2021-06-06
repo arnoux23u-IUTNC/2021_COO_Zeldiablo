@@ -1,3 +1,7 @@
+package jeu.cases;
+
+import jeu.entites.Personnage;
+
 /**
  * Interface modelisant une case dans le labyrinthe
  *
@@ -34,4 +38,20 @@ public abstract class Case {
      */
     public abstract boolean peutTraverser(Personnage p);
 
+    /**
+     * Methode getIdentifier
+     *
+     * @return String, caractere d'identification
+     */
+    public abstract String getIdentifier();
+
+    /**
+     * Methode toString
+     *
+     * @return String, affichage
+     */
+    @Override
+    public String toString() {
+        return Character.toString(this.getClass().getSimpleName().charAt(0)).toUpperCase();
+    }
 }

@@ -1,3 +1,8 @@
+package jeu.entites;
+
+import jeu.Labyrinthe;
+import jeu.cases.Porte;
+
 /**
  * Classe modelisant un Joueur
  *
