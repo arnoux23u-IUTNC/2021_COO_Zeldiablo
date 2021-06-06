@@ -1,21 +1,21 @@
 * Fonctionnalités version 1
 
 - fonctionnalité 1 : initialisation jeu
-- responsable(s) [2] : //TODO A COMPLETER
+- responsable(s) [3] : Jules, Tristan, Antonin
 - descriptif texte : création  et initialisation du joueur, de la partie et du labyrinthe
 - critères de validation :
     - critère 1 : le joueur, la partie et le labyrinthe doivent exister
     - critère 2 : les conditions de créations doivent etre reunies
 
 - fonctionnalité 2 : créer une entrée
-- responsable(s) [1] : //TODO A COMPLETER
+- responsable(s) [1] : Alexandre
 - descriptif texte : création  et initialisation d'une entrée
 - critères de validation :
     - critère 1 : le labyrinthe doit exister
     - critère 2 : les conditions de créations sont reunies
 
 - fonctionnalité 3 : deplacer le joueur, mobilite et obsctacles
-- responsable(s) [2] : //TODO A COMPLETER
+- responsable(s) [1] : Guillaume
 - descriptif texte : deplace le joueur dans le labyrinthe en prennant en compte les possibles obstacles
 - critères de validation :
     - critère 1 : le joueur et le labyrinthe doivent exister
