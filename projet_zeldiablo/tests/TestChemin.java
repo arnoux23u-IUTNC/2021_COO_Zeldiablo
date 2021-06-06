@@ -58,7 +58,7 @@ public class TestChemin {
      * Resultat OK
      */
     @Test
-    public void test01_chemin_seDeplacer_OK() {
+    public void test01_Chemin_seDeplacer_OK() {
         //On recupere la pos du joueur
         Case actuel = j.getCase();
         //On tente de deplacer le joueur vers le sud
@@ -76,7 +76,7 @@ public class TestChemin {
      * Double deplacement, resultat ok
      */
     @Test
-    public void test02_chemin_seDeplacer_doubleOK() {
+    public void test02_Chemin_seDeplacer_doubleOK() {
         //On recupere la pos du joueur
         Case actuel = j.getCase();
         //On tente de deplacer le joueur deux fois vers le sud

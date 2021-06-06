@@ -58,7 +58,7 @@ public class TestMur {
      * On tente de deplacer le joueur vers un mur
      */
     @Test
-    public void test01_mur_seDeplacer_NOK() {
+    public void test01_Mur_seDeplacer_NOK() {
         //On recupere la pos du joueur
         Case actuel = j.getCase();
         //On tente de deplacer le joueur vers l'est
@@ -76,7 +76,7 @@ public class TestMur {
      * On tente de deplacer le joueur deux fois vers un mur
      */
     @Test
-    public void test02_mur_seDeplacer_doubleNOK() {
+    public void test02_Mur_seDeplacer_doubleNOK() {
         //On recupere la pos du joueur
         Case actuel = j.getCase();
         //On tente de deplacer le joueur deux fois vers l'est
