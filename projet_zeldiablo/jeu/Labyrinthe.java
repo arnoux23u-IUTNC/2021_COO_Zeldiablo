@@ -216,9 +216,19 @@ public class Labyrinthe {
 
     /**
      * Getter entree
+     *
      * @return entree du labyrinthe
      */
     public Porte getEntree() {
         return entree;
+    }
+
+    /**
+     * Getter de case
+     *
+     * @return char, identifier de case
+     */
+    public String getCase(int x, int y) {
+        return cases[x][y].getIdentifier();
     }
 }
