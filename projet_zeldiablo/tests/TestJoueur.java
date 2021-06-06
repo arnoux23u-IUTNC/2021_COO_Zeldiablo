@@ -23,7 +23,10 @@ public class TestJoueur {
         Labyrinthe l = new Labyrinthe();
         Porte p = new Porte(5,8);
         Joueur j = new Joueur(l,p);
-        assertEquals("le joueur doit etre en 5,8", j.getCase(), p);
+
+        assertEquals("le joueur doit etre en x=5", j.getCase().x, 5);
+        assertEquals("le joueur doit etre en y=8", j.getCase().y, 8);
+
     }
 
 

@@ -6,6 +6,8 @@ import jeu.cases.Porte;
 import jeu.entites.Joueur;
 import jeu.entites.Personnage;
 import jeu.utils.Direction;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
