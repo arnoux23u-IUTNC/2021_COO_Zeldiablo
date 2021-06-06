@@ -15,9 +15,14 @@ abstract class Personnage{
 
 class Labyrinthe{
     + Labyrinthe()
+    + Labyrinthe(map : String)
     + deplacerJoueur(p : Personnage, d : Direction) : boolean
     - peutBouger(p : Personnage, d : Direction) : boolean
     - getDestination(p : Personnage, d : Destination) : Case
+    + jouer()
+    + getJoueur() : Joueur
+    + toString() : String
+    + getEntree() : Porte
 }
 
 class Main{
@@ -29,11 +34,15 @@ abstract class Case{
     - y : int
     + Case(x : int, y : int)
     + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+    + toString() : String
 }
 
 class Chemin extends Case{
+    - identifier : char
     + Chemin(x : int, y : int)
     + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
 }
 
 abstract class Obstacle extends Case{
@@ -41,15 +50,19 @@ abstract class Obstacle extends Case{
 }
 
 class Mur extends Obstacle{
+    - identifier : char
     + Mur(x : int, y : int)
     + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
 }
 
 class Porte extends Case{
+    - identifier : char
     - ferme : boolean
     + Porte(x : int, y : int)
     + setFerme(boolean b)
     + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
 }
 
 class Joueur extends Personnage{
@@ -64,8 +77,8 @@ enum Direction{
 }
 
 Jeu "1" --> "1" Labyrinthe: " - labyrinthe"
-Labyrinthe "1" --> "1" Porte: " - entree "
-Labyrinthe "1" --> "1" Porte: " - sortie "
+Labyrinthe "1" -down-> "1" Porte: " - entree "
+Labyrinthe "1" -left-> "1" Porte: " - sortie "
 Labyrinthe "1" --> "*" Case: " - cases "
 Personnage "*" --> "1" Case: " - position "
 Personnage "*" --> "1" Labyrinthe: " - l "
