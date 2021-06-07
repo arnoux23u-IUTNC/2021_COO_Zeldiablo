@@ -29,4 +29,8 @@ public class JeuPerso implements Jeu {
     public Joueur getJoueur() {
         return pj;
     }
+
+    public Labyrinthe getLabyrinthe() {
+        return l;
+    }
 }

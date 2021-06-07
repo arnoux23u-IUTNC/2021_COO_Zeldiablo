@@ -1,6 +1,7 @@
 package moteurgraphique;
 
 import jeu.*;
+import jeu.cases.Case;
 import jeu.entites.*;
 
 import java.awt.*;
@@ -44,6 +45,16 @@ public class DessinPerso implements DessinJeu {
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
+            case "Porte":
+                crayon.setColor(Color.green);
+                crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+                        TAILLE_CASE);
+                break;
+            case "Chemin":
+                crayon.setColor(Color.orange);
+                crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+                        TAILLE_CASE);
+                break;
             default:
                 throw new AssertionError("objet inexistant");
         }
@@ -55,6 +66,12 @@ public class DessinPerso implements DessinJeu {
     @Override
     public void dessiner(BufferedImage im) {
         Joueur j = jeuEnCours.getJoueur();
+
+        for(Case[] c1 : jeuEnCours.getLabyrinthe().getCases()){
+            for(Case c : c1){
+                this.dessinerObjet(c.getClass().getSimpleName(),c.x,c.y,im);
+            }
+        }
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);
     }
 

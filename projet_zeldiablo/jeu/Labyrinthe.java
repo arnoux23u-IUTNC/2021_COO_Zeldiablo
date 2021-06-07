@@ -241,4 +241,8 @@ public class Labyrinthe {
     public Porte getSortie() {
         return this.sortie;
     }
+
+    public Case[][] getCases() {
+        return cases;
+    }
 }
