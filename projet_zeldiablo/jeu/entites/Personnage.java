@@ -89,13 +89,9 @@ public abstract class Personnage {
     }
 
     public void augmenterVie(int vieUp){
-        if(vieUp<0){
-            return;
-        }
-        else{
+        if(vieUp>0){
             this.pv=this.pv+vieUp;
         }
-
     }
 
     public int getPv(){
@@ -107,6 +103,9 @@ public abstract class Personnage {
     }
 
     public void attaquer(Personnage p){
+        if(p instanceof Troll){
+            ((Troll) p).etreAttaqueDansLeTour();
+        }
         p.diminuerVie(this.degats);
     }
 }
