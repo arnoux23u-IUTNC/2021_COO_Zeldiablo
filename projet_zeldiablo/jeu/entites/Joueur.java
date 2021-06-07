@@ -23,6 +23,13 @@ public class Joueur extends Personnage {
 
     }
 
+    /**
+     * Constructeur public a quatres parametres
+     * @param l Labyrinthe sur lequel il joue
+     * @param e Point dapparition
+     * @param pv Points de vie
+     * @param atk Points dattaque
+     */
     public Joueur(Labyrinthe l, Porte e, int pv, int atk){
         super(l, e, pv, atk);
         e.setFerme(true);
