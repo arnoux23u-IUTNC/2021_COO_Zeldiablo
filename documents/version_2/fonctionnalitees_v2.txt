@@ -1,5 +1,11 @@
 * Fonctionnalités version 2
 
+- fonctionnalité 1 : Lecture dynamique de labyrinthes
+- responsables [3] : Guillaume, Tristan, Jules
+- descriptif texte : Permettre l'ajout de labyrinthes personnalisés en .txt
+- critères de validation : 
+    -critère 1 : avoir des labyrinthes avec une bonne structure
+    -critère 2 : 
 
 
 
