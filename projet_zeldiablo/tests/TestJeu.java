@@ -1,11 +1,8 @@
 package tests;
 
-import jeu.Jeu;
 import jeu.Labyrinthe;
 import jeu.entites.Joueur;
 import org.junit.*;
-
-import static org.junit.Assert.*;
 
 /**
  * Classe pour les tests de Labyrinthe, Jeu

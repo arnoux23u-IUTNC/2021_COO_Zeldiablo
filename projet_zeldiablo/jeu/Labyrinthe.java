@@ -34,6 +34,11 @@ public class Labyrinthe {
     private Porte sortie;
 
     /**
+     * Taille du labyrinthe
+     */
+    public static final int TAILLE = 15;
+
+    /**
      * Constructeur public par defaut
      */
     public Labyrinthe() {
@@ -137,15 +142,6 @@ public class Labyrinthe {
             return destination.peutTraverser(p);
         }
         return false;
-    }
-
-    /**
-     * Methode jouer
-     * Methode principale de labyrinthe
-     */
-    public void jouer() {
-        System.out.println("Bienvenue");
-        System.out.println(this);
     }
 
     /**
