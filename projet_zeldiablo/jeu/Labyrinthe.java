@@ -172,16 +172,16 @@ public class Labyrinthe {
         Case destination = null;
         switch (d) {
             case NORTH:
-                destination = cases[actuel.x - 1][actuel.y];
+                destination = cases[actuel.x][actuel.y-1];
                 break;
             case SOUTH:
-                destination = cases[actuel.x + 1][actuel.y];
+                destination = cases[actuel.x][actuel.y+1];
                 break;
             case EAST:
-                destination = cases[actuel.x][actuel.y + 1];
+                destination = cases[actuel.x+1][actuel.y];
                 break;
             case WEST:
-                destination = cases[actuel.x][actuel.y - 1];
+                destination = cases[actuel.x-1][actuel.y];
                 break;
         }
         return destination;
