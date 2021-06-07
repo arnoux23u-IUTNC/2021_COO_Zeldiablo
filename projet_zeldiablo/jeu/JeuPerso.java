@@ -29,7 +29,7 @@ public class JeuPerso implements Jeu {
      */
     public JeuPerso() {
         this.partieEnCours = true;
-        this.l = new Labyrinthe();
+        this.l = new Labyrinthe(true);
         this.pj = l.getJoueur();
     }
 
