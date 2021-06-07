@@ -77,15 +77,7 @@ public abstract class Personnage {
 
 
     public void diminuerVie(int vieDown){
-        if(vieDown<0){
-            return;
-        }
-        else{
-            this.pv=this.pv-vieDown;
-        }
-        if (this.pv<0){
-            this.pv=0;
-        }
+        this.setPv(this.getPv()-vieDown);
     }
 
     public void augmenterVie(int vieUp){
@@ -104,7 +96,7 @@ public abstract class Personnage {
 
     public void attaquer(Personnage p){
         if(p instanceof Troll){
-            ((Troll) p).etreAttaqueDansLeTour();
+            ((Troll) p).attaquerTroll();
         }
         p.diminuerVie(this.degats);
     }

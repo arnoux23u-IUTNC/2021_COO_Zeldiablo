@@ -5,6 +5,7 @@ import jeu.cases.Case;
 import jeu.cases.Porte;
 import jeu.entites.Joueur;
 import jeu.entites.Personnage;
+import jeu.entites.Troll;
 import jeu.utils.Direction;
 import org.junit.*;
 
@@ -72,9 +73,8 @@ public class TestPersonnage {
     @Test
     public void test01_Personnnage_diminuerVie_OK() {
         Joueur j1 = new Joueur(l,porte,10,2);
-        Joueur j2 = new Joueur(l,porte,10,2);
-        j1.attaquer(j2);
-        assertEquals("Le Joueur doit prendre des dégats",8,j2.getPv());
+        j1.diminuerVie(2);
+        assertEquals("Le Joueur doit prendre des dégats",8,j1.getPv());
     }
 
     /**
@@ -84,7 +84,18 @@ public class TestPersonnage {
     @Test
     public void test02_Personnage_augmenterVie_OK() {
         Joueur j = new Joueur(l,porte,10,2);
-        j.setPv(12);
+        j.augmenterVie(2);
         assertEquals("Le Joueur doit avoir une augmentation de vie",12,j.getPv());
+    }
+
+    /**
+     * Methode testPersonnage03
+     * Test attaquer
+     */
+    @Test
+    public void test02_Personnage_attaquer() {
+        Troll t = new Troll(l,l.getCase(1,0));
+        t.attaquer(j);
+        assertEquals("Le Joueur doit avoir perdu 3 points et en avoir 17",17,j.getPv());
     }
 }

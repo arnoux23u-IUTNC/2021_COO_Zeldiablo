@@ -20,7 +20,6 @@ public class Joueur extends Personnage {
     public Joueur(Labyrinthe l, Porte e) {
         super(l, e, 20, 4);
         e.setFerme(true);
-
     }
 
     /**
