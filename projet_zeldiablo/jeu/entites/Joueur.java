@@ -8,6 +8,7 @@ import jeu.cases.Porte;
  *
  * @author AGJMX
  */
+
 public class Joueur extends Personnage {
 
     /**
@@ -19,7 +20,12 @@ public class Joueur extends Personnage {
     public Joueur(Labyrinthe l, Porte e) {
         super(l, e);
         e.setFerme(true);
+        this.setPv(20);
+
     }
+
+
+
 
 
 }
