@@ -139,6 +139,10 @@ public class Labyrinthe {
         return false;
     }
 
+    /**
+     * Methode jouer
+     * Methode principale de labyrinthe
+     */
     public void jouer() {
         System.out.println("Bienvenue");
         System.out.println(this);
@@ -225,10 +229,20 @@ public class Labyrinthe {
 
     /**
      * Getter de case
+     * Attention, inversion des axes
+     * Ex : getCase(2,1) retourne cases[1][2]
      *
      * @return char, identifier de case
      */
-    public String getCase(int x, int y) {
-        return cases[x][y].getIdentifier();
+    public Case getCase(int x, int y) {
+        return cases[y][x];
+    }
+
+    /**
+     * Getter sortie
+     * @return sortie du lab
+     */
+    public Porte getSortie() {
+        return this.sortie;
     }
 }
