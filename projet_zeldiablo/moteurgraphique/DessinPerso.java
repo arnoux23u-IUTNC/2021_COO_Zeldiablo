@@ -55,7 +55,7 @@ public class DessinPerso implements DessinJeu {
 	 */
 	public void dessiner(BufferedImage im) {
 		Joueur j = jeu.getJoueur();
-		this.dessinerObjet("Joueur", j.x, j.y, im);
+		this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);
 	}
 
 }
