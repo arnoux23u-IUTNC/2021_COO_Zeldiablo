@@ -18,7 +18,7 @@ public class JeuPerso implements Jeu {
 
     @Override
     public void evoluer(Direction d) {
-
+        this.pj.seDeplacer(d);
     }
 
     @Override
