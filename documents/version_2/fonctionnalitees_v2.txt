@@ -26,3 +26,12 @@
 - descriptif texte : Ajout d'un attribut degat et l'ajouter au constructeur de Personnage et aux constructeurs qui extends de Personnage
 -critères de validation :
     -critère 1 : l'attribut doit etre présent dans toutes les classes qui extends Personnage
+
+
+-fonctionnalité 5 : Gestion du personnage par les PV
+-responsable[1] : Antonin
+-descriptif texte : Permet au joueur de disposer de points de vie qui vont être amenés à bouger
+-Redéfinition des constructeurs extended, afin que les personnages disposent tous de PV
+-méthode augmenterPv
+-méthode diminuerPv
+-méthode getPv

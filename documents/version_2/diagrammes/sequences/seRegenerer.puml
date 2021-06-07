@@ -1,0 +1,15 @@
+@startuml
+
+title "Régénération d'un troll"
+
+participant "troll : Troll" as troll
+
+
+
+activate troll
+-> troll : seRegenerer()
+troll -> troll : augmenterVie(1)
+<-- troll
+deactivate troll
+
+@enduml
