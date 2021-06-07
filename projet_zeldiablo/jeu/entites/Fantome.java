@@ -3,7 +3,24 @@ package jeu.entites;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 
-public class Fantome extends Monstre{
+/**
+ * Classe modelisant un fantome
+ *
+ * @author AGJMX
+ */
+public class Fantome extends Monstre {
+
+    /**
+     * PV du fantome
+     */
+    private static final int PV = 5;
+
+    /**
+     * Degats du fantome
+     */
+    private static final int DEGATS = 1;
+
+
     /**
      * Constructeur public par defaut a deux parametres
      *
@@ -11,6 +28,6 @@ public class Fantome extends Monstre{
      * @param depart position de depart
      */
     public Fantome(Labyrinthe l, Case depart) {
-        super(l, depart,5,1);
+        super(l, depart, PV, DEGATS);
     }
 }
