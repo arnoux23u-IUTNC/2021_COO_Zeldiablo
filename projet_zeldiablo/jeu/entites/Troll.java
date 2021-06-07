@@ -9,7 +9,7 @@ public class Troll extends Monstre{
     /**
      * booleen qui permet de determiner si le troll a ete tape dans le tour
      */
-    public boolean pastapeDansLeTour;
+    private boolean tapeDansLeTour;
     /**
      * Constructeur public par defaut a deux parametres
      *
@@ -18,21 +18,20 @@ public class Troll extends Monstre{
      */
     public Troll(Labyrinthe l, Case depart) {
         super(l, depart,3,3);
-        pastapeDansLeTour=true;
+        tapeDansLeTour=false;
     }
 
     /**
      * méthode qui permet de regenerer le troll s'il n'a pas ete tape
      */
     public void seRegenerer(){
-        if(pastapeDansLeTour){
+        if(!tapeDansLeTour){
             this.setPv(this.getPv()+1);
         }
 
     }
 
-    //TODO ALEX ENLEVER CETTE METHODE
-    public void etreAttaqueDansLeTour(){
-        pastapeDansLeTour = false;
+    public void attaquerTroll(){
+        tapeDansLeTour = true;
     }
 }
