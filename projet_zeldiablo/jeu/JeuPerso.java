@@ -25,4 +25,8 @@ public class JeuPerso implements Jeu {
     public boolean etreFini() {
         return !partieEnCours;
     }
+
+    public Joueur getJoueur() {
+        return pj;
+    }
 }
