@@ -35,3 +35,9 @@
 -méthode augmenterPv
 -méthode diminuerPv
 -méthode getPv
+
+- fonctionnalité 6 : attaquer un personnage
+- responsables [1] : Alexandre
+- descriptif texte : Permettre au personnage d'attaquer un autre personnage
+-critères de validation :
+    -critère 1 : Faire perdre des points de vie au personnage attaqué en fonction des degats du personnage attaquant

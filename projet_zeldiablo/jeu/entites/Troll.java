@@ -25,10 +25,13 @@ public class Troll extends Monstre{
      * méthode qui permet de regenerer le troll s'il n'a pas ete tape
      */
     public void seRegenerer(){
-        if(!tapeDansLeTour){
+        if(tapeDansLeTour = false){
             this.augmenterVie(1);
         }else{
-            tapeDansLeTour = !tapeDansLeTour;
+            tapeDansLeTour=false;
         }
+    }
+    public void etreAttaqueDansLeTour(){
+        tapeDansLeTour = true;
     }
 }
