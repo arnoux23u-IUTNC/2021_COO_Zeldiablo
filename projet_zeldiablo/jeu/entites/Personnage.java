@@ -20,20 +20,29 @@ public abstract class Personnage {
     private final Labyrinthe l;
 
     /**
+     * HP du Personnage
+     */
+    private int pv;
+
+    /**
+     * Degats du Personnage
+     */
+    private int degats;
+
+    /**
      * Constructeur public par defaut a deux parametres
      *
      * @param l      labyrinthe
      * @param depart position de depart
      */
-    public Personnage(Labyrinthe l, Case depart) {
+    public Personnage(Labyrinthe l, Case depart, int pdv, int d) {
         position = depart;
         this.l = l;
+        this.degats = d;
+        this.pv = pdv;
     }
 
-    /**
-     * HP du Joueur
-     */
-    private int pv;
+
 
     /**
      * Getter position
@@ -95,5 +104,9 @@ public abstract class Personnage {
 
     public void setPv(int newPV){
         this.pv = newPV;
+    }
+
+    public void attaquer(Personnage p){
+        p.diminuerVie(this.degats);
     }
 }

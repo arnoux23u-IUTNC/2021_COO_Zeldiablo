@@ -41,11 +41,7 @@ public class Chemin extends Case {
      */
     @Override
     public boolean peutTraverser(Personnage p) {
-        switch (p.getClass().getSimpleName()) {
-            case "Joueur":
-                return true;
-        }
-        return false;
+        return true;
     }
 
 }

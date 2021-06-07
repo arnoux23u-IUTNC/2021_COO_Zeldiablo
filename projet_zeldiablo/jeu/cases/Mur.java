@@ -41,6 +41,10 @@ public class Mur extends Obstacle {
      */
     @Override
     public boolean peutTraverser(Personnage p) {
+        switch (p.getClass().getSimpleName()) {
+            case "Fantome":
+                return true;
+        }
         return false;
     }
 }

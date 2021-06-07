@@ -1,5 +1,7 @@
 package jeu.cases;
 
+import jeu.entites.Personnage;
+
 /**
  * Classe modelisant un obstacle
  *
@@ -15,5 +17,13 @@ public abstract class Obstacle extends Case {
      */
     public Obstacle(int x, int y) {
         super(x, y);
+    }
+
+    public boolean peutTraverser(Personnage p) {
+        switch (p.getClass().getSimpleName()) {
+            case "Fantome":
+                return true;
+        }
+        return false;
     }
 }
