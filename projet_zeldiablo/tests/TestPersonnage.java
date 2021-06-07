@@ -1,16 +1,17 @@
 package tests;
 
 import jeu.Labyrinthe;
+import jeu.cases.Case;
+import jeu.cases.Porte;
 import jeu.entites.Joueur;
+import jeu.entites.Personnage;
+import jeu.utils.Direction;
 import org.junit.*;
 
-/**
- * Classe pour les tests de Labyrinthe, Jeu
- *
- * @author AGJMX
- */
-public class TestJeu {
+import static org.junit.Assert.*;
 
+public class TestPersonnage {
+    
     /**
      * Labyrinthe
      */
@@ -22,7 +23,22 @@ public class TestJeu {
     private Joueur j;
 
     /**
-     * Methode d'initialisation du contenu
+     * HP du Joueur
+     */
+    private int pdv;
+
+    /**
+     * Case porte
+     */
+    private Porte porte;
+
+    /**
+     * Degats du Joueur
+     */
+    private int d;
+
+    /**
+     * Methode pour initialiser le contenu
      */
     @Before
     public void init() {
@@ -48,6 +64,26 @@ public class TestJeu {
         j.setPosition(l.getEntree());
     }
 
-    //TODO TESTS
+    /**
+     * Methode testPersonnage01
+     * Test diminuerVie
+     */
+    @Test
+    public void test01_Personnnage_diminuerVie_OK() {
+        Joueur j1 = new Joueur(l,porte,10,2);
+        Joueur j2 = new Joueur(l,porte,10,2);
+        j1.attaquer(j2);
+        assertEquals("Le Joueur doit prendre des dégats",8,j2.getPv());
+    }
 
+    /**
+     * Methode testPersonnage02
+     * Test augmenterVie
+     */
+    @Test
+    public void test02_Personnage_augmenterVie_OK() {
+        Joueur j = new Joueur(l,porte,10,2);
+        j.setPv(12);
+        assertEquals("Le Joueur doit avoir une augmentation de vie",12,j.getPv());
+    }
 }

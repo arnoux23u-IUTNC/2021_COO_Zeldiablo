@@ -90,7 +90,7 @@ public abstract class Personnage {
 
     public void augmenterVie(int vieUp){
         if(vieUp>0){
-            this.pv=this.pv+vieUp;
+            this.setPv(this.getPv()+vieUp);
         }
     }
 
