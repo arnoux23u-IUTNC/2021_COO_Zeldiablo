@@ -56,6 +56,7 @@ public class Porte extends Case {
      * @return booleen, a vrai si "p" peut passer dessus
      */
     @Override
+    //TODO A REFAIRE
     public boolean peutTraverser(Personnage p) {
         //TODO VERIFIER FERME
         if (ferme) {

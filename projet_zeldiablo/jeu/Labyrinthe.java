@@ -41,12 +41,6 @@ public class Labyrinthe {
      */
     public static final int TAILLE = 30;
 
-    public static void main(String[] args) {
-        Labyrinthe l = new Labyrinthe();
-        System.out.println(l);
-    }
-
-
     /**
      * Constructeur public par defaut
      * Supression des warns de read
@@ -84,7 +78,7 @@ public class Labyrinthe {
                 }
                 cases[line][pos] = c;
                 pos++;
-                if(pos > 29){
+                if (pos > 29) {
                     map.read();
                     map.read();
                     pos = 0;
@@ -209,24 +203,24 @@ public class Labyrinthe {
     private Case getDestination(Personnage p, Direction d) {
         Case actuel = p.getCase();
         Case destination = null;
-        System.out.println("se trouve en "+actuel.x+" , "+actuel.y);
+        System.out.println("se trouve en " + actuel.x + " , " + actuel.y);
         System.out.println(d);
         switch (d) {
             case NORTH:
-                destination = cases[actuel.y-1][actuel.x];
+                destination = cases[actuel.y - 1][actuel.x];
                 break;
             case SOUTH:
-                destination = cases[actuel.y+1][actuel.x];
+                destination = cases[actuel.y + 1][actuel.x];
                 break;
             case EAST:
-                destination = cases[actuel.y][actuel.x+1];
+                destination = cases[actuel.y][actuel.x + 1];
                 break;
             case WEST:
-                destination = cases[actuel.y][actuel.x-1];
+                destination = cases[actuel.y][actuel.x - 1];
                 break;
         }
         destination = getCase(destination.x, destination.y);
-        System.out.println("veut aller en "+destination.x+" , "+destination.y);
+        System.out.println("veut aller en " + destination.x + " , " + destination.y);
         return destination;
     }
 
