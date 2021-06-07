@@ -69,7 +69,7 @@ public class TestPersonnage {
      * Test diminuerVie
      */
     @Test
-    public void test01_Joueur_diminuerVie_OK() {
+    public void test01_Personnnage_diminuerVie_OK() {
         Joueur j1 = new Joueur(l,porte,10,2);
         Joueur j2 = new Joueur(l,porte,10,2);
         j1.attaquer(j2);
@@ -81,7 +81,7 @@ public class TestPersonnage {
      * Test augmenterVie
      */
     @Test
-    public void test02_Joueur_augmenterVie_OK() {
+    public void test02_Personnage_augmenterVie_OK() {
         Joueur j = new Joueur(l,porte,10,2);
         j.setPv(12);
         assertEquals("Le Joueur doit avoir une augmentation de vie",12,j.getPv());
