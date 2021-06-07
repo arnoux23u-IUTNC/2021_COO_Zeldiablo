@@ -10,6 +10,12 @@ public class Troll extends Monstre{
      * booleen qui permet de determiner si le troll a ete tape dans le tour
      */
     private boolean tapeDansLeTour;
+
+    private final int pv = 3;
+    private final int degats = 3;
+
+
+
     /**
      * Constructeur public par defaut a deux parametres
      *
@@ -17,7 +23,7 @@ public class Troll extends Monstre{
      * @param depart position de depart
      */
     public Troll(Labyrinthe l, Case depart) {
-        super(l, depart,3,3);
+        super(l, depart,pv,depart);
         tapeDansLeTour=false;
     }
 
@@ -31,7 +37,7 @@ public class Troll extends Monstre{
 
     }
 
-    public void attaquerTroll(){
+    public void trollSeFaitAttaquer(){
         tapeDansLeTour = true;
     }
 }

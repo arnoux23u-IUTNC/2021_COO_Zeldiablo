@@ -35,11 +35,11 @@ public abstract class Personnage {
      * @param l      labyrinthe
      * @param depart position de depart
      */
-    public Personnage(Labyrinthe l, Case depart, int pdv, int d) {
+    public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) {
         position = depart;
         this.l = l;
-        this.degats = d;
-        this.pv = pdv;
+        this.degats = degats;
+        this.pv = pointsDeVie;
     }
 
 
@@ -69,7 +69,7 @@ public abstract class Personnage {
      * @return booleen, a vrai s'il a ete deplace
      */
     public boolean seDeplacer(Direction d) {
-        if(d == null)
+        if (d == null)
             return false;
         return l.deplacerJoueur(this, d);
     }
@@ -104,7 +104,7 @@ public abstract class Personnage {
 
     public void attaquer(Personnage p){
         if(p instanceof Troll){
-            ((Troll) p).attaquerTroll();
+            ((Troll) p).trollSeFaitAttaquer();
         }
         p.diminuerVie(this.degats);
     }
