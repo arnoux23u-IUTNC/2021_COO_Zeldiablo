@@ -42,58 +42,123 @@ public class Labyrinthe {
     public static final int TAILLE = 30;
 
     /**
+     * Seed default
+     */
+    private static final String lab = "exxooooooooooooooooooooooooooo" +
+            "xxxoxxxxxxxxxxxoxxxxxoxxxxxxxx" +
+            "oxxooooxxoooooooxxooooxxoxxooo" +
+            "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
+            "oxxoxxoxxooooxxoooooooxxoooooo" +
+            "oxxoxxoxxxxxoxxoxxxxxoxxxxxxxx" +
+            "oxxoxxoooooooooooooxxoooooooxx" +
+            "oxxoxxoxxxxxxxxxxxxxxoxxxxxxxx" +
+            "oxxoxxoxxoooooooxxoxxooooxxoxx" +
+            "oxxoxxxxxoxxxxxxxxoxxoxxoxxoxx" +
+            "oxxooooooooooxxoooooooxxooooxx" +
+            "oxxoxxxxxxxxxxxoxxxxxxxxxxxxxx" +
+            "oxxoxxooooooooooxxooooxxoxxooo" +
+            "oxxoxxxxxxxxoxxoxxoxxoxxoxxxxx" +
+            "oooooooxxoxxoxxoxxoxxooooxxooo" +
+            "oxxoxxxxxoxxxxxxxxoxxxxxoxxoxx" +
+            "oxxoxxoxxooooxxooooxxooooxxoxx" +
+            "oxxxxxoxxxxxoxxoxxxxxxxxxxxxxx" +
+            "oxxoxxooooooooooooooooooooooxx" +
+            "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
+            "oxxoooooooxxoxxoxxoxxooooxxoxx" +
+            "oxxxxxxxxxxxoxxoxxoxxxxxoxxxxx" +
+            "oxxoooooooooooooxxooooxxoooooo" +
+            "oxxoxxxxxxxxxxxoxxoxxxxxoxxxxx" +
+            "oxxooooooooooxxoooooooxxoxxoxx" +
+            "oxxoxxoxxxxxxxxxxxoxxxxxoxxoxx" +
+            "oxxoxxooooxxoxxoooooooxxoxxooo" +
+            "oxxoxxxxxxxxoxxoxxxxxxxxxxxoxx" +
+            "oxxoxxoxxooooooooooxxooooxxoxx" +
+            "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
+
+
+    /**
      * Constructeur public par defaut
      * Supression des warns de read
+     *
+     * @param autoGenerate, booleen sur vrai pour une map auto
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public Labyrinthe() {
+    public Labyrinthe(boolean autoGenerate) {
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
         //o = obstacle
-        try {
-            File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
-            File[] maps = fr.listFiles();
-            assert maps != null;
-            FileReader map = new FileReader(maps[new Random().nextInt(maps.length)]);
-            //On recupere une map au pif
-            int line = 0, pos = 0;
-            Case c = null;
-            while (line < 30) {
-                char item = (char) map.read();
-                switch (item) {
-                    case 'x':
-                        c = new Chemin(pos, line);
-                        break;
-                    case 'o':
-                        c = new Mur(pos, line);
-                        break;
-                    case 'e':
-                        c = new Porte(pos, line);
-                        if (this.entree == null) {
-                            this.entree = (Porte) c;
-                        } else {
-                            this.sortie = (Porte) c;
-                        }
-                        break;
-                }
-                cases[line][pos] = c;
-                pos++;
-                if (pos > 29) {
-                    map.read();
-                    map.read();
-                    pos = 0;
-                    line++;
-                }
+        if(autoGenerate) {
+            try {
+                File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
+                File[] maps = fr.listFiles();
+                assert maps != null;
+                FileReader map = new FileReader(maps[new Random().nextInt(maps.length)]);
+                //On recupere une map au pif
+                int line = 0, pos = 0;
+                Case c = null;
+                while (line < 30) {
+                    char item = (char) map.read();
+                    switch (item) {
+                        case 'x':
+                            c = new Chemin(pos, line);
+                            break;
+                        case 'o':
+                            c = new Mur(pos, line);
+                            break;
+                        case 'e':
+                            c = new Porte(pos, line);
+                            if (this.entree == null) {
+                                this.entree = (Porte) c;
+                            } else {
+                                this.sortie = (Porte) c;
+                            }
+                            break;
+                    }
+                    cases[line][pos] = c;
+                    pos++;
+                    if (pos > 29) {
+                        map.read();
+                        map.read();
+                        pos = 0;
+                        line++;
+                    }
 
+                }
+                map.close();
+            } catch (FileNotFoundException e) {
+                System.err.println("Impossible de lire le fichier !");
+            } catch (IOException e) {
+                int cursor = 0;
+                for (int i = 0; i < TAILLE; i++) {
+                    for (int j = 0; j < TAILLE; j++) {
+                        switch (lab.charAt(cursor)) {
+                            case 'x':
+                                Case c1 = new Chemin(i, j);
+                                cases[i][j] = c1;
+                                break;
+                            case 'o':
+                                Case m1 = new Mur(i, j);
+                                cases[i][j] = m1;
+                                break;
+                            case 'e':
+                                Porte p = new Porte(i, j);
+                                cases[i][j] = p;
+                                if (this.entree == null) {
+                                    this.entree = p;
+                                } else {
+                                    this.sortie = p;
+                                }
+                                break;
+                        }
+                        cursor++;
+                    }
+                }
             }
-            map.close();
-        } catch (FileNotFoundException e) {
-            System.err.println("Impossible de lire le fichier !");
-        } catch (IOException e) {
-            String lab = "eooxxxooooooooooooooooooooooooxxxxoxxxooooooooxxxooooooooooooooooooxxoooooxxxoxxooooooooooooooooooxxoooxxooooxxxxxxoxxoooooooooooxxxxxoooooxoooooooxoooooooooooooooooooooxoooooxxxooooxooooooooooooooooxoooooxooooooxoooooooooooxxxxxxoooooxooooooxxxoooooooooxxxxxxxxxxxxooooooooxooooxxxxxxxxxxxooooooooooooooxooxxxooooxxxxxxooooooooooooooxxxxoooooooooxoooooooooooooooooooxoooooooooxoooooooooooooooooooxxxxooooooxxooooooooooooooooxxxooooooooooxxoooooooooooooooxoooooooooooooxoooooooooooooooxoooooooooooooxooooooooooooooooxxxxxxxxxooooxxoooooooooooooooxooooxxxxoooooxoooooooooooooooxooooooxooxxxxxoooooooooooooooxooooooxxxxooooooooooooooooxxxxoooooooooxooooooooooooooooxoooooooooooxxooooooooooooooooxoooooooooooxoooooooooooooooooxxxxoooooxxxxxxxxxxooooooooooooooxooooooooooooooxooooooooooooooxooooooooooooooxoooooooooooooooooooooooooooooxoooooooooooooooooooooooooooooxxxxxxxxx";
+        }
+        else{
             int cursor = 0;
-            for (int i = 0; i < 15; i++) {
-                for (int j = 0; j < 15; j++) {
+            for (int i = 0; i < TAILLE; i++) {
+                for (int j = 0; j < TAILLE; j++) {
                     switch (lab.charAt(cursor)) {
                         case 'x':
                             Case c1 = new Chemin(i, j);
@@ -115,42 +180,6 @@ public class Labyrinthe {
                     }
                     cursor++;
                 }
-            }
-
-        }
-        this.joueur = new Joueur(this, entree);
-    }
-
-    /**
-     * Constructeur public qui prends un parametre map
-     *
-     * @param lab carte du labyrinthe
-     */
-    public Labyrinthe(String lab) {
-        cases = new Case[15][15];
-        int cursor = 0;
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
-                switch (lab.charAt(cursor)) {
-                    case 'x':
-                        Case c1 = new Chemin(i, j);
-                        cases[i][j] = c1;
-                        break;
-                    case 'o':
-                        Case m1 = new Mur(i, j);
-                        cases[i][j] = m1;
-                        break;
-                    case 'e':
-                        Porte p = new Porte(i, j);
-                        cases[i][j] = p;
-                        if (this.entree == null) {
-                            this.entree = p;
-                        } else {
-                            this.sortie = p;
-                        }
-                        break;
-                }
-                cursor++;
             }
         }
         this.joueur = new Joueur(this, entree);
@@ -282,6 +311,7 @@ public class Labyrinthe {
 
     /**
      * Getter de cases
+     *
      * @return cases du labyrinthe
      */
     public Case[][] getCases() {
