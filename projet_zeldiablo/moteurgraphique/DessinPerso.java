@@ -1,6 +1,7 @@
 package moteurgraphique;
 
-import jeu.Labyrinthe;
+import jeu.JeuPerso;
+import jeu.entites.*;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -53,8 +54,8 @@ public class DessinPerso implements DessinJeu {
 	 * methode dessiner redefinie de Afficheur retourne une image du jeu
 	 */
 	public void dessiner(BufferedImage im) {
-		Personnage p = jeu.getJoueur();
-		this.dessinerObjet("Joueur", p.x, p.y, im);
+		Joueur j = jeu.getJoueur();
+		this.dessinerObjet("Joueur", j.x, j.y, im);
 	}
 
 }
