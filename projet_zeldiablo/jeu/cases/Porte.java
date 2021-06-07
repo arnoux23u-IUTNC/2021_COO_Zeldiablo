@@ -58,7 +58,7 @@ public class Porte extends Case {
     @Override
     public boolean peutTraverser(Personnage p) {
         //TODO VERIFIER FERME
-        if(ferme){
+        if (ferme) {
             return false;
         }
         switch (p.getClass().getSimpleName()) {
