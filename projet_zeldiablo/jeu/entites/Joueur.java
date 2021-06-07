@@ -23,6 +23,11 @@ public class Joueur extends Personnage {
 
     }
 
+    public Joueur(Labyrinthe l, Porte e, int pv, int atk){
+        super(l, e, pv, atk);
+        e.setFerme(true);
+    }
+
 
 
 
