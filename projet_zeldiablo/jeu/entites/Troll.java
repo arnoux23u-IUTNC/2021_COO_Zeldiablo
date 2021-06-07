@@ -30,6 +30,8 @@ public class Troll extends Monstre{
         }
 
     }
+
+    //TODO ALEX ENLEVER CETTE METHODE
     public void etreAttaqueDansLeTour(){
         pastapeDansLeTour = false;
     }
