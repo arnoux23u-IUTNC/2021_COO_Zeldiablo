@@ -1,6 +1,6 @@
 @startuml
 
-title Diagramme de Classe - Zeldiablo V1
+title Diagramme de Classe - Zeldiablo V2
 
 interface Jeu{
     + evoluer(d : Direction)
@@ -29,7 +29,7 @@ interface DessinJeu{
 }
 
 class DessinPerso implements DessinJeu{
-    - TAILLE_CASE : int
+    - {static} TAILLE_CASE : int
     + DessinPerso(j : JeuPerso)
     - dessinerObjet(s : String, x : int, y : int, im : BufferedImage)
     + dessiner(im : BufferedImage)
@@ -59,7 +59,6 @@ class PanelDessin(){
 abstract class Personnage{
     - pv : int
     - degats : int
-    //POSSEDE Labyrinthe (position : Case)
     + Personnage(l : Labyrinthe, depart : Case, pdv : int, deg : int)
     + setPosition(position : Case)
     + getCase() : Case
@@ -71,7 +70,9 @@ abstract class Personnage{
     + attaquer(p : Personnage)
 }
 
+
 class Labyrinthe{
+    - {static} TAILLE : int
     + Labyrinthe()
     + Labyrinthe(lab : String)
     + deplacerJoueur(p : Personnage, d : Direction) : boolean
@@ -89,13 +90,13 @@ abstract class Case{
     - x : int
     - y : int
     + Case(x : int, y : int)
-    + peutTraverser(p : Personnage) : boolean
-    + getIdentifier() : String
+    + {abstract} peutTraverser(p : Personnage) : boolean
+    + {abstract} getIdentifier() : String
     + toString() : String
 }
 
 class Chemin extends Case{
-    - identifier : char
+    - {static} IDENTIFIER : char
     + Chemin(x : int, y : int)
     + peutTraverser(p : Personnage) : boolean
     + getIdentifier() : String
@@ -107,14 +108,14 @@ abstract class Obstacle extends Case{
 }
 
 class Mur extends Obstacle{
-    - identifier : char
+    - {static} IDENTIFIER : char
     + Mur(x : int, y : int)
     + peutTraverser(p : Personnage) : boolean
     + getIdentifier() : String
 }
 
 class Porte extends Case{
-    - identifier : char
+    - {static} IDENTIFIER : char
     - ferme : boolean
     + Porte(x : int, y : int)
     + setFerme(boolean b)
@@ -140,27 +141,20 @@ abstract class Monstre extends Personnage{
 class Troll extends Monstre{
     - tapeDansLeTour : boolean
     + Troll(l : Labyrinthe, depart : Case)
-    + seRegenerer() : void
-    //TODO + seFaireAttaquer()
+    + seRegenerer()
+    + attaquerTroll()
 }
 
 class Fantome extends Monstre{
     + Fantome(l : Labyrinthe, depart : Case)
 }
 
-Jeu "1" --> "1" Labyrinthe: " - labyrinthe"
-Labyrinthe "1" -down-> "1" Porte: " - entree "
-Labyrinthe "1" -left-> "1" Porte: " - sortie "
-Labyrinthe "1" --> "*" Case: " - cases "
-Personnage "*" --> "1" Case: " - position "
-Personnage "*" --> "1" Labyrinthe: " - l "
-Labyrinthe "1" -left-> "1" Joueur: " - joueur "
-
-
-
-
-
-
+Personnage "*" -> "1" Case: " - position "
+Personnage "*" -> "1" Labyrinthe: " - l "
+Labyrinthe "1" -> "1" Porte: " - entree "
+Labyrinthe "1" -> "1" Porte: " - sortie "
+Labyrinthe "1" -> "*" Case: " - cases "
+Labyrinthe "1" -> "1" Joueur: " - joueur "
 PanelDessin "1" -> "1" DessinJeu : "- dessin"
 DessinPerso "1" -> "1" JeuPerso : "- jeuEnCours"
 JeuPerso "1" -> "1" Labyrinthe : "- l"
