@@ -33,23 +33,7 @@ public class TestPersonnage {
      */
     @Before
     public void init() {
-        String lab =
-                "xoooooooooooooo" +
-                        "xxoxxxooxxxeoxx" +
-                        "oxxxoxooxooxoxo" +
-                        "oooooxoxxoxxoxo" +
-                        "oxxoxxoxxoxooxx" +
-                        "oxooxooxoxxooox" +
-                        "oxoxxooxoxoooox" +
-                        "oxxxoxoxoxxxxox" +
-                        "oooxoxxxxoooxxx" +
-                        "xxoxxoooxoooooo" +
-                        "oxooxoxxxxxxxox" +
-                        "oxxoxxxoooooxox" +
-                        "ooxooooxxxxxxox" +
-                        "ooxooxxxooxooox" +
-                        "ooxxxxooooxxxex";
-        this.l = new Labyrinthe(lab);
+        this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         porte= l.getEntree();
         //On force un retour a la pos d'origine
@@ -61,10 +45,10 @@ public class TestPersonnage {
      * Test diminuerVie
      */
     @Test
-    public void test01_Personnnage_diminuerVie_OK() {
+    public void test00_personnnage_diminuerVie_OK() {
         Joueur j1 = new Joueur(l,porte);
         j1.diminuerVie(2);
-        assertEquals("Le Joueur doit prendre des dégats",8,j1.getPv());
+        assertEquals("Le Joueur doit prendre des dégats",18,j1.getPv());
     }
 
     /**
@@ -72,10 +56,10 @@ public class TestPersonnage {
      * Test augmenterVie
      */
     @Test
-    public void test02_Personnage_augmenterVie_OK() {
+    public void test01_personnage_augmenterVie_OK() {
         Joueur j = new Joueur(l,porte);
         j.augmenterVie(2);
-        assertEquals("Le Joueur doit avoir une augmentation de vie",12,j.getPv());
+        assertEquals("Le Joueur doit avoir une augmentation de vie",22,j.getPv());
     }
 
     /**

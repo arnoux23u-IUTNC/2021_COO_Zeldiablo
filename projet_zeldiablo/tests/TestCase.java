@@ -30,23 +30,7 @@ public class TestCase {
      */
     @Before
     public void init() {
-        String lab =
-                "xoooooooooooooo" +
-                        "xxoxxxooxxxeoxx" +
-                        "oxxxoxooxooxoxo" +
-                        "oooooxoxxoxxoxo" +
-                        "oxxoxxoxxoxooxx" +
-                        "oxooxooxoxxooox" +
-                        "oxoxxooxoxoooox" +
-                        "oxxxoxoxoxxxxox" +
-                        "oooxoxxxxoooxxx" +
-                        "xxoxxoooxoooooo" +
-                        "oxooxoxxxxxxxox" +
-                        "oxxoxxxoooooxox" +
-                        "ooxooooxxxxxxox" +
-                        "ooxooxxxooxooox" +
-                        "ooxxxxooooxxxex";
-        this.l = new Labyrinthe(lab);
+        this.l = new Labyrinthe(true);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());

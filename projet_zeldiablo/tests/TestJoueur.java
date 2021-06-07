@@ -30,23 +30,7 @@ public class TestJoueur {
      */
     @Before
     public void init() {
-        String lab =
-                "xoooooooooooooo" +
-                        "xxoxxxooxxxeoxx" +
-                        "oxxxoxooxooxoxo" +
-                        "oooooxoxxoxxoxo" +
-                        "oxxoxxoxxoxooxx" +
-                        "oxooxooxoxxooox" +
-                        "oxoxxooxoxoooox" +
-                        "oxxxoxoxoxxxxox" +
-                        "oooxoxxxxoooxxx" +
-                        "xxoxxoooxoooooo" +
-                        "oxooxoxxxxxxxox" +
-                        "oxxoxxxoooooxox" +
-                        "ooxooooxxxxxxox" +
-                        "ooxooxxxooxooox" +
-                        "ooxxxxooooxxxex";
-        this.l = new Labyrinthe(lab);
+        this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
@@ -77,8 +61,8 @@ public class TestJoueur {
         Case destination = j.getCase();
         //Asserts
         assertTrue("deplacement devrait avoir eu lieu", b);
-        assertEquals("Position x devrait etre egale a x", actuel.y, destination.y);
-        assertEquals("Position y devrait etre egale a y+1", actuel.x + 1, destination.x);
+        assertEquals("Position x devrait etre egale a x", actuel.x, destination.x);
+        assertEquals("Position y devrait etre egale a y+1", actuel.y + 1, destination.y);
     }
 
     /**
@@ -98,8 +82,8 @@ public class TestJoueur {
         //Asserts
         assertTrue("deplacement1 devrait avoir eu lieu", b1);
         assertTrue("deplacement2 devrait avoir eu lieu", b2);
-        assertEquals("Position x devrait etre egale a x", actuel.y, destination.y);
-        assertEquals("Position y devrait etre egale a y+2", actuel.x + 2, destination.x);
+        assertEquals("Position x devrait etre egale a x", actuel.x, destination.x);
+        assertEquals("Position y devrait etre egale a y+2", actuel.y + 2, destination.y);
     }
 
     /**
@@ -112,13 +96,13 @@ public class TestJoueur {
         //On recupere la pos du joueur
         Case actuel = j.getCase();
         //On tente de deplacer le joueur vers l'est
-        boolean b = j.seDeplacer(Direction.EAST);
+        boolean b = j.seDeplacer(Direction.NORTH);
         //On recupere sa nouvelle position
         Case destination = j.getCase();
         //Asserts
         assertFalse("deplacement ne devrait pas avoir eu lieu", b);
-        assertEquals("Position x devrait etre egale a x", actuel.y, destination.y);
-        assertEquals("Position y devrait etre egale a y", actuel.x, destination.x);
+        assertEquals("Position x devrait etre egale a x", actuel.x, destination.x);
+        assertEquals("Position y devrait etre egale a y", actuel.y, destination.y);
     }
 
     /**
@@ -137,8 +121,8 @@ public class TestJoueur {
         Case destination = j.getCase();
         //Asserts
         assertFalse("deuxieme deplacement ne devrait pas avoir eu lieu, joueur doit etre sous la porte", b);
-        assertEquals("Position x devrait etre egale a x", actuel.y, destination.y);
-        assertEquals("Position y devrait etre egale a y+1", actuel.x + 1, destination.x);
+        assertEquals("Position x devrait etre egale a x", actuel.x, destination.x);
+        assertEquals("Position y devrait etre egale a y+1", actuel.y + 1, destination.y);
     }
 
     /**
@@ -151,15 +135,15 @@ public class TestJoueur {
         //On recupere la pos du joueur
         Case actuel = j.getCase();
         //On tente de deplacer le joueur deux fois vers l'est
-        boolean b1 = j.seDeplacer(Direction.EAST);
-        boolean b2 = j.seDeplacer(Direction.EAST);
+        boolean b1 = j.seDeplacer(Direction.NORTH);
+        boolean b2 = j.seDeplacer(Direction.WEST);
         //On recupere sa nouvelle position
         Case destination = j.getCase();
         //Asserts
         assertFalse("deplacement 1 ne devrait pas avoir eu lieu", b1);
         assertFalse("deplacement 2 ne devrait pas avoir eu lieu", b2);
-        assertEquals("Position x devrait etre egale a x", actuel.y, destination.y);
-        assertEquals("Position y devrait etre egale a y", actuel.x, destination.x);
+        assertEquals("Position x devrait etre egale a x", actuel.x, destination.x);
+        assertEquals("Position y devrait etre egale a y", actuel.y, destination.y);
     }
 
 }

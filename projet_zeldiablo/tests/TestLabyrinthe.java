@@ -31,23 +31,7 @@ public class TestLabyrinthe {
      */
     @Before
     public void init() {
-        String lab =
-                "xoooooooooooooo" +
-                        "xxoxxxooxxxeoxx" +
-                        "oxxxoxooxooxoxo" +
-                        "oooooxoxxoxxoxo" +
-                        "oxxoxxoxxoxooxx" +
-                        "oxooxooxoxxooox" +
-                        "oxoxxooxoxoooox" +
-                        "oxxxoxoxoxxxxox" +
-                        "oooxoxxxxoooxxx" +
-                        "xxoxxoooxoooooo" +
-                        "oxooxoxxxxxxxox" +
-                        "oxxoxxxoooooxox" +
-                        "ooxooooxxxxxxox" +
-                        "ooxooxxxooxooox" +
-                        "ooxxxxooooxxxex";
-        this.l = new Labyrinthe(lab);
+        this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
@@ -58,17 +42,19 @@ public class TestLabyrinthe {
      * Test constructeur
      */
     @Test
-    public void test01_labyrinthe_constructeur_OK() {
-        Case c1 = l.getCase(13, 14);
-        Case c2 = l.getCase(1, 0);
-        Case c3 = l.getCase(0, 0);
+    public void test00_labyrinthe_constructeur_OK() {
+        Case c1 = l.getCase(0, 0);
+        Case c2 = l.getCase(0, 1);
+        Case c3 = l.getCase(0, 3);
+        Case c4 = l.getCase(29, 29);
         Porte entree = l.getEntree();
         Porte sortie = l.getSortie();
         assertEquals("cette case est cense etre une porte", "E", c1.toString());
-        assertEquals("cette case est cense etre un mur", "\u220E", c2.toString());
-        assertEquals("cette case est cense etre un chemin", "X", c3.toString());
-        assertEquals("Entree devrait etre en 11,1", l.getCase(11,1), entree);
-        assertEquals("Sortie devrait etre en 13,14", c1, sortie);
+        assertEquals("cette case est cense etre un mur", "\u220E", c3.toString());
+        assertEquals("cette case est cense etre un chemin", "X", c2.toString());
+        assertEquals("cette case est cense etre une porte", "E", c4.toString());
+        assertEquals("Entree devrait etre en 0,0", c1, entree);
+        assertEquals("Sortie devrait etre en 13,14", c4, sortie);
         assertEquals("Joueur devrait etre sur entree", entree, j.getCase());
     }
 
