@@ -1,5 +1,8 @@
 package jeu.utils;
 
+import jeu.*;
+import moteurgraphique.*;
+
 import java.util.Scanner;
 
 /**
@@ -7,7 +10,7 @@ import java.util.Scanner;
  *
  * @author AGJMX
  */
-public class Main {
+public class MainPerso {
 
     /**
      * Methode main, cree un Jeu
@@ -22,7 +25,7 @@ public class Main {
         DessinPerso aff = new DessinPerso(jeu);
 
         // classe qui lance le moteur de jeu generique
-        MoteurGraphique moteur = new MoteurGraphique(jeu, aff);
+        MoteurRendu moteur = new MoteurRendu(jeu, aff);
         // lance la boucle de jeu qui tourne jusque la fin du jeu
         moteur.lancerJeu(1000, 1000);
 

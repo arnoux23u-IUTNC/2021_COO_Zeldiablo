@@ -1,8 +1,7 @@
 package jeu;
 
-import jeu.entites.Joueur;
-import jeu.utils.Direction;
-import moteurgraphique.Jeu;
+import jeu.entites.*;
+import jeu.utils.*;
 
 public class JeuPerso implements Jeu {
 
@@ -10,7 +9,8 @@ public class JeuPerso implements Jeu {
     private Joueur pj;
     private boolean partieEnCours;
 
-    public JeuPerso(){
+    public JeuPerso() {
+        this.partieEnCours = true;
         this.l = new Labyrinthe();
         this.pj = l.getJoueur();
     }

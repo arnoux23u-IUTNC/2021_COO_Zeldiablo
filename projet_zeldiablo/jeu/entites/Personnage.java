@@ -55,6 +55,8 @@ public abstract class Personnage {
      * @return booleen, a vrai s'il a ete deplace
      */
     public boolean seDeplacer(Direction d) {
+        if(d == null)
+            return false;
         return l.deplacerJoueur(this, d);
     }
 }
