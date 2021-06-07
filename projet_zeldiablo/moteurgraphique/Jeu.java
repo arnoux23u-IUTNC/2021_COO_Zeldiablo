@@ -1,6 +1,7 @@
 package moteurgraphique;
 
 import jeu.Labyrinthe;
+import jeu.utils.Direction;
 
 /**
  * Interface modelisant un Objet Jeu
@@ -11,12 +12,12 @@ import jeu.Labyrinthe;
 public interface Jeu {
 
     /**
-     * methode qui contient l'evolution du jeu en fonction de la commande
+     * methode qui contient l'evolution du jeu en fonction de la direction
      *
-     * @param commandeUser
-     *            commande utilisateur
+     * @param d direction de l'utilisateur
+     *
      */
-    public void evoluer(Commande commandeUser);
+    public void evoluer(Direction d);
 
     /**
      * @return true si et seulement si le jeu est fini
