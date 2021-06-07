@@ -60,6 +60,7 @@ public class TestPersonnage {
                         "ooxxxxooooxxxex";
         this.l = new Labyrinthe(lab);
         this.j = l.getJoueur();
+        porte= l.getEntree();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
     }
