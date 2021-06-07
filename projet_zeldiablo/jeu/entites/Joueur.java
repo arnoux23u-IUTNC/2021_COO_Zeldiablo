@@ -11,6 +11,10 @@ import jeu.cases.Porte;
 
 public class Joueur extends Personnage {
 
+    //protected int pv = 3;
+
+
+
     /**
      * Constructeur public par defaut a deux parametres
      *
