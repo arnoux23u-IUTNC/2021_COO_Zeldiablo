@@ -54,7 +54,7 @@ public class TestLabyrinthe {
     }
 
     /**
-     * Methode testCreaerLab01
+     * Methode testCreerLab01
      * Test constructeur
      */
     @Test
