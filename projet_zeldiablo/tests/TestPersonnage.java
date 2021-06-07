@@ -73,7 +73,7 @@ public class TestPersonnage {
         Joueur j1 = new Joueur(l,porte,10,2);
         Joueur j2 = new Joueur(l,porte,10,2);
         j1.attaquer(j2);
-        assertEquals("Le Joueur doit prendre des dégats",8,j1.getPv());
+        assertEquals("Le Joueur doit prendre des dégats",8,j2.getPv());
     }
 
     /**
@@ -82,9 +82,8 @@ public class TestPersonnage {
      */
     @Test
     public void test02_Joueur_augmenterVie_OK() {
-        Joueur p1 = new Joueur(l,porte,10,2);
-        Joueur p2 = new Joueur(l,porte,10,2);
-        p1.setPv(12);
-        assertEquals("Le Joueur doit avoir une augmentation de vie",12,p1.getPv());
+        Joueur j = new Joueur(l,porte,10,2);
+        j.setPv(12);
+        assertEquals("Le Joueur doit avoir une augmentation de vie",12,j.getPv());
     }
 }
