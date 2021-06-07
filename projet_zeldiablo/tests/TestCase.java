@@ -1,20 +1,19 @@
 package tests;
 
 import jeu.Labyrinthe;
-import jeu.cases.Case;
-import jeu.entites.Joueur;
-import jeu.utils.Direction;
-import org.junit.Before;
-import org.junit.Test;
+import jeu.cases.*;
+import jeu.entites.*;
+import jeu.utils.*;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 /**
- * Classe pour les tests de Porte
+ * Classe pour les tests de Chemin
  *
  * @author AGJMX
  */
-public class TestPorte {
+public class TestCase {
 
     /**
      * Labyrinthe
@@ -54,22 +53,36 @@ public class TestPorte {
     }
 
     /**
-     * Methode de test deplacement unique
-     * On tente de deplacer le joueur vers une porte
+     * Methode testPeutTraverser01
+     * Verifie si un personnage peut traverser un chemin
      */
     @Test
-    public void test01_Porte_seDeplacer_revenirNOK() {
-        //On recupere la pos du joueur
-        Case actuel = j.getCase();
-        //On tente de deplacer le joueur vers l'est
-        j.seDeplacer(Direction.SOUTH);
-        boolean b = j.seDeplacer(Direction.NORTH);
-        //On recupere sa nouvelle position
-        Case destination = j.getCase();
-        //Asserts
-        assertFalse("deuxieme deplacement ne devrait pas avoir eu lieu, joueur doit etre sous la porte", b);
-        assertEquals("Position x devrait etre egale a x", actuel.y, destination.y);
-        assertEquals("Position y devrait etre egale a y+1", actuel.x + 1, destination.x);
+    public void test01_case_peutTraverserChemin_OK() {
+        Case c = new Chemin(0, 0);
+        assertTrue("Joueur devrait pouvoir aller dessus", c.peutTraverser(j));
+    }
+
+    /**
+     * Methode testPeutTraverser02
+     * Verifie si un personnage peut traverser un mur
+     */
+    @Test
+    public void test02_case_peutTravserserMur_OK() {
+        Case c = new Mur(0, 0);
+        assertFalse("Joueur ne devrait pas pouvoir aller dessus", c.peutTraverser(j));
+    }
+
+    /**
+     * Methode testPeutTraverser03
+     * Verifie si un personnage peut traverser une porte
+     */
+    @Test
+    public void test03_case_peutTraverserPorte_OK() {
+        Porte c = new Porte(0, 0);
+        Porte c2 = new Porte(0, 0);
+        c2.setFerme(true);
+        assertTrue("Joueur devrait pouvoir aller dessus", c.peutTraverser(j));
+        assertFalse("Joueur ne devrait pas pouvoir aller dessus", c2.peutTraverser(j));
     }
 
 }

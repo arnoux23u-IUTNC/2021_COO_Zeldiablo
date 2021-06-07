@@ -1,23 +1,19 @@
 package tests;
 
+import jeu.Jeu;
 import jeu.Labyrinthe;
-import jeu.cases.Case;
-import jeu.cases.Porte;
 import jeu.entites.Joueur;
-import jeu.entites.Personnage;
-import jeu.utils.Direction;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 /**
- * Classe pour les tests de Labyrinthe
+ * Classe pour les tests de Labyrinthe, Jeu
  *
  * @author AGJMX
  */
 public class TestJeu {
-    
+
     /**
      * Labyrinthe
      */
@@ -55,9 +51,6 @@ public class TestJeu {
         j.setPosition(l.getEntree());
     }
 
-    @Test
-    public void test01_Jeu_ConstructeurJeu_OK(){
-        Labyrinthe l = new Labyrinthe();
-        assertEquals("Le labyrinthe doit être créé pour lancer le jeu", j.getCase(), l);
-    }
+    //TODO TESTS
+
 }
