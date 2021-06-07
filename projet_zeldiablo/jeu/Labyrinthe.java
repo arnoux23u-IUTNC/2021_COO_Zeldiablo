@@ -49,7 +49,9 @@ public class Labyrinthe {
 
     /**
      * Constructeur public par defaut
+     * Supression des warns de read
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public Labyrinthe() {
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
@@ -80,7 +82,6 @@ public class Labyrinthe {
                         }
                         break;
                 }
-
                 cases[line][pos] = c;
                 pos++;
                 if(pos > 29){
