@@ -1,0 +1,109 @@
+@startuml
+
+title Diagramme de Classe - Zeldiablo V1
+
+class Jeu{
+    + Jeu()
+}
+
+abstract class Personnage{
+    - pv : int
+    - degats : int
+    + Personnage(l : Labyrinthe, depart : Case, pdv : int, deg : int)
+        + setPosition(position : Case)
+        + getCase() : Case
+        + seDeplacer(d : Direction) : boolean
+        + diminuerVie(vieDown : int) : void
+        + augmenterVie(vieUp : int) : void
+        + getPv() : int
+        + setPv(newPv : int) : void
+        + attaquer(p : Personnage) : void
+}
+
+class Labyrinthe{
+    + Labyrinthe()
+    + Labyrinthe(map : String)
+    + deplacerJoueur(p : Personnage, d : Direction) : boolean
+    - peutBouger(p : Personnage, d : Direction) : boolean
+    - getDestination(p : Personnage, d : Destination) : Case
+    + jouer()
+    + getJoueur() : Joueur
+    + toString() : String
+    + getEntree() : Porte
+}
+
+class Main{
+    +main(args : String[])
+}
+
+abstract class Case{
+    - x : int
+    - y : int
+    + Case(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+    + toString() : String
+}
+
+class Chemin extends Case{
+    - identifier : char
+    + Chemin(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+}
+
+abstract class Obstacle extends Case{
+    + Obstacle(x : int, y : int)
+}
+
+class Mur extends Obstacle{
+    - identifier : char
+    + Mur(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+}
+
+class Porte extends Case{
+    - identifier : char
+    - ferme : boolean
+    + Porte(x : int, y : int)
+    + setFerme(boolean b)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+}
+
+class Joueur extends Personnage{
+    + Joueur(l : Labyrinthe, e : Porte)
+}
+
+enum Direction{
+    NORTH
+    SOUTH
+    EAST
+    WEST
+}
+
+abstract class Monstre extends Personnage{
+    + Monstre(l : Labyrinthe, depart : Case, pdv : int, deg : int)
+}
+
+class Troll extends Monstre{
+    - tapeDansLeTour : boolean
+    + Troll(l : Labyrinthe, depart : Case)
+    + seRegenerer() : void
+
+}
+
+class Fantome extends Monstre{
+    + Fantome(l : Labyrinthe, depart : Case)
+}
+
+Jeu "1" --> "1" Labyrinthe: " - labyrinthe"
+Labyrinthe "1" -down-> "1" Porte: " - entree "
+Labyrinthe "1" -left-> "1" Porte: " - sortie "
+Labyrinthe "1" --> "*" Case: " - cases "
+Personnage "*" --> "1" Case: " - position "
+Personnage "*" --> "1" Labyrinthe: " - l "
+Labyrinthe "1" -left-> "1" Joueur: " - joueur "
+
+@enduml
