@@ -1,5 +1,7 @@
 package jeu.utils;
 
+import java.util.Scanner;
+
 /**
  * Classe Main
  *
@@ -14,7 +16,7 @@ public class Main {
      * @throws InterruptedException exception when thread.sleep()
      */
     public static void main(String[] args) throws InterruptedException {
-        /*System.out.println("Bienvenue");
+        System.out.println("Bienvenue");
         // creation du jeu particulier et de son afficheur
         JeuPerso jeu = new JeuPerso();
         DessinPerso aff = new DessinPerso(jeu);
@@ -22,13 +24,13 @@ public class Main {
         // classe qui lance le moteur de jeu generique
         MoteurGraphique moteur = new MoteurGraphique(jeu, aff);
         // lance la boucle de jeu qui tourne jusque la fin du jeu
-        moteur.lancerJeu(400, 400);
+        moteur.lancerJeu(1000, 1000);
 
         // lorsque le jeu est fini
         System.out.println("Fin du Jeu - appuyer sur entree");
         Scanner sc = new Scanner(System.in);
         sc.nextLine();
-        System.exit(1);*/
+        System.exit(1);
         //TODO MAIN
     }
 }
