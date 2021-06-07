@@ -7,6 +7,22 @@
     -critère 1 : avoir des labyrinthes avec une bonne structure
     -critère 2 : 
 
+- fonctionnalité 2 :  Création de Troll
+- responsables [1] : Alexandre
+- descriptif texte : Création du Troll et de sa méthode de Régénération
+-critères de validation :
+    -critère 1 : crée un troll avec 3 pv et 3 de dégâts
+    -critère 2 : le troll doit régénérer d'un point de vie seulement si il n'a pas été touché du tour
 
+- fonctionnalité 3 : Création du Fantome
+- responsables [1] : Alexandre
+- descriptif texte : Création du Fantome et modification de Mur et Obstacle
+-critères de validation :
+    -critère 1 : crée un troll avec 2 pv et 1 de dégât
+    -critère 2 : le fantome doit pouvoir traverser les murs et les obstacles
 
-
+- fonctionnalité 4 : Ajout d'un attribut degat pour le Personnage
+- responsables [1] : Alexandre
+- descriptif texte : Ajout d'un attribut degat et l'ajouter au constructeur de Personnage et aux constructeurs qui extends de Personnage
+-critères de validation :
+    -critère 1 : l'attribut doit etre présent dans toutes les classes qui extends Personnage
