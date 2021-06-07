@@ -171,6 +171,7 @@ public class Labyrinthe {
      */
     private boolean peutBouger(Personnage p, Direction dir) {
         Case destination = null;
+        Case actuel = p.getCase();
         try {
             destination = getDestination(p, dir);
         } catch (IndexOutOfBoundsException ignored) {
@@ -207,20 +208,24 @@ public class Labyrinthe {
     private Case getDestination(Personnage p, Direction d) {
         Case actuel = p.getCase();
         Case destination = null;
+        System.out.println("se trouve en "+actuel.x+" , "+actuel.y);
+        System.out.println(d);
         switch (d) {
             case NORTH:
-                destination = cases[actuel.x][actuel.y - 1];
+                destination = cases[actuel.y-1][actuel.x];
                 break;
             case SOUTH:
-                destination = cases[actuel.x][actuel.y + 1];
+                destination = cases[actuel.y+1][actuel.x];
                 break;
             case EAST:
-                destination = cases[actuel.x + 1][actuel.y];
+                destination = cases[actuel.y][actuel.x+1];
                 break;
             case WEST:
-                destination = cases[actuel.x - 1][actuel.y];
+                destination = cases[actuel.y][actuel.x-1];
                 break;
         }
+        destination = getCase(destination.x, destination.y);
+        System.out.println("veut aller en "+destination.x+" , "+destination.y);
         return destination;
     }
 
