@@ -52,6 +52,6 @@ public abstract class Case {
      */
     @Override
     public String toString() {
-        return Character.toString(this.getClass().getSimpleName().charAt(0)).toUpperCase();
+        return getIdentifier().toUpperCase();
     }
 }
