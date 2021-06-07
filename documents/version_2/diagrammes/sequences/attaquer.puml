@@ -1,0 +1,18 @@
+@startuml
+
+title "Attaque d'un personnage a vers un personnage b"
+
+participant "a : Personnage" as a
+participant "b : Personnage" as b
+
+
+activate a
+activate b
+-> a : attaquer(b)
+a -> b : diminuerVie(3)
+a <-- b
+<-- a
+deactivate a
+deactivate b
+
+@enduml
