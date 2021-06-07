@@ -77,12 +77,20 @@ public abstract class Personnage {
 
 
     public void diminuerVie(int vieDown){
-        this.setPv(this.getPv()-vieDown);
+        if(vieDown>0){
+            if(this.getPv()-vieDown > 0){
+                this.setPv(this.getPv()-vieDown);
+            }else{
+                this.setPv(0);
+            }
+        }
     }
 
     public void augmenterVie(int vieUp){
         if(vieUp>0){
-            this.setPv(this.getPv()+vieUp);
+            if(this.getPv() > 0){
+                this.setPv(this.getPv()+vieUp);
+            }
         }
     }
 
