@@ -31,6 +31,11 @@ public abstract class Personnage {
     }
 
     /**
+     * HP du Joueur
+     */
+    private int pv;
+
+    /**
      * Getter position
      *
      * @return position du personnage
@@ -58,5 +63,37 @@ public abstract class Personnage {
         if(d == null)
             return false;
         return l.deplacerJoueur(this, d);
+    }
+
+
+
+    public void diminuerVie(int vieDown){
+        if(vieDown<0){
+            return;
+        }
+        else{
+            this.pv=this.pv-vieDown;
+        }
+        if (this.pv<0){
+            this.pv=0;
+        }
+    }
+
+    public void augmenterVie(int vieUp){
+        if(vieUp<0){
+            return;
+        }
+        else{
+            this.pv=this.pv+vieUp;
+        }
+
+    }
+
+    public int getPv(){
+        return this.pv;
+    }
+
+    public void setPv(int newPV){
+        this.pv = newPV;
     }
 }
