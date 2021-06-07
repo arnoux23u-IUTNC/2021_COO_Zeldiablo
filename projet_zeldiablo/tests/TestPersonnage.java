@@ -23,17 +23,17 @@ public class TestPersonnage {
     private Joueur j;
 
     /**
-     * HP du Personnage
+     * HP du Joueur
      */
     private int pdv;
 
     /**
-     * Case depart
+     * Case porte
      */
-    private Case depart;
+    private Porte porte;
 
     /**
-     * Degats du Personnage
+     * Degats du Joueur
      */
     private int d;
 
@@ -65,21 +65,26 @@ public class TestPersonnage {
     }
 
     /**
-     * Methode testCreerLab01
-     * Test constructeur
+     * Methode testPersonnage01
+     * Test diminuerVie
      */
     @Test
-    public void test01_personnage_diminuerVie_OK() {
-        Personnage p1 = new Personnage(l,depart,10,2);
-        Personnage p2 = new Personnage(l,depart,10,2);
-        p1.attaquer(p2);
-        assertEquals("Le personnage doit prendre des dégats",8,p1.getPv());
+    public void test01_Joueur_diminuerVie_OK() {
+        Joueur j1 = new Joueur(l,porte,10,2);
+        Joueur j2 = new Joueur(l,porte,10,2);
+        j1.attaquer(j2);
+        assertEquals("Le Joueur doit prendre des dégats",8,j1.getPv());
     }
 
-    public void test01_personnage_augmenterVie_OK() {
-        Personnage p1 = new Personnage(l,depart,10,2);
-        Personnage p2 = new Personnage(l,depart,10,2);
+    /**
+     * Methode testPersonnage02
+     * Test augmenterVie
+     */
+    @Test
+    public void test02_Joueur_augmenterVie_OK() {
+        Joueur p1 = new Joueur(l,porte,10,2);
+        Joueur p2 = new Joueur(l,porte,10,2);
         p1.setPv(12);
-        assertEquals("Le personnage doit avoir une augmentation de vie",12,p1.getPv());
+        assertEquals("Le Joueur doit avoir une augmentation de vie",12,p1.getPv());
     }
 }
