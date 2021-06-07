@@ -24,19 +24,9 @@ public class TestPersonnage {
     private Joueur j;
 
     /**
-     * HP du Joueur
-     */
-    private int pdv;
-
-    /**
      * Case porte
      */
     private Porte porte;
-
-    /**
-     * Degats du Joueur
-     */
-    private int d;
 
     /**
      * Methode pour initialiser le contenu
@@ -72,7 +62,7 @@ public class TestPersonnage {
      */
     @Test
     public void test01_Personnnage_diminuerVie_OK() {
-        Joueur j1 = new Joueur(l,porte,10,2);
+        Joueur j1 = new Joueur(l,porte);
         j1.diminuerVie(2);
         assertEquals("Le Joueur doit prendre des dégats",8,j1.getPv());
     }
@@ -83,7 +73,7 @@ public class TestPersonnage {
      */
     @Test
     public void test02_Personnage_augmenterVie_OK() {
-        Joueur j = new Joueur(l,porte,10,2);
+        Joueur j = new Joueur(l,porte);
         j.augmenterVie(2);
         assertEquals("Le Joueur doit avoir une augmentation de vie",12,j.getPv());
     }

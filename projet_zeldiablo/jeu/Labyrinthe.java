@@ -280,6 +280,10 @@ public class Labyrinthe {
         return this.sortie;
     }
 
+    /**
+     * Getter de cases
+     * @return cases du labyrinthe
+     */
     public Case[][] getCases() {
         return cases;
     }

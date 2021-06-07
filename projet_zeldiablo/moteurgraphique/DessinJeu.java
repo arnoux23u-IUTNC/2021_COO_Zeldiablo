@@ -1,4 +1,5 @@
 package moteurgraphique;
+
 import java.awt.image.BufferedImage;
 
 /**
@@ -12,8 +13,7 @@ public interface DessinJeu {
      * methode dessiner a completer. Elle construit une image correspondant au
      * jeu. Jeu est un attribut de l'afficheur
      *
-     * @param image
-     *            image sur laquelle dessiner
+     * @param image image sur laquelle dessiner
      */
     public abstract void dessiner(BufferedImage image);
 

@@ -13,7 +13,7 @@ public class PanelDessin extends JPanel {
     /**
      * la clase chargee de Dessiner
      */
-    private DessinJeu dessin;
+    private final DessinJeu dessin;
 
     /**
      * image suivante est l'image cachee sur laquelle dessiner
@@ -35,7 +35,7 @@ public class PanelDessin extends JPanel {
      * Panel associe. Les images stockent le dessin et on demande au panel la
      * mise a jour quand le dessin est fini
      *
-     * @param x  largeur de l'image
+     * @param x largeur de l'image
      * @param y hauteur de l'image
      */
     public PanelDessin(int x, int y, DessinJeu affiche) {

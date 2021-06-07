@@ -5,6 +5,7 @@ import jeu.utils.Direction;
 
 /**
  * Classe moteur de rendu
+ *
  * @author vthomas
  * @author AGJMX
  */
@@ -13,7 +14,7 @@ public class MoteurRendu {
     /**
      * le jeu a executer
      */
-    private Jeu jeu;
+    private final Jeu jeu;
 
     /**
      * l'interface graphique
@@ -23,15 +24,13 @@ public class MoteurRendu {
     /**
      * l'afficheur a utiliser pour le rendu
      */
-    private DessinJeu dessin;
+    private final DessinJeu dessin;
 
     /**
      * construit un moteur
      *
-     * @param pJeu
-     *            jeu a lancer
-     * @param pAffiche
-     *            afficheur a utiliser
+     * @param pJeu     jeu a lancer
+     * @param pAffiche afficheur a utiliser
      */
     public MoteurRendu(Jeu pJeu, DessinJeu pAffiche) {
         // creation du jeu

@@ -15,7 +15,7 @@ public class TestTroll {
      *      * Verifie si un troll regenere de la vie
      */
     @Test
-    public void test00_Troll_regeneration_OK(){
+    public void test00_troll_regeneration_OK(){
         Labyrinthe l = new Labyrinthe();
         Case c = l.getCase(0,0);
         Troll troll = new Troll(l,c);
@@ -28,11 +28,11 @@ public class TestTroll {
      *      * Verifie si un troll ne regenere pas de la vie si il est tape
      */
     @Test
-    public void test00_Troll_regeneration_etantAttaque(){
+    public void test01_troll_regeneration_etantAttaque(){
         Labyrinthe l = new Labyrinthe();
         Case c = l.getCase(0,0);
         Troll troll = new Troll(l,c);
-        troll.attaquerTroll();
+        troll.trollSeFaitAttaquer();
         troll.seRegenerer();
         assertEquals("Ses points devraient être à 3",3,troll.getPv());
     }
