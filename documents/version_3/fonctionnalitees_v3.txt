@@ -13,3 +13,21 @@
      -critère 1 : - le héros meurt quand ses PV tombe à 0 (5 de base)
      -critère 2 : - jeu s'arrête et entraîne un message de fin
 
+-fonctionnalité 3 : Affichage des monstres et des pieges
+-responsable [1] : Jules
+- descriptif texte : Affichage sur le labyrinthe des entites
+- critères de validation :
+     -critère 1 : - les entites ont une position
+     -critère 2 : - le monstre doit s'afficher au bon endroit
+
+-fonctionnalité 4 : Création des pièges
+-responsable [1] : Tristan
+- descriptif texte : Création des cases piégées, intéraction quand on marche dessus
+- critères de validation :
+     -critère 1 : - les personnages doivent perdre de la vie quand ils marchent dessus
+
+-fonctionnalité 5 : Attaque aux alentours
+     -responsable [1] : Alexandre
+     - descriptif texte : Quand on monstre attaque, il peut attaquer tout autour
+     - critères de validation :
+          -critère 1 : - la case doit etre remplie par un personnage
