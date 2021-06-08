@@ -3,18 +3,13 @@ package jeu.entites;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 
-public class Troll extends Monstre{
+public class Troll extends Monstre {
 
 
     /**
      * booleen qui permet de determiner si le troll a ete tape dans le tour
      */
     private boolean tapeDansLeTour;
-
-    private final int pv = 3;
-    private final int degats = 3;
-
-
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -23,21 +18,24 @@ public class Troll extends Monstre{
      * @param depart position de depart
      */
     public Troll(Labyrinthe l, Case depart) {
-        super(l, depart,3,3);
-        tapeDansLeTour=false;
+        super(l, depart, 3, 3);
+        tapeDansLeTour = false;
     }
 
     /**
-     * méthode qui permet de regenerer le troll s'il n'a pas ete tape
+     * Methode qui permet de regenerer le troll s'il n'a pas ete tape
      */
-    public void seRegenerer(){
-        if(!tapeDansLeTour){
-            this.setPv(this.getPv()+1);
+    public void seRegenerer() {
+        if (!tapeDansLeTour) {
+            this.setPv(this.getPv() + 1);
         }
 
     }
 
-    public void trollSeFaitAttaquer(){
+    /**
+     * Methode qui change l'etat attaque du troll
+     */
+    public void trollSeFaitAttaquer() {
         tapeDansLeTour = true;
     }
 }
