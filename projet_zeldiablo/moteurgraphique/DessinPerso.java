@@ -43,6 +43,16 @@ public class DessinPerso implements DessinJeu {
                 crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
+            case "Troll":
+                crayon.setColor(Color.yellow);
+                crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+                        TAILLE_CASE);
+                break;
+            case "Fantome":
+                crayon.setColor(Color.gray);
+                crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+                        TAILLE_CASE);
+                break;
             case "Mur":
                 crayon.setColor(Color.gray);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
