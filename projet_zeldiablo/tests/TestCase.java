@@ -30,23 +30,7 @@ public class TestCase {
      */
     @Before
     public void init() {
-        String lab =
-                "xoooooooooooooo" +
-                        "xxoxxxooxxxeoxx" +
-                        "oxxxoxooxooxoxo" +
-                        "oooooxoxxoxxoxo" +
-                        "oxxoxxoxxoxooxx" +
-                        "oxooxooxoxxooox" +
-                        "oxoxxooxoxoooox" +
-                        "oxxxoxoxoxxxxox" +
-                        "oooxoxxxxoooxxx" +
-                        "xxoxxoooxoooooo" +
-                        "oxooxoxxxxxxxox" +
-                        "oxxoxxxoooooxox" +
-                        "ooxooooxxxxxxox" +
-                        "ooxooxxxooxooox" +
-                        "ooxxxxooooxxxex";
-        this.l = new Labyrinthe(lab);
+        this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
@@ -94,7 +78,7 @@ public class TestCase {
         Fantome f = new Fantome(l,l.getCase(3,0));
         Mur c = new Mur(0, 0);
         assertTrue("Fantome devrait pouvoir aller dessus", c.peutTraverser(f));
-        assertTrue("Fantome devrqit etre dans le mur",f.seDeplacer(Direction.SOUTH));
+        assertTrue("Fantome devrait etre dans le mur",f.seDeplacer(Direction.SOUTH));
     }
 
     /**
@@ -105,8 +89,8 @@ public class TestCase {
     public void test05_case_mur_nepeutpasTraverserparTroll() {
         Troll f = new Troll(l,l.getCase(3,0));
         Mur c = (Mur) l.getCase(4,0);
-        assertFalse("Fantome devrait pouvoir aller dessus", c.peutTraverser(f));
-        assertFalse("Fantome devrqit etre dans le mur",f.seDeplacer(Direction.SOUTH));
+        assertFalse("Troll ne devrait pas pouvoir aller dessus", c.peutTraverser(f));
+        assertFalse("Troll ne devrait pas etre dans le mur",f.seDeplacer(Direction.SOUTH));
     }
 
 }
