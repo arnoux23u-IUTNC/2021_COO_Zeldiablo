@@ -1,0 +1,192 @@
+@startuml
+
+title Diagramme de Classe - Zeldiablo V3
+
+interface Jeu{
+    + evoluer(d : Direction, b : boolean)
+    + etreFini() : boolean
+}
+
+class JeuPerso extends Jeu{
+    - partieEnCours : boolean
+    + JeuPerso()
+    + evoluer(d : Direction)
+    + etreFini() : boolean
+    + getJoueur() : Joueur
+    + getLabyrinthe() : Labyrinthe
+}
+
+class Controleur implements KeyListener{
+    - attaqueEnCours : boolean
+    - attaqueARetourner : boolean
+    + Controleur()
+    + getDirection() : Direction
+    + getAttaque() : boolean
+    + keyTyped(KeyEvent e)
+    + keyPressed(KeyEvent e)
+    + keyReleased(KeyEvent e)
+}
+
+interface DessinJeu{
+    + dessiner(image : BufferedImage)
+}
+
+class DessinPerso implements DessinJeu{
+    - {static} TAILLE_CASE : int
+    + DessinPerso(j : JeuPerso)
+    - dessinerObjet(s : String, x : int, y : int, im : BufferedImage)
+    + dessiner(im : BufferedImage)
+}
+
+class InterfaceGraphique{
+    + InterfaceGraphique(afficheurUtil : DessinJeu, x : int, y : int)
+    + getControleur() : Controleur
+    + dessiner()
+}
+
+class MoteurRendu{
+    + MoteurRendu(pJeu : Jeu, pAffiche : DessinJeu)
+    + lancerJeu(width : int, height : int)
+}
+
+class PanelDessin(){
+    - imageSuivante : BufferedImage
+    - imageEnCours : BufferedImage
+    - width : int
+    - height : int
+    + PanelDessin(x : int, y : int, affiche : DessinJeu)
+    + dessinerJeu()
+    + paint(g : Graphics)
+}
+
+abstract class Personnage{
+    - pv : int
+    - degats : int
+    + Personnage(l : Labyrinthe, depart : Case, pdv : int, deg : int)
+    + setPosition(position : Case)
+    + getCase() : Case
+    + seDeplacer(d : Direction) : boolean
+    + diminuerVie(vieDown : int)
+    + augmenterVie(vieUp : int)
+    + getPv() : int
+    + setPv(newPv : int)
+    + attaquer(p : Personnage)
+    + etreMort() : boolean
+    + getLabyrinthe()
+}
+
+
+class Labyrinthe{
+    - {static} TAILLE : int
+    + Labyrinthe(autoGenerate : boolean)
+    + deplacerJoueur(p : Personnage, d : Direction) : boolean
+    - peutBouger(p : Personnage, d : Direction) : boolean
+    - getDestination(p : Personnage, d : Destination) : Case
+    + getJoueur() : Joueur
+    + toString() : String
+    + getEntree() : Porte
+    + getSortie() : Porte
+    + getCase(x : int, y : int) : Case
+    + getCases() : Case[][]
+    + getPieges() : ArrayList<Piege>
+    + getMonstres() : ArrayList<Piege>
+}
+
+abstract class Case{
+    - x : int
+    - y : int
+    + Case(x : int, y : int)
+    + {abstract} peutTraverser(p : Personnage) : boolean
+    + {abstract} getIdentifier() : String
+    + toString() : String
+    + equals() : boolean
+    + hashCode() : int
+}
+
+class Piege extends Obstacle{
+    + Piege(x : int, y : int)
+    + getIdentifier() : String
+    + peutTraverser(p : Personnage) : boolean
+    + prendDegats(p : Personnage)
+    + getX() : int
+    + getY() : int
+}
+
+class Chemin extends Case{
+    - {static} IDENTIFIER : char
+    + Chemin(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+}
+
+abstract class Obstacle extends Case{
+    + Obstacle(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
+}
+
+class Mur extends Obstacle{
+    - {static} IDENTIFIER : char
+    + Mur(x : int, y : int)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+}
+
+class Porte extends Case{
+    - {static} IDENTIFIER : char
+    - ferme : boolean
+    + Porte(x : int, y : int)
+    + setFerme(boolean b)
+    + peutTraverser(p : Personnage) : boolean
+    + getIdentifier() : String
+}
+
+class Joueur extends Personnage{
+    + Joueur(l : Labyrinthe, e : Porte)
+    + attaquerAutour()
+}
+
+enum Direction{
+    NORTH
+    SOUTH
+    EAST
+    WEST
+}
+
+abstract class Monstre extends Personnage{
+    + Monstre(l : Labyrinthe, depart : Case, pdv : int, deg : int, intelligence : int)
+    + getIntelligence() : int
+}
+
+class Troll extends Monstre{
+    - tapeDansLeTour : boolean
+    + Troll(l : Labyrinthe, depart : Case)
+    + seRegenerer()
+    + attaquerTroll()
+}
+
+class Fantome extends Monstre{
+    + Fantome(l : Labyrinthe, depart : Case)
+}
+
+Personnage "*" -> "1" Case: " - position "
+Personnage "*" -> "1" Labyrinthe: " - l "
+Labyrinthe "1" -> "1" Porte: " - entree "
+Labyrinthe "1" -> "1" Porte: " - sortie "
+Labyrinthe "1" -> "*" Case: " - cases "
+Labyrinthe "1" -> "1" Joueur: " - joueur "
+Labyrinthe "1" -> "*" Piege : "- lPieges"
+Labyrinthe "1" -> "*" Monstre : "- lMonstre"
+PanelDessin "1" -> "1" DessinJeu : "- dessin"
+DessinPerso "1" -> "1" JeuPerso : "- jeuEnCours"
+JeuPerso "1" -> "1" Labyrinthe : "- l"
+JeuPerso "1" -> "1" Joueur : "- pj"
+Controleur "1" -> "1" Direction : "- enCours"
+Controleur "1" -> "1" Direction : "- aRetourner"
+MoteurRendu "1" -> "1" Jeu : "- jeu"
+MoteurRendu "1" -> "1" InterfaceGraphique : "- gui"
+MoteurRendu "1" -> "1" DessinJeu : "- dessin"
+InterfaceGraphique "1" -> "1" Controleur : "- controleur"
+InterfaceGraphique "1" -> "1" PanelDessin : "- panel"
+
+
+@enduml
