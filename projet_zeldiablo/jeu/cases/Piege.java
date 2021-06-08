@@ -41,7 +41,12 @@ public class Piege extends Obstacle {
      *
      * @param j joueur auquel on retire 1pv
      */
-    public void prendDegats(Joueur j) {
-        j.diminuerVie(1);
+    public void prendDegats(Personnage p) {
+        switch (p.getClass().getSimpleName()) {
+            case "Joueur":
+                p.diminuerVie(1);
+                break;
+        }
+
     }
 }

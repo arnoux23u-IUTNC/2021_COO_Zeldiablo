@@ -105,6 +105,9 @@ public class Labyrinthe {
                         case 'o':
                             c = new Mur(pos, line);
                             break;
+                        case 'p':
+                            c = new Piege(pos, line);
+                            break;
                         case 'e':
                             c = new Porte(pos, line);
                             if (this.entree == null) {
@@ -140,13 +143,17 @@ public class Labyrinthe {
                                 Case m1 = new Mur(i, j);
                                 cases[i][j] = m1;
                                 break;
+                            case 'p':
+                                Case pi = new Piege(i, j);
+                                cases[i][j] = pi;
+                                break;
                             case 'e':
-                                Porte p = new Porte(i, j);
-                                cases[i][j] = p;
+                                Porte po = new Porte(i, j);
+                                cases[i][j] = po;
                                 if (this.entree == null) {
-                                    this.entree = p;
+                                    this.entree = po;
                                 } else {
-                                    this.sortie = p;
+                                    this.sortie = po;
                                 }
                                 break;
                         }
@@ -168,13 +175,17 @@ public class Labyrinthe {
                             Case m1 = new Mur(i, j);
                             cases[i][j] = m1;
                             break;
+                        case 'p':
+                            Case pi = new Piege(i, j);
+                            cases[i][j] = pi;
+                            break;
                         case 'e':
-                            Porte p = new Porte(i, j);
-                            cases[i][j] = p;
+                            Porte po = new Porte(i, j);
+                            cases[i][j] = po;
                             if (this.entree == null) {
-                                this.entree = p;
+                                this.entree = po;
                             } else {
-                                this.sortie = p;
+                                this.sortie = po;
                             }
                             break;
                     }
@@ -217,6 +228,10 @@ public class Labyrinthe {
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
+            if (p.getCase() instanceof Piege){
+                Piege pi = new Piege(p.getCase().x, p.getCase().y);
+                pi.prendDegats(p);
+            }
             return true;
         }
         return false;
