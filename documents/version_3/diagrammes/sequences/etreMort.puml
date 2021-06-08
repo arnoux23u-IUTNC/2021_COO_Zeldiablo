@@ -1,0 +1,10 @@
+@startuml
+title "Verification de la mort d'une entité"
+
+participant "t : Troll" as a
+
+-> a : entreMort()
+activate a
+<-- a: false
+deactivate a
+@enduml
