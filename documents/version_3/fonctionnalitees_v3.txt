@@ -1,0 +1,8 @@
+* Fonctionnalités version 3
+
+- fonctionnalité 1 : 
+- responsables [] : 
+- descriptif texte : 
+- critères de validation : 
+    -critère 1 :
+
