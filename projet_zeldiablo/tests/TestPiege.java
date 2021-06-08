@@ -62,7 +62,6 @@ public class TestPiege {
     @Test
     public void test01_piege_prendDegats_OK() {
         Joueur j1 = new Joueur(l,porte);
-        System.out.println(j.getPv());
         j1.seDeplacer(Direction.SOUTH);
 
         assertEquals("Le Joueur doit prendre des dégats",19,j1.getPv());
