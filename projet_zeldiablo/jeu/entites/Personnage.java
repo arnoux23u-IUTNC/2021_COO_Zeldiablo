@@ -121,6 +121,22 @@ public abstract class Personnage {
     }
 
     /**
+     * Setter Degats
+     * @param degats nouveaux degats du perso
+     */
+    public void setDegats(int degats) {
+        this.degats = degats;
+    }
+
+    /**
+     * Getter degats
+     * @return degats du personnage
+     */
+    public int getDegats(){
+        return this.degats;
+    }
+
+    /**
      * Methode pour attaquer un autre personnage
      *
      * @param p victime

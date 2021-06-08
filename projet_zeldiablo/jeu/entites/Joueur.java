@@ -15,6 +15,11 @@ import java.util.ArrayList;
 public class Joueur extends Personnage {
 
     /**
+     * Liste d'objets de l'inventaire
+     */
+    private ArrayList<Object> inventaire;
+
+    /**
      * Constructeur public par defaut a deux parametres
      *
      * @param l Labyrinthe sur lequel il joue
@@ -23,6 +28,7 @@ public class Joueur extends Personnage {
     public Joueur(Labyrinthe l, Porte e) {
         super(l, e, 20, 5);
         e.setFerme(true);
+        this.inventaire = new ArrayList<Object>();
     }
 
     public void attaquerAutour() {
@@ -43,6 +49,23 @@ public class Joueur extends Personnage {
                 this.attaquer(monstre);
             }
         }
+    }
+
+    /**
+     * methode qui permet dajouter une arme a linventaire
+     * @param arme arme a ajouter
+     */
+    public void ajouterArme(Arme arme){
+        inventaire.add(arme);
+        this.setDegats(this.getDegats()+ arme.getDegats());
+    }
+
+    /**
+     * methode qui permet dajouter un bouclier a linventaire
+     * @param bouclier bouclier a ajouter
+     */
+    public void ajouterBouclier(Bouclier bouclier){
+        inventaire.add(bouclier);
     }
 
 
