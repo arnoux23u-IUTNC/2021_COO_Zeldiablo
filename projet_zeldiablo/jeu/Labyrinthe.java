@@ -103,7 +103,7 @@ public class Labyrinthe {
         //o = obstacle
         if (autoGenerate) {
             try {
-                File fr = new File(".\\jeu\\cartes");
+                File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
                 File[] maps = fr.listFiles();
 
                 assert maps != null;
@@ -259,18 +259,16 @@ public class Labyrinthe {
      * @return booleen, a vrai s'il peut bouger
      */
     private boolean peutBouger(Personnage p, Direction dir) {
-
         Case destination = null;
         Case actuel = p.getCase();
         try {
             destination = getDestination(p, dir);
         } catch (IndexOutOfBoundsException ignored) {
         }
-        if ((destination != null)&&(getDestination(p,dir).getPersonnage()==null)) {
+        if ((destination != null) && (getDestination(p,dir).getPersonnage()!=null)) {
             return destination.peutTraverser(p);
         }
         return false;
-
     }
 
     /**
