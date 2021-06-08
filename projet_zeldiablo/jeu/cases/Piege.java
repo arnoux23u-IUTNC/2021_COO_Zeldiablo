@@ -1,6 +1,7 @@
 package jeu.cases;
 
 import jeu.entites.Joueur;
+import jeu.entites.Personnage;
 
 
 /**
@@ -39,7 +40,12 @@ public class Piege extends Obstacle {
      * Methode retirant 1pv du joueur
      * @param j joueur auquel on retire 1pv
      */
-    public void prendDegats(Joueur j) {
-        j.diminuerVie(1);
+    public void prendDegats(Personnage p) {
+        switch (p.getClass().getSimpleName()) {
+            case "Joueur":
+                p.diminuerVie(1);
+                break;
+        }
+
     }
 }
