@@ -146,4 +146,21 @@ public class TestJoueur {
         assertEquals("Position y devrait etre egale a y", actuel.y, destination.y);
     }
 
+    @Test
+    public void test06_joueur_attaquerAutour_OK(){
+        Case casejoueur = l.getEntree();
+        Case casemonstre1 = l.getCase(casejoueur.x,casejoueur.y+1);
+        Case casemonstre2 = l.getCase(casejoueur.x,casejoueur.y+2);
+        Fantome f = new Fantome(l,casemonstre1);
+        Troll t = new Troll(l,casemonstre2);
+        l.getlMonstre().add(f);
+        l.getlMonstre().add(t);
+        j.attaquerAutour();
+        assertTrue("Le fantome devrait etre mort",f.etreMort());
+        assertFalse("Le troll devrait etre vivant",t.etreMort());
+
+
+
+    }
+
 }

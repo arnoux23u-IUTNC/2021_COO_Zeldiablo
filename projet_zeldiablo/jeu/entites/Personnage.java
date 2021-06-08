@@ -136,10 +136,7 @@ public abstract class Personnage {
     //methode qui renvoie true si les PV du personnage tombent a 0
 
     public boolean etreMort(){
-        if (this.pv > 0) {
-            return false;
-        }
-            return true;
+        return this.pv <= 0;
     }
 
     /**

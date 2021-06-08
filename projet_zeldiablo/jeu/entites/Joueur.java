@@ -28,10 +28,10 @@ public class Joueur extends Personnage {
     public void attaquerAutour() {
         Case c = this.getCase();
         Labyrinthe l = getLabyrinthe();
-        Case nord = l.getCase(c.x, c.y - 1);
+        Case nord = l.getCase(c.x, Math.max(c.y - 1,0));
         Case sud = l.getCase(c.x, c.y + 1);
         Case est = l.getCase(c.x + 1, c.y);
-        Case ouest = l.getCase(c.x - 1, c.y);
+        Case ouest = l.getCase(Math.max(c.x - 1,0), c.y);
         ArrayList<Case> caseautour = new ArrayList<Case>();
         caseautour.add(nord);
         caseautour.add(sud);
