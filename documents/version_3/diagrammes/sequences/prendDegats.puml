@@ -1,0 +1,23 @@
+@startuml
+title "prendsDegats"
+
+
+participant "lab : Labyrinthe" as lab
+participant "pi : Piege" as pi
+participant "p : Personnage" as p
+
+
+
+activate lab
+lab -> pi : prendDegats(p)
+activate pi
+
+
+pi -> p : diminuerVie(1)
+activate p
+p --> pi
+deactivate p
+
+pi --> lab
+deactivate pi
+@enduml
