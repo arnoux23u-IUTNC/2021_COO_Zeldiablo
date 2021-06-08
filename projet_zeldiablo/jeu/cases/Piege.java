@@ -32,13 +32,13 @@ public class Piege extends Obstacle {
      * @return booleen, a vrai si peut passer dessus
      */
     @Override
-    public boolean peutTraverser() {
+    public boolean peutTraverser(Personnage p) {
         return true;
     }
 
     /**
      * Methode retirant 1pv du joueur
-     * @param j joueur auquel on retire 1pv
+     * @param p personnage auquel on retire 1pv
      */
     public void prendDegats(Personnage p) {
         switch (p.getClass().getSimpleName()) {
@@ -47,5 +47,13 @@ public class Piege extends Obstacle {
                 break;
         }
 
+    }
+
+    public int getX(){
+        return this.x;
+    }
+
+    public int getY(){
+        return this.y;
     }
 }
