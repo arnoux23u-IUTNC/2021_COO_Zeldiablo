@@ -95,6 +95,8 @@ public class Labyrinthe {
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public Labyrinthe(boolean autoGenerate) {
+        lMonstre = new ArrayList<Monstre>();
+        lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
         //o = obstacle
@@ -102,6 +104,7 @@ public class Labyrinthe {
             try {
                 File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
                 File[] maps = fr.listFiles();
+
                 assert maps != null;
                 FileReader map = new FileReader(maps[new Random().nextInt(maps.length)]);
                 //On recupere une map au pif
@@ -231,7 +234,6 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
-        lMonstre = new ArrayList<Monstre>();
     }
 
     /**
