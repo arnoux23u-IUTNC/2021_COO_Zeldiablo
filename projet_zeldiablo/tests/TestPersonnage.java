@@ -72,4 +72,15 @@ public class TestPersonnage {
         t.attaquer(j);
         assertEquals("Le Joueur doit avoir perdu 3 points et en avoir 17",17,j.getPv());
     }
+
+    /**
+     * Methode testPersonnage04
+     * Test etreMort
+     */
+    @Test
+    public void test03_Personnage_etreMort(){
+        Joueur j = new Joueur(l,porte);
+        j.diminuerVie(5);
+        assertEquals("Le joueur est cense etre mort",true,j.etreMort());
+    }
 }

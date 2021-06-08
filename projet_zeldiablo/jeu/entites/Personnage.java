@@ -140,7 +140,6 @@ public abstract class Personnage {
             return false;
         }
             return true;
-
     }
 
 }

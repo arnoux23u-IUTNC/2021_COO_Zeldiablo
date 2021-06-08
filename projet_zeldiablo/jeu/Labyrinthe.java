@@ -76,6 +76,16 @@ public class Labyrinthe {
             "oxxoxxoxxooooooooooxxooooxxoxx" +
             "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
 
+    /**
+     * Liste de monstre
+     */
+    private ArrayList<Monstre> lMonstre;
+
+    /**
+     * Liste de pieges
+     */
+    private ArrayList<Piege> lPieges;
+
 
     /**
      * Constructeur public par defaut
@@ -84,13 +94,9 @@ public class Labyrinthe {
      * @param autoGenerate, booleen sur vrai pour une map auto
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-
-    /*
-    * Liste de monstre
-    */
-    private ArrayList<Monstre> lMonstre;
-
     public Labyrinthe(boolean autoGenerate) {
+        lMonstre = new ArrayList<Monstre>();
+        lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
         //o = obstacle
@@ -98,6 +104,7 @@ public class Labyrinthe {
             try {
                 File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
                 File[] maps = fr.listFiles();
+
                 assert maps != null;
                 FileReader map = new FileReader(maps[new Random().nextInt(maps.length)]);
                 //On recupere une map au pif
@@ -151,7 +158,8 @@ public class Labyrinthe {
                                 cases[i][j] = m1;
                                 break;
                             case 'p':
-                                Case pi = new Piege(i, j);
+                                Piege pi = new Piege(i, j);
+                                lPieges.add(pi);
                                 cases[i][j] = pi;
                                 break;
                             case 'e':
@@ -162,6 +170,18 @@ public class Labyrinthe {
                                 } else {
                                     this.sortie = po;
                                 }
+                                break;
+                            case 't':
+                                Case c2 = new Chemin(i, j);
+                                Monstre m2 = new Troll(this, c2);
+                                lMonstre.add(m2);
+                                cases[i][j] = c2;
+                                break;
+                            case 'f':
+                                Case c3 = new Chemin(i, j);
+                                Monstre m3 = new Troll(this, c3);
+                                lMonstre.add(m3);
+                                cases[i][j] = c3;
                                 break;
                         }
                         cursor++;
@@ -183,7 +203,8 @@ public class Labyrinthe {
                             cases[i][j] = m1;
                             break;
                         case 'p':
-                            Case pi = new Piege(i, j);
+                            Piege pi = new Piege(i, j);
+                            lPieges.add(pi);
                             cases[i][j] = pi;
                             break;
                         case 'e':
@@ -213,7 +234,6 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
-        lMonstre = new ArrayList<Monstre>();
     }
 
     /**
@@ -359,5 +379,13 @@ public class Labyrinthe {
      */
     public ArrayList<Monstre> getlMonstre() {
         return lMonstre;
+    }
+
+    /**
+     * Getter pieges
+     * @return liste des pieges
+     */
+    public ArrayList<Piege> getlPieges(){
+        return lPieges;
     }
 }
