@@ -1,0 +1,12 @@
+@startuml
+title "Diminuer vie d'un personnage"
+
+participant "personnage : Personnage" as personnage
+
+
+
+-> personnage  : diminuerVie(7)
+personnage  -> personnage  : setPv(5-7)
+<-- personnage
+deactivate personnage
+@enduml
