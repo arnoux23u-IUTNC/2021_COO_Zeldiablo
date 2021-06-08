@@ -66,6 +66,13 @@ public class TestPiege {
         assertEquals("Le Joueur doit prendre des dégats",19,j1.getPv());
     }
 
+    @Test
+    public void test02_piege_trollPrendDegat_OK(){
+        Troll t = new Troll(l, porte);
+        t.seDeplacer(Direction.SOUTH);
+        assertEquals("Le Troll ne doit pas prendre de dégats",3,t.getPv());
+    }
+
 
 
 
