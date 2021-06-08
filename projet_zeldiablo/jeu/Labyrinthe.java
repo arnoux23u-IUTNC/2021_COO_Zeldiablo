@@ -100,7 +100,7 @@ public class Labyrinthe {
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
         //o = obstacle
-        if(autoGenerate) {
+        if (autoGenerate) {
             try {
                 File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
                 File[] maps = fr.listFiles();
@@ -129,6 +129,16 @@ public class Labyrinthe {
                             } else {
                                 this.sortie = (Porte) c;
                             }
+                            break;
+                        case 't':
+                            c = new Chemin(pos, line);
+                            Monstre m2 = new Troll(this, c);
+                            lMonstre.add(m2);
+                            break;
+                        case 'f':
+                            c = new Chemin(pos, line);
+                            Monstre m3 = new Fantome(this, c);
+                            lMonstre.add(m3);
                             break;
                     }
                     cases[line][pos] = c;
@@ -179,7 +189,7 @@ public class Labyrinthe {
                                 break;
                             case 'f':
                                 Case c3 = new Chemin(i, j);
-                                Monstre m3 = new Troll(this, c3);
+                                Monstre m3 = new Fantome(this, c3);
                                 lMonstre.add(m3);
                                 cases[i][j] = c3;
                                 break;
@@ -188,8 +198,7 @@ public class Labyrinthe {
                     }
                 }
             }
-        }
-        else{
+        } else {
             int cursor = 0;
             for (int i = 0; i < TAILLE; i++) {
                 for (int j = 0; j < TAILLE; j++) {
@@ -224,7 +233,7 @@ public class Labyrinthe {
                             break;
                         case 'f':
                             Case c3 = new Chemin(i, j);
-                            Monstre m3 = new Troll(this, c3);
+                            Monstre m3 = new Fantome(this, c3);
                             lMonstre.add(m3);
                             cases[i][j] = c3;
                             break;
@@ -268,9 +277,9 @@ public class Labyrinthe {
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
-            if (p.getCase() instanceof Piege){
+            if (p.getCase() instanceof Piege) {
 
-                ((Piege)cases[p.getCase().x][p.getCase().y]).prendDegats(p);
+                ((Piege) cases[p.getCase().x][p.getCase().y]).prendDegats(p);
             }
             return true;
         }
@@ -375,6 +384,7 @@ public class Labyrinthe {
 
     /**
      * Getter des monstres
+     *
      * @return arraylist de monstre
      */
     public ArrayList<Monstre> getlMonstre() {
@@ -383,26 +393,27 @@ public class Labyrinthe {
 
     /**
      * Getter pieges
+     *
      * @return liste des pieges
      */
-    public ArrayList<Piege> getlPieges(){
+    public ArrayList<Piege> getlPieges() {
         return lPieges;
     }
 
-    public void attaquerMonstresAutourJoueur(){
+    public void attaquerMonstresAutourJoueur() {
         Case c = joueur.getCase();
-        Case nord = this.getCase(c.x,c.y-1);
-        Case sud = this.getCase(c.x,c.y+1);
-        Case est = this.getCase(c.x+1,c.y);
-        Case ouest = this.getCase(c.x-1,c.y);
+        Case nord = this.getCase(c.x, c.y - 1);
+        Case sud = this.getCase(c.x, c.y + 1);
+        Case est = this.getCase(c.x + 1, c.y);
+        Case ouest = this.getCase(c.x - 1, c.y);
         ArrayList<Case> caseautour = new ArrayList<Case>();
         caseautour.add(nord);
         caseautour.add(sud);
         caseautour.add(est);
         caseautour.add(ouest);
-        for(Monstre monstre : lMonstre){
+        for (Monstre monstre : lMonstre) {
             Case n = monstre.getCase();
-            if(caseautour.contains(n)){
+            if (caseautour.contains(n)) {
                 joueur.attaquer(monstre);
             }
         }
