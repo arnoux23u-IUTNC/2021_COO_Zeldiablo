@@ -46,35 +46,35 @@ public class Labyrinthe {
      * Seed default
      */
     private static final String lab = "exxooooooooooooooooooooooooooo" +
-                                      "xxxoxxxxxxxxxxxoxpxxxoxxxxxxxx" +
-                                      "oxxooootxoooooooxxooooxxoxxooo" +
-                                      "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
-                                      "oxpoxxoxxooooxxoooooooxxoooooo" +
-                                      "oxxoxxoxxxxxoxxoxxxxxotxxxxxxx" +
-                                      "oxxofxoooooooooooooxxoooooooxx" +
-                                      "oxxoxxoxxxxxxxxxxxxxxoxxxxxxxx" +
-                                      "oxxoxxoxxoooooooxxoxxoooopxoxx" +
-                                      "oxxoxxxxxoxxxsxxxxoxxoxxoxxoxx" +
-                                      "oxxoooooooooosxoooooooxxooooxx" +
-                                      "oxxopxxxxxxsssxoxxxxxxxxxxfxxx" +
-                                      "otxoxxooooooooooxxooooxxoxxooo" +
-                                      "oxxoxxxxxxxxoxxoxxoxxoxxoxxxxx" +
-                                      "oooooooxxoxxoxxoxxoxxooooxxooo" +
-                                      "oxxoxxxxxoxxxxxxxxoxxpxxoxxoxx" +
-                                      "oxxoxxoxxooooxxooooxxooooxxoxx" +
-                                      "oxxxxxoxxxxxoxxoxxxbxtxxxxxxxx" +
-                                      "oxxopxooooooooooooooooooooooxx" +
-                                      "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
-                                      "oxxoooooooxxoxxoxxoxxooooxxopx" +
-                                      "oxxxxxxxfxxxoxxoxxoxxxxxoxxxxx" +
-                                      "oxxoooooooooooooxxooooxxoooooo" +
-                                      "oxxoxxxxxxxxxxxoxxoxxxxxoxxxxx" +
-                                      "oxxooooooooooxxoooooooxxoxxoxx" +
-                                      "oxxoxxoxxxxxxxxxxxoxxxxxofxoxx" +
-                                      "oxxotxoooopxoxxoooooooxxoxpooo" +
-                                      "oxxoxxxxxxxxoxxoxxxxxxxxxxxoxx" +
-                                      "oxpoxxoxxooooooooooxxooooxxoxx" +
-                                      "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
+            "xxxoxxxxxxxxxxxoxpxxxoxxxxxxxx" +
+            "oxxooootxoooooooxxooooxxoxxooo" +
+            "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
+            "oxpoxxoxxooooxxoooooooxxoooooo" +
+            "oxxoxxoxxxxxoxxoxxxxxotxxxxxxx" +
+            "oxxofxoooooooooooooxxoooooooxx" +
+            "oxxoxxoxxxxxxxxxxxxxxoxxxxxxxx" +
+            "oxxoxxoxxoooooooxxoxxoooopxoxx" +
+            "oxxoxxxxxoxxxsxxxxoxxoxxoxxoxx" +
+            "oxxoooooooooosxoooooooxxooooxx" +
+            "oxxopxxxxxxsssxoxxxxxxxxxxfxxx" +
+            "otxoxxooooooooooxxooooxxoxxooo" +
+            "oxxoxxxxxxxxoxxoxxoxxoxxoxxxxx" +
+            "oooooooxxoxxoxxoxxoxxooooxxooo" +
+            "oxxoxxxxxoxxxxxxxxoxxpxxoxxoxx" +
+            "oxxoxxoxxooooxxooooxxooooxxoxx" +
+            "oxxxxxoxxxxxoxxoxxxbxtxxxxxxxx" +
+            "oxxopxooooooooooooooooooooooxx" +
+            "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
+            "oxxoooooooxxoxxoxxoxxooooxxopx" +
+            "oxxxxxxxfxxxoxxoxxoxxxxxoxxxxx" +
+            "oxxoooooooooooooxxooooxxoooooo" +
+            "oxxoxxxxxxxxxxxoxxoxxxxxoxxxxx" +
+            "oxxooooooooooxxoooooooxxoxxoxx" +
+            "oxxoxxoxxxxxxxxxxxoxxxxxofxoxx" +
+            "oxxotxoooopxoxxoooooooxxoxpooo" +
+            "oxxoxxxxxxxxoxxoxxxxxxxxxxxoxx" +
+            "oxpoxxoxxooooooooooxxooooxxoxx" +
+            "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
 
     /**
      * Liste de monstre
@@ -95,7 +95,7 @@ public class Labyrinthe {
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public Labyrinthe(boolean autoGenerate) {
-        
+
         lMonstre = new ArrayList<Monstre>();
         lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
@@ -265,7 +265,7 @@ public class Labyrinthe {
             destination = getDestination(p, dir);
         } catch (IndexOutOfBoundsException ignored) {
         }
-        if ((destination != null) && (getDestination(p,dir).getPersonnage()!=null)) {
+        if ((destination != null) && (getDestination(p, dir).getPersonnage() != null)) {
             return destination.peutTraverser(p);
         }
         return false;
@@ -278,7 +278,6 @@ public class Labyrinthe {
      * @param p Personnage a deplacer
      * @param d Direction voulue
      * @return booleen, a vrai si le personnage a bouge
-     * @param autoGenerate, booleen sur vrai pour une map auto
      */
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
@@ -287,15 +286,18 @@ public class Labyrinthe {
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege) {
                 //TODO NE PAS SUPPRIMER LE CAST EN OBSTACLE SINON LABYRINTHE CASSE
-                ((Piege)((Obstacle) cases[p.getCase().x][p.getCase().y])).prendDegats(p);
+                ((Piege) ((Obstacle) cases[p.getCase().x][p.getCase().y])).prendDegats(p);
             }
-            if (p.getCase() instanceof Porte) {
+            //TODO ICI AUSSI GROS PROBLEME
+            /*if (p.getCase() instanceof Porte) {
                 //TODO En attente
-                if ((Porte) cases[p.getCase().x][p.getCase().y]).peutTraverser(p) == false) {
+                if ((Porte) cases[p.getCase().x][p.getCase().y]).peutTraverser(p) == false){
                     Labyrinthe l = new Labyrinthe(autoGenerate);
                     .getCompteurLab() += 1;
                 }
-            return true;
+                return true;
+            }*/
+
         }
         return false;
     }
