@@ -50,7 +50,7 @@ public class TestPiege {
      * Test la generation du piege
      */
     @Test
-    public void test00_piege_piegegénéré_OK(){
+    public void test00_piege_piegegenere_OK(){
         assertTrue("La case 0,1 doit etre un piege ",l.getCase(1,0) instanceof Piege);
 
     }
@@ -62,7 +62,9 @@ public class TestPiege {
     @Test
     public void test01_piege_prendDegats_OK() {
         Joueur j1 = new Joueur(l,porte);
+        System.out.println(j.getPv());
         j1.seDeplacer(Direction.SOUTH);
+
         assertEquals("Le Joueur doit prendre des dégats",19,j1.getPv());
     }
 

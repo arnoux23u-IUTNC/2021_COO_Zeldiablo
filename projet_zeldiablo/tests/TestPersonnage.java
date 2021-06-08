@@ -80,7 +80,7 @@ public class TestPersonnage {
     @Test
     public void test03_Personnage_etreMort(){
         Joueur j = new Joueur(l,porte);
-        j.diminuerVie(5);
+        j.diminuerVie(20);
         assertEquals("Le joueur est cense etre mort",true,j.etreMort());
     }
 }
