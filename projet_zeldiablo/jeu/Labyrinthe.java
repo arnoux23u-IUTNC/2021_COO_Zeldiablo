@@ -144,8 +144,8 @@ public class Labyrinthe {
                                 cases[i][j] = m1;
                                 break;
                             case 'p':
-                                Case p = new Piege(i, j);
-                                cases[i][j] = p;
+                                Case pi = new Piege(i, j);
+                                cases[i][j] = pi;
                                 break;
                             case 'e':
                                 Porte po = new Porte(i, j);
@@ -176,8 +176,8 @@ public class Labyrinthe {
                             cases[i][j] = m1;
                             break;
                         case 'p':
-                            Case p = new Piege(i, j);
-                            cases[i][j] = p;
+                            Case pi = new Piege(i, j);
+                            cases[i][j] = pi;
                             break;
                         case 'e':
                             Porte po = new Porte(i, j);
@@ -229,7 +229,8 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege){
-                Piege.prendDegats(p);
+                Piege pi = new Piege(p.getCase().x, p.getCase().y);
+                pi.prendDegats(p);
             }
             return true;
         }
