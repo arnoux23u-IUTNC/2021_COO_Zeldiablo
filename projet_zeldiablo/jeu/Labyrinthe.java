@@ -90,16 +90,6 @@ public class Labyrinthe {
     */
     private ArrayList<Monstre> lMonstre;
 
-    /*
-    * Troll
-    */
-    private Troll t;
-
-    /*
-    * Fantome
-    */
-    private Fantome f;
-
     public Labyrinthe(boolean autoGenerate) {
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
@@ -205,6 +195,18 @@ public class Labyrinthe {
                                 this.sortie = po;
                             }
                             break;
+                        case 't':
+                            Case c2 = new Chemin(i, j);
+                            Monstre m2 = new Troll(this, c2);
+                            lMonstre.add(m2);
+                            cases[i][j] = c2;
+                            break;
+                        case 'f':
+                            Case c3 = new Chemin(i, j);
+                            Monstre m3 = new Troll(this, c3);
+                            lMonstre.add(m3);
+                            cases[i][j] = c3;
+                            break;
                     }
                     cursor++;
                 }
@@ -212,8 +214,6 @@ public class Labyrinthe {
         }
         this.joueur = new Joueur(this, entree);
         lMonstre = new ArrayList<Monstre>();
-        lMonstre.add(t);
-        lMonstre.add(f);
     }
 
     /**
