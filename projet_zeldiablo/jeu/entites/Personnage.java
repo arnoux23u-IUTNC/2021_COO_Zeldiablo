@@ -131,4 +131,16 @@ public abstract class Personnage {
         }
         p.diminuerVie(this.degats);
     }
+
+
+    //methode qui renvoie true si les PV du personnage tombent a 0
+
+    public boolean etreMort(){
+        if (this.pv > 0) {
+            return false;
+        }
+            return true;
+
+    }
+
 }
