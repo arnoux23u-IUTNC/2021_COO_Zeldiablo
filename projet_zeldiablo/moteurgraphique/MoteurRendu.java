@@ -50,7 +50,7 @@ public class MoteurRendu {
         // boucle de jeu
         while (!this.jeu.etreFini()) {
             // fait evoluer le jeu
-            this.jeu.evoluer(controle.getDirection());
+            this.jeu.evoluer(controle.getDirection(),controle.getAttaque());
             // affiche le jeu
             this.gui.dessiner();
             // met en attente

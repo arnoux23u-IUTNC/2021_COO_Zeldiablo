@@ -16,7 +16,7 @@ public interface Jeu {
      *
      * @param d direction de l'utilisateur
      */
-    public void evoluer(Direction d);
+    public void evoluer(Direction d,boolean b);
 
     /**
      * methode test fini

@@ -39,8 +39,11 @@ public class JeuPerso implements Jeu {
      * @param d direction de l'utilisateur
      */
     @Override
-    public void evoluer(Direction d) {
+    public void evoluer(Direction d,boolean b) {
         this.pj.seDeplacer(d);
+        if(b){
+            l.attaquerMonstresAutourJoueur();
+        }
     }
 
     /**

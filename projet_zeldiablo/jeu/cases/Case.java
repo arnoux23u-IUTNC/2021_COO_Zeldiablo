@@ -22,7 +22,6 @@ public abstract class Case {
      * Attribut representant l'ordonnee de la case
      */
     public final int y;
-
     /**
      * Constructeur public par defaut a deux parametres
      *

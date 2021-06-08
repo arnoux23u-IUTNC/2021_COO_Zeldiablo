@@ -24,6 +24,16 @@ public class Controleur implements KeyListener {
     private Direction aRetourner;
 
     /**
+     * Booleen d'attaque enCours
+     */
+    private boolean attaqueEnCours;
+
+    /**
+     * Booleen d'attaque a retourner
+     */
+    private boolean attaqueARetourner;
+
+    /**
      * Controlleur public par defaut
      */
     public Controleur() {
@@ -38,6 +48,11 @@ public class Controleur implements KeyListener {
     public Direction getDirection() {
         Direction retour = this.aRetourner;
         this.aRetourner = enCours;
+        return retour;
+    }
+    public Boolean getAttaque(){
+        boolean retour = this.attaqueARetourner;
+        this.attaqueARetourner = attaqueEnCours;
         return retour;
     }
 
@@ -74,11 +89,15 @@ public class Controleur implements KeyListener {
                 this.enCours = Direction.SOUTH;
                 this.aRetourner = Direction.SOUTH;
                 break;
+            case ' ' :
+                this.attaqueEnCours=true;
+                this.attaqueARetourner=true;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         this.enCours = null;
+        this.attaqueEnCours = false;
     }
 }
