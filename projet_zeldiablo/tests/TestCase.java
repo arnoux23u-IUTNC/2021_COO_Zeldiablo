@@ -84,16 +84,29 @@ public class TestCase {
         assertTrue("Joueur devrait pouvoir aller dessus", c.peutTraverser(j));
         assertFalse("Joueur ne devrait pas pouvoir aller dessus", c2.peutTraverser(j));
     }
+
     /**
      * Methode testPeutTraverser04
      * Verifie si un fantome peut traverser un mur
      */
     @Test
     public void test04_case_mur_peutTraverserparFantome() {
-        Fantome f = new Fantome(l,l.getCase(0,1));
+        Fantome f = new Fantome(l,l.getCase(3,0));
         Mur c = new Mur(0, 0);
-        assertTrue("Joueur devrait pouvoir aller dessus", c.peutTraverser(f));
+        assertTrue("Fantome devrait pouvoir aller dessus", c.peutTraverser(f));
+        assertTrue("Fantome devrqit etre dans le mur",f.seDeplacer(Direction.SOUTH));
+    }
 
+    /**
+     * Methode testPeutTraverser05
+     * Verifie si un troll ne peut pas traverser un mur
+     */
+    @Test
+    public void test05_case_mur_nepeutpasTraverserparTroll() {
+        Troll f = new Troll(l,l.getCase(3,0));
+        Mur c = (Mur) l.getCase(4,0);
+        assertFalse("Fantome devrait pouvoir aller dessus", c.peutTraverser(f));
+        assertFalse("Fantome devrqit etre dans le mur",f.seDeplacer(Direction.SOUTH));
     }
 
 }

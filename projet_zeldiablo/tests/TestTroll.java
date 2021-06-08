@@ -32,7 +32,7 @@ public class TestTroll {
         Labyrinthe l = new Labyrinthe();
         Case c = l.getCase(0,0);
         Troll troll = new Troll(l,c);
-        troll.attaquerTroll();
+        troll.trollSeFaitAttaquer();
         troll.seRegenerer();
         assertEquals("Ses points devraient être à 3",3,troll.getPv());
     }
