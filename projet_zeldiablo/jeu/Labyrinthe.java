@@ -5,6 +5,7 @@ import jeu.cases.*;
 import jeu.utils.*;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
@@ -83,6 +84,22 @@ public class Labyrinthe {
      * @param autoGenerate, booleen sur vrai pour une map auto
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
+
+    /*
+    * Liste de monstre
+    */
+    private ArrayList<Monstre> lMonstre;
+
+    /*
+    * Troll
+    */
+    private Troll t;
+
+    /*
+    * Fantome
+    */
+    private Fantome f;
+
     public Labyrinthe(boolean autoGenerate) {
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
@@ -104,6 +121,9 @@ public class Labyrinthe {
                             break;
                         case 'o':
                             c = new Mur(pos, line);
+                            break;
+                        case 'p':
+                            c = new Piege(pos, line);
                             break;
                         case 'e':
                             c = new Porte(pos, line);
@@ -140,13 +160,17 @@ public class Labyrinthe {
                                 Case m1 = new Mur(i, j);
                                 cases[i][j] = m1;
                                 break;
+                            case 'p':
+                                Case pi = new Piege(i, j);
+                                cases[i][j] = pi;
+                                break;
                             case 'e':
-                                Porte p = new Porte(i, j);
-                                cases[i][j] = p;
+                                Porte po = new Porte(i, j);
+                                cases[i][j] = po;
                                 if (this.entree == null) {
-                                    this.entree = p;
+                                    this.entree = po;
                                 } else {
-                                    this.sortie = p;
+                                    this.sortie = po;
                                 }
                                 break;
                         }
@@ -168,13 +192,17 @@ public class Labyrinthe {
                             Case m1 = new Mur(i, j);
                             cases[i][j] = m1;
                             break;
+                        case 'p':
+                            Case pi = new Piege(i, j);
+                            cases[i][j] = pi;
+                            break;
                         case 'e':
-                            Porte p = new Porte(i, j);
-                            cases[i][j] = p;
+                            Porte po = new Porte(i, j);
+                            cases[i][j] = po;
                             if (this.entree == null) {
-                                this.entree = p;
+                                this.entree = po;
                             } else {
-                                this.sortie = p;
+                                this.sortie = po;
                             }
                             break;
                     }
@@ -183,6 +211,9 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
+        lMonstre = new ArrayList<Monstre>();
+        lMonstre.add(t);
+        lMonstre.add(f);
     }
 
     /**
@@ -217,6 +248,10 @@ public class Labyrinthe {
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
+            if (p.getCase() instanceof Piege){
+                Piege pi = new Piege(p.getCase().x, p.getCase().y);
+                pi.prendDegats(p);
+            }
             return true;
         }
         return false;
@@ -316,5 +351,13 @@ public class Labyrinthe {
      */
     public Case[][] getCases() {
         return cases;
+    }
+
+    /**
+     * Getter des monstres
+     * @return arraylist de monstre
+     */
+    public ArrayList<Monstre> getlMonstre() {
+        return lMonstre;
     }
 }

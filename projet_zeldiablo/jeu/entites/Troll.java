@@ -18,7 +18,7 @@ public class Troll extends Monstre {
      * @param depart position de depart
      */
     public Troll(Labyrinthe l, Case depart) {
-        super(l, depart, 3, 3);
+        super(l, depart, 3, 3, 5);
         tapeDansLeTour = false;
     }
 
