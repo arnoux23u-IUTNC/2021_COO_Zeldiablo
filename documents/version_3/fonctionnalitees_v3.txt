@@ -1,8 +1,8 @@
 * Fonctionnalités version 3
 
-- fonctionnalité 1 : 
-- responsables [] : 
-- descriptif texte : 
+- fonctionnalité 1 : Intelligence des monstres
+- responsables [1] : Guillaume
+- descriptif texte : Ajouter un attribut intelligence au monstre qui servira a faire une recherche des joueurs
 - critères de validation : 
-    -critère 1 :
+    -critère 1 : - le monstre doit aoir une intelligence definie
 
