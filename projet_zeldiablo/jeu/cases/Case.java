@@ -23,6 +23,10 @@ public abstract class Case {
      */
     public final int y;
     /**
+     * Attribut représentant le personnage sur la case
+     */
+    private Personnage p;
+    /**
      * Constructeur public par defaut a deux parametres
      *
      * @param x abscisse
@@ -68,5 +72,28 @@ public abstract class Case {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    /**
+     * Methode permettant d'indiquer le personnage sur la case
+     * @param per personnage sur la case
+     */
+    public void setPersonnage(Personnage per){
+        this.p=per;
+    }
+
+    /**
+     * Methode permettant de retirer un personnage de la case
+     */
+    public void removePersonnage(){
+        this.p=null;
+    }
+
+    /**
+     * Methode retournant le personnage sur la case
+     * @return le personnage p
+     */
+    public Personnage getPersonnage(){
+        return this.p;
     }
 }
