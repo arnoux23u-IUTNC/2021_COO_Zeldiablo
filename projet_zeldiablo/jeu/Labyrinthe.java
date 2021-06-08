@@ -186,12 +186,14 @@ public class Labyrinthe {
                                 Monstre m2 = new Troll(this, c2);
                                 lMonstre.add(m2);
                                 cases[i][j] = c2;
+                                c2.setPersonnage(m2);
                                 break;
                             case 'f':
                                 Case c3 = new Chemin(i, j);
                                 Monstre m3 = new Fantome(this, c3);
                                 lMonstre.add(m3);
                                 cases[i][j] = c3;
+                                c3.setPersonnage(m3);
                                 break;
                         }
                         cursor++;
@@ -230,12 +232,14 @@ public class Labyrinthe {
                             Monstre m2 = new Troll(this, c2);
                             lMonstre.add(m2);
                             cases[i][j] = c2;
+                            c2.setPersonnage(m2);
                             break;
                         case 'f':
                             Case c3 = new Chemin(i, j);
                             Monstre m3 = new Fantome(this, c3);
                             lMonstre.add(m3);
                             cases[i][j] = c3;
+                            c3.setPersonnage(m3);
                             break;
                     }
                     cursor++;
@@ -276,6 +280,8 @@ public class Labyrinthe {
      */
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
+            cases[getDestination(p, d).x][getDestination(p, d).y].setPersonnage(p);
+            p.getCase().removePersonnage();
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege) {
                 //TODO NE PAS SUPPRIMER LE CAST EN OBSTACLE SINON LABYRINTHE CASSE
