@@ -6,9 +6,13 @@ participant "troll : Troll" as troll
 
 
 
-activate troll
+
 -> troll : seRegenerer()
+activate troll
+alt ! attaqueDansLeTour
 troll -> troll : augmenterVie(1)
+else
+end
 <-- troll
 deactivate troll
 

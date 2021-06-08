@@ -5,14 +5,13 @@ title "Attaque d'un personnage a vers un personnage b"
 participant "a : Personnage" as a
 participant "b : Personnage" as b
 
-
-activate a
-activate b
 -> a : attaquer(b)
+activate a
 a -> b : diminuerVie(3)
+activate b
 a <-- b
+deactivate b
 <-- a
 deactivate a
-deactivate b
 
 @enduml
