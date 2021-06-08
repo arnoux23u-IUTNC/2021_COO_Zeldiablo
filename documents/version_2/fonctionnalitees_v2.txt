@@ -5,7 +5,7 @@
 - descriptif texte : Permettre l'ajout de labyrinthes personnalisés en .txt
 - critères de validation : 
     -critère 1 : avoir des labyrinthes avec une bonne structure
-    -critère 2 : 
+    -critère 2 : lire correctement des fichiers txt
 
 - fonctionnalité 2 :  Création de Troll
 - responsables [1] : Alexandre
@@ -41,3 +41,10 @@
 - descriptif texte : Permettre au personnage d'attaquer un autre personnage
 -critères de validation :
     -critère 1 : Faire perdre des points de vie au personnage attaqué en fonction des degats du personnage attaquant
+
+- fonctionnalité 7 : intégration du moteur graphique
+- responsables [3] : Guillaume, Jules, Tristan
+- descriptif texte : Permettre au jeu de s'afficher
+- critères de validation :
+    -critère 1 : Avoir un affichage correct
+    -critère 2 : Rafraichissement autonome

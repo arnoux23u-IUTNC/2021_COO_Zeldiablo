@@ -7,6 +7,9 @@ import jeu.entites.*;
 import java.awt.*;
 import java.awt.image.*;
 
+/**
+ * Classe modelisant le dessin du Jeu
+ */
 public class DessinPerso implements DessinJeu {
 
     /**
@@ -67,9 +70,9 @@ public class DessinPerso implements DessinJeu {
     public void dessiner(BufferedImage im) {
         Joueur j = jeuEnCours.getJoueur();
 
-        for(Case[] c1 : jeuEnCours.getLabyrinthe().getCases()){
-            for(Case c : c1){
-                this.dessinerObjet(c.getClass().getSimpleName(),c.x,c.y,im);
+        for (Case[] c1 : jeuEnCours.getLabyrinthe().getCases()) {
+            for (Case c : c1) {
+                this.dessinerObjet(c.getClass().getSimpleName(), c.x, c.y, im);
             }
         }
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);

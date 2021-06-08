@@ -6,6 +6,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.security.Key;
 
+/**
+ * Classe modelisant le controlleur de jeu
+ *
+ * @author AGJMX
+ */
 public class Controleur implements KeyListener {
 
     /**

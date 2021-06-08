@@ -2,25 +2,26 @@ package moteurgraphique;
 
 import javax.swing.*;
 
+/**
+ * Classe de modelisation du GUI
+ */
 public class InterfaceGraphique {
 
     /**
      * le Panel lie a la JFrame
      */
-    private PanelDessin panel;
+    private final PanelDessin panel;
 
     /**
      * le controleur lie a la JFrame
      */
-    private Controleur controleur;
+    private final Controleur controleur;
 
     /**
      * la construction de l'interface grpahique - construit la JFrame -
      * construit les Attributs
      *
-     * @param afficheurUtil
-     *            l'afficheur a utiliser dans le moteur
-     *
+     * @param afficheurUtil l'afficheur a utiliser dans le moteur
      */
     public InterfaceGraphique(DessinJeu afficheurUtil, int x, int y) {
         // creation JFrame
@@ -48,7 +49,7 @@ public class InterfaceGraphique {
     /**
      * retourne le controleur de l'affichage construit
      *
-     * @return
+     * @return Controlleur
      */
     public Controleur getControleur() {
         return controleur;

@@ -5,9 +5,12 @@ Déroulement :
 ==
 
 - **Introduction - TD 14 - Projet Zeldiablo - Fonctionnalités (2h)**
-    > Guillaume est désespéré, Tristan travaille un peu et fait des dessins, Jules rigole aux harceleurs de twitter, Alexandre passe son temps à harcerler Antonin sur twitter et Antonin passe son temps à se faire harcerler par alexandre sur twitter (tout en travaillant)
+    > On a fait des diagrammes
 - **Première itération - TD 15 - Projet Zeldiablo - Conception et première réalisation (2h ~+)**
-    > Jules bosse a 20h, Tristan fait des tests, Guigz fini de bosser a 4h du matin, Xaxa ecoute du rock pour faire le labyrinthe, Antonin réinstalle Git
+    > Tristan et Jules on initialisé les classes, Alex a créé une entrée et une sortie dans le labyrinthe, et Guillaume et Antonin on fait les déplacements, et des corrections sur certaines partie du jeu.
+- **Seconde itération - TD 16 - Projet Zeldiablo - Moteur Graphique (5h ~+)**
+    > Tristan a fait des maps de labyrinthe de test, Jules a fait les maps de labyrinthe utilisées, Alex a créé 2 monstres du labyrinthe : Un Troll et un Fantôme, ainsi qu'une gestion des dégâts, Antonin a ajouté des points de vie au personnage et Guillaume a gérer la gestion des maps importé d'un fichier texte.
+
 
 # Membres
 

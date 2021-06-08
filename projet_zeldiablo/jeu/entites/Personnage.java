@@ -6,6 +6,8 @@ import jeu.utils.Direction;
 
 /**
  * Classe modelisant un personnage, de type passif (joueur) ou actif (monstre)
+ *
+ * @author AGJMX
  */
 public abstract class Personnage {
 
@@ -36,13 +38,11 @@ public abstract class Personnage {
      * @param depart position de depart
      */
     public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) {
-        position = depart;
+        this.position = depart;
         this.l = l;
         this.degats = degats;
         this.pv = pointsDeVie;
     }
-
-
 
     /**
      * Getter position
@@ -74,36 +74,59 @@ public abstract class Personnage {
         return l.deplacerJoueur(this, d);
     }
 
-
-
-    public void diminuerVie(int vieDown){
-        if(vieDown>0){
-            if(this.getPv()-vieDown > 0){
-                this.setPv(this.getPv()-vieDown);
-            }else{
+    /**
+     * Methode pour diminuer la vie du personnage
+     *
+     * @param vieDown retrait
+     */
+    public void diminuerVie(int vieDown) {
+        if (vieDown > 0) {
+            if (this.getPv() - vieDown > 0) {
+                this.setPv(this.getPv() - vieDown);
+            } else {
                 this.setPv(0);
             }
         }
     }
 
-    public void augmenterVie(int vieUp){
-        if(vieUp>0){
-            if(this.getPv() > 0){
-                this.setPv(this.getPv()+vieUp);
+    /**
+     * Methode pour augmenter la vie du personnage
+     *
+     * @param vieUp augmentation
+     */
+    public void augmenterVie(int vieUp) {
+        if (vieUp > 0) {
+            if (this.getPv() > 0) {
+                this.setPv(this.getPv() + vieUp);
             }
         }
     }
 
-    public int getPv(){
+    /**
+     * Getter PV
+     *
+     * @return pvs du personnage
+     */
+    public int getPv() {
         return this.pv;
     }
 
-    public void setPv(int newPV){
+    /**
+     * Setter PV
+     *
+     * @param newPV nouveaux pv du personnage
+     */
+    public void setPv(int newPV) {
         this.pv = newPV;
     }
 
-    public void attaquer(Personnage p){
-        if(p instanceof Troll){
+    /**
+     * Methode pour attaquer un autre personnage
+     *
+     * @param p victime
+     */
+    public void attaquer(Personnage p) {
+        if (p instanceof Troll) {
             ((Troll) p).trollSeFaitAttaquer();
         }
         p.diminuerVie(this.degats);
