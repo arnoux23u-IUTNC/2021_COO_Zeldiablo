@@ -278,7 +278,8 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege) {
-                ((Piege) cases[p.getCase().x][p.getCase().y]).prendDegats(p);
+                //TODO NE PAS SUPPRIMER LE CAST EN OBSTACLE SINON LABYRINTHE CASSE
+                ((Piege)((Obstacle) cases[p.getCase().x][p.getCase().y])).prendDegats(p);
             }
             return true;
         }
