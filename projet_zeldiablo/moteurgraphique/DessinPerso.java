@@ -2,6 +2,7 @@ package moteurgraphique;
 
 import jeu.*;
 import jeu.cases.Case;
+import jeu.cases.Piege;
 import jeu.entites.*;
 
 import java.awt.*;
@@ -68,6 +69,11 @@ public class DessinPerso implements DessinJeu {
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
+            case "Piege":
+                crayon.setColor(Color.black);
+                crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
+                        TAILLE_CASE);
+                break;
             default:
                 throw new AssertionError("objet inexistant");
         }
@@ -92,6 +98,9 @@ public class DessinPerso implements DessinJeu {
             if (m instanceof Fantome) {
                 this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
             }
+        }
+        for (Piege p : jeuEnCours.getLabyrinthe().getlPieges()) {
+            this.dessinerObjet(p.getClass().getSimpleName(), p.x, p.y, im);
         }
 
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);
