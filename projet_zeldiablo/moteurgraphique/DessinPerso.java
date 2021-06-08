@@ -44,12 +44,12 @@ public class DessinPerso implements DessinJeu {
                         TAILLE_CASE);
                 break;
             case "Troll":
-                crayon.setColor(Color.yellow);
+                crayon.setColor(Color.magenta);
                 crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
             case "Fantome":
-                crayon.setColor(Color.gray);
+                crayon.setColor(Color.red);
                 crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
@@ -85,6 +85,15 @@ public class DessinPerso implements DessinJeu {
                 this.dessinerObjet(c.getClass().getSimpleName(), c.x, c.y, im);
             }
         }
+        for (Monstre m : jeuEnCours.getLabyrinthe().getlMonstre()) {
+            if (m instanceof Troll) {
+                this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
+            }
+            if (m instanceof Fantome) {
+                this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
+            }
+        }
+
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);
     }
 

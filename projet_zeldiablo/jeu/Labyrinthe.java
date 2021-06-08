@@ -45,7 +45,7 @@ public class Labyrinthe {
     /**
      * Seed default
      */
-    private static final String lab = "exxooooooooooooooooooooooooooo" +
+    private static final String lab = "epxooooooooooooooooooooooooooo" +
             "xxxoxxxxxxxxxxxoxxxxxoxxxxxxxx" +
             "oxxooooxxoooooooxxooooxxoxxooo" +
             "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
@@ -89,16 +89,6 @@ public class Labyrinthe {
     * Liste de monstre
     */
     private ArrayList<Monstre> lMonstre;
-
-    /*
-    * Troll
-    */
-    private Troll t;
-
-    /*
-    * Fantome
-    */
-    private Fantome f;
 
     public Labyrinthe(boolean autoGenerate) {
         cases = new Case[TAILLE][TAILLE];
@@ -205,6 +195,18 @@ public class Labyrinthe {
                                 this.sortie = po;
                             }
                             break;
+                        case 't':
+                            Case c2 = new Chemin(i, j);
+                            Monstre m2 = new Troll(this, c2);
+                            lMonstre.add(m2);
+                            cases[i][j] = c2;
+                            break;
+                        case 'f':
+                            Case c3 = new Chemin(i, j);
+                            Monstre m3 = new Troll(this, c3);
+                            lMonstre.add(m3);
+                            cases[i][j] = c3;
+                            break;
                     }
                     cursor++;
                 }
@@ -212,8 +214,6 @@ public class Labyrinthe {
         }
         this.joueur = new Joueur(this, entree);
         lMonstre = new ArrayList<Monstre>();
-        lMonstre.add(t);
-        lMonstre.add(f);
     }
 
     /**
@@ -249,8 +249,8 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege){
-                Piege pi = new Piege(p.getCase().x, p.getCase().y);
-                pi.prendDegats(p);
+
+                ((Piege)cases[p.getCase().x][p.getCase().y]).prendDegats(p);
             }
             return true;
         }
