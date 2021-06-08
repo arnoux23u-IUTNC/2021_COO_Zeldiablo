@@ -44,7 +44,7 @@ public class Labyrinthe {
     /**
      * Seed default
      */
-    private static final String lab = "exxooooooooooooooooooooooooooo" +
+    private static final String lab = "epxooooooooooooooooooooooooooo" +
             "xxxoxxxxxxxxxxxoxxxxxoxxxxxxxx" +
             "oxxooooxxoooooooxxooooxxoxxooo" +
             "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
