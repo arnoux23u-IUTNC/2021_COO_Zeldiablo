@@ -264,7 +264,7 @@ public class Labyrinthe {
             destination = getDestination(p, dir);
         } catch (IndexOutOfBoundsException ignored) {
         }
-        if (destination != null) {
+        if ((destination != null) && (getDestination(p,dir).getPersonnage()!=null)) {
             return destination.peutTraverser(p);
         }
         return false;
