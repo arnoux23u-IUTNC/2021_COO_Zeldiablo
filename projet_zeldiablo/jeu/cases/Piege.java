@@ -1,6 +1,7 @@
 package jeu.cases;
 
 import jeu.entites.Joueur;
+import jeu.entites.Personnage;
 
 
 /**
@@ -31,12 +32,13 @@ public class Piege extends Obstacle {
      * @return booleen, a vrai si peut passer dessus
      */
     @Override
-    public boolean peutTraverser() {
+    public boolean peutTraverser(Personnage p) {
         return true;
     }
 
     /**
      * Methode retirant 1pv du joueur
+     *
      * @param j joueur auquel on retire 1pv
      */
     public void prendDegats(Joueur j) {
