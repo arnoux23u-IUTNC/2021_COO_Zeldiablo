@@ -1,0 +1,22 @@
+@startuml
+
+title "Attaque d'un joueur j autour de lui"
+
+participant "j : Joueur" as j
+participant "troll : Troll" as t
+participant "fantome : Fantome" as f
+
+-> j : attaquerAutour()
+j -> t : attaquer()
+activate t
+t --> j
+deactivate t
+j -> f : attaquer()
+activate f
+f --> j
+deactivate f
+<-- j
+deactivate j
+
+
+@enduml

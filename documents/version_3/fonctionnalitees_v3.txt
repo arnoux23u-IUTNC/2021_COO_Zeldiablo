@@ -28,6 +28,8 @@
 
 -fonctionnalité 5 : Attaque aux alentours
      -responsable [1] : Alexandre
-     - descriptif texte : Quand on monstre attaque, il peut attaquer tout autour
+     - descriptif texte : Quand un joueur attaque, il attaque tout autour
      - critères de validation :
           -critère 1 : - la case doit etre remplie par un personnage
+          -critère 2 : - les monstres doivent se trouver autour du joueur
+          -critère 1 : - il attaque seulement avec la touche espace
