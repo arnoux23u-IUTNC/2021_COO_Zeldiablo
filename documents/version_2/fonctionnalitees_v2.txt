@@ -49,3 +49,4 @@
 - critères de validation :
     -critère 1 : Avoir un affichage correct
     -critère 2 : Rafraichissement autonome
+- note : impossibilite de test

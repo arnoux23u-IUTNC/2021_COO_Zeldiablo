@@ -75,10 +75,10 @@ public class TestCase {
      */
     @Test
     public void test04_case_mur_peutTraverserparFantome() {
-        Fantome f = new Fantome(l,l.getCase(3,0));
+        Fantome f = new Fantome(l, l.getCase(3, 0));
         Mur c = new Mur(0, 0);
         assertTrue("Fantome devrait pouvoir aller dessus", c.peutTraverser(f));
-        assertTrue("Fantome devrait etre dans le mur",f.seDeplacer(Direction.SOUTH));
+        assertTrue("Fantome devrait etre dans le mur", f.seDeplacer(Direction.SOUTH));
     }
 
     /**
@@ -87,10 +87,10 @@ public class TestCase {
      */
     @Test
     public void test05_case_mur_nepeutpasTraverserparTroll() {
-        Troll f = new Troll(l,l.getCase(3,0));
-        Mur c = (Mur) l.getCase(4,0);
+        Troll f = new Troll(l, l.getCase(3, 0));
+        Mur c = (Mur) l.getCase(4, 0);
         assertFalse("Troll ne devrait pas pouvoir aller dessus", c.peutTraverser(f));
-        assertFalse("Troll ne devrait pas etre dans le mur",f.seDeplacer(Direction.SOUTH));
+        assertFalse("Troll ne devrait pas etre dans le mur", f.seDeplacer(Direction.SOUTH));
     }
 
 }
