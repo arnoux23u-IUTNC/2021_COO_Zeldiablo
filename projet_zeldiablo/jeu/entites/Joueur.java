@@ -1,7 +1,10 @@
 package jeu.entites;
 
 import jeu.Labyrinthe;
+import jeu.cases.Case;
 import jeu.cases.Porte;
+
+import java.util.ArrayList;
 
 /**
  * Classe modelisant un Joueur
@@ -21,5 +24,26 @@ public class Joueur extends Personnage {
         super(l, e, 20, 5);
         e.setFerme(true);
     }
+
+    public void attaquerMonstresAutourJoueur() {
+        Case c = this.getCase();
+        Labyrinthe l = getLabyrinthe();
+        Case nord = l.getCase(c.x, c.y - 1);
+        Case sud = l.getCase(c.x, c.y + 1);
+        Case est = l.getCase(c.x + 1, c.y);
+        Case ouest = l.getCase(c.x - 1, c.y);
+        ArrayList<Case> caseautour = new ArrayList<Case>();
+        caseautour.add(nord);
+        caseautour.add(sud);
+        caseautour.add(est);
+        caseautour.add(ouest);
+        for (Monstre monstre : l.getlMonstre()) {
+            Case n = monstre.getCase();
+            if (caseautour.contains(n)) {
+                this.attaquer(monstre);
+            }
+        }
+    }
+
 
 }

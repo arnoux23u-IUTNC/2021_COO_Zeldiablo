@@ -142,4 +142,11 @@ public abstract class Personnage {
             return true;
     }
 
+    /**
+     * Getter labyrinthe
+     * @return labyrinthe
+     */
+    public Labyrinthe getLabyrinthe() {
+        return l;
+    }
 }

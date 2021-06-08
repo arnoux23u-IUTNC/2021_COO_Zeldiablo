@@ -278,7 +278,6 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege) {
-
                 ((Piege) cases[p.getCase().x][p.getCase().y]).prendDegats(p);
             }
             return true;
@@ -398,24 +397,5 @@ public class Labyrinthe {
      */
     public ArrayList<Piege> getlPieges() {
         return lPieges;
-    }
-
-    public void attaquerMonstresAutourJoueur() {
-        Case c = joueur.getCase();
-        Case nord = this.getCase(c.x, c.y - 1);
-        Case sud = this.getCase(c.x, c.y + 1);
-        Case est = this.getCase(c.x + 1, c.y);
-        Case ouest = this.getCase(c.x - 1, c.y);
-        ArrayList<Case> caseautour = new ArrayList<Case>();
-        caseautour.add(nord);
-        caseautour.add(sud);
-        caseautour.add(est);
-        caseautour.add(ouest);
-        for (Monstre monstre : lMonstre) {
-            Case n = monstre.getCase();
-            if (caseautour.contains(n)) {
-                joueur.attaquer(monstre);
-            }
-        }
     }
 }
