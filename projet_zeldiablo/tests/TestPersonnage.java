@@ -78,7 +78,7 @@ public class TestPersonnage {
      * Test etreMort
      */
     @Test
-    public void test03_Personnage_attaquer(){
+    public void test03_Personnage_etreMort(){
         Joueur j = new Joueur(l,porte);
         j.diminuerVie(5);
         assertEquals("Le joueur est cense etre mort",true,j.etreMort());
