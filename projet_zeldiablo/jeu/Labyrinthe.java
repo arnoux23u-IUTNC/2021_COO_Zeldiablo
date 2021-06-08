@@ -352,4 +352,12 @@ public class Labyrinthe {
     public Case[][] getCases() {
         return cases;
     }
+
+    /**
+     * Getter des monstres
+     * @return arraylist de monstre
+     */
+    public ArrayList<Monstre> getlMonstre() {
+        return lMonstre;
+    }
 }
