@@ -5,6 +5,7 @@ import jeu.cases.*;
 import jeu.utils.*;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
@@ -83,6 +84,22 @@ public class Labyrinthe {
      * @param autoGenerate, booleen sur vrai pour une map auto
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
+
+    /*
+    * Liste de monstre
+    */
+    private ArrayList<Monstre> lMonstre;
+
+    /*
+    * Troll
+    */
+    private Troll t;
+
+    /*
+    * Fantome
+    */
+    private Fantome f;
+
     public Labyrinthe(boolean autoGenerate) {
         cases = new Case[TAILLE][TAILLE];
         //x = chemin
@@ -194,6 +211,9 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
+        lMonstre = new ArrayList<Monstre>();
+        lMonstre.add(t);
+        lMonstre.add(f);
     }
 
     /**
