@@ -6,6 +6,7 @@
 - critères de validation : 
     -critère 1 : avoir des labyrinthes avec une bonne structure
     -critère 2 : lire correctement des fichiers txt
+- note : impossibilite de faire des tests mais ca marche
 
 - fonctionnalité 2 :  Création de Troll
 - responsables [1] : Alexandre
@@ -48,3 +49,4 @@
 - critères de validation :
     -critère 1 : Avoir un affichage correct
     -critère 2 : Rafraichissement autonome
+- note : impossibilite de test
