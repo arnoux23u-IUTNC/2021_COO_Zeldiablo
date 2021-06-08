@@ -14,7 +14,7 @@ public class Joueur extends Personnage {
     /**
      * PV du Joueur
      */
-    private static final int PV = 20;
+    private static final int PV = 5;
 
     /**
      * Degats du joueur
