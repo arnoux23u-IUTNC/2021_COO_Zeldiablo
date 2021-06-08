@@ -4,5 +4,12 @@
 - responsables [1] : Guillaume
 - descriptif texte : Ajouter un attribut intelligence au monstre qui servira a faire une recherche des joueurs
 - critères de validation : 
-    -critère 1 : - le monstre doit aoir une intelligence definie
+    -critère 1 : - le monstre doit avoir une intelligence definie
+
+-fonctionnalité 2 : Gestion de fin du jeu 
+-responsable [1] : Antonin
+- descriptif texte : Mise en place de la mort du héros qui entraîne un message de fin
+- critères de validation : 
+     -critère 1 : - le héros meurt quand ses PV tombe à 0 (5 de base)
+     -critère 2 : - jeu s'arrête et entraîne un message de fin
 

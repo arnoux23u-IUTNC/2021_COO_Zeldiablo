@@ -1,5 +1,7 @@
 package jeu.cases;
 
+import jeu.JeuPerso;
+import jeu.Labyrinthe;
 import jeu.entites.Personnage;
 
 /**
@@ -26,8 +28,8 @@ public abstract class Case {
      * @param y ordonnee
      */
     public Case(int x, int y) {
-        this.x = Math.max(x, 0);
-        this.y = Math.max(y, 0);
+        this.x = x < 0 ? 0 : Math.min(x, Labyrinthe.TAILLE - 1);
+        this.y = y < 0 ? 0 : Math.min(y, Labyrinthe.TAILLE - 1);
     }
 
     /**

@@ -39,6 +39,7 @@ public class Piege extends Obstacle {
     /**
      * Methode retirant 1pv du joueur
      * @param p personnage auquel on retire 1pv
+     *
      */
     public void prendDegats(Personnage p) {
         switch (p.getClass().getSimpleName()) {

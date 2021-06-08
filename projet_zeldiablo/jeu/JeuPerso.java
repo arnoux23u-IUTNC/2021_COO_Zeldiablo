@@ -50,7 +50,13 @@ public class JeuPerso implements Jeu {
      */
     @Override
     public boolean etreFini() {
-        return !partieEnCours;
+        if(!pj.etreMort()){
+            return !partieEnCours;
+        }
+        else{
+            System.out.println("Vous êtes mort");
+        }
+        return partieEnCours;
     }
 
     /**
@@ -71,3 +77,4 @@ public class JeuPerso implements Jeu {
         return l;
     }
 }
+

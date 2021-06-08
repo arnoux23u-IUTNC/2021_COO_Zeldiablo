@@ -11,12 +11,27 @@ import jeu.cases.Case;
 public abstract class Monstre extends Personnage {
 
     /**
+     * Intelligence du monstre
+     */
+    private final int intelligence;
+
+
+    /**
      * Constructeur public par defaut a deux parametres
      *
      * @param l      labyrinthe
      * @param depart position de depart
      */
-    public Monstre(Labyrinthe l, Case depart, int pointsDeVie, int degats) {
+    public Monstre(Labyrinthe l, Case depart, int pointsDeVie, int degats, int intelligence) {
         super(l, depart, pointsDeVie, degats);
+        this.intelligence = intelligence;
+    }
+
+    /**
+     * Getter intelligence
+     * @return intelligence du monstre
+     */
+    public int getIntelligence() {
+        return intelligence;
     }
 }
