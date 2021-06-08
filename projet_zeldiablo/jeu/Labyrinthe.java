@@ -45,7 +45,7 @@ public class Labyrinthe {
     /**
      * Seed default
      */
-    private static final String lab = "exxooooooooooooooooooooooooooo" +
+    private static final String lab = "epxooooooooooooooooooooooooooo" +
             "xxxoxxxxxxxxxxxoxxxxxoxxxxxxxx" +
             "oxxooooxxoooooooxxooooxxoxxooo" +
             "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
@@ -267,8 +267,8 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             p.setPosition(getDestination(p, d));
             if (p.getCase() instanceof Piege){
-                Piege pi = new Piege(p.getCase().x, p.getCase().y);
-                pi.prendDegats(p);
+
+                ((Piege)cases[p.getCase().x][p.getCase().y]).prendDegats(p);
             }
             return true;
         }
