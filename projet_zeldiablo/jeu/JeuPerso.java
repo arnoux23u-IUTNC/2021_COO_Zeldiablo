@@ -42,7 +42,7 @@ public class JeuPerso implements Jeu {
     public void evoluer(Direction d,boolean b) {
         this.pj.seDeplacer(d);
         if(b){
-            l.attaquerMonstresAutourJoueur();
+            this.pj.attaquerAutour();
         }
     }
 

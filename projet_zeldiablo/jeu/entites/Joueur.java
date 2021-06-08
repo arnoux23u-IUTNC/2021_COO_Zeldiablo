@@ -25,7 +25,7 @@ public class Joueur extends Personnage {
         e.setFerme(true);
     }
 
-    public void attaquerMonstresAutourJoueur() {
+    public void attaquerAutour() {
         Case c = this.getCase();
         Labyrinthe l = getLabyrinthe();
         Case nord = l.getCase(c.x, c.y - 1);
