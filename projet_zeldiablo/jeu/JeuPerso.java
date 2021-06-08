@@ -25,9 +25,15 @@ public class JeuPerso implements Jeu {
     private boolean partieEnCours;
 
     /**
+     * Compteur de Labyrinthe
+     */
+    private int compteurLab;
+
+    /**
      * Constructeur public par defaut
      */
     public JeuPerso() {
+        this.compteurLab = 0;
         this.partieEnCours = true;
         this.l = new Labyrinthe(true);
         this.pj = l.getJoueur();
@@ -63,6 +69,13 @@ public class JeuPerso implements Jeu {
     }
 
     /**
+     * Methode d'augmentation du compteur de labyrinthe
+     */
+    public void augmenterCompteur() {
+        compteurLab ++;
+    }
+
+    /**
      * Getter joueur
      *
      * @return joueur
@@ -79,5 +92,13 @@ public class JeuPerso implements Jeu {
     public Labyrinthe getLabyrinthe() {
         return l;
     }
+    
+    /**
+     * Getter compteur de Labyrinthe
+     *
+     * @return compteurLab
+     */
+    public int getCompteurLab() {
+        return compteurLab;
+    }
 }
-

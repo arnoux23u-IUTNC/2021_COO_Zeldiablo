@@ -1,0 +1,11 @@
+@startuml
+
+title "DiminuerResistance de bouclier b avec 3 de résistance"
+participant "b : Bouclier" as b
+
+-> b : diminuerResistance(4)
+activate b
+<-- b : 1
+deactivate b
+
+@enduml
