@@ -45,36 +45,36 @@ public class Labyrinthe {
     /**
      * Seed default
      */
-    private static final String lab = "epxooooooooooooooooooooooooooo" +
-            "xxxoxxxxxxxxxxxoxxxxxoxxxxxxxx" +
-            "oxxooooxxoooooooxxooooxxoxxooo" +
-            "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
-            "oxxoxxoxxooooxxoooooooxxoooooo" +
-            "oxxoxxoxxxxxoxxoxxxxxoxxxxxxxx" +
-            "oxxoxxoooooooooooooxxoooooooxx" +
-            "oxxoxxoxxxxxxxxxxxxxxoxxxxxxxx" +
-            "oxxoxxoxxoooooooxxoxxooooxxoxx" +
-            "oxxoxxxxxoxxxxxxxxoxxoxxoxxoxx" +
-            "oxxooooooooooxxoooooooxxooooxx" +
-            "oxxoxxxxxxxxxxxoxxxxxxxxxxxxxx" +
-            "oxxoxxooooooooooxxooooxxoxxooo" +
-            "oxxoxxxxxxxxoxxoxxoxxoxxoxxxxx" +
-            "oooooooxxoxxoxxoxxoxxooooxxooo" +
-            "oxxoxxxxxoxxxxxxxxoxxxxxoxxoxx" +
-            "oxxoxxoxxooooxxooooxxooooxxoxx" +
-            "oxxxxxoxxxxxoxxoxxxxxxxxxxxxxx" +
-            "oxxoxxooooooooooooooooooooooxx" +
-            "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
-            "oxxoooooooxxoxxoxxoxxooooxxoxx" +
-            "oxxxxxxxxxxxoxxoxxoxxxxxoxxxxx" +
-            "oxxoooooooooooooxxooooxxoooooo" +
-            "oxxoxxxxxxxxxxxoxxoxxxxxoxxxxx" +
-            "oxxooooooooooxxoooooooxxoxxoxx" +
-            "oxxoxxoxxxxxxxxxxxoxxxxxoxxoxx" +
-            "oxxoxxooooxxoxxoooooooxxoxxooo" +
-            "oxxoxxxxxxxxoxxoxxxxxxxxxxxoxx" +
-            "oxxoxxoxxooooooooooxxooooxxoxx" +
-            "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
+    private static final String lab = "exxooooooooooooooooooooooooooo" +
+                                      "xxxoxxxxxxxxxxxoxpxxxoxxxxxxxx" +
+                                      "oxxooootxoooooooxxooooxxoxxooo" +
+                                      "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
+                                      "oxpoxxoxxooooxxoooooooxxoooooo" +
+                                      "oxxoxxoxxxxxoxxoxxxxxotxxxxxxx" +
+                                      "oxxofxoooooooooooooxxoooooooxx" +
+                                      "oxxoxxoxxxxxxxxxxxxxxoxxxxxxxx" +
+                                      "oxxoxxoxxoooooooxxoxxoooopxoxx" +
+                                      "oxxoxxxxxoxxxsxxxxoxxoxxoxxoxx" +
+                                      "oxxoooooooooosxoooooooxxooooxx" +
+                                      "oxxopxxxxxxsssxoxxxxxxxxxxfxxx" +
+                                      "otxoxxooooooooooxxooooxxoxxooo" +
+                                      "oxxoxxxxxxxxoxxoxxoxxoxxoxxxxx" +
+                                      "oooooooxxoxxoxxoxxoxxooooxxooo" +
+                                      "oxxoxxxxxoxxxxxxxxoxxpxxoxxoxx" +
+                                      "oxxoxxoxxooooxxooooxxooooxxoxx" +
+                                      "oxxxxxoxxxxxoxxoxxxbxtxxxxxxxx" +
+                                      "oxxopxooooooooooooooooooooooxx" +
+                                      "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
+                                      "oxxoooooooxxoxxoxxoxxooooxxopx" +
+                                      "oxxxxxxxfxxxoxxoxxoxxxxxoxxxxx" +
+                                      "oxxoooooooooooooxxooooxxoooooo" +
+                                      "oxxoxxxxxxxxxxxoxxoxxxxxoxxxxx" +
+                                      "oxxooooooooooxxoooooooxxoxxoxx" +
+                                      "oxxoxxoxxxxxxxxxxxoxxxxxofxoxx" +
+                                      "oxxotxoooopxoxxoooooooxxoxpooo" +
+                                      "oxxoxxxxxxxxoxxoxxxxxxxxxxxoxx" +
+                                      "oxpoxxoxxooooooooooxxooooxxoxx" +
+                                      "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
 
     /**
      * Liste de monstre
