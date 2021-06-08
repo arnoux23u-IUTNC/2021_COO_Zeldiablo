@@ -1,0 +1,17 @@
+@startuml
+
+title "Méthode de vérification de la fin du jeu"
+
+participant "JeuPerso : a" as a
+
+
+-> a : etreFini()
+activate a
+alt ! pj.etreMort()
+<-- a : false
+else
+<-- a : true
+end
+deactivate a
+
+@enduml
