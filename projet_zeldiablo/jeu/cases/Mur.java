@@ -48,6 +48,6 @@ public class Mur extends Obstacle {
      */
     @Override
     public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Mur.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Mur.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
     }
 }
