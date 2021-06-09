@@ -1,8 +1,12 @@
 package jeu.cases;
 
+import jeu.JeuPerso;
 import moteurgraphique.DessinJeu;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Classe modelisant un Piege
@@ -36,17 +40,14 @@ public class Piege extends Obstacle {
         super(x, y);
     }
 
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
-    }
-
+    /**
+     * Methode dessiner
+     *
+     * @param crayon graphics du panel
+     * @throws IOException Exception de file
+     */
     @Override
-    public void dessiner(Graphics2D crayon) {
-        crayon.setColor(Color.black);
-        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    public void dessiner(Graphics2D crayon) throws IOException {
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
     }
 }

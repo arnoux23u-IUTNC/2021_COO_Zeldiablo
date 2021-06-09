@@ -3,6 +3,7 @@ package moteurgraphique;
 import jeu.*;
 
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * Classe moteur de rendu
@@ -42,7 +43,7 @@ public class MoteurRendu {
     /**
      * permet de lancer le jeu
      */
-    public void lancerJeu(int width, int height) throws InterruptedException {
+    public void lancerJeu(int width, int height) throws InterruptedException, IOException {
 
         // creation de l'interface graphique
         this.gui = new InterfaceGraphique(this.dessin, width, height);

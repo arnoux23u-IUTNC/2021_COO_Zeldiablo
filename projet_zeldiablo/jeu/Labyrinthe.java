@@ -5,14 +5,9 @@ import jeu.cases.*;
 import jeu.utils.*;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
-import java.util.stream.Collectors;
+import java.util.*;
+import java.util.stream.*;
 
 /**
  * Classe modelisant un labyrinthe
@@ -83,13 +78,12 @@ public class Labyrinthe {
     /**
      * Liste de monstre
      */
-    private ArrayList<Monstre> lMonstre;
+    private final ArrayList<Monstre> lMonstre;
 
     /**
      * Liste de pieges
      */
-    private ArrayList<Piege> lPieges;
-
+    private final ArrayList<Piege> lPieges;
 
     /**
      * Constructeur public par defaut
@@ -102,16 +96,13 @@ public class Labyrinthe {
         lMonstre = new ArrayList<Monstre>();
         lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
-        //x = chemin
-        //o = obstacle
         if (autoGenerate) {
             try {
                 File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
                 File[] maps = fr.listFiles();
-
                 assert maps != null;
-                FileReader map = new FileReader(maps[new Random().nextInt(maps.length)]);
                 //On recupere une map au pif
+                FileReader map = new FileReader(maps[new Random().nextInt(maps.length)]);
                 int line = 0, pos = 0;
                 Case c = null;
                 while (line < 30) {
@@ -294,7 +285,7 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             Case destination = getDestination(p, d);
             destination.setPersonnage(p);
-            p.getCase().removePersonnage();
+            p.getCase().setPersonnage(null);
             p.setPosition(destination);
             if ("P".equals(p.getCase().getIdentifier())) {
                 System.out.println("le joueur prend un dégat");
@@ -344,7 +335,6 @@ public class Labyrinthe {
     public Joueur getJoueur() {
         return joueur;
     }
-
 
     /**
      * Methode toString
@@ -411,30 +401,25 @@ public class Labyrinthe {
     }
 
     /**
-     * Getter pieges
-     *
-     * @return liste des pieges
+     * Methode dessiner
+     * @param crayon graphics
+     * @throws IOException File Exception
      */
-    public ArrayList<Piege> getlPieges() {
-        return lPieges;
-    }
-
-
-    public void dessiner(Graphics2D im){
+    public void dessiner(Graphics2D crayon) throws IOException {
         for (Case[] c1 : cases) {
             for (Case c : c1) {
-                c.dessiner(im);
+                c.dessiner(crayon);
             }
         }
         for (Monstre m : lMonstre) {
-            m.dessiner(im);
+            m.dessiner(crayon);
         }
     }
 
     public void supprimerLesMorts() {
         //On recupere tous les monstres morts
         ArrayList<Monstre> monstresMort = (ArrayList<Monstre>) getlMonstre().stream().filter(Personnage::etreMort).collect(Collectors.toList());
-        for(Monstre m : monstresMort){
+        for (Monstre m : monstresMort) {
             m.getCase().setPersonnage(null);
             lMonstre.remove(m);
         }

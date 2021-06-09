@@ -3,6 +3,7 @@ package moteurgraphique;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /***
  * Classe panelDessin servant a modeliser un dessin
@@ -54,7 +55,7 @@ public class PanelDessin extends JPanel {
      * demande de mettre a jour le rendu de l'image sur le Panel. Creer une
      * nouvelle image vide sur laquelle dessiner
      */
-    public void dessinerJeu() {
+    public void dessinerJeu() throws IOException {
         // generer la nouvelle image
         this.dessin.dessiner(this.imageSuivante);
 

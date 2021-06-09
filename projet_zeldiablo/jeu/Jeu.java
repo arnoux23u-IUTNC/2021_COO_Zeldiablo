@@ -15,13 +15,13 @@ public interface Jeu {
      *
      * @param d direction de l'utilisateur
      */
-    public void evoluer(Direction d,boolean b);
+    void evoluer(Direction d, boolean b);
 
     /**
      * methode test fini
      *
      * @return true si et seulement si le jeu est fini
      */
-    public boolean etreFini();
+    boolean etreFini();
 
 }

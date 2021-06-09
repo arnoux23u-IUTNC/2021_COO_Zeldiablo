@@ -6,6 +6,7 @@ import jeu.utils.Direction;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -36,10 +37,12 @@ public abstract class Personnage {
     private int degats;
 
     /**
-     * Constructeur public par defaut a deux parametres
+     * Constructeur public par defaut a quatre parametres
      *
-     * @param l      labyrinthe
-     * @param depart position de depart
+     * @param l           labyrinthe
+     * @param depart      position de depart
+     * @param pointsDeVie points de vie
+     * @param degats      degats infliges
      */
     public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) {
         this.position = depart;
@@ -84,8 +87,8 @@ public abstract class Personnage {
      * @param vieDown retrait
      */
     public void diminuerVie(int vieDown) {
-        if (vieDown > 0) {
-            this.setPv(Math.max(this.getPv() - vieDown, 0));
+        if (vieDown > 0 && pv > 0) {
+            this.pv -= Math.max(pv - vieDown, 0);
         }
     }
 
@@ -95,10 +98,8 @@ public abstract class Personnage {
      * @param vieUp augmentation
      */
     public void augmenterVie(int vieUp) {
-        if (vieUp > 0) {
-            if (this.getPv() > 0) {
-                this.setPv(this.getPv() + vieUp);
-            }
+        if (vieUp > 0 && pv > 0) {
+            this.pv += vieUp;
         }
     }
 
@@ -109,24 +110,6 @@ public abstract class Personnage {
      */
     public int getPv() {
         return this.pv;
-    }
-
-    /**
-     * Setter PV
-     *
-     * @param newPV nouveaux pv du personnage
-     */
-    public void setPv(int newPV) {
-        this.pv = newPV;
-    }
-
-    /**
-     * Setter Degats
-     *
-     * @param degats nouveaux degats du perso
-     */
-    public void setDegats(int degats) {
-        this.degats = degats;
     }
 
     /**
@@ -144,18 +127,24 @@ public abstract class Personnage {
      * @param p victime
      */
     public void attaquer(Personnage p) {
-        if(this.isJoueur()){
+        if (this.isJoueur()) {
             if (p.isTroll()) {
                 ((Troll) p).trollSeFaitAttaquer();
             }
             p.diminuerVie(this.degats);
-        }else{
-            if(p.isJoueur()){
+        } else {
+            if (p.isJoueur()) {
                 p.diminuerVie(this.degats);
             }
         }
     }
 
+    /**
+     * Methode equals
+     *
+     * @param o objet a comparer
+     * @return booleen, a vrai si egal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -164,37 +153,70 @@ public abstract class Personnage {
         return pv == that.pv && degats == that.degats && Objects.equals(position, that.position) && Objects.equals(l, that.l);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(position, l, pv, degats);
-    }
-
-    //methode qui renvoie true si les PV du personnage tombent a 0
-
+    /**
+     * Methode etreMort
+     *
+     * @return booleen, a vrai si mort
+     */
     public boolean etreMort() {
         return this.pv <= 0;
     }
 
     /**
-     * Getter labyrinthe
+     * Methode peutTraverserChemin
      *
-     * @return labyrinthe
+     * @return booleen, a vrai si p peut traverser le chemin
+     */
+    public abstract boolean peutTraverserChemin();
+
+    /**
+     * Methode peutTraverserMur
+     *
+     * @return booleen, a vrai si p peut traverser le mur
+     */
+    public abstract boolean peutTraverserMur();
+
+    /**
+     * Methode peutTraverserPiege
+     *
+     * @return booleen, a vrai si p peut traverser le piege
+     */
+    public abstract boolean peutTraverserPiege();
+
+    /**
+     * Methode peutTraverserPorte
+     *
+     * @return booleen, a vrai si p peut traverser la porte
+     */
+    public abstract boolean peutTraverserPorte();
+
+    /**
+     * Methode isJoueur
+     *
+     * @return booleen, a vrai si c'est un Joueur
+     */
+    public abstract boolean isJoueur();
+
+    /**
+     * Methode isTroll
+     *
+     * @return booleen, a vrai si c'est un troll
+     */
+    public abstract boolean isTroll();
+
+    /**
+     * Methode abstraite dessiner
+     *
+     * @param crayon graphics
+     * @throws IOException File Exception
+     */
+    public abstract void dessiner(Graphics2D crayon) throws IOException;
+
+    /**
+     * Getter Labyrinthe
+     * @return Labyrinthe
      */
     public Labyrinthe getLabyrinthe() {
         return l;
     }
-
-    public abstract boolean peutTraverserChemin();
-
-    public abstract boolean peutTraverserMur();
-
-    public abstract boolean peutTraverserPiege();
-
-    public abstract boolean peutTraverserPorte();
-
-    public abstract boolean isJoueur();
-
-    public abstract boolean isTroll();
-
-    public abstract void dessiner(Graphics2D im);
 }

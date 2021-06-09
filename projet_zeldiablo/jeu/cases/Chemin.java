@@ -1,9 +1,13 @@
 package jeu.cases;
 
+import jeu.JeuPerso;
+import jeu.Labyrinthe;
 import moteurgraphique.DessinJeu;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Classe representant un chemin vide
@@ -37,9 +41,14 @@ public class Chemin extends Case {
         super(x, y);
     }
 
+    /**
+     * Methode dessiner
+     *
+     * @param crayon graphics
+     * @throws IOException Exception de l'image
+     */
     @Override
-    public void dessiner(Graphics2D crayon) {
-        crayon.setColor(Color.orange);
-        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    public void dessiner(Graphics2D crayon) throws IOException {
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Chemin.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
     }
 }

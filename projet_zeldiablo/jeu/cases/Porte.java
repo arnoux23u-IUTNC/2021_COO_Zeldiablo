@@ -1,8 +1,12 @@
 package jeu.cases;
 
+import jeu.JeuPerso;
 import moteurgraphique.DessinJeu;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Classe modelisant une porte
@@ -52,14 +56,23 @@ public class Porte extends Case {
         this.ferme = b;
     }
 
-
+    /**
+     * Getter ferme
+     *
+     * @return etat de la porte
+     */
     public boolean isFerme() {
         return ferme;
     }
 
+    /**
+     * Methode dessiner
+     *
+     * @param crayon graphics du panel
+     * @throws IOException Exception de file
+     */
     @Override
-    public void dessiner(Graphics2D crayon) {
-        crayon.setColor(Color.green);
-        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    public void dessiner(Graphics2D crayon) throws IOException {
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Porte.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
     }
 }

@@ -3,6 +3,7 @@ package jeu.utils;
 import jeu.*;
 import moteurgraphique.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,7 @@ public class MainPerso {
      * @param args arguments
      * @throws InterruptedException exception when thread.sleep()
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         System.out.println("Bienvenue");
         // creation du jeu particulier et de son afficheur
         JeuPerso jeu = new JeuPerso();

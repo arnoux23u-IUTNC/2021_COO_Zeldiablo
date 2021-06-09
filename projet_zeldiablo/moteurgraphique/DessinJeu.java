@@ -1,6 +1,7 @@
 package moteurgraphique;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * une interface representant la maniere de dessiner sur un JPanel
@@ -20,6 +21,6 @@ public interface DessinJeu {
      *
      * @param image image sur laquelle dessiner
      */
-    void dessiner(BufferedImage image);
+    void dessiner(BufferedImage image) throws IOException;
 
 }

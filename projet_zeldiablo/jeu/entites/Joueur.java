@@ -1,11 +1,15 @@
 package jeu.entites;
 
+import jeu.JeuPerso;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 import jeu.cases.Porte;
 import moteurgraphique.DessinJeu;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +20,14 @@ import java.util.ArrayList;
 
 public class Joueur extends Personnage {
 
+    /**
+     * Arme du joueur
+     */
     private Arme armeEnMain;
+
+    /**
+     * Bouclier du joueur
+     */
     private Bouclier bouclierEnMain;
 
     /**
@@ -32,6 +43,9 @@ public class Joueur extends Personnage {
         bouclierEnMain = null;
     }
 
+    /**
+     * Methode pour attaquer tout autour de lui
+     */
     public void attaquerAutour() {
         Case c = this.getCase();
         Labyrinthe l = getLabyrinthe();
@@ -76,7 +90,7 @@ public class Joueur extends Personnage {
      */
     public void ajouterArme(Arme arme) {
         this.armeEnMain = arme;
-        setDegats(this.getDegats() + armeEnMain.getDegats());
+        //(this.getDegats() + armeEnMain.getDegats());
     }
 
     /**
@@ -86,18 +100,19 @@ public class Joueur extends Personnage {
      */
     public void ajouterBouclier(Bouclier bouclier) {
         this.bouclierEnMain = bouclier;
-        this.setPv(this.getPv() + bouclier.getResistance());
+        //this.setPv(this.getPv() + bouclier.getResistance());
     }
 
     @Override
     public void diminuerVie(int vieDown) {
         super.diminuerVie(vieDown);
-        if (bouclierEnMain != null) {
+        //TODO ICI
+        /*if (bouclierEnMain != null) {
             bouclierEnMain.diminuerResistance(vieDown);
             if (bouclierEnMain.etreCasserBouclier()) {
                 bouclierEnMain = null;
             }
-        }
+        }*/
     }
 
     @Override
@@ -131,15 +146,13 @@ public class Joueur extends Personnage {
     }
 
     @Override
-    public void dessiner(Graphics2D crayon) {
-        crayon.setColor(Color.blue);
-        int pv = getPv();
-        crayon.fillOval(getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    public void dessiner(Graphics2D crayon) throws IOException {
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Character.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, null);
         crayon.setColor(Color.red);
-        crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * pv, 20);
+        crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
         crayon.setColor(Color.black);
         crayon.setFont(new Font("Arial", Font.PLAIN, 20));
-        crayon.drawString("" + pv + "/20", DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 3) * DessinJeu.TAILLE_CASE);
+        crayon.drawString("" + getPv() + "/20", DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 3) * DessinJeu.TAILLE_CASE);
         crayon.drawRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 400, 20);
     }
 }

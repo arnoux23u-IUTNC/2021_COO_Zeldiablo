@@ -7,6 +7,7 @@ import jeu.entites.*;
 
 import java.awt.*;
 import java.awt.image.*;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -35,7 +36,7 @@ public class DessinPerso implements DessinJeu {
      * methode dessiner redefinie de Afficheur retourne une image du jeu
      */
     @Override
-    public void dessiner(BufferedImage im) {
+    public void dessiner(BufferedImage im) throws IOException {
         jeuEnCours.dessiner((Graphics2D) im.getGraphics());
     }
 

@@ -1,6 +1,7 @@
 package moteurgraphique;
 
 import javax.swing.*;
+import java.io.IOException;
 
 /**
  * Classe de modelisation du GUI
@@ -58,7 +59,7 @@ public class InterfaceGraphique {
     /**
      * demande la mise a jour du dessin
      */
-    public void dessiner() {
+    public void dessiner() throws IOException {
         this.panel.dessinerJeu();
     }
 

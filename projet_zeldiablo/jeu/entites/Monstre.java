@@ -3,8 +3,6 @@ package jeu.entites;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 
-import java.awt.*;
-
 /**
  * Classe abstraite pour modeliser un monstre
  *
@@ -16,7 +14,6 @@ public abstract class Monstre extends Personnage {
      * Intelligence du monstre
      */
     private final int intelligence;
-
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -31,6 +28,7 @@ public abstract class Monstre extends Personnage {
 
     /**
      * Getter intelligence
+     *
      * @return intelligence du monstre
      */
     public int getIntelligence() {

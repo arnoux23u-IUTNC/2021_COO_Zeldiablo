@@ -1,13 +1,20 @@
 package jeu.entites;
 
+import jeu.JeuPerso;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 import moteurgraphique.DessinJeu;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.*;
 
+/**
+ * Classe modelisant un troll
+ *
+ * @author AGJMX
+ */
 public class Troll extends Monstre {
-
 
     /**
      * booleen qui permet de determiner si le troll a ete tape dans le tour
@@ -30,7 +37,7 @@ public class Troll extends Monstre {
      */
     public void seRegenerer() {
         if (!tapeDansLeTour) {
-            this.setPv(this.getPv() + 1);
+            this.augmenterVie(1);
         }
 
     }
@@ -72,9 +79,14 @@ public class Troll extends Monstre {
         return false;
     }
 
+    /**
+     * Methode dessiner
+     *
+     * @param crayon graphics
+     * @throws IOException File Exception
+     */
     @Override
-    public void dessiner(Graphics2D crayon) {
-        crayon.setColor(Color.magenta);
-        crayon.fillOval(getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    public void dessiner(Graphics2D crayon) throws IOException {
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, null);
     }
 }

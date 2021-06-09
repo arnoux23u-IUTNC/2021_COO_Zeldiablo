@@ -7,6 +7,7 @@ import jeu.utils.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * Classe modelisant le jeu d'un personnage
@@ -17,23 +18,22 @@ public class JeuPerso implements Jeu {
     /**
      * Labyrinthe concerne
      */
-    private Labyrinthe l;
+    private final Labyrinthe l;
 
     /**
      * Joueur concerne
      */
-    private Joueur pj;
+    private final Joueur pj;
 
     /**
-     * Booleen, a vrai si la partie n'est pas finie
+     * Repertoire des assets
      */
-    private boolean partieEnCours;
+    public static final String assetsDirectory = "projet_zeldiablo\\jeu\\utils\\assets\\";
 
     /**
      * Constructeur public par defaut
      */
     public JeuPerso() {
-        this.partieEnCours = true;
         this.l = new Labyrinthe(true);
         this.pj = l.getJoueur();
     }
@@ -84,8 +84,14 @@ public class JeuPerso implements Jeu {
         return l;
     }
 
-    public void dessiner(Graphics2D im) {
-        l.dessiner(im);
-        pj.dessiner(im);
+    /**
+     * Methode dessiner
+     *
+     * @param crayon graphics
+     * @throws IOException File Exception
+     */
+    public void dessiner(Graphics2D crayon) throws IOException {
+        l.dessiner(crayon);
+        pj.dessiner(crayon);
     }
 }

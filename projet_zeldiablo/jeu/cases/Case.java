@@ -4,11 +4,10 @@ import jeu.Labyrinthe;
 import jeu.entites.Personnage;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Interface modelisant une case dans le labyrinthe
+ * Classe abstraite modelisant une case dans le labyrinthe
  *
  * @author AGJMX
  */
@@ -23,6 +22,7 @@ public abstract class Case {
      * Attribut representant l'ordonnee de la case
      */
     public final int y;
+
     /**
      * Attribut représentant le personnage sur la case
      */
@@ -56,17 +56,18 @@ public abstract class Case {
         return getIdentifier().toUpperCase();
     }
 
+    /**
+     * Methode ecrasee equals
+     *
+     * @param o objet a comparer
+     * @return booleen, a vrai si memes objets
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Case)) return false;
         Case aCase = (Case) o;
         return x == aCase.x && y == aCase.y && getIdentifier().equals(aCase.getIdentifier());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
     }
 
     /**
@@ -79,13 +80,6 @@ public abstract class Case {
     }
 
     /**
-     * Methode permettant de retirer un personnage de la case
-     */
-    public void removePersonnage() {
-        this.p = null;
-    }
-
-    /**
      * Methode retournant le personnage sur la case
      *
      * @return le personnage p
@@ -94,5 +88,11 @@ public abstract class Case {
         return this.p;
     }
 
-    public abstract void dessiner(Graphics2D im);
+    /**
+     * Methode abstraite dessiner
+     *
+     * @param crayon graphics du panel
+     * @throws IOException Exception de l'image
+     */
+    public abstract void dessiner(Graphics2D crayon) throws IOException;
 }
