@@ -103,7 +103,7 @@ public class Labyrinthe {
         //o = obstacle
         if (autoGenerate) {
             try {
-                File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
+                File fr = new File(".\\jeu\\cartes");
                 File[] maps = fr.listFiles();
 
                 assert maps != null;
@@ -135,11 +135,13 @@ public class Labyrinthe {
                             c = new Chemin(pos, line);
                             Monstre m2 = new Troll(this, c);
                             lMonstre.add(m2);
+                            c.setPersonnage(m2);
                             break;
                         case 'f':
                             c = new Chemin(pos, line);
                             Monstre m3 = new Fantome(this, c);
                             lMonstre.add(m3);
+                            c.setPersonnage(m3);
                             break;
                     }
                     cases[line][pos] = c;
@@ -243,6 +245,7 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
+        entree.setPersonnage(this.joueur);
     }
 
     /**
@@ -287,7 +290,7 @@ public class Labyrinthe {
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             Case destination = getDestination(p, d);
-            cases[destination.x][destination.y].setPersonnage(p);
+            destination.setPersonnage(p);
             p.getCase().removePersonnage();
             p.setPosition(destination);
             switch (p.getCase().getIdentifier()) {
