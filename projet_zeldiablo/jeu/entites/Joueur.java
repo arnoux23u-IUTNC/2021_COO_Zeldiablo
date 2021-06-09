@@ -100,19 +100,18 @@ public class Joueur extends Personnage {
      */
     public void ajouterBouclier(Bouclier bouclier) {
         this.bouclierEnMain = bouclier;
-        //this.setPv(this.getPv() + bouclier.getResistance());
     }
 
-    @Override
     public void diminuerVie(int vieDown) {
-        super.diminuerVie(vieDown);
-        //TODO ICI
-        /*if (bouclierEnMain != null) {
-            bouclierEnMain.diminuerResistance(vieDown);
+        if (bouclierEnMain != null) {
+            int degatsubis = bouclierEnMain.diminuerResistance(vieDown);
             if (bouclierEnMain.etreCasserBouclier()) {
                 bouclierEnMain = null;
             }
-        }*/
+            super.diminuerVie(degatsubis);
+        }else{
+            super.diminuerVie(vieDown);
+        }
     }
 
     @Override
