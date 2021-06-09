@@ -122,6 +122,7 @@ public abstract class Personnage {
 
     /**
      * Setter Degats
+     *
      * @param degats nouveaux degats du perso
      */
     public void setDegats(int degats) {
@@ -130,9 +131,10 @@ public abstract class Personnage {
 
     /**
      * Getter degats
+     *
      * @return degats du personnage
      */
-    public int getDegats(){
+    public int getDegats() {
         return this.degats;
     }
 
@@ -142,7 +144,7 @@ public abstract class Personnage {
      * @param p victime
      */
     public void attaquer(Personnage p) {
-        if (p instanceof Troll) {
+        if (p.isTroll()) {
             ((Troll) p).trollSeFaitAttaquer();
         }
         p.diminuerVie(this.degats);
@@ -151,15 +153,30 @@ public abstract class Personnage {
 
     //methode qui renvoie true si les PV du personnage tombent a 0
 
-    public boolean etreMort(){
+    public boolean etreMort() {
         return this.pv <= 0;
     }
 
     /**
      * Getter labyrinthe
+     *
      * @return labyrinthe
      */
     public Labyrinthe getLabyrinthe() {
         return l;
     }
+
+    public abstract boolean peutTraverserChemin();
+
+    public abstract boolean peutTraverserMur();
+
+    public abstract boolean peutTraverserPiege();
+
+    public abstract boolean peutTraverserPorte();
+
+    public abstract boolean isJoueur();
+
+    public abstract boolean isTroll();
+
+    public abstract boolean isFantome();
 }

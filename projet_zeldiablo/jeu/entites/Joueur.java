@@ -69,4 +69,38 @@ public class Joueur extends Personnage {
     }
 
 
+    @Override
+    public boolean peutTraverserChemin() {
+        return true;
+    }
+
+    @Override
+    public boolean peutTraverserMur() {
+        return false;
+    }
+
+    @Override
+    public boolean peutTraverserPiege() {
+        return true;
+    }
+
+    @Override
+    public boolean peutTraverserPorte() {
+        return true;
+    }
+
+    @Override
+    public boolean isJoueur() {
+        return true;
+    }
+
+    @Override
+    public boolean isTroll() {
+        return false;
+    }
+
+    @Override
+    public boolean isFantome() {
+        return false;
+    }
 }

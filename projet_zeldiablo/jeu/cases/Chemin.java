@@ -34,14 +34,4 @@ public class Chemin extends Case {
         super(x, y);
     }
 
-    /**
-     * Methode pour verifier si un personnage peut passer sur cette classe
-     *
-     * @return booleen, a vrai si "p" peut passer dessus
-     */
-    @Override
-    public boolean peutTraverser(Personnage p) {
-        return true;
-    }
-
 }

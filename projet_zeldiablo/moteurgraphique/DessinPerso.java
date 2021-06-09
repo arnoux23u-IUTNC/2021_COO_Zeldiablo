@@ -54,22 +54,22 @@ public class DessinPerso implements DessinJeu {
                 crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Mur":
+            case "O":
                 crayon.setColor(Color.gray);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Porte":
+            case "E":
                 crayon.setColor(Color.green);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Chemin":
+            case "X":
                 crayon.setColor(Color.orange);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Piege":
+            case "P":
                 crayon.setColor(Color.black);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
@@ -88,19 +88,19 @@ public class DessinPerso implements DessinJeu {
 
         for (Case[] c1 : jeuEnCours.getLabyrinthe().getCases()) {
             for (Case c : c1) {
-                this.dessinerObjet(c.getClass().getSimpleName(), c.x, c.y, im);
+                this.dessinerObjet(c.getIdentifier(), c.x, c.y, im);
             }
         }
         for (Monstre m : jeuEnCours.getLabyrinthe().getlMonstre()) {
-            if (m instanceof Troll) {
-                this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
+            if (m.isTroll()) {
+                this.dessinerObjet("Troll", m.getCase().x, m.getCase().y, im);
             }
-            if (m instanceof Fantome) {
-                this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
+            if (m.isFantome()) {
+                this.dessinerObjet("Fantome", m.getCase().x, m.getCase().y, im);
             }
         }
         for (Piege p : jeuEnCours.getLabyrinthe().getlPieges()) {
-            this.dessinerObjet(p.getClass().getSimpleName(), p.x, p.y, im);
+            this.dessinerObjet(p.getIdentifier(), p.x, p.y, im);
         }
 
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);

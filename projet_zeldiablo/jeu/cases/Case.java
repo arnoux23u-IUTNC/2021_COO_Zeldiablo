@@ -1,6 +1,5 @@
 package jeu.cases;
 
-import jeu.JeuPerso;
 import jeu.Labyrinthe;
 import jeu.entites.Personnage;
 
@@ -26,6 +25,7 @@ public abstract class Case {
      * Attribut représentant le personnage sur la case
      */
     private Personnage p;
+
     /**
      * Constructeur public par defaut a deux parametres
      *
@@ -36,13 +36,6 @@ public abstract class Case {
         this.x = x < 0 ? 0 : Math.min(x, Labyrinthe.TAILLE - 1);
         this.y = y < 0 ? 0 : Math.min(y, Labyrinthe.TAILLE - 1);
     }
-
-    /**
-     * Methode abstraite pour verifier si un personnage peut passer sur cette classe
-     *
-     * @return booleen, a vrai si "p" peut passer dessus
-     */
-    public abstract boolean peutTraverser(Personnage p);
 
     /**
      * Methode getIdentifier
@@ -61,12 +54,12 @@ public abstract class Case {
         return getIdentifier().toUpperCase();
     }
 
+    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Case)) return false;
         Case aCase = (Case) o;
-        return x == aCase.x && y == aCase.y;
+        return x == aCase.x && y == aCase.y && getIdentifier().equals(aCase.getIdentifier());
     }
 
     @Override
@@ -76,24 +69,26 @@ public abstract class Case {
 
     /**
      * Methode permettant d'indiquer le personnage sur la case
+     *
      * @param per personnage sur la case
      */
-    public void setPersonnage(Personnage per){
-        this.p=per;
+    public void setPersonnage(Personnage per) {
+        this.p = per;
     }
 
     /**
      * Methode permettant de retirer un personnage de la case
      */
-    public void removePersonnage(){
-        this.p=null;
+    public void removePersonnage() {
+        this.p = null;
     }
 
     /**
      * Methode retournant le personnage sur la case
+     *
      * @return le personnage p
      */
-    public Personnage getPersonnage(){
+    public Personnage getPersonnage() {
         return this.p;
     }
 }
