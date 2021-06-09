@@ -1,6 +1,5 @@
 package jeu;
 
-import jeu.Labyrinthe;
 import jeu.utils.Direction;
 
 /**
