@@ -54,15 +54,15 @@ public class Labyrinthe {
             "oxxofxoooooooooooooxxoooooooxx" +
             "oxxoxxoxxxxxxxxxxxxxxoxxxxxxxx" +
             "oxxoxxoxxoooooooxxoxxoooopxoxx" +
-            "oxxoxxxxxoxxxsxxxxoxxoxxoxxoxx" +
-            "oxxoooooooooosxoooooooxxooooxx" +
-            "oxxopxxxxxxsssxoxxxxxxxxxxfxxx" +
+            "oxxoxxxxxoxxxxxxxxoxxoxxoxxoxx" +
+            "oxxooooooooooxxoooooooxxooooxx" +
+            "oxxopxxxxxxxxxxoxxxxxxxxxxfxxx" +
             "otxoxxooooooooooxxooooxxoxxooo" +
             "oxxoxxxxxxxxoxxoxxoxxoxxoxxxxx" +
             "oooooooxxoxxoxxoxxoxxooooxxooo" +
             "oxxoxxxxxoxxxxxxxxoxxpxxoxxoxx" +
             "oxxoxxoxxooooxxooooxxooooxxoxx" +
-            "oxxxxxoxxxxxoxxoxxxbxtxxxxxxxx" +
+            "oxxxxxoxxxxxoxxoxxxxxtxxxxxxxx" +
             "oxxopxooooooooooooooooooooooxx" +
             "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
             "oxxoooooooxxoxxoxxoxxooooxxopx" +
@@ -95,7 +95,6 @@ public class Labyrinthe {
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public Labyrinthe(boolean autoGenerate) {
-
         lMonstre = new ArrayList<Monstre>();
         lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
@@ -205,44 +204,40 @@ public class Labyrinthe {
             int cursor = 0;
             for (int i = 0; i < TAILLE; i++) {
                 for (int j = 0; j < TAILLE; j++) {
+                    Case caseCursor = null;
                     switch (lab.charAt(cursor)) {
                         case 'x':
-                            Case c1 = new Chemin(i, j);
-                            cases[i][j] = c1;
+                            caseCursor = new Chemin(i, j);
                             break;
                         case 'o':
-                            Case m1 = new Mur(i, j);
-                            cases[i][j] = m1;
+                            caseCursor = new Mur(i, j);
                             break;
                         case 'p':
-                            Piege pi = new Piege(i, j);
-                            lPieges.add(pi);
-                            cases[i][j] = pi;
+                            caseCursor = new Piege(i, j);
+                            lPieges.add((Piege) caseCursor);
                             break;
                         case 'e':
-                            Porte po = new Porte(i, j);
-                            cases[i][j] = po;
+                            caseCursor = new Porte(i, j);
                             if (this.entree == null) {
-                                this.entree = po;
+                                this.entree = (Porte) caseCursor;
                             } else {
-                                this.sortie = po;
+                                this.sortie = (Porte) caseCursor;
                             }
                             break;
                         case 't':
-                            Case c2 = new Chemin(i, j);
-                            Monstre m2 = new Troll(this, c2);
-                            lMonstre.add(m2);
-                            cases[i][j] = c2;
-                            c2.setPersonnage(m2);
+                            caseCursor = new Chemin(i, j);
+                            Monstre m = new Troll(this, caseCursor);
+                            lMonstre.add(m);
+                            caseCursor.setPersonnage(m);
                             break;
                         case 'f':
-                            Case c3 = new Chemin(i, j);
-                            Monstre m3 = new Fantome(this, c3);
-                            lMonstre.add(m3);
-                            cases[i][j] = c3;
-                            c3.setPersonnage(m3);
+                            caseCursor = new Chemin(i, j);
+                            Monstre m2 = new Fantome(this, caseCursor);
+                            lMonstre.add(m2);
+                            caseCursor.setPersonnage(m2);
                             break;
                     }
+                    cases[i][j] =caseCursor;
                     cursor++;
                 }
             }
@@ -266,7 +261,7 @@ public class Labyrinthe {
             destination = null;
         }
         if ((destination != null) && (getDestination(p, dir).getPersonnage() == null)) {
-            switch (destination.getIdentifier()){
+            switch (destination.getIdentifier()) {
                 case "P":
                     return p.peutTraverserPiege();
                 case "O":

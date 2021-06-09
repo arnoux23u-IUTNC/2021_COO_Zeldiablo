@@ -35,7 +35,7 @@ public class JeuPerso implements Jeu {
     public JeuPerso() {
         this.compteurLab = 0;
         this.partieEnCours = true;
-        this.l = new Labyrinthe(false);
+        this.l = new Labyrinthe(true);
         this.pj = l.getJoueur();
     }
 

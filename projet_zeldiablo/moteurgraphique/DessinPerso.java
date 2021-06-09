@@ -7,6 +7,7 @@ import jeu.entites.*;
 
 import java.awt.*;
 import java.awt.image.*;
+import java.util.Arrays;
 
 /**
  * Classe modelisant le dessin du Jeu
@@ -85,7 +86,6 @@ public class DessinPerso implements DessinJeu {
     @Override
     public void dessiner(BufferedImage im) {
         Joueur j = jeuEnCours.getJoueur();
-
         for (Case[] c1 : jeuEnCours.getLabyrinthe().getCases()) {
             for (Case c : c1) {
                 this.dessinerObjet(c.getIdentifier(), c.x, c.y, im);
