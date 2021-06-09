@@ -17,6 +17,11 @@ import java.io.IOException;
 public class Chemin extends Case {
 
     /**
+     * Texture de l'image
+     */
+    Image texture;
+
+    /**
      * Caractere permettant l'identification sur une map
      */
     private static final char IDENTIFIER = 'X';
@@ -37,18 +42,18 @@ public class Chemin extends Case {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Chemin(int x, int y) {
+    public Chemin(int x, int y) throws IOException {
         super(x, y);
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Chemin.png"));
     }
 
     /**
      * Methode dessiner
      *
      * @param crayon graphics
-     * @throws IOException Exception de l'image
      */
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Chemin.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 }

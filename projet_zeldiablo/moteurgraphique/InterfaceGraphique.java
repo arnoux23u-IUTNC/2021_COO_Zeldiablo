@@ -59,8 +59,7 @@ public class InterfaceGraphique {
     /**
      * demande la mise a jour du dessin
      */
-    public void dessiner() throws IOException {
+    public void dessiner() {
         this.panel.dessinerJeu();
     }
-
 }

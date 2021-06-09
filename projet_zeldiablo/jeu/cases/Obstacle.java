@@ -1,5 +1,7 @@
 package jeu.cases;
 
+import java.io.IOException;
+
 /**
  * Classe modelisant un obstacle
  *
@@ -13,7 +15,7 @@ public abstract class Obstacle extends Case {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Obstacle(int x, int y) {
+    public Obstacle(int x, int y) throws IOException {
         super(x, y);
     }
 }

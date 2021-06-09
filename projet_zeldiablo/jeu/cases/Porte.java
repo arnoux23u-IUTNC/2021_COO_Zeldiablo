@@ -15,6 +15,8 @@ import java.io.IOException;
  */
 public class Porte extends Case {
 
+    Image texture;
+
     /**
      * Caractere permettant l'identification sur une map
      */
@@ -42,9 +44,10 @@ public class Porte extends Case {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Porte(int x, int y) {
+    public Porte(int x, int y) throws IOException {
         super(x, y);
         ferme = false;
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Porte.png"));
     }
 
     /**
@@ -69,10 +72,9 @@ public class Porte extends Case {
      * Methode dessiner
      *
      * @param crayon graphics du panel
-     * @throws IOException Exception de file
      */
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Porte.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
     }
 }

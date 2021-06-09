@@ -6,6 +6,8 @@ import jeu.entites.*;
 import jeu.utils.*;
 import org.junit.*;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -29,7 +31,7 @@ public class TestJoueur {
      * Methode pour initialiser le contenu
      */
     @Before
-    public void init() {
+    public void init() throws IOException {
         this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine
@@ -147,7 +149,7 @@ public class TestJoueur {
     }
 
     @Test
-    public void test06_joueur_attaquerAutour_OK(){
+    public void test06_joueur_attaquerAutour_OK() throws IOException {
         Case casejoueur = l.getEntree();
         Case casemonstre1 = l.getCase(casejoueur.x,casejoueur.y+1);
         Case casemonstre2 = l.getCase(casejoueur.x,casejoueur.y+2);
@@ -166,7 +168,7 @@ public class TestJoueur {
     }
 
     @Test
-    public void test07_joueur_collisionMonstre_OK(){
+    public void test07_joueur_collisionMonstre_OK() throws IOException {
         Case casejoueur = l.getEntree();
         Case casemonstre1 = l.getCase(casejoueur.x,casejoueur.y+1);
         Fantome f = new Fantome(l, casemonstre1);

@@ -44,7 +44,7 @@ public abstract class Personnage {
      * @param pointsDeVie points de vie
      * @param degats      degats infliges
      */
-    public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) {
+    public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) throws IOException{
         this.position = depart;
         this.l = l;
         this.degats = degats;
@@ -110,15 +110,6 @@ public abstract class Personnage {
      */
     public int getPv() {
         return this.pv;
-    }
-
-    /**
-     * Getter degats
-     *
-     * @return degats du personnage
-     */
-    public int getDegats() {
-        return this.degats;
     }
 
     /**
@@ -208,9 +199,8 @@ public abstract class Personnage {
      * Methode abstraite dessiner
      *
      * @param crayon graphics
-     * @throws IOException File Exception
      */
-    public abstract void dessiner(Graphics2D crayon) throws IOException;
+    public abstract void dessiner(Graphics2D crayon);
 
     /**
      * Getter Labyrinthe

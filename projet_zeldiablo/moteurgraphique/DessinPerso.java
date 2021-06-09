@@ -36,7 +36,7 @@ public class DessinPerso implements DessinJeu {
      * methode dessiner redefinie de Afficheur retourne une image du jeu
      */
     @Override
-    public void dessiner(BufferedImage im) throws IOException {
+    public void dessiner(BufferedImage im) {
         jeuEnCours.dessiner((Graphics2D) im.getGraphics());
     }
 

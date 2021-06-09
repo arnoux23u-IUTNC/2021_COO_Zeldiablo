@@ -6,6 +6,8 @@ import jeu.entites.*;
 import jeu.utils.*;
 import org.junit.*;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -29,7 +31,7 @@ public class TestCase {
      * Methode d'initialisation du contenu
      */
     @Before
-    public void init() {
+    public void init() throws IOException {
         this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine
@@ -41,7 +43,7 @@ public class TestCase {
      * Verifie si un personnage peut traverser un chemin
      */
     @Test
-    public void test01_case_peutTraverserChemin_OK() {
+    public void test01_case_peutTraverserChemin_OK() throws IOException {
         Case c = new Chemin(0, 0);
         assertTrue("Joueur devrait pouvoir aller dessus", j.peutTraverserChemin());
     }
@@ -51,7 +53,7 @@ public class TestCase {
      * Verifie si un personnage peut traverser un mur
      */
     @Test
-    public void test02_case_peutTravserserMur_OK() {
+    public void test02_case_peutTravserserMur_OK() throws IOException {
         Case c = new Mur(0, 0);
         assertFalse("Joueur ne devrait pas pouvoir aller dessus", j.peutTraverserMur());
     }
@@ -61,7 +63,7 @@ public class TestCase {
      * Verifie si un personnage peut traverser une porte
      */
     @Test
-    public void test03_case_peutTraverserPorte_OK() {
+    public void test03_case_peutTraverserPorte_OK() throws IOException {
         Porte c = new Porte(0, 0);
         assertTrue("Joueur devrait pouvoir aller dessus", j.peutTraverserPorte());
         c.setFerme(true);
@@ -73,7 +75,7 @@ public class TestCase {
      * Verifie si un fantome peut traverser un mur
      */
     @Test
-    public void test04_case_mur_peutTraverserparFantome() {
+    public void test04_case_mur_peutTraverserparFantome() throws IOException {
         Fantome f = new Fantome(l, l.getCase(3, 0));
         Mur c = new Mur(0, 0);
         assertTrue("Fantome devrait pouvoir aller dessus", f.peutTraverserMur());
@@ -85,7 +87,7 @@ public class TestCase {
      * Verifie si un troll ne peut pas traverser un mur
      */
     @Test
-    public void test05_case_mur_nepeutpasTraverserparTroll() {
+    public void test05_case_mur_nepeutpasTraverserparTroll() throws IOException {
         Troll f = new Troll(l, l.getCase(3, 0));
         Mur c = (Mur) l.getCase(4, 0);
         assertFalse("Troll ne devrait pas pouvoir aller dessus", f.peutTraverserMur());

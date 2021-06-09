@@ -10,6 +10,8 @@ import jeu.entites.Troll;
 import jeu.utils.Direction;
 import org.junit.*;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class TestPiege {
@@ -37,7 +39,7 @@ public class TestPiege {
      * Methode pour initialiser le contenu
      */
     @Before
-    public void init() {
+    public void init() throws IOException {
         this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         porte = l.getEntree();
@@ -60,7 +62,7 @@ public class TestPiege {
      * Test prendDegats
      */
     @Test
-    public void test01_piege_prendDegats_OK() {
+    public void test01_piege_prendDegats_OK() throws IOException {
         Joueur j1 = new Joueur(l, porte);
         j.seDeplacer(Direction.SOUTH);
         j.seDeplacer(Direction.SOUTH);
@@ -72,7 +74,7 @@ public class TestPiege {
     }
 
     @Test
-    public void test02_piege_trollPrendDegat_OK() {
+    public void test02_piege_trollPrendDegat_OK() throws IOException {
         Troll t = new Troll(l, porte);
         t.seDeplacer(Direction.SOUTH);
         assertEquals("Le Troll ne doit pas prendre de dégats", 3, t.getPv());

@@ -17,14 +17,17 @@ import java.io.IOException;
  */
 public class Fantome extends Monstre {
 
+    Image texture;
+
     /**
      * Constructeur public par defaut a deux parametres
      *
      * @param l      labyrinthe
      * @param depart position de depart
      */
-    public Fantome(Labyrinthe l, Case depart) {
+    public Fantome(Labyrinthe l, Case depart) throws IOException {
         super(l, depart, 5, 1, 3);
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Fantome.png"));
     }
 
 
@@ -65,7 +68,7 @@ public class Fantome extends Monstre {
 
 
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Fantome.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
     }
 }

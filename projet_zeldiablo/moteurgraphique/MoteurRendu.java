@@ -56,7 +56,7 @@ public class MoteurRendu {
             // affiche le jeu
             this.gui.dessiner();
             // met en attente
-            Thread.sleep(100);
+            Thread.sleep(50);
         }
         JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
         System.exit(1);

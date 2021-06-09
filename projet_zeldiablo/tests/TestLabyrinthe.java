@@ -7,6 +7,8 @@ import jeu.entites.Joueur;
 import jeu.utils.Direction;
 import org.junit.*;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -30,7 +32,7 @@ public class TestLabyrinthe {
      * Methode pour initialiser le contenu
      */
     @Before
-    public void init() {
+    public void init() throws IOException {
         this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
         //On force un retour a la pos d'origine

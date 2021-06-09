@@ -34,7 +34,7 @@ public abstract class Case {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Case(int x, int y) {
+    public Case(int x, int y) throws IOException {
         this.x = x < 0 ? 0 : Math.min(x, Labyrinthe.TAILLE - 1);
         this.y = y < 0 ? 0 : Math.min(y, Labyrinthe.TAILLE - 1);
     }
@@ -92,7 +92,6 @@ public abstract class Case {
      * Methode abstraite dessiner
      *
      * @param crayon graphics du panel
-     * @throws IOException Exception de l'image
      */
-    public abstract void dessiner(Graphics2D crayon) throws IOException;
+    public abstract void dessiner(Graphics2D crayon);
 }

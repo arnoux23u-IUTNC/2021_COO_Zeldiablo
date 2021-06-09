@@ -15,6 +15,9 @@ import java.io.IOException;
  */
 public class Piege extends Obstacle {
 
+
+    Image texture;
+
     /**
      * Caractere permettant l'identification sur une map
      */
@@ -36,8 +39,9 @@ public class Piege extends Obstacle {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Piege(int x, int y) {
+    public Piege(int x, int y) throws IOException {
         super(x, y);
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png"));
     }
 
     /**
@@ -47,7 +51,7 @@ public class Piege extends Obstacle {
      * @throws IOException Exception de file
      */
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
     }
 }

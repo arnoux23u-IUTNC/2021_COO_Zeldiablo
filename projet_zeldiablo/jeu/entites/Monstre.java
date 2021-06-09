@@ -3,6 +3,8 @@ package jeu.entites;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 
+import java.io.IOException;
+
 /**
  * Classe abstraite pour modeliser un monstre
  *
@@ -21,7 +23,7 @@ public abstract class Monstre extends Personnage {
      * @param l      labyrinthe
      * @param depart position de depart
      */
-    public Monstre(Labyrinthe l, Case depart, int pointsDeVie, int degats, int intelligence) {
+    public Monstre(Labyrinthe l, Case depart, int pointsDeVie, int degats, int intelligence) throws IOException {
         super(l, depart, pointsDeVie, degats);
         this.intelligence = intelligence;
     }

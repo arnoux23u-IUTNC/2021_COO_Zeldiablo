@@ -16,6 +16,8 @@ import java.io.*;
  */
 public class Troll extends Monstre {
 
+    Image texture;
+
     /**
      * booleen qui permet de determiner si le troll a ete tape dans le tour
      */
@@ -27,9 +29,10 @@ public class Troll extends Monstre {
      * @param l      labyrinthe
      * @param depart position de depart
      */
-    public Troll(Labyrinthe l, Case depart) {
+    public Troll(Labyrinthe l, Case depart) throws IOException {
         super(l, depart, 3, 3, 5);
         tapeDansLeTour = false;
+        texture =  ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png"));
     }
 
     /**
@@ -83,10 +86,9 @@ public class Troll extends Monstre {
      * Methode dessiner
      *
      * @param crayon graphics
-     * @throws IOException File Exception
      */
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
     }
 }

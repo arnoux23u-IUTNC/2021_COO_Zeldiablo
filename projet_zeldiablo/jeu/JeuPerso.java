@@ -33,7 +33,7 @@ public class JeuPerso implements Jeu {
     /**
      * Constructeur public par defaut
      */
-    public JeuPerso() {
+    public JeuPerso() throws IOException {
         this.l = new Labyrinthe(true);
         this.pj = l.getJoueur();
     }
@@ -90,7 +90,7 @@ public class JeuPerso implements Jeu {
      * @param crayon graphics
      * @throws IOException File Exception
      */
-    public void dessiner(Graphics2D crayon) throws IOException {
+    public void dessiner(Graphics2D crayon) {
         l.dessiner(crayon);
         pj.dessiner(crayon);
     }

@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 public class Joueur extends Personnage {
 
+    Image texture;
+
     /**
      * Arme du joueur
      */
@@ -36,11 +38,12 @@ public class Joueur extends Personnage {
      * @param l Labyrinthe sur lequel il joue
      * @param e Point d'apparition
      */
-    public Joueur(Labyrinthe l, Porte e) {
+    public Joueur(Labyrinthe l, Porte e) throws IOException {
         super(l, e, 20, 1);
         e.setFerme(true);
         armeEnMain = null;
         bouclierEnMain = null;
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Character.png"));
     }
 
     /**
@@ -145,8 +148,8 @@ public class Joueur extends Personnage {
     }
 
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Character.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
         crayon.setColor(Color.red);
         crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
         crayon.setColor(Color.black);

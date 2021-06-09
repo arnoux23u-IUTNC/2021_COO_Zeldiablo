@@ -21,6 +21,5 @@ public interface DessinJeu {
      *
      * @param image image sur laquelle dessiner
      */
-    void dessiner(BufferedImage image) throws IOException;
-
+    void dessiner(BufferedImage image);
 }

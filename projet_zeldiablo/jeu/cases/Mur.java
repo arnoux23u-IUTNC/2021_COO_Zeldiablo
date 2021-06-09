@@ -15,6 +15,8 @@ import java.io.IOException;
  */
 public class Mur extends Obstacle {
 
+    Image texture;
+
     /**
      * Caractere permettant l'identification sur une map
      */
@@ -36,18 +38,18 @@ public class Mur extends Obstacle {
      * @param x abscisse
      * @param y ordonnee
      */
-    public Mur(int x, int y) {
+    public Mur(int x, int y) throws IOException {
         super(x, y);
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Mur.png"));
     }
 
     /**
      * Methode dessiner
      *
      * @param crayon graphics du panel
-     * @throws IOException Exception de File
      */
     @Override
-    public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Mur.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 }

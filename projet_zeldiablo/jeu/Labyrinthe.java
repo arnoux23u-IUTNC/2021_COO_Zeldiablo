@@ -92,7 +92,7 @@ public class Labyrinthe {
      * @param autoGenerate, booleen sur vrai pour une map auto
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public Labyrinthe(boolean autoGenerate) {
+    public Labyrinthe(boolean autoGenerate) throws IOException{
         lMonstre = new ArrayList<Monstre>();
         lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
@@ -402,10 +402,10 @@ public class Labyrinthe {
 
     /**
      * Methode dessiner
+     *
      * @param crayon graphics
-     * @throws IOException File Exception
      */
-    public void dessiner(Graphics2D crayon) throws IOException {
+    public void dessiner(Graphics2D crayon) {
         for (Case[] c1 : cases) {
             for (Case c : c1) {
                 c.dessiner(crayon);
