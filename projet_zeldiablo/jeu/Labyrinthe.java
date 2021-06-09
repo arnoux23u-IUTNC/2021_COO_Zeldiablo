@@ -153,9 +153,8 @@ public class Labyrinthe {
 
                 }
                 map.close();
-            } catch (FileNotFoundException e) {
+            } catch (Exception e) {
                 System.err.println("Impossible de lire le fichier !");
-            } catch (IOException e) {
                 int cursor = 0;
                 for (int i = 0; i < TAILLE; i++) {
                     for (int j = 0; j < TAILLE; j++) {
@@ -238,7 +237,7 @@ public class Labyrinthe {
                             caseCursor.setPersonnage(m2);
                             break;
                     }
-                    cases[i][j] =caseCursor;
+                    cases[i][j] = caseCursor;
                     cursor++;
                 }
             }
@@ -270,7 +269,8 @@ public class Labyrinthe {
                 case "X":
                     return p.peutTraverserChemin();
                 case "E":
-                    return p.peutTraverserPorte();
+                    Porte pa = (Porte) destination;
+                    return p.peutTraverserPorte() && !pa.isFerme();
             }
         }
         return false;
