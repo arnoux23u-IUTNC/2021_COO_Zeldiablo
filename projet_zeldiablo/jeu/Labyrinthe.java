@@ -265,7 +265,7 @@ public class Labyrinthe {
         } catch (IndexOutOfBoundsException e) {
             destination = null;
         }
-        if ((destination != null) && (getDestination(p, dir).getPersonnage() != null)) {
+        if ((destination != null) && (getDestination(p, dir).getPersonnage() == null)) {
             return destination.peutTraverser(p);
         }
         return false;
@@ -285,19 +285,19 @@ public class Labyrinthe {
             cases[destination.x][destination.y].setPersonnage(p);
             p.getCase().removePersonnage();
             p.setPosition(destination);
-            if (p.getCase() instanceof Piege) {
-                //TODO NE PAS SUPPRIMER LE CAST EN OBSTACLE SINON LABYRINTHE CASSE
-                ((Piege) ((Obstacle) cases[p.getCase().x][p.getCase().y])).prendDegats(p);
+            switch (p.getCase().getIdentifier()) {
+                case "P":
+                    p.diminuerVie(1);
+                    break;
+                case "E":
+                    //TODO ICI S'OCCUPER DE TRUC
+                    // if ((Porte) cases[p.getCase().x][p.getCase().y]).peutTraverser(p) == false){
+                    //                    Labyrinthe l = new Labyrinthe(autoGenerate);
+                    //                    .getCompteurLab() += 1;
+                    //                }
+                    break;
             }
-            /*if (p.getCase() instanceof Porte) {
-                //TODO En attente
-                if ((Porte) cases[p.getCase().x][p.getCase().y]).peutTraverser(p) == false){
-                    Labyrinthe l = new Labyrinthe(autoGenerate);
-                    .getCompteurLab() += 1;
-                }
-                return true;
-            }*/
-
+            return true;
         }
         return false;
     }

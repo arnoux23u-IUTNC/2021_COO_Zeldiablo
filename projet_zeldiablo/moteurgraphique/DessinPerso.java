@@ -91,6 +91,7 @@ public class DessinPerso implements DessinJeu {
                 this.dessinerObjet(c.getClass().getSimpleName(), c.x, c.y, im);
             }
         }
+        //TODO ICI
         for (Monstre m : jeuEnCours.getLabyrinthe().getlMonstre()) {
             if (m instanceof Troll) {
                 this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);

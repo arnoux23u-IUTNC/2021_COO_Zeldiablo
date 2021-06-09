@@ -38,4 +38,29 @@ public class Troll extends Monstre {
     public void trollSeFaitAttaquer() {
         tapeDansLeTour = true;
     }
+
+    @Override
+    public boolean peutTraverserChemin() {
+        return true;
+    }
+
+    @Override
+    public boolean peutTraverserMur() {
+        return false;
+    }
+
+    @Override
+    public boolean peutTraverserPiege() {
+        return true;
+    }
+
+    @Override
+    public boolean peutTraverserPorte() {
+        return false;
+    }
+
+    @Override
+    public boolean isJoueur() {
+        return false;
+    }
 }
