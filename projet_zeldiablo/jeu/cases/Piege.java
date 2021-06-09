@@ -12,6 +12,21 @@ import jeu.entites.Personnage;
 public class Piege extends Obstacle {
 
     /**
+     * Caractere permettant l'identification sur une map
+     */
+    private static final char IDENTIFIER = 'P';
+
+    /**
+     * Methode getIdentifier
+     *
+     * @return String, caractere d'identification
+     */
+    @Override
+    public String getIdentifier() {
+        return Character.toString(IDENTIFIER);
+    }
+
+    /**
      * Constructeur public par defaut a deux parametres
      *
      * @param x abscisse
@@ -19,11 +34,6 @@ public class Piege extends Obstacle {
      */
     public Piege(int x, int y) {
         super(x, y);
-    }
-
-    @Override
-    public String getIdentifier() {
-        return null;
     }
 
     /**

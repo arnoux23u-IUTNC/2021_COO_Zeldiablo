@@ -12,7 +12,7 @@ public class Mur extends Obstacle {
     /**
      * Caractere permettant l'identification sur une map
      */
-    private static final char IDENTIFIER = '\u220E';
+    private static final char IDENTIFIER = 'O';
 
     /**
      * Methode getIdentifier
