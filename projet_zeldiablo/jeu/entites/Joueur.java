@@ -26,7 +26,7 @@ public class Joueur extends Personnage {
      * @param e Point d'apparition
      */
     public Joueur(Labyrinthe l, Porte e) {
-        super(l, e, 20, 5);
+        super(l, e, 20, 1);
         e.setFerme(true);
         this.inventaire = new ArrayList<Object>();
     }
