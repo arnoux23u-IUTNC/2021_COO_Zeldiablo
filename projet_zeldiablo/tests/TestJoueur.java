@@ -163,8 +163,15 @@ public class TestJoueur {
         assertTrue("Le fantome devrait etre mort",f.etreMort());
         assertFalse("Le troll devrait etre vivant",t.etreMort());
 
+    }
 
-
+    @Test
+    public void test07_joueur_collisionMonstre_OK(){
+        Case casejoueur = l.getEntree();
+        Case casemonstre1 = l.getCase(casejoueur.x,casejoueur.y+1);
+        Fantome f = new Fantome(l, casemonstre1);
+        j.seDeplacer(Direction.WEST);
+        assertEquals("Le joueur ne doit pas avoir bougé", l.getEntree(), j.getCase());
     }
 
 }
