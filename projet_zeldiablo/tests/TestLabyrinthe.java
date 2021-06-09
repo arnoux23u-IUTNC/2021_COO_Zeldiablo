@@ -50,7 +50,7 @@ public class TestLabyrinthe {
         Porte entree = l.getEntree();
         Porte sortie = l.getSortie();
         assertEquals("cette case est cense etre une porte", "E", c1.toString());
-        assertEquals("cette case est cense etre un mur", "\u220E", c3.toString());
+        assertEquals("cette case est cense etre un mur", "O", c3.toString());
         assertEquals("cette case est cense etre un chemin", "X", c2.toString());
         assertEquals("cette case est cense etre une porte", "E", c4.toString());
         assertEquals("Entree devrait etre en 0,0", c1, entree);

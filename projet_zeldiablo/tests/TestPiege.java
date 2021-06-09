@@ -40,7 +40,7 @@ public class TestPiege {
     public void init() {
         this.l = new Labyrinthe(false);
         this.j = l.getJoueur();
-        porte= l.getEntree();
+        porte = l.getEntree();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
     }
@@ -50,9 +50,8 @@ public class TestPiege {
      * Test la generation du piege
      */
     @Test
-    public void test00_piege_piegegenere_OK(){
-        //TODO ICI
-        assertEquals("La case 0,1 doit etre un piege ","P",l.getCase(1,0) .getIdentifier());
+    public void test00_piege_piegegenere_OK() {
+        assertEquals("La case 0,1 doit etre un piege ", "P", l.getCase(17, 1).getIdentifier());
 
     }
 
@@ -62,24 +61,22 @@ public class TestPiege {
      */
     @Test
     public void test01_piege_prendDegats_OK() {
-        Joueur j1 = new Joueur(l,porte);
-        j1.seDeplacer(Direction.SOUTH);
-
-        assertEquals("Le Joueur doit prendre des dégats",19,j1.getPv());
+        Joueur j1 = new Joueur(l, porte);
+        j.seDeplacer(Direction.SOUTH);
+        j.seDeplacer(Direction.SOUTH);
+        j.seDeplacer(Direction.EAST);
+        j.seDeplacer(Direction.EAST);
+        j.seDeplacer(Direction.EAST);
+        j.seDeplacer(Direction.EAST);
+        assertEquals("Le Joueur doit prendre des dégats", 19, j1.getPv());
     }
 
     @Test
-    public void test02_piege_trollPrendDegat_OK(){
+    public void test02_piege_trollPrendDegat_OK() {
         Troll t = new Troll(l, porte);
         t.seDeplacer(Direction.SOUTH);
-        assertEquals("Le Troll ne doit pas prendre de dégats",3,t.getPv());
+        assertEquals("Le Troll ne doit pas prendre de dégats", 3, t.getPv());
     }
-
-
-
-
-
-
 
 
 }
