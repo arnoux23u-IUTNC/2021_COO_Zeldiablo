@@ -1,5 +1,10 @@
 package jeu.cases;
 
+import moteurgraphique.DessinJeu;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 /**
  * Classe representant un chemin vide
  *
@@ -32,4 +37,9 @@ public class Chemin extends Case {
         super(x, y);
     }
 
+    @Override
+    public void dessiner(Graphics2D crayon) {
+        crayon.setColor(Color.orange);
+        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    }
 }

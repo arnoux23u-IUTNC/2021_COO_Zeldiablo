@@ -4,6 +4,10 @@ import jeu.Labyrinthe;
 import jeu.cases.Case;
 import jeu.utils.Direction;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.Objects;
+
 /**
  * Classe modelisant un personnage, de type passif (joueur) ou actif (monstre)
  *
@@ -81,11 +85,7 @@ public abstract class Personnage {
      */
     public void diminuerVie(int vieDown) {
         if (vieDown > 0) {
-            if (this.getPv() - vieDown > 0) {
-                this.setPv(this.getPv() - vieDown);
-            } else {
-                this.setPv(0);
-            }
+            this.setPv(Math.max(this.getPv() - vieDown, 0));
         }
     }
 
@@ -156,6 +156,18 @@ public abstract class Personnage {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Personnage)) return false;
+        Personnage that = (Personnage) o;
+        return pv == that.pv && degats == that.degats && Objects.equals(position, that.position) && Objects.equals(l, that.l);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(position, l, pv, degats);
+    }
 
     //methode qui renvoie true si les PV du personnage tombent a 0
 
@@ -184,5 +196,5 @@ public abstract class Personnage {
 
     public abstract boolean isTroll();
 
-    public abstract boolean isFantome();
+    public abstract void dessiner(Graphics2D im);
 }

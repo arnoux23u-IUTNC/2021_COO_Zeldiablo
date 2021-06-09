@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 public class TestBouclier {
 
-
     @Test
     public void test01_bouclier_diminuerResistance_OK(){
         Bouclier b = new Bouclier(5);

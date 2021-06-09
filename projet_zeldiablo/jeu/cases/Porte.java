@@ -1,5 +1,9 @@
 package jeu.cases;
 
+import moteurgraphique.DessinJeu;
+
+import java.awt.*;
+
 /**
  * Classe modelisant une porte
  *
@@ -51,5 +55,11 @@ public class Porte extends Case {
 
     public boolean isFerme() {
         return ferme;
+    }
+
+    @Override
+    public void dessiner(Graphics2D crayon) {
+        crayon.setColor(Color.green);
+        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
     }
 }

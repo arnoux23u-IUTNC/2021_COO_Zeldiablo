@@ -1,7 +1,12 @@
 package jeu;
 
+import jeu.cases.Case;
+import jeu.cases.Piege;
 import jeu.entites.*;
 import jeu.utils.*;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Classe modelisant le jeu d'un personnage
@@ -25,15 +30,9 @@ public class JeuPerso implements Jeu {
     private boolean partieEnCours;
 
     /**
-     * Compteur de Labyrinthe
-     */
-    private int compteurLab;
-
-    /**
      * Constructeur public par defaut
      */
     public JeuPerso() {
-        this.compteurLab = 0;
         this.partieEnCours = true;
         this.l = new Labyrinthe(true);
         this.pj = l.getJoueur();
@@ -45,11 +44,12 @@ public class JeuPerso implements Jeu {
      * @param d direction de l'utilisateur
      */
     @Override
-    public void evoluer(Direction d,boolean b) {
+    public void evoluer(Direction d, boolean b) {
         this.pj.seDeplacer(d);
-        if(b){
+        if (b) {
             this.pj.attaquerAutour();
         }
+        l.supprimerLesMorts();
     }
 
     /**
@@ -59,20 +59,11 @@ public class JeuPerso implements Jeu {
      */
     @Override
     public boolean etreFini() {
-        if(!pj.etreMort()){
-            return !partieEnCours;
+        if (!pj.etreMort() && !pj.getCase().equals(getLabyrinthe().getSortie())) {
+            return false;
         }
-        else{
-            System.out.println("Vous êtes mort");
-        }
-        return partieEnCours;
-    }
-
-    /**
-     * Methode d'augmentation du compteur de labyrinthe
-     */
-    public void augmenterCompteur() {
-        compteurLab ++;
+        System.out.println("Vous êtes mort");
+        return true;
     }
 
     /**
@@ -92,13 +83,9 @@ public class JeuPerso implements Jeu {
     public Labyrinthe getLabyrinthe() {
         return l;
     }
-    
-    /**
-     * Getter compteur de Labyrinthe
-     *
-     * @return compteurLab
-     */
-    public int getCompteurLab() {
-        return compteurLab;
+
+    public void dessiner(Graphics2D im) {
+        l.dessiner(im);
+        pj.dessiner(im);
     }
 }
