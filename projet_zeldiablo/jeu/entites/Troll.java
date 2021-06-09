@@ -2,6 +2,9 @@ package jeu.entites;
 
 import jeu.Labyrinthe;
 import jeu.cases.Case;
+import moteurgraphique.DessinJeu;
+
+import java.awt.*;
 
 public class Troll extends Monstre {
 
@@ -70,7 +73,8 @@ public class Troll extends Monstre {
     }
 
     @Override
-    public boolean isFantome() {
-        return false;
+    public void dessiner(Graphics2D crayon) {
+        crayon.setColor(Color.magenta);
+        crayon.fillOval(getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
     }
 }

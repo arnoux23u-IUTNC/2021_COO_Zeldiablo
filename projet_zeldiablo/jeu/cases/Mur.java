@@ -1,5 +1,9 @@
 package jeu.cases;
 
+import moteurgraphique.DessinJeu;
+
+import java.awt.*;
+
 /**
  * Classe modelisant un Mur
  *
@@ -32,4 +36,9 @@ public class Mur extends Obstacle {
         super(x, y);
     }
 
+    @Override
+    public void dessiner(Graphics2D crayon) {
+        crayon.setColor(Color.gray);
+        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
+    }
 }

@@ -1,5 +1,9 @@
 package jeu.cases;
 
+import moteurgraphique.DessinJeu;
+
+import java.awt.*;
+
 /**
  * Classe modelisant un Piege
  *
@@ -32,11 +36,17 @@ public class Piege extends Obstacle {
         super(x, y);
     }
 
-    public int getX(){
+    public int getX() {
         return this.x;
     }
 
-    public int getY(){
+    public int getY() {
         return this.y;
+    }
+
+    @Override
+    public void dessiner(Graphics2D crayon) {
+        crayon.setColor(Color.black);
+        crayon.fillRect(x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
     }
 }

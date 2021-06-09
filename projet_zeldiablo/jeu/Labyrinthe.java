@@ -4,12 +4,15 @@ import jeu.entites.*;
 import jeu.cases.*;
 import jeu.utils.*;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * Classe modelisant un labyrinthe
@@ -293,18 +296,9 @@ public class Labyrinthe {
             destination.setPersonnage(p);
             p.getCase().removePersonnage();
             p.setPosition(destination);
-            switch (p.getCase().getIdentifier()) {
-                case "P":
-                    System.out.println("le joueur prend un dégat");
-                    p.diminuerVie(1);
-                    break;
-                case "E":
-                    //TODO ICI S'OCCUPER DE TRUC
-                    // if ((Porte) cases[p.getCase().x][p.getCase().y]).peutTraverser(p) == false){
-                    //                    Labyrinthe l = new Labyrinthe(autoGenerate);
-                    //                    .getCompteurLab() += 1;
-                    //                }
-                    break;
+            if ("P".equals(p.getCase().getIdentifier())) {
+                System.out.println("le joueur prend un dégat");
+                p.diminuerVie(1);
             }
             return true;
         }
@@ -423,5 +417,26 @@ public class Labyrinthe {
      */
     public ArrayList<Piege> getlPieges() {
         return lPieges;
+    }
+
+
+    public void dessiner(Graphics2D im){
+        for (Case[] c1 : cases) {
+            for (Case c : c1) {
+                c.dessiner(im);
+            }
+        }
+        for (Monstre m : lMonstre) {
+            m.dessiner(im);
+        }
+    }
+
+    public void supprimerLesMorts() {
+        //On recupere tous les monstres morts
+        ArrayList<Monstre> monstresMort = (ArrayList<Monstre>) getlMonstre().stream().filter(Personnage::etreMort).collect(Collectors.toList());
+        for(Monstre m : monstresMort){
+            m.getCase().setPersonnage(null);
+            lMonstre.remove(m);
+        }
     }
 }

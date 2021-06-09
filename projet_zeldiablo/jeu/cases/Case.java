@@ -3,6 +3,8 @@ package jeu.cases;
 import jeu.Labyrinthe;
 import jeu.entites.Personnage;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Objects;
 
 /**
@@ -54,10 +56,10 @@ public abstract class Case {
         return getIdentifier().toUpperCase();
     }
 
-    @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+        if (!(o instanceof Case)) return false;
         Case aCase = (Case) o;
         return x == aCase.x && y == aCase.y && getIdentifier().equals(aCase.getIdentifier());
     }
@@ -91,4 +93,6 @@ public abstract class Case {
     public Personnage getPersonnage() {
         return this.p;
     }
+
+    public abstract void dessiner(Graphics2D im);
 }

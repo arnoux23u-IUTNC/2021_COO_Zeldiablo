@@ -3,6 +3,8 @@ package jeu.entites;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 
+import java.awt.*;
+
 /**
  * Classe abstraite pour modeliser un monstre
  *

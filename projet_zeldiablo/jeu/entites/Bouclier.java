@@ -26,7 +26,6 @@ public class Bouclier {
     /**
      * methode qui permets de diminuer la resistance du boucleir
      * @param  degats degats pris dans le bouclier
-     * @return les degats restants pris
      */
     public void diminuerResistance(int degats){
         if(degats>0){
@@ -39,10 +38,6 @@ public class Bouclier {
      * @return true si resistance est superieur a zero
      */
     public boolean etreCasserBouclier(){
-        if(resistance>0){
-            return false;
-        }else{
-            return true;
-        }
+        return resistance <= 0;
     }
 }

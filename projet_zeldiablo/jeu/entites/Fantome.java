@@ -2,6 +2,9 @@ package jeu.entites;
 
 import jeu.Labyrinthe;
 import jeu.cases.Case;
+import moteurgraphique.DessinJeu;
+
+import java.awt.*;
 
 /**
  * Classe modelisant un fantome
@@ -52,7 +55,8 @@ public class Fantome extends Monstre {
     }
 
     @Override
-    public boolean isFantome() {
-        return true;
+    public void dessiner(Graphics2D crayon) {
+        crayon.setColor(Color.red);
+        crayon.fillOval(getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE);
     }
 }

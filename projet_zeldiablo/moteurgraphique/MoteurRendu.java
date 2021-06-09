@@ -57,7 +57,7 @@ public class MoteurRendu {
             // met en attente
             Thread.sleep(100);
         }
-        JOptionPane.showMessageDialog(new JPanel(), "Vous etes mort", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
         System.exit(1);
     }
 
