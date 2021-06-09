@@ -88,7 +88,7 @@ public abstract class Personnage {
      */
     public void diminuerVie(int vieDown) {
         if (vieDown > 0 && pv > 0) {
-            this.pv -= Math.max(pv - vieDown, 0);
+            this.pv = Math.max(pv - vieDown, 0);
         }
     }
 
