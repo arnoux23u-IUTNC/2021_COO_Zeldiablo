@@ -5,6 +5,7 @@ import jeu.cases.*;
 import jeu.utils.*;
 
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -291,6 +292,7 @@ public class Labyrinthe {
             p.setPosition(destination);
             switch (p.getCase().getIdentifier()) {
                 case "P":
+                    System.out.println("le joueur prend un dégat");
                     p.diminuerVie(1);
                     break;
                 case "E":
