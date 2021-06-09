@@ -27,7 +27,7 @@ public class MainPerso {
         // classe qui lance le moteur de jeu generique
         MoteurRendu moteur = new MoteurRendu(jeu, aff);
         // lance la boucle de jeu qui tourne jusque la fin du jeu
-        moteur.lancerJeu(750, 750);
+        moteur.lancerJeu(750, 950);
 
         // lorsque le jeu est fini
         System.out.println("Fin du Jeu - appuyer sur entree");

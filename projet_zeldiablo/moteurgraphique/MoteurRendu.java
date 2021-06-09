@@ -2,6 +2,8 @@ package moteurgraphique;
 
 import jeu.*;
 
+import javax.swing.*;
+
 /**
  * Classe moteur de rendu
  *
@@ -49,12 +51,14 @@ public class MoteurRendu {
         // boucle de jeu
         while (!this.jeu.etreFini()) {
             // fait evoluer le jeu
-            this.jeu.evoluer(controle.getDirection(),controle.getAttaque());
+            this.jeu.evoluer(controle.getDirection(), controle.getAttaque());
             // affiche le jeu
             this.gui.dessiner();
             // met en attente
             Thread.sleep(100);
         }
+        JOptionPane.showMessageDialog(new JPanel(), "Vous etes mort", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
+        System.exit(1);
     }
 
 }
