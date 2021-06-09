@@ -52,7 +52,7 @@ public class TestPiege {
     @Test
     public void test00_piege_piegegenere_OK(){
         //TODO ICI
-        assertTrue("La case 0,1 doit etre un piege ",l.getCase(1,0) instanceof Piege);
+        assertEquals("La case 0,1 doit etre un piege ","P",l.getCase(1,0) .getIdentifier());
 
     }
 

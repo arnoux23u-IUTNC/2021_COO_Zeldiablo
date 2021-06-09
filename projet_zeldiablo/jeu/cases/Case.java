@@ -38,13 +38,6 @@ public abstract class Case {
     }
 
     /**
-     * Methode abstraite pour verifier si un personnage peut passer sur cette classe
-     *
-     * @return booleen, a vrai si "p" peut passer dessus
-     */
-    public abstract boolean peutTraverser(Personnage p);
-
-    /**
      * Methode getIdentifier
      *
      * @return String, caractere d'identification

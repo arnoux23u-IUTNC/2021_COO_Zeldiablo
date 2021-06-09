@@ -50,25 +50,5 @@ public class Porte extends Case {
         this.ferme = b;
     }
 
-    /**
-     * Methode pour verifier si un personnage peut passer sur cette classe
-     *
-     * @return booleen, a vrai si "p" peut passer dessus
-     */
-    @Override
-    //TODO A REFAIRE
-    public boolean peutTraverser(Personnage p) {
-        //TODO VERIFIER FERME
-        if (ferme) {
-            return false;
-        }
-        switch (p.getClass().getSimpleName()) {
-            case "Joueur":
-
-                return true;
-        }
-        return false;
-    }
-
 
 }

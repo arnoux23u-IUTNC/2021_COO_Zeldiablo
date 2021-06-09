@@ -32,6 +32,11 @@ public class Troll extends Monstre {
 
     }
 
+    @Override
+    public boolean isTroll() {
+        return true;
+    }
+
     /**
      * Methode qui change l'etat attaque du troll
      */
@@ -61,6 +66,11 @@ public class Troll extends Monstre {
 
     @Override
     public boolean isJoueur() {
+        return false;
+    }
+
+    @Override
+    public boolean isFantome() {
         return false;
     }
 }

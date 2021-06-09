@@ -93,4 +93,14 @@ public class Joueur extends Personnage {
     public boolean isJoueur() {
         return true;
     }
+
+    @Override
+    public boolean isTroll() {
+        return false;
+    }
+
+    @Override
+    public boolean isFantome() {
+        return false;
+    }
 }

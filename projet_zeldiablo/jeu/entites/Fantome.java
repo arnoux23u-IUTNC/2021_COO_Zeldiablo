@@ -45,4 +45,14 @@ public class Fantome extends Monstre {
     public boolean isJoueur() {
         return false;
     }
+
+    @Override
+    public boolean isTroll() {
+        return false;
+    }
+
+    @Override
+    public boolean isFantome() {
+        return true;
+    }
 }

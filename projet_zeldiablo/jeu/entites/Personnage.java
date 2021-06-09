@@ -145,7 +145,7 @@ public abstract class Personnage {
      */
     public void attaquer(Personnage p) {
         //TODO ICI
-        if (p instanceof Troll) {
+        if (p.isTroll()) {
             ((Troll) p).trollSeFaitAttaquer();
         }
         p.diminuerVie(this.degats);
@@ -175,6 +175,9 @@ public abstract class Personnage {
 
     public abstract boolean peutTraverserPorte();
 
-
     public abstract boolean isJoueur();
+
+    public abstract boolean isTroll();
+
+    public abstract boolean isFantome();
 }
