@@ -144,10 +144,16 @@ public abstract class Personnage {
      * @param p victime
      */
     public void attaquer(Personnage p) {
-        if (p.isTroll()) {
-            ((Troll) p).trollSeFaitAttaquer();
+        if(this.isJoueur()){
+            if (p.isTroll()) {
+                ((Troll) p).trollSeFaitAttaquer();
+            }
+            p.diminuerVie(this.degats);
+        }else{
+            if(p.isJoueur()){
+                p.diminuerVie(this.degats);
+            }
         }
-        p.diminuerVie(this.degats);
     }
 
 

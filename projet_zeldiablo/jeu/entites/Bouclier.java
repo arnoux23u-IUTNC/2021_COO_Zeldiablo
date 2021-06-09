@@ -28,18 +28,10 @@ public class Bouclier {
      * @param  degats degats pris dans le bouclier
      * @return les degats restants pris
      */
-    public int diminuerResistance(int degats){
+    public void diminuerResistance(int degats){
         if(degats>0){
-            if(resistance-degats>0){
-                resistance-= degats;
-                return 0;
-            }else{
-                int a = degats-resistance;
-                resistance = 0;
-                return a;
-            }
+            resistance-= degats;
         }
-        return 0;
     }
 
     /**

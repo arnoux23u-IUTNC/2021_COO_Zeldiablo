@@ -14,10 +14,8 @@ import java.util.ArrayList;
 
 public class Joueur extends Personnage {
 
-    /**
-     * Liste d'objets de l'inventaire
-     */
-    private ArrayList<Object> inventaire;
+    private Arme armeEnMain;
+    private Bouclier bouclierEnMain;
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -28,7 +26,8 @@ public class Joueur extends Personnage {
     public Joueur(Labyrinthe l, Porte e) {
         super(l, e, 20, 1);
         e.setFerme(true);
-        this.inventaire = new ArrayList<Object>();
+        armeEnMain = null;
+        bouclierEnMain = null;
     }
 
     public void attaquerAutour() {
@@ -56,18 +55,28 @@ public class Joueur extends Personnage {
      * @param arme arme a ajouter
      */
     public void ajouterArme(Arme arme){
-        inventaire.add(arme);
-        this.setDegats(this.getDegats()+ arme.getDegats());
+        this.armeEnMain = arme;
+        setDegats(this.getDegats()+armeEnMain.getDegats());
     }
-
     /**
      * methode qui permet dajouter un bouclier a linventaire
      * @param bouclier bouclier a ajouter
      */
     public void ajouterBouclier(Bouclier bouclier){
-        inventaire.add(bouclier);
+        this.bouclierEnMain = bouclier;
+        this.setPv(this.getPv()+ bouclier.getResistance());
     }
 
+    @Override
+    public void diminuerVie(int vieDown) {
+        super.diminuerVie(vieDown);
+        if(bouclierEnMain!= null){
+            bouclierEnMain.diminuerResistance(vieDown);
+            if(bouclierEnMain.etreCasserBouclier()){
+                bouclierEnMain = null;
+            }
+        }
+    }
 
     @Override
     public boolean peutTraverserChemin() {
