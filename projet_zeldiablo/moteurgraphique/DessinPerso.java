@@ -107,13 +107,4 @@ public class DessinPerso implements DessinJeu {
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);
     }
 
-    public void dessinerMourir() {
-        JPanel jp = new JPanel();
-        int jop = JOptionPane.showConfirmDialog(jp, "Vous etes mort", "Fin du jeu", JOptionPane.OK_OPTION);
-        if (jop == JOptionPane.OK_OPTION) {
-            System.exit(1);
-        }
-
-    }
-
 }

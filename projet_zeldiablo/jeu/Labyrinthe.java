@@ -103,7 +103,7 @@ public class Labyrinthe {
         //o = obstacle
         if (autoGenerate) {
             try {
-                File fr = new File(".\\jeu\\cartes");
+                File fr = new File(".\\projet_zeldiablo\\jeu\\cartes");
                 File[] maps = fr.listFiles();
 
                 assert maps != null;
