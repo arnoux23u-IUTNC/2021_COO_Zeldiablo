@@ -1,7 +1,6 @@
 package moteurgraphique;
 
 import jeu.*;
-import jeu.utils.Direction;
 
 /**
  * Classe moteur de rendu
