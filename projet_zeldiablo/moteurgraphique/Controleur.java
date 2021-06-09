@@ -4,7 +4,6 @@ import jeu.utils.Direction;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.security.Key;
 
 /**
  * Classe modelisant le controlleur de jeu
