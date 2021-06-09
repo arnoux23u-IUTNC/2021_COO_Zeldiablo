@@ -23,3 +23,10 @@
 - descriptif texte : creation d'un pop-up de mort lorsque le personnage meurt, 
 - critères de validation :
     -critère 1 : - la page apparait quand le personnage et mort
+
+- fonctionalité 5 : Collision entre le joueur et les monstres
+- responsables [1] : Tristan
+- descriptif texte : Systeme permettant que les monstres et le joueur ne puissent pas se marcher dessus
+- critere de validation :
+    -critère 1 : il doit y avoir un joueur et un monstre
+
