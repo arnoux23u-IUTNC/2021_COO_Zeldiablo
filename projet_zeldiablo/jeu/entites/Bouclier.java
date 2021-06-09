@@ -35,10 +35,16 @@ public class Bouclier {
      *
      * @param degats degats pris dans le bouclier
      */
-    public void diminuerResistance(int degats) {
+    public int diminuerResistance(int degats) {
+        int degatsjoueur = 0;
         if (degats > 0) {
-            resistance -= degats;
+            if(resistance-degats>0){
+                resistance -= degats;
+            }else{
+                degatsjoueur=degats-resistance;
+            }
         }
+        return degatsjoueur;
     }
 
     /**

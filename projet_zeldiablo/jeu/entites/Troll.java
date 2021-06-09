@@ -87,6 +87,6 @@ public class Troll extends Monstre {
      */
     @Override
     public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, null);
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
     }
 }

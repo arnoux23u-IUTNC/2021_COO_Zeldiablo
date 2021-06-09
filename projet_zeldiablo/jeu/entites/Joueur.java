@@ -100,19 +100,18 @@ public class Joueur extends Personnage {
      */
     public void ajouterBouclier(Bouclier bouclier) {
         this.bouclierEnMain = bouclier;
-        //this.setPv(this.getPv() + bouclier.getResistance());
     }
 
-    @Override
     public void diminuerVie(int vieDown) {
-        super.diminuerVie(vieDown);
-        //TODO ICI
-        /*if (bouclierEnMain != null) {
-            bouclierEnMain.diminuerResistance(vieDown);
+        if (bouclierEnMain != null) {
+            int degatsubis = bouclierEnMain.diminuerResistance(vieDown);
             if (bouclierEnMain.etreCasserBouclier()) {
                 bouclierEnMain = null;
             }
-        }*/
+            super.diminuerVie(degatsubis);
+        }else{
+            super.diminuerVie(vieDown);
+        }
     }
 
     @Override
@@ -147,7 +146,7 @@ public class Joueur extends Personnage {
 
     @Override
     public void dessiner(Graphics2D crayon) throws IOException {
-        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Character.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, null);
+        crayon.drawImage(ImageIO.read(new File(JeuPerso.assetsDirectory,"Character.png")), getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
         crayon.setColor(Color.red);
         crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
         crayon.setColor(Color.black);
