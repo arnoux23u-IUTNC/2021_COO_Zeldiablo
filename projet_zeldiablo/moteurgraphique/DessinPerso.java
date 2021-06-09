@@ -7,10 +7,8 @@ import jeu.entites.*;
 
 import java.awt.*;
 import java.awt.image.*;
-import java.util.Arrays;
 
 import javax.swing.*;
-import java.awt.event.*;
 
 /**
  * Classe modelisant le dessin du Jeu
