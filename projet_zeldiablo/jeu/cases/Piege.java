@@ -41,7 +41,7 @@ public class Piege extends Obstacle {
      */
     public Piege(int x, int y) throws IOException {
         super(x, y);
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Piege.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"PiegeV2.png"));
     }
 
     /**

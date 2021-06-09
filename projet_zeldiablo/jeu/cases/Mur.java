@@ -40,7 +40,7 @@ public class Mur extends Obstacle {
      */
     public Mur(int x, int y) throws IOException {
         super(x, y);
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Mur.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "MurV2.png"));
     }
 
     /**

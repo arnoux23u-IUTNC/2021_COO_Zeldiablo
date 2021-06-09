@@ -44,7 +44,7 @@ public class Chemin extends Case {
      */
     public Chemin(int x, int y) throws IOException {
         super(x, y);
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Chemin.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "CheminV2.png"));
     }
 
     /**

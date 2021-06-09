@@ -81,11 +81,6 @@ public class Labyrinthe {
     private final ArrayList<Monstre> lMonstre;
 
     /**
-     * Liste de pieges
-     */
-    private final ArrayList<Piege> lPieges;
-
-    /**
      * Constructeur public par defaut
      * Supression des warns de read
      *
@@ -94,7 +89,6 @@ public class Labyrinthe {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public Labyrinthe(boolean autoGenerate) throws IOException{
         lMonstre = new ArrayList<Monstre>();
-        lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
         if (autoGenerate) {
             try {
@@ -165,7 +159,6 @@ public class Labyrinthe {
                                 break;
                             case 'p':
                                 Piege pi = new Piege(i, j);
-                                lPieges.add(pi);
                                 cases[i][j] = pi;
                                 break;
                             case 'e':
@@ -210,7 +203,6 @@ public class Labyrinthe {
                             break;
                         case 'p':
                             caseCursor = new Piege(i, j);
-                            lPieges.add((Piege) caseCursor);
                             break;
                         case 'e':
                             caseCursor = new Porte(i, j);

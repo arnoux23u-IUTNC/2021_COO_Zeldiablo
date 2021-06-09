@@ -43,7 +43,7 @@ public class Joueur extends Personnage {
         e.setFerme(true);
         armeEnMain = null;
         bouclierEnMain = null;
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Character.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"CharacterContour.png"));
     }
 
     /**
