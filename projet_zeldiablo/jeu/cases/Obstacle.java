@@ -1,7 +1,5 @@
 package jeu.cases;
 
-import jeu.entites.Personnage;
-
 /**
  * Classe modelisant un obstacle
  *

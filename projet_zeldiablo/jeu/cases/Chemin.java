@@ -1,7 +1,5 @@
 package jeu.cases;
 
-import jeu.entites.Personnage;
-
 /**
  * Classe representant un chemin vide
  *

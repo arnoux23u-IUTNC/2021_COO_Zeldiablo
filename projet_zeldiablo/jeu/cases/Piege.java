@@ -1,9 +1,5 @@
 package jeu.cases;
 
-import jeu.entites.Joueur;
-import jeu.entites.Personnage;
-
-
 /**
  * Classe modelisant un Piege
  *
