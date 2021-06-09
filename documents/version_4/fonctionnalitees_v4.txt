@@ -6,7 +6,6 @@
 - critères de validation :
     -critère 1 : - l'arme a des degats
 
-
 - fonctionnalité 2 : Creation de le bouclier
 - responsables [1] : Alexandre
 - descriptif texte : creation d'un bouclier qui est porte par le joueur
@@ -18,3 +17,9 @@
 - descriptif texte : ajout d'un inventaire du joueur qui possede des boucliers et armes
 - critères de validation :
     -critère 1 : - si une arme est dans l'inventaire elle augmente les degats du joueur
+
+- fonctionnalité 4 : Fin du jeu si le personnage meurt
+- responsables [1] : Jules
+- descriptif texte : creation d'un pop-up de mort lorsque le personnage meurt, 
+- critères de validation :
+    -critère 1 : - la page apparait quand le personnage et mort
