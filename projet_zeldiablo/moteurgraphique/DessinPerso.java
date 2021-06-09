@@ -88,20 +88,20 @@ public class DessinPerso implements DessinJeu {
 
         for (Case[] c1 : jeuEnCours.getLabyrinthe().getCases()) {
             for (Case c : c1) {
-                this.dessinerObjet(c.getClass().getSimpleName(), c.x, c.y, im);
+                this.dessinerObjet(c.getIdentifier(), c.x, c.y, im);
             }
         }
         //TODO ICI
         for (Monstre m : jeuEnCours.getLabyrinthe().getlMonstre()) {
             if (m.isTroll()) {
-                this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
+                this.dessinerObjet("Troll", m.getCase().x, m.getCase().y, im);
             }
             if (m.isFantome()) {
-                this.dessinerObjet(m.getClass().getSimpleName(), m.getCase().x, m.getCase().y, im);
+                this.dessinerObjet("Fantome", m.getCase().x, m.getCase().y, im);
             }
         }
         for (Piege p : jeuEnCours.getLabyrinthe().getlPieges()) {
-            this.dessinerObjet(p.getClass().getSimpleName(), p.x, p.y, im);
+            this.dessinerObjet("Piege", p.x, p.y, im);
         }
 
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);
