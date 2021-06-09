@@ -156,6 +156,10 @@ public class TestJoueur {
         l.getlMonstre().add(f);
         l.getlMonstre().add(t);
         j.attaquerAutour();
+        j.attaquerAutour();
+        j.attaquerAutour();
+        j.attaquerAutour();
+        j.attaquerAutour();
         assertTrue("Le fantome devrait etre mort",f.etreMort());
         assertFalse("Le troll devrait etre vivant",t.etreMort());
 

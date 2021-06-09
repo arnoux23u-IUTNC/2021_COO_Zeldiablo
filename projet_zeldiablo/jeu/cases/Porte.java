@@ -49,4 +49,7 @@ public class Porte extends Case {
     }
 
 
+    public boolean isFerme() {
+        return ferme;
+    }
 }
