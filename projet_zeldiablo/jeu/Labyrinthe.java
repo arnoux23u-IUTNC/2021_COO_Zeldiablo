@@ -266,7 +266,16 @@ public class Labyrinthe {
             destination = null;
         }
         if ((destination != null) && (getDestination(p, dir).getPersonnage() == null)) {
-            return destination.peutTraverser(p);
+            switch (destination.getIdentifier()){
+                case "P":
+                    return p.peutTraverserPiege();
+                case "O":
+                    return p.peutTraverserMur();
+                case "X":
+                    return p.peutTraverserChemin();
+                case "E":
+                    return p.peutTraverserPorte();
+            }
         }
         return false;
     }

@@ -54,22 +54,22 @@ public class DessinPerso implements DessinJeu {
                 crayon.fillOval(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Mur":
+            case "O":
                 crayon.setColor(Color.gray);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Porte":
+            case "E":
                 crayon.setColor(Color.green);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Chemin":
+            case "X":
                 crayon.setColor(Color.orange);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
                 break;
-            case "Piege":
+            case "P":
                 crayon.setColor(Color.black);
                 crayon.fillRect(x * TAILLE_CASE, y * TAILLE_CASE, TAILLE_CASE,
                         TAILLE_CASE);
@@ -91,7 +91,6 @@ public class DessinPerso implements DessinJeu {
                 this.dessinerObjet(c.getIdentifier(), c.x, c.y, im);
             }
         }
-        //TODO ICI
         for (Monstre m : jeuEnCours.getLabyrinthe().getlMonstre()) {
             if (m.isTroll()) {
                 this.dessinerObjet("Troll", m.getCase().x, m.getCase().y, im);
@@ -101,7 +100,7 @@ public class DessinPerso implements DessinJeu {
             }
         }
         for (Piege p : jeuEnCours.getLabyrinthe().getlPieges()) {
-            this.dessinerObjet("Piege", p.x, p.y, im);
+            this.dessinerObjet(p.getIdentifier(), p.x, p.y, im);
         }
 
         this.dessinerObjet("Joueur", j.getCase().x, j.getCase().y, im);

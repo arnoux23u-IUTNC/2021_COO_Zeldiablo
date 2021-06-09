@@ -36,16 +36,6 @@ public class Piege extends Obstacle {
         super(x, y);
     }
 
-    /**
-     * Methode pour verifier si un personnage peut passer sur cette classe
-     *
-     * @return booleen, a vrai si peut passer dessus
-     */
-    @Override
-    public boolean peutTraverser(Personnage p) {
-        return true;
-    }
-
     public int getX(){
         return this.x;
     }

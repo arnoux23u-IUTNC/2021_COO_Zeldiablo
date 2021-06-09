@@ -144,7 +144,6 @@ public abstract class Personnage {
      * @param p victime
      */
     public void attaquer(Personnage p) {
-        //TODO ICI
         if (p.isTroll()) {
             ((Troll) p).trollSeFaitAttaquer();
         }
