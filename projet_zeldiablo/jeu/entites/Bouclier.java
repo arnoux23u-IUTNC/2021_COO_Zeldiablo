@@ -36,10 +36,12 @@ public class Bouclier {
      * constructeur de bouclier
      *
      * @param resi resistance du bouclier
+     * @param position position
      * @throws IOException texture
      */
-    public Bouclier(int resi) throws IOException {
+    public Bouclier(int resi, Case position) throws IOException {
         this.resistance = resi;
+        this.position = position;
         texture = read(new File(JeuPerso.assetsDirectory, "Bouclier.png"));
     }
 

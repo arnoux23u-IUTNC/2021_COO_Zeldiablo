@@ -132,11 +132,11 @@ public class Labyrinthe {
                             break;
                         case 'a':
                             c = new Chemin(pos, line);
-                            Arme a = new Arme(2);
+                            Arme a = new Arme(2,c);
                             break;
                         case 'b':
                             c = new Chemin(pos, line);
-                            Bouclier b = new Bouclier(5);
+                            Bouclier b = new Bouclier(5,c);
                             break;
                     }
                     cases[line][pos] = c;
@@ -155,49 +155,50 @@ public class Labyrinthe {
                 int cursor = 0;
                 for (int i = 0; i < TAILLE; i++) {
                     for (int j = 0; j < TAILLE; j++) {
+                        Case c;
                         switch (LAB.charAt(cursor)) {
                             case 'x':
-                                Case c1 = new Chemin(i, j);
-                                cases[i][j] = c1;
+                                c = new Chemin(i, j);
+                                cases[i][j] = c;
                                 break;
                             case 'o':
-                                Case m1 = new Mur(i, j);
-                                cases[i][j] = m1;
+                                c = new Mur(i, j);
+                                cases[i][j] = c;
                                 break;
                             case 'p':
-                                Piege pi = new Piege(i, j);
-                                cases[i][j] = pi;
+                                c = new Piege(i, j);
+                                cases[i][j] = c;
                                 break;
                             case 'e':
-                                Porte po = new Porte(i, j);
-                                cases[i][j] = po;
+                                c = new Porte(i, j);
+                                cases[i][j] = c;
                                 if (this.entree == null) {
-                                    this.entree = po;
+                                    this.entree = (Porte) c;
                                 } else {
-                                    this.sortie = po;
+                                    this.sortie = (Porte) c;
                                 }
                                 break;
                             case 't':
-                                Case c2 = new Chemin(i, j);
-                                Monstre m2 = new Troll(this, c2);
+                                c = new Chemin(i, j);
+                                Monstre m2 = new Troll(this, c);
                                 lMonstre.add(m2);
-                                cases[i][j] = c2;
+                                cases[i][j] = c;
                                 break;
                             case 'f':
-                                Case c3 = new Chemin(i, j);
-                                Monstre m3 = new Fantome(this, c3);
+                                c = new Chemin(i, j);
+                                Monstre m3 = new Fantome(this, c);
                                 lMonstre.add(m3);
-                                cases[i][j] = c3;
+                                cases[i][j] = c;
                                 break;
                             case 'a':
-                                Case c4 = new Chemin(i, j);
-                                Arme a = new Arme(2);
-                                cases[i][j] = c4;
+                                c = new Chemin(i, j);
+                                Arme a = new Arme(2,c);
+                                cases[i][j] = c;
                                 break;
                             case 'b':
-                                Case c5 = new Chemin(i, j);
-                                Bouclier b = new Bouclier(5);
-                                cases[i][j] = c5;
+                                c = new Chemin(i, j);
+                                Bouclier b = new Bouclier(5,c);
+                                cases[i][j] = c;
                                 break;
                         }
                         cursor++;
@@ -239,11 +240,11 @@ public class Labyrinthe {
                             break;
                         case 'a':
                             caseCursor = new Chemin(i, j);
-                            Arme a = new Arme(2);
+                            Arme a = new Arme(2,caseCursor);
                             break;
                         case 'b':
                             caseCursor = new Chemin(i, j);
-                            Bouclier b = new Bouclier(5);
+                            Bouclier b = new Bouclier(5,caseCursor);
                             break;
                     }
                     cases[i][j] = caseCursor;

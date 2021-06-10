@@ -33,11 +33,13 @@ public class Arme {
     /**
      * Constructeur d Arme qui construit une arme en fonction du parametre
      *
-     * @param d degats de l'arme
+     * @param degats degats de l'arme
+     * @param position position de l'arme
      * @throws IOException File exception
      */
-    public Arme(int d) throws IOException {
-        this.degats = d;
+    public Arme(int degats, Case position) throws IOException {
+        this.degats = degats;
+        this.position = position;
         this.texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Arme.png"));
     }
 
