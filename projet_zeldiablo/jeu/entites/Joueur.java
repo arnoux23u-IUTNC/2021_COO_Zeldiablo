@@ -156,19 +156,19 @@ public class Joueur extends Personnage {
         else
             crayon.drawImage(armeEnMain != null ? textureArme : bouclierEnMain != null ? textureBouclier : textureVide, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
         crayon.setColor(Color.red);
-        crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
+        crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 15);
         crayon.setColor(Color.black);
         crayon.setFont(new Font("Arial", Font.PLAIN, 20));
         crayon.drawString("" + getPv() + "/20", DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 3) * DessinJeu.TAILLE_CASE);
-        crayon.drawRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 400, 20);
+        crayon.drawRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 400, 15);
 
         if (this.bouclierEnMain != null) {
-            crayon.setColor(Color.orange);
-            crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 4) * DessinJeu.TAILLE_CASE, 20 * bouclierEnMain.getResistance(), 20);
+            crayon.setColor(Color.ORANGE);
+            crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 4) * DessinJeu.TAILLE_CASE, 80 * bouclierEnMain.getResistance(), 15);
             crayon.setColor(Color.black);
             crayon.setFont(new Font("Arial", Font.PLAIN, 20));
-            crayon.drawString("" + bouclierEnMain.getResistance() + "/20", DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 6) * DessinJeu.TAILLE_CASE);
-            crayon.drawRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 4) * DessinJeu.TAILLE_CASE, 400, 20);
+            crayon.drawString("" + bouclierEnMain.getResistance() + "/5", DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 6) * DessinJeu.TAILLE_CASE);
+            crayon.drawRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 4) * DessinJeu.TAILLE_CASE, 400, 15);
         }
     }
 }
