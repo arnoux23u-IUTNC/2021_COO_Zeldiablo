@@ -19,7 +19,7 @@ public class Labyrinthe {
     /**
      * Joueur principal
      */
-    private final Joueur joueur;
+    private Joueur joueur;
 
     /**
      * Tableau de cases
@@ -272,7 +272,7 @@ public class Labyrinthe {
             destination = null;
         }
         if ((destination != null) && (estCaseVide(destination))) {
-            System.out.println("Actuel : "+actuel.x+","+actuel.y+" -> personne en "+destination.x+"");
+            System.out.println("Actuel : " + actuel.x + "," + actuel.y + " -> personne en " + destination.x + "");
             switch (destination.getIdentifier()) {
                 case "P":
                     return p.peutTraverserPiege();
@@ -299,16 +299,20 @@ public class Labyrinthe {
     public boolean deplacerPersonnage(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             Case destination = trouverDestination(p, d);
+            if(p.isJoueur()){
+                //TODO NE PAS TOUCHER SINON C'EST CASSE
+                this.joueur = (Joueur) p;
+            }
             p.setPosition(destination);
-            if("X".equals(p.getCase().getIdentifier())){
-                if(p.isJoueur()){
-                    if(((Chemin)destination).getArme() != null){
-                        ((Joueur)p).ajouterArme(((Chemin)destination).getArme());
-                        ((Chemin)destination).setArme(null);
+            if ("X".equals(p.getCase().getIdentifier())) {
+                if (p.isJoueur()) {
+                    if (((Chemin) destination).getArme() != null) {
+                        ((Joueur) p).ajouterArme(((Chemin) destination).getArme());
+                        ((Chemin) destination).setArme(null);
                     }
-                    if(((Chemin)destination).getBouclier() != null){
-                        ((Joueur)p).ajouterBouclier(((Chemin)destination).getBouclier());
-                        ((Chemin)destination).setBouclier(null);
+                    if (((Chemin) destination).getBouclier() != null) {
+                        ((Joueur) p).ajouterBouclier(((Chemin) destination).getBouclier());
+                        ((Chemin) destination).setBouclier(null);
                     }
                 }
             }
@@ -440,13 +444,12 @@ public class Labyrinthe {
      * @return booleen, a vrai si vide
      */
     private boolean estCaseVide(Case c) {
-        if (joueur.getCase().equals(c))
-            return false;
+        System.out.println(joueur.getCase().x + "," + joueur.getCase().y);
         for (Monstre m : lMonstre) {
             if (m.getCase().equals(c))
                 return false;
         }
-        return true;
+        return !joueur.getCase().equals(c);
     }
 }
 

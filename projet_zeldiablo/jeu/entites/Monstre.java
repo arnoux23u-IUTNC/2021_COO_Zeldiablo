@@ -5,7 +5,6 @@ import jeu.cases.Case;
 import jeu.utils.Direction;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -31,11 +30,10 @@ public abstract class Monstre extends Personnage {
     /**
      * Methode de deplacement du monstre
      *
-     * @return booleen, a vrai si deplace
      */
-    public boolean seDeplacerVersJoueur() {
+    public void seDeplacerVersJoueur() {
         Direction[] directions = Direction.values();
-        return this.seDeplacer(directions[new Random().nextInt(directions.length)]);
+        this.seDeplacer(directions[new Random().nextInt(directions.length)]);
     }
 
     /**
@@ -44,12 +42,8 @@ public abstract class Monstre extends Personnage {
     public void attaquerLeJoueur() {
         Labyrinthe l = getLabyrinthe();
         if (trouverCasesAutour().contains(l.getJoueur().getCase())) {
-            System.out.println("gropdee");
-            //this.attaquer(l.getJoueur());
-        } else {
-            //System.out.println("dochlamerde");
+            this.attaquer(l.getJoueur());
         }
-
         l.supprimerLesMorts();
     }
 }

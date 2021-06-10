@@ -52,9 +52,7 @@ public class JeuPerso implements Jeu {
     public void evoluerMonstres() {
         Labyrinthe l = pj.getLabyrinthe();
         for (Monstre m : l.getlMonstre()) {
-            boolean deplace = false;
-            while (!deplace)
-                deplace = m.seDeplacerVersJoueur();
+            m.seDeplacerVersJoueur();
             m.attaquerLeJoueur();
         }
     }
