@@ -299,26 +299,29 @@ public class Labyrinthe {
     public boolean deplacerPersonnage(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             Case destination = trouverDestination(p, d);
-            if(p.isJoueur()){
+            if (p.isJoueur()) {
                 //TODO NE PAS TOUCHER SINON C'EST CASSE
                 this.joueur = (Joueur) p;
             }
             p.setPosition(destination);
             if ("X".equals(p.getCase().getIdentifier())) {
                 if (p.isJoueur()) {
-                    if (((Chemin) destination).getArme() != null) {
-                        ((Joueur) p).ajouterArme(((Chemin) destination).getArme());
+                    Arme arme = ((Chemin) destination).getArme();
+                    Bouclier bouclier = ((Chemin) destination).getBouclier();
+                    if (arme != null) {
+                        ((Joueur) p).ajouterArme(arme);
                         ((Chemin) destination).setArme(null);
                     }
-                    if (((Chemin) destination).getBouclier() != null) {
-                        ((Joueur) p).ajouterBouclier(((Chemin) destination).getBouclier());
+                    if (bouclier != null) {
+                        ((Joueur) p).ajouterBouclier(bouclier);
                         ((Chemin) destination).setBouclier(null);
                     }
                 }
             }
             // on retire un pv si on tombe sur un piege
             if ("P".equals(p.getCase().getIdentifier())) {
-                p.diminuerVie(1);
+                if (p.isJoueur())
+                    p.diminuerVie(1);
             }
             return true;
         }

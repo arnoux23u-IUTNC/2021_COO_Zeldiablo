@@ -42,8 +42,10 @@ public class Troll extends Monstre {
      * Methode qui permet de regenerer le troll s'il n'a pas ete tape
      */
     public void seRegenerer() {
-        if (!tapeDansLeTour) {
+        if (!tapeDansLeTour && getPv()<3) {
             this.augmenterVie(1);
+        }else{
+            tapeDansLeTour = false;
         }
     }
 
@@ -87,5 +89,7 @@ public class Troll extends Monstre {
     @Override
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+        crayon.setColor(Color.cyan);
+        crayon.fillRect(getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE - 10, getPv() *DessinJeu.TAILLE_CASE/3, 3);
     }
 }

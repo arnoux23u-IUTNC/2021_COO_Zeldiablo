@@ -46,6 +46,12 @@ public class JeuPerso implements Jeu {
         if (b) {
             this.pj.attaquerAutour();
         }
+        for(Monstre m : pj.getLabyrinthe().getlMonstre()){
+            if(m.isTroll()){
+                Troll t = (Troll)m;
+                t.seRegenerer();
+            }
+        }
     }
 
     @Override

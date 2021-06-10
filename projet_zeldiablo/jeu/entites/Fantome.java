@@ -66,5 +66,7 @@ public class Fantome extends Monstre {
     @Override
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+        crayon.setColor(Color.cyan);
+        crayon.fillRect(getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE - 8, getPv() *DessinJeu.TAILLE_CASE/5, 3);
     }
 }
