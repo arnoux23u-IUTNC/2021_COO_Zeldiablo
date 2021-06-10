@@ -1,0 +1,192 @@
+@startuml
+
+title Diagramme de Classe - Zeldiablo V4
+
+class JeuPerso implements Jeu{
+    + {static} assetsDirectory : String
+    + JeuPerso()
+    + evoluer(d : Direction, b : boolean)
+    + etreFini() : boolean
+    + dessiner(crayon : Graphics2D)
+}
+
+interface Jeu{
+    evoluer(d : Direction, b : boolean)
+    etreFini() : boolean
+}
+
+class Labyrinthe{
+        + {static} TAILLE : int
+        - {static} LAB : String
+        + Labyrinthe(autoGenerate : boolean)
+        + peutBouger(p : Personnage, d : Direction) : boolean
+        + deplacerJoueur(p : Personnage, d : Direction) : boolean
+        + trouverDestination(p : Personnage, d : Direction) : Case
+        + getEntree() : Porte
+        + getSortie() : Porte
+        + getCase( x : int, y : int) : Case
+        + getCases() : Case[][]
+        +getLlMonstre() : ArrayList<Monstre>
+        +dessiner(crayon : Graphics2D)
+        + supprimerLesMorts()
+        + getJoueur() : Joueur
+}
+
+abstract class Personnage{
+       private int pv;
+       private final int degats;
+       + Personnage(l : Labyrinthe, depart : Case, pointsDeVie : int, degats : int)
+       +getCase() : Case
+       +setPosition(position : Case)
+       +seDeplacer(d : Direction) : boolean
+       + diminuerVie(vieDown : int)
+       + augmenterVie(vieUp : int)
+       +getPv() : int
+       + attaquer(p : Personnage)
+       + etreMort() : boolean
+       +getLabyrinthe() : Labyrinthe
+       + {abstract}  peutTraverserChemin() : boolean
+       + {abstract}  peutTraverserMur() : boolean
+       + {abstract}  peutTraverserPiege() : boolean
+       + {abstract}  peutTraverserPorte() : boolean
+       + {abstract}  isJoueur() : boolean
+       + {abstract}  isTroll() : boolean
+       + {abstract} void dessiner(Graphics2D crayon);
+}
+
+abstract class Monstre extends Personnage{
+    - intelligence : int
+    + Monstre(l : Labyrinthe, depart : Case, pointsDeVie : int, degats : int, intelligence : int)
+    + getIntelligence() : int
+}
+
+class Troll extends Monstre{
+    - texture : Image
+    - tapeDansLeTour : boolean
+    +Troll(l : Labyrinthe, depart :Case)
+    + seRegenerer()
+    +trollSeFaitAttaquer()
+    +isTroll() : boolean
+    +isJoueur() : boolean
+    +peutTraverserMur() : boolean
+    +peutTraverserPorte() : boolean
+    +peutTraverserPiege() : boolean
+    +peutTraverserChemin() : boolean
+    +dessiner(crayon : Graphics2D)
+}
+
+class Fantome extends Monstre{
+    - texture : Image
+    +Fantome(l : Labyrinthe, depart :Case)
+    +isTroll() : boolean
+    +isJoueur() : boolean
+    +peutTraverserMur() : boolean
+    +peutTraverserPorte() : boolean
+    +peutTraverserPiege() : boolean
+    +peutTraverserChemin() : boolean
+    +dessiner(crayon : Graphics2D)
+}
+
+
+class Joueur extends Personnage{
+    - texture : Image
+    +Joueur(l : Labyrinthe, entree : Porte)
+    +attaquerAutour()
+    +ajouterArme(arme : Arme)
+    +ajouterBouclier(bouc : Bouclier)
+    + diminuerVie(vieDown : int)
+    +peutTraverserMur() : boolean
+    +peutTraverserPorte() : boolean
+    +peutTraverserPiege() : boolean
+    +peutTraverserChemin() : boolean
+    +isTroll() : boolean
+    + isJoueur() : boolean
+    +dessiner(crayon : Graphics2D)
+}
+
+class Bouclier{
+    - texture : Image
+    - resistance : int
+    +Bouclier(resi : int)
+    + getResistance(): int
+    + diminuerResistance(degats : int) : int
+    + etreCasseBouclier() : boolean
+    + dessiner(crayon : Graphics2D)
+}
+
+class Arme{
+    - texture : Image
+    - degats : int
+    +Arme(degats : int)
+    + getDegats(): int
+    + dessiner(crayon : Graphics2D)
+}
+
+abstract class Case{
+    + x : int
+    + y : int
+    + Case(x:int, y : int)
+    + {abstract} getIdentifier() : String
+    + toString() : String
+    + setPersonnage(p : Personnage)
+    + getPersonnage() : Personnage
+    + {abstract} dessiner(crayon : Graphics2D)
+}
+
+
+abstract class Obstacle extends Case{
+    + Obstacle(x:int, y : int)
+}
+
+class Chemin extends Case{
+    - texture : Image
+    + {static} IDENTIFIER : char
+    + Chemin(x:int, y : int)
+    + getIdentifier() : String
+    + dessiner(crayon : Graphics2D)
+}
+
+class Mur extends Obstacle{
+    - texture : Image
+    + {static} IDENTIFIER : char
+    + Mur(x:int, y : int)
+    + getIdentifier() : String
+    + dessiner(crayon : Graphics2D)
+}
+
+class Piege extends Obstacle{
+    - texture : Image
+    + {static} IDENTIFIER : char
+    + Piege(x:int, y : int)
+    + getIdentifier() : String
+    + dessiner(crayon : Graphics2D)
+}
+
+class Porte extends Case{
+    - texture : Image
+    + {static} IDENTIFIER : char
+    - ferme : boolean
+    + Porte( x: int, y : int)
+    +setFerme(b : boolean)
+    + isFerme() : boolean
+    + getIdentifier() : String
+    + dessiner(crayon : Graphics2D)
+}
+
+Personnage "1" -[hidden]down-> "1" Joueur
+Personnage "1" -[hidden]down-> "1" Monstre
+JeuPerso "1" -> "1" Joueur: " - pj "
+Labyrinthe "1" -> "1" Joueur: " - joueur "
+Labyrinthe "1" -> "*" Case: " - cases "
+Labyrinthe "1" -> "1" Porte: " - entree "
+Labyrinthe "1" -> "1" Porte: " - sortie "
+Labyrinthe "1" -> "*" Monstre: " - lMonstre "
+Personnage "1" -> "1" Case: " - position "
+Personnage "1" -> "1" Labyrinthe: " - l "
+Joueur "1" -> "1" Bouclier: " - bouclierEnMain "
+Joueur "1" -> "1" Arme: " - armeEnMail "
+Arme "1" -> "1" Case: " - position "
+Bouclier "1" -> "1" Case: " - position "
+Case "1" -> "1" Personnage: " - p "
+
+@enduml
