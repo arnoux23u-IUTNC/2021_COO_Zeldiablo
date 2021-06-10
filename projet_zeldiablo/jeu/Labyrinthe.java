@@ -44,7 +44,7 @@ public class Labyrinthe {
     /**
      * Seed default
      */
-    private static final String lab = "exxooooooooooooooooooooooooooo" +
+    private static final String LAB = "exxooooooooooooooooooooooooooo" +
             "xxxoxxxxxxxxxxxoxpxxxoxxxxxxxx" +
             "oxxooootxoooooooxxooooxxoxxooo" +
             "oxxxxxxxxxxxxxxxxxxxxoxxobxxxx" +
@@ -157,7 +157,7 @@ public class Labyrinthe {
                 int cursor = 0;
                 for (int i = 0; i < TAILLE; i++) {
                     for (int j = 0; j < TAILLE; j++) {
-                        switch (lab.charAt(cursor)) {
+                        switch (LAB.charAt(cursor)) {
                             case 'x':
                                 Case c1 = new Chemin(i, j);
                                 cases[i][j] = c1;
@@ -213,7 +213,7 @@ public class Labyrinthe {
             for (int i = 0; i < TAILLE; i++) {
                 for (int j = 0; j < TAILLE; j++) {
                     Case caseCursor = null;
-                    switch (lab.charAt(cursor)) {
+                    switch (LAB.charAt(cursor)) {
                         case 'x':
                             caseCursor = new Chemin(i, j);
                             break;
@@ -272,11 +272,11 @@ public class Labyrinthe {
     private boolean peutBouger(Personnage p, Direction dir) {
         Case destination;
         try {
-            destination = getDestination(p, dir);
+            destination = trouverDestination(p, dir);
         } catch (IndexOutOfBoundsException e) {
             destination = null;
         }
-        if ((destination != null) && (getDestination(p, dir).getPersonnage() == null)) {
+        if ((destination != null) && (trouverDestination(p, dir).getPersonnage() == null)) {
             switch (destination.getIdentifier()) {
                 case "P":
                     return p.peutTraverserPiege();
@@ -302,7 +302,7 @@ public class Labyrinthe {
      */
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
-            Case destination = getDestination(p, d);
+            Case destination = trouverDestination(p, d);
             destination.setPersonnage(p);
             p.getCase().setPersonnage(null);
             p.setPosition(destination);
@@ -321,7 +321,7 @@ public class Labyrinthe {
      * @param d direction voulue
      * @return Case correspondant a la destination
      */
-    private Case getDestination(Personnage p, Direction d) {
+    private Case trouverDestination(Personnage p, Direction d) {
         Case actuel = p.getCase();
         Case destination = null;
         System.out.println(d);
