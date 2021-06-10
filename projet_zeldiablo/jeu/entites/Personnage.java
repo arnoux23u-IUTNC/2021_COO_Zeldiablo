@@ -121,7 +121,11 @@ public abstract class Personnage {
             if (p.isTroll()) {
                 ((Troll) p).trollSeFaitAttaquer();
             }
-            p.diminuerVie(this.degats);
+            if(((Joueur)this).getArmeEnMain() != null){
+                p.diminuerVie(((Joueur)this).getArmeEnMain().getDegats());
+            }else{
+                p.diminuerVie(this.degats);
+            }
         } else {
             if (p.isJoueur()) {
                 p.diminuerVie(this.degats);

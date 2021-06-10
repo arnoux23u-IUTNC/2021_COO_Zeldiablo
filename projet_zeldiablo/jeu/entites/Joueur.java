@@ -95,7 +95,13 @@ public class Joueur extends Personnage {
      */
     public void ajouterArme(Arme arme) {
         this.armeEnMain = arme;
-        //(this.getDegats() + armeEnMain.getDegats());
+    }
+
+    /**
+     * getter de larme
+     */
+    public Arme getArmeEnMain(){
+        return this.armeEnMain;
     }
 
     /**
