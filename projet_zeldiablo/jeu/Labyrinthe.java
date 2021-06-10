@@ -294,10 +294,21 @@ public class Labyrinthe {
      * @param d Direction voulue
      * @return booleen, a vrai si le personnage a bouge
      */
-    public boolean deplacerJoueur(Personnage p, Direction d) {
+    public boolean deplacerPersonnage(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             Case destination = trouverDestination(p, d);
             p.setPosition(destination);
+            if(p.isJoueur()){
+                if(((Chemin)destination).getArme() != null){
+                    ((Joueur)p).ajouterArme(((Chemin)destination).getArme());
+                    ((Chemin)destination).setArme(null);
+                }
+                if(((Chemin)destination).getBouclier() != null){
+                    ((Joueur)p).ajouterBouclier(((Chemin)destination).getBouclier());
+                    ((Chemin)destination).setBouclier(null);
+                }
+            }
+            // on retire un pv si on tombe sur un piege
             if ("P".equals(p.getCase().getIdentifier())) {
                 p.diminuerVie(1);
             }

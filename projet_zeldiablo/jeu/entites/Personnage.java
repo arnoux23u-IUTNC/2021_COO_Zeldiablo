@@ -78,7 +78,7 @@ public abstract class Personnage {
     public boolean seDeplacer(Direction d) {
         if (d == null)
             return false;
-        return l.deplacerJoueur(this, d);
+        return l.deplacerPersonnage(this, d);
     }
 
     /**
