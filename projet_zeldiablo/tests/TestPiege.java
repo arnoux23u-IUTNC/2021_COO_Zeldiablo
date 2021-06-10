@@ -63,13 +63,32 @@ public class TestPiege {
      */
     @Test
     public void test01_piege_prendDegats_OK() throws IOException {
+
         Joueur j1 = new Joueur(l, porte);
-        j.seDeplacer(Direction.SOUTH);
-        j.seDeplacer(Direction.SOUTH);
-        j.seDeplacer(Direction.EAST);
-        j.seDeplacer(Direction.EAST);
-        j.seDeplacer(Direction.EAST);
-        j.seDeplacer(Direction.EAST);
+
+
+
+        System.out.println("24"+l.getCase(2,4).getIdentifier());
+        j1.seDeplacer(Direction.EAST);
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+        j1.seDeplacer(Direction.EAST);
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+        j1.seDeplacer(Direction.SOUTH);
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+        j1.seDeplacer(Direction.SOUTH);
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+        j1.seDeplacer(Direction.SOUTH);
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+        j1.seDeplacer(Direction.SOUTH);
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+
+
+
+        System.out.println(j1.getCase().x+" "+j1.getCase().y);
+
+
+
+
         assertEquals("Le Joueur doit prendre des dégats", 19, j1.getPv());
     }
 
