@@ -1,6 +1,8 @@
 package jeu.entites;
 
-import moteurgraphique.DessinJeu;
+import jeu.Jeu;
+import jeu.JeuPerso;
+import jeu.Labyrinthe;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,6 +16,14 @@ import java.io.IOException;
  */
 public class Arme {
 
+    //TODO POSITION
+    //TODO POSSEDEPARUNJOUEUR
+
+    /**
+     * Texture de l'arme
+     */
+    private final Image texture;
+
     /**
      * attribut entier correspondant au degats de l'arme
      */
@@ -23,9 +33,11 @@ public class Arme {
      * Constructeur d Arme qui construit une arme en fonction du parametre
      *
      * @param d degats de l'arme
+     * @throws IOException File exception
      */
-    public Arme(int d) {
+    public Arme(int d) throws IOException {
         this.degats = d;
+        this.texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Arme.png"));
     }
 
     /**
@@ -41,10 +53,8 @@ public class Arme {
      * Methode dessiner
      *
      * @param crayon graphics du panel
-     * @throws IOException Exception de file
      */
-    public void dessiner(Graphics2D crayon) throws IOException {
-        //TODO ARME
-        //crayon.drawImage(ImageIO.read(new File("../utils/assets/Arme.png")), x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
+    public void dessiner(Graphics2D crayon) {
+        //crayon.drawImage(this.texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
     }
 }

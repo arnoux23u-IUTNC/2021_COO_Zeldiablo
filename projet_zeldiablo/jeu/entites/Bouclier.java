@@ -34,14 +34,16 @@ public class Bouclier {
      * methode qui permets de diminuer la resistance du boucleir
      *
      * @param degats degats pris dans le bouclier
+     *               //TODO COMPRENDRE
+     * @return degats du joueur
      */
     public int diminuerResistance(int degats) {
         int degatsjoueur = 0;
         if (degats > 0) {
-            if(resistance-degats>0){
+            if (resistance - degats > 0) {
                 resistance -= degats;
-            }else{
-                degatsjoueur=degats-resistance;
+            } else {
+                degatsjoueur = degats - resistance;
             }
         }
         return degatsjoueur;
@@ -50,9 +52,9 @@ public class Bouclier {
     /**
      * methode qui permets de savoir si le bouclier est casse ou non
      *
-     * @return true si resistance est superieur a zero
+     * @return true si resistance est inferieure ou egale a zero
      */
-    public boolean etreCasserBouclier() {
+    public boolean etreCasseBouclier() {
         return resistance <= 0;
     }
 

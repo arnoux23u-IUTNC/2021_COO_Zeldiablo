@@ -3,7 +3,6 @@ package moteurgraphique;
 import jeu.*;
 
 import javax.swing.*;
-import java.io.IOException;
 
 /**
  * Classe moteur de rendu
@@ -17,11 +16,6 @@ public class MoteurRendu {
      * le jeu a executer
      */
     private final Jeu jeu;
-
-    /**
-     * l'interface graphique
-     */
-    private InterfaceGraphique gui;
 
     /**
      * l'afficheur a utiliser pour le rendu
@@ -43,22 +37,22 @@ public class MoteurRendu {
     /**
      * permet de lancer le jeu
      */
-    public void lancerJeu(int width, int height) throws InterruptedException, IOException {
-
-        // creation de l'interface graphique
-        this.gui = new InterfaceGraphique(this.dessin, width, height);
-        Controleur controle = this.gui.getControleur();
+    public void lancerJeu(int width, int height) throws InterruptedException {
+        //creation gui
+        InterfaceGraphique gui = new InterfaceGraphique(this.dessin, width, height);
+        Controleur controle = gui.getControleur();
 
         // boucle de jeu
         while (!this.jeu.etreFini()) {
             // fait evoluer le jeu
             this.jeu.evoluer(controle.getDirection(), controle.getAttaque());
             // affiche le jeu
-            this.gui.dessiner();
+            gui.dessiner();
             // met en attente
-            Thread.sleep(50);
+            //noinspection BusyWait
+            Thread.sleep(100);
         }
-        JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.WARNING_MESSAGE);
         System.exit(1);
     }
 

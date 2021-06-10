@@ -16,7 +16,10 @@ import java.io.*;
  */
 public class Troll extends Monstre {
 
-    Image texture;
+    /**
+     * Texture du Troll
+     */
+    private final Image texture;
 
     /**
      * booleen qui permet de determiner si le troll a ete tape dans le tour
@@ -32,7 +35,7 @@ public class Troll extends Monstre {
     public Troll(Labyrinthe l, Case depart) throws IOException {
         super(l, depart, 3, 3, 5);
         tapeDansLeTour = false;
-        texture =  ImageIO.read(new File(JeuPerso.assetsDirectory,"Troll.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "TrollContour.png"));
     }
 
     /**
@@ -42,12 +45,6 @@ public class Troll extends Monstre {
         if (!tapeDansLeTour) {
             this.augmenterVie(1);
         }
-
-    }
-
-    @Override
-    public boolean isTroll() {
-        return true;
     }
 
     /**
@@ -55,6 +52,11 @@ public class Troll extends Monstre {
      */
     public void trollSeFaitAttaquer() {
         tapeDansLeTour = true;
+    }
+
+    @Override
+    public boolean isTroll() {
+        return true;
     }
 
     @Override
@@ -89,6 +91,6 @@ public class Troll extends Monstre {
      */
     @Override
     public void dessiner(Graphics2D crayon) {
-        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE, null);
+        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 }

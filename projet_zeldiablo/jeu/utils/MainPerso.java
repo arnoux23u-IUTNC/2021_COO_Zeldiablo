@@ -3,8 +3,8 @@ package jeu.utils;
 import jeu.*;
 import moteurgraphique.*;
 
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 /**
  * Classe Main
@@ -18,6 +18,7 @@ public class MainPerso {
      *
      * @param args arguments
      * @throws InterruptedException exception when thread.sleep()
+     * @throws IOException          File exception (images)
      */
     public static void main(String[] args) throws InterruptedException, IOException {
         System.out.println("Bienvenue");
@@ -28,7 +29,7 @@ public class MainPerso {
         // classe qui lance le moteur de jeu generique
         MoteurRendu moteur = new MoteurRendu(jeu, aff);
         // lance la boucle de jeu qui tourne jusque la fin du jeu
-        moteur.lancerJeu(750, 950);
+        moteur.lancerJeu(750, 900);
 
         // lorsque le jeu est fini
         System.out.println("Fin du Jeu - appuyer sur entree");

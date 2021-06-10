@@ -1,18 +1,15 @@
 package moteurgraphique;
 
 import jeu.*;
-import jeu.cases.Case;
-import jeu.cases.Piege;
-import jeu.entites.*;
 
 import java.awt.*;
 import java.awt.image.*;
-import java.io.IOException;
-
-import javax.swing.*;
 
 /**
  * Classe modelisant le dessin du Jeu
+ *
+ * @author vthomas
+ * @author AGJMX
  */
 public class DessinPerso implements DessinJeu {
 
@@ -30,8 +27,6 @@ public class DessinPerso implements DessinJeu {
         this.jeuEnCours = j;
     }
 
-
-
     /**
      * methode dessiner redefinie de Afficheur retourne une image du jeu
      */
@@ -39,5 +34,4 @@ public class DessinPerso implements DessinJeu {
     public void dessiner(BufferedImage im) {
         jeuEnCours.dessiner((Graphics2D) im.getGraphics());
     }
-
 }

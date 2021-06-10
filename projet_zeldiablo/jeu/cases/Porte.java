@@ -15,7 +15,10 @@ import java.io.IOException;
  */
 public class Porte extends Case {
 
-    Image texture;
+    /**
+     * Texture de la porte
+     */
+    private final Image texture;
 
     /**
      * Caractere permettant l'identification sur une map
@@ -23,20 +26,11 @@ public class Porte extends Case {
     public static final char IDENTIFIER = 'E';
 
     /**
-     * Methode getIdentifier
-     *
-     * @return String, caractere d'identification
-     */
-    @Override
-    public String getIdentifier() {
-        return Character.toString(IDENTIFIER);
-    }
-
-    /**
      * Booleen, a vrai si la porte est fermee
      * Une porte est par defaut ouverte, elle se ferme quand le joueur y passe
      */
     private boolean ferme;
+
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -47,7 +41,7 @@ public class Porte extends Case {
     public Porte(int x, int y) throws IOException {
         super(x, y);
         ferme = false;
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"Porte.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Porte.png"));
     }
 
     /**
@@ -68,13 +62,13 @@ public class Porte extends Case {
         return ferme;
     }
 
-    /**
-     * Methode dessiner
-     *
-     * @param crayon graphics du panel
-     */
+    @Override
+    public String getIdentifier() {
+        return Character.toString(IDENTIFIER);
+    }
+
     @Override
     public void dessiner(Graphics2D crayon) {
-        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
+        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 }

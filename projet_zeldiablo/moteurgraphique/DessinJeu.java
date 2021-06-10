@@ -1,7 +1,6 @@
 package moteurgraphique;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /**
  * une interface representant la maniere de dessiner sur un JPanel

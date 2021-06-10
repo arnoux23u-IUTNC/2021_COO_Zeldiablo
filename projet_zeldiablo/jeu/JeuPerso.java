@@ -1,24 +1,18 @@
 package jeu;
 
-import jeu.cases.Case;
-import jeu.cases.Piege;
 import jeu.entites.*;
 import jeu.utils.*;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
  * Classe modelisant le jeu d'un personnage
  * Implemente Jeu
+ *
+ * @author AGJMX
  */
 public class JeuPerso implements Jeu {
-
-    /**
-     * Labyrinthe concerne
-     */
-    private final Labyrinthe l;
 
     /**
      * Joueur concerne
@@ -34,8 +28,8 @@ public class JeuPerso implements Jeu {
      * Constructeur public par defaut
      */
     public JeuPerso() throws IOException {
-        this.l = new Labyrinthe(true);
-        this.pj = l.getJoueur();
+        Labyrinthe l = new Labyrinthe(true);
+        this.pj = new Joueur(l, l.getEntree());
     }
 
     /**
@@ -49,7 +43,6 @@ public class JeuPerso implements Jeu {
         if (b) {
             this.pj.attaquerAutour();
         }
-        l.supprimerLesMorts();
     }
 
     /**
@@ -59,7 +52,7 @@ public class JeuPerso implements Jeu {
      */
     @Override
     public boolean etreFini() {
-        if (!pj.etreMort() && !pj.getCase().equals(getLabyrinthe().getSortie())) {
+        if (!pj.etreMort() && !pj.getCase().equals(pj.getLabyrinthe().getSortie())) {
             return false;
         }
         System.out.println("Vous êtes mort");
@@ -67,31 +60,11 @@ public class JeuPerso implements Jeu {
     }
 
     /**
-     * Getter joueur
-     *
-     * @return joueur
-     */
-    public Joueur getJoueur() {
-        return pj;
-    }
-
-    /**
-     * Getter labyrinthe
-     *
-     * @return labyrinthe
-     */
-    public Labyrinthe getLabyrinthe() {
-        return l;
-    }
-
-    /**
      * Methode dessiner
      *
      * @param crayon graphics
-     * @throws IOException File Exception
      */
     public void dessiner(Graphics2D crayon) {
-        l.dessiner(crayon);
         pj.dessiner(crayon);
     }
 }

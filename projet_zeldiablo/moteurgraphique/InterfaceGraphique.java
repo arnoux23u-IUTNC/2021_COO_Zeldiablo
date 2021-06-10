@@ -1,10 +1,12 @@
 package moteurgraphique;
 
 import javax.swing.*;
-import java.io.IOException;
 
 /**
  * Classe de modelisation du GUI
+ *
+ * @author vthomas
+ * @author AGJMX
  */
 public class InterfaceGraphique {
 

@@ -17,14 +17,14 @@ import java.util.stream.*;
 public class Labyrinthe {
 
     /**
+     * Joueur principal
+     */
+    private final Joueur joueur;
+
+    /**
      * Tableau de cases
      */
     private final Case[][] cases;
-
-    /**
-     * Joueur, personnage principal
-     */
-    private final Joueur joueur;
 
     /**
      * Porte sur laquelle le joueur apparait
@@ -81,20 +81,15 @@ public class Labyrinthe {
     private final ArrayList<Monstre> lMonstre;
 
     /**
-     * Liste de pieges
-     */
-    private final ArrayList<Piege> lPieges;
-
-    /**
      * Constructeur public par defaut
      * Supression des warns de read
      *
      * @param autoGenerate, booleen sur vrai pour une map auto
+     * @throws IOException File Exception
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public Labyrinthe(boolean autoGenerate) throws IOException{
+    public Labyrinthe(boolean autoGenerate) throws IOException {
         lMonstre = new ArrayList<Monstre>();
-        lPieges = new ArrayList<Piege>();
         cases = new Case[TAILLE][TAILLE];
         if (autoGenerate) {
             try {
@@ -165,7 +160,6 @@ public class Labyrinthe {
                                 break;
                             case 'p':
                                 Piege pi = new Piege(i, j);
-                                lPieges.add(pi);
                                 cases[i][j] = pi;
                                 break;
                             case 'e':
@@ -210,7 +204,6 @@ public class Labyrinthe {
                             break;
                         case 'p':
                             caseCursor = new Piege(i, j);
-                            lPieges.add((Piege) caseCursor);
                             break;
                         case 'e':
                             caseCursor = new Porte(i, j);
@@ -239,7 +232,7 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
-        entree.setPersonnage(this.joueur);
+        entree.setPersonnage(joueur);
     }
 
     /**
@@ -288,7 +281,6 @@ public class Labyrinthe {
             p.getCase().setPersonnage(null);
             p.setPosition(destination);
             if ("P".equals(p.getCase().getIdentifier())) {
-                System.out.println("le joueur prend un dégat");
                 p.diminuerVie(1);
             }
             return true;
@@ -297,7 +289,7 @@ public class Labyrinthe {
     }
 
     /**
-     * Methode getDestination, utilisee pour trouver la case avec une direction
+     * Methode privee getDestination, utilisee pour trouver la case avec une direction
      *
      * @param p personnage
      * @param d direction voulue
@@ -306,7 +298,6 @@ public class Labyrinthe {
     private Case getDestination(Personnage p, Direction d) {
         Case actuel = p.getCase();
         Case destination = null;
-        System.out.println("se trouve en " + actuel.x + " , " + actuel.y);
         System.out.println(d);
         switch (d) {
             case NORTH:
@@ -323,34 +314,7 @@ public class Labyrinthe {
                 break;
         }
         destination = getCase(destination.x, destination.y);
-        System.out.println("veut aller en " + destination.x + " , " + destination.y);
         return destination;
-    }
-
-    /**
-     * Getter joueur
-     *
-     * @return joueur principal
-     */
-    public Joueur getJoueur() {
-        return joueur;
-    }
-
-    /**
-     * Methode toString
-     *
-     * @return String, affichage
-     */
-    @Override
-    public String toString() {
-        StringBuilder s = new StringBuilder();
-        for (Case[] caseL : cases) {
-            for (Case tile : caseL) {
-                s.append(tile.getIdentifier());
-            }
-            s.append("\n");
-        }
-        return s.toString();
     }
 
     /**
@@ -367,7 +331,7 @@ public class Labyrinthe {
      * Attention, inversion des axes
      * Ex : getCase(2,1) retourne cases[1][2]
      *
-     * @return char, identifier de case
+     * @return Case demandee
      */
     public Case getCase(int x, int y) {
         return cases[y][x];
@@ -401,7 +365,7 @@ public class Labyrinthe {
     }
 
     /**
-     * Methode dessiner
+     * Methode dessiner pour Labyrinthe
      *
      * @param crayon graphics
      */
@@ -416,6 +380,9 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Methode permettant de supprimer les monstres morts du Labyrinthe
+     */
     public void supprimerLesMorts() {
         //On recupere tous les monstres morts
         ArrayList<Monstre> monstresMort = (ArrayList<Monstre>) getlMonstre().stream().filter(Personnage::etreMort).collect(Collectors.toList());
@@ -424,4 +391,9 @@ public class Labyrinthe {
             lMonstre.remove(m);
         }
     }
+
+    public Joueur getJoueur() {
+        return joueur;
+    }
 }
+

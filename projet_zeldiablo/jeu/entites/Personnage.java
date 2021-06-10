@@ -5,7 +5,6 @@ import jeu.cases.Case;
 import jeu.utils.Direction;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -34,7 +33,7 @@ public abstract class Personnage {
     /**
      * Degats du Personnage
      */
-    private int degats;
+    private final int degats;
 
     /**
      * Constructeur public par defaut a quatre parametres
@@ -44,7 +43,7 @@ public abstract class Personnage {
      * @param pointsDeVie points de vie
      * @param degats      degats infliges
      */
-    public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) throws IOException{
+    public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) throws IOException {
         this.position = depart;
         this.l = l;
         this.degats = degats;
@@ -88,7 +87,7 @@ public abstract class Personnage {
      */
     public void diminuerVie(int vieDown) {
         if (vieDown > 0 && pv > 0) {
-            this.pv -= Math.max(pv - vieDown, 0);
+            this.pv = Math.max(pv - vieDown, 0);
         }
     }
 
@@ -204,6 +203,7 @@ public abstract class Personnage {
 
     /**
      * Getter Labyrinthe
+     *
      * @return Labyrinthe
      */
     public Labyrinthe getLabyrinthe() {
