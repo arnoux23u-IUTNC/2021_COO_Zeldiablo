@@ -35,7 +35,7 @@ public class Troll extends Monstre {
     public Troll(Labyrinthe l, Case depart) throws IOException {
         super(l, depart, 3, 3, 5);
         tapeDansLeTour = false;
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "TrollContour.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "TrollV2.png"));
     }
 
     /**
