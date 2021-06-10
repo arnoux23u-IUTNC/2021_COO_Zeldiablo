@@ -29,17 +29,13 @@ public class Chemin extends Case {
      *
      * @param x abscisse
      * @param y ordonnee
+     * @throws IOException texture
      */
     public Chemin(int x, int y) throws IOException {
         super(x, y);
         texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "CheminV2.png"));
     }
 
-    /**
-     * Methode getIdentifier
-     *
-     * @return String, caractere d'identification
-     */
     @Override
     public String getIdentifier() {
         return Character.toString(IDENTIFIER);

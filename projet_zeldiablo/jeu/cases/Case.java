@@ -1,7 +1,6 @@
 package jeu.cases;
 
 import jeu.Labyrinthe;
-import jeu.entites.Personnage;
 
 import java.awt.*;
 import java.io.IOException;
@@ -22,11 +21,6 @@ public abstract class Case {
      * Attribut representant l'ordonnee de la case
      */
     public final int y;
-
-    /**
-     * Attribut représentant le personnage sur la case
-     */
-    private Personnage p;
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -69,24 +63,6 @@ public abstract class Case {
         if (!(o instanceof Case)) return false;
         Case aCase = (Case) o;
         return x == aCase.x && y == aCase.y && getIdentifier().equals(aCase.getIdentifier());
-    }
-
-    /**
-     * Methode permettant d'indiquer le personnage sur la case
-     *
-     * @param per personnage sur la case
-     */
-    public void setPersonnage(Personnage per) {
-        this.p = per;
-    }
-
-    /**
-     * Methode retournant le personnage sur la case
-     *
-     * @return le personnage p
-     */
-    public Personnage getPersonnage() {
-        return this.p;
     }
 
     /**

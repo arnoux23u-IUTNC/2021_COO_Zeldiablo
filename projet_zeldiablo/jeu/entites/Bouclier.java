@@ -17,6 +17,9 @@ import static javax.imageio.ImageIO.read;
  */
 public class Bouclier {
 
+    /**
+     * Position du bouclier
+     */
     private Case position;
 
     /**
@@ -33,6 +36,7 @@ public class Bouclier {
      * constructeur de bouclier
      *
      * @param resi resistance du bouclier
+     * @throws IOException texture
      */
     public Bouclier(int resi) throws IOException {
         this.resistance = resi;
@@ -76,6 +80,11 @@ public class Bouclier {
         return resistance <= 0;
     }
 
+    /**
+     * Methode dessiner
+     *
+     * @param crayon graphics
+     */
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(this.texture, position.x * DessinJeu.TAILLE_CASE, position.y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }

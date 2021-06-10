@@ -38,6 +38,7 @@ public class Joueur extends Personnage {
      *
      * @param l Labyrinthe sur lequel il joue
      * @param e Point d'apparition
+     * @throws IOException Exception texture
      */
     public Joueur(Labyrinthe l, Porte e) throws IOException {
         super(l, e, 20, 1);
@@ -95,7 +96,7 @@ public class Joueur extends Personnage {
      */
     public void ajouterArme(Arme arme) {
         this.armeEnMain = arme;
-        //(this.getDegats() + armeEnMain.getDegats());
+        //this.get + armeEnMain.getDegats());
     }
 
     /**
@@ -107,11 +108,7 @@ public class Joueur extends Personnage {
         this.bouclierEnMain = bouclier;
     }
 
-    /**
-     * Methode permettant de diminuer la vie du joueur
-     *
-     * @param vieDown retrait
-     */
+    @Override
     public void diminuerVie(int vieDown) {
         if (bouclierEnMain != null) {
             int degatsubis = bouclierEnMain.diminuerResistance(vieDown);
@@ -158,14 +155,12 @@ public class Joueur extends Personnage {
     public void dessiner(Graphics2D crayon) {
         getLabyrinthe().dessiner(crayon);
         crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
-
         crayon.setColor(Color.red);
         crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
         crayon.setColor(Color.black);
         crayon.setFont(new Font("Arial", Font.PLAIN, 20));
         crayon.drawString("" + getPv() + "/20", DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 3) * DessinJeu.TAILLE_CASE);
         crayon.drawRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 400, 20);
-
         if (this.bouclierEnMain != null) {
             crayon.setColor(Color.orange);
             crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 4) * DessinJeu.TAILLE_CASE, 20 * bouclierEnMain.getResistance(), 20);

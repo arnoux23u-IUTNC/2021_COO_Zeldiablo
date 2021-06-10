@@ -30,6 +30,7 @@ public class Mur extends Obstacle {
      *
      * @param x abscisse
      * @param y ordonnee
+     * @throws IOException texture
      */
     public Mur(int x, int y) throws IOException {
         super(x, y);
@@ -41,11 +42,6 @@ public class Mur extends Obstacle {
         crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 
-    /**
-     * Methode getIdentifier
-     *
-     * @return String, caractere d'identification
-     */
     @Override
     public String getIdentifier() {
         return Character.toString(IDENTIFIER);

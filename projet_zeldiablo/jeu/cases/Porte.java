@@ -5,8 +5,7 @@ import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Classe modelisant une porte
@@ -31,12 +30,12 @@ public class Porte extends Case {
      */
     private boolean ferme;
 
-
     /**
      * Constructeur public par defaut a deux parametres
      *
      * @param x abscisse
      * @param y ordonnee
+     * @throws IOException texture
      */
     public Porte(int x, int y) throws IOException {
         super(x, y);

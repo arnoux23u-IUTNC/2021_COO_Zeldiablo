@@ -42,6 +42,7 @@ public abstract class Personnage {
      * @param depart      position de depart
      * @param pointsDeVie points de vie
      * @param degats      degats infliges
+     * @throws IOException texture
      */
     public Personnage(Labyrinthe l, Case depart, int pointsDeVie, int degats) throws IOException {
         this.position = depart;

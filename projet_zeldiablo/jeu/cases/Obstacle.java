@@ -14,6 +14,7 @@ public abstract class Obstacle extends Case {
      *
      * @param x abscisse
      * @param y ordonnee
+     * @throws IOException texture
      */
     public Obstacle(int x, int y) throws IOException {
         super(x, y);
