@@ -17,6 +17,11 @@ import java.util.stream.*;
 public class Labyrinthe {
 
     /**
+     * Joueur principal
+     */
+    private final Joueur joueur;
+
+    /**
      * Tableau de cases
      */
     private final Case[][] cases;
@@ -226,7 +231,7 @@ public class Labyrinthe {
                 }
             }
         }
-        Joueur joueur = new Joueur(this, entree);
+        this.joueur = new Joueur(this, entree);
         entree.setPersonnage(joueur);
     }
 
@@ -386,4 +391,9 @@ public class Labyrinthe {
             lMonstre.remove(m);
         }
     }
+
+    public Joueur getJoueur() {
+        return joueur;
+    }
 }
+

@@ -85,6 +85,7 @@ public class Joueur extends Personnage {
                 this.attaquer(monstre);
             }
         }
+        l.supprimerLesMorts();
     }
 
     /**
@@ -155,6 +156,7 @@ public class Joueur extends Personnage {
 
     @Override
     public void dessiner(Graphics2D crayon) {
+        getLabyrinthe().dessiner(crayon);
         crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
         crayon.setColor(Color.red);
         crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);

@@ -15,11 +15,6 @@ import java.io.IOException;
 public class JeuPerso implements Jeu {
 
     /**
-     * Labyrinthe concerne
-     */
-    private final Labyrinthe l;
-
-    /**
      * Joueur concerne
      */
     private final Joueur pj;
@@ -33,7 +28,7 @@ public class JeuPerso implements Jeu {
      * Constructeur public par defaut
      */
     public JeuPerso() throws IOException {
-        this.l = new Labyrinthe(true);
+        Labyrinthe l = new Labyrinthe(true);
         this.pj = new Joueur(l, l.getEntree());
     }
 
@@ -48,7 +43,6 @@ public class JeuPerso implements Jeu {
         if (b) {
             this.pj.attaquerAutour();
         }
-        l.supprimerLesMorts();
     }
 
     /**
@@ -58,29 +52,11 @@ public class JeuPerso implements Jeu {
      */
     @Override
     public boolean etreFini() {
-        if (!pj.etreMort() && !pj.getCase().equals(getLabyrinthe().getSortie())) {
+        if (!pj.etreMort() && !pj.getCase().equals(pj.getLabyrinthe().getSortie())) {
             return false;
         }
         System.out.println("Vous êtes mort");
         return true;
-    }
-
-    /**
-     * Getter joueur
-     *
-     * @return joueur
-     */
-    public Joueur getJoueur() {
-        return pj;
-    }
-
-    /**
-     * Getter labyrinthe
-     *
-     * @return labyrinthe
-     */
-    public Labyrinthe getLabyrinthe() {
-        return l;
     }
 
     /**
@@ -89,7 +65,6 @@ public class JeuPerso implements Jeu {
      * @param crayon graphics
      */
     public void dessiner(Graphics2D crayon) {
-        l.dessiner(crayon);
         pj.dessiner(crayon);
     }
 }

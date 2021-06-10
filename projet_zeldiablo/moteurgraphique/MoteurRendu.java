@@ -50,7 +50,7 @@ public class MoteurRendu {
             gui.dessiner();
             // met en attente
             //noinspection BusyWait
-            Thread.sleep(50);
+            Thread.sleep(100);
         }
         JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.WARNING_MESSAGE);
         System.exit(1);
