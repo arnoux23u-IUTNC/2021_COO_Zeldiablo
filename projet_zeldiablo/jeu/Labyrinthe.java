@@ -132,11 +132,11 @@ public class Labyrinthe {
                             break;
                         case 'a':
                             c = new Chemin(pos, line);
-                            Arme a = new Arme(2,c);
+                            ((Chemin) c).setArme(new Arme(2));
                             break;
                         case 'b':
                             c = new Chemin(pos, line);
-                            Bouclier b = new Bouclier(5,c);
+                            ((Chemin) c).setBouclier(new Bouclier(5));
                             break;
                     }
                     cases[line][pos] = c;
@@ -192,12 +192,12 @@ public class Labyrinthe {
                                 break;
                             case 'a':
                                 c = new Chemin(i, j);
-                                Arme a = new Arme(2,c);
+                                ((Chemin) c).setArme(new Arme(2));
                                 cases[i][j] = c;
                                 break;
                             case 'b':
                                 c = new Chemin(i, j);
-                                Bouclier b = new Bouclier(5,c);
+                                ((Chemin) c).setBouclier(new Bouclier(5));
                                 cases[i][j] = c;
                                 break;
                         }
@@ -240,11 +240,11 @@ public class Labyrinthe {
                             break;
                         case 'a':
                             caseCursor = new Chemin(i, j);
-                            Arme a = new Arme(2,caseCursor);
+                            ((Chemin) caseCursor).setArme(new Arme(2));
                             break;
                         case 'b':
                             caseCursor = new Chemin(i, j);
-                            Bouclier b = new Bouclier(5,caseCursor);
+                            ((Chemin) caseCursor).setBouclier(new Bouclier(5));
                             break;
                     }
                     cases[i][j] = caseCursor;

@@ -18,11 +18,6 @@ import static javax.imageio.ImageIO.read;
 public class Bouclier {
 
     /**
-     * Position du bouclier
-     */
-    private Case position;
-
-    /**
      * attribut eniter correspondant a la resistance du bouclier
      */
     private int resistance;
@@ -30,18 +25,16 @@ public class Bouclier {
     /**
      * Texture du bouclier
      */
-    private final Image texture;
+    public final Image texture;
 
     /**
      * constructeur de bouclier
      *
      * @param resi resistance du bouclier
-     * @param position position
      * @throws IOException texture
      */
-    public Bouclier(int resi, Case position) throws IOException {
+    public Bouclier(int resi) throws IOException {
         this.resistance = resi;
-        this.position = position;
         texture = read(new File(JeuPerso.assetsDirectory, "Bouclier.png"));
     }
 
@@ -82,12 +75,4 @@ public class Bouclier {
         return resistance <= 0;
     }
 
-    /**
-     * Methode dessiner
-     *
-     * @param crayon graphics
-     */
-    public void dessiner(Graphics2D crayon) {
-        crayon.drawImage(this.texture, position.x * DessinJeu.TAILLE_CASE, position.y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
-    }
 }

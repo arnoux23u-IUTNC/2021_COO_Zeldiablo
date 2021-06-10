@@ -16,14 +16,9 @@ import java.io.*;
 public class Arme {
 
     /**
-     * Position sur la carte
-     */
-    private Case position;
-
-    /**
      * Texture de l'arme
      */
-    private final Image texture;
+    public final Image texture;
 
     /**
      * attribut entier correspondant au degats de l'arme
@@ -34,12 +29,10 @@ public class Arme {
      * Constructeur d Arme qui construit une arme en fonction du parametre
      *
      * @param degats degats de l'arme
-     * @param position position de l'arme
      * @throws IOException File exception
      */
-    public Arme(int degats, Case position) throws IOException {
+    public Arme(int degats) throws IOException {
         this.degats = degats;
-        this.position = position;
         this.texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Arme.png"));
     }
 
@@ -52,12 +45,4 @@ public class Arme {
         return this.degats;
     }
 
-    /**
-     * Methode dessiner
-     *
-     * @param crayon graphics du panel
-     */
-    public void dessiner(Graphics2D crayon) {
-        crayon.drawImage(this.texture, position.x * DessinJeu.TAILLE_CASE, position.y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
-    }
 }

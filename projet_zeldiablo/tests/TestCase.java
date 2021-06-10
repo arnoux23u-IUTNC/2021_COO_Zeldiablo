@@ -44,7 +44,6 @@ public class TestCase {
      */
     @Test
     public void test01_case_peutTraverserChemin_OK() throws IOException {
-        Case c = new Chemin(0, 0);
         assertTrue("Joueur devrait pouvoir aller dessus", j.peutTraverserChemin());
     }
 
@@ -54,7 +53,6 @@ public class TestCase {
      */
     @Test
     public void test02_case_peutTravserserMur_OK() throws IOException {
-        Case c = new Mur(0, 0);
         assertFalse("Joueur ne devrait pas pouvoir aller dessus", j.peutTraverserMur());
     }
 
@@ -64,9 +62,7 @@ public class TestCase {
      */
     @Test
     public void test03_case_peutTraverserPorte_OK() throws IOException {
-        Porte c = new Porte(0, 0);
         assertTrue("Joueur devrait pouvoir aller dessus", j.peutTraverserPorte());
-        c.setFerme(true);
         assertFalse("Joueur ne devrait pas pouvoir aller dessus", j.peutTraverserPorte());
     }
 

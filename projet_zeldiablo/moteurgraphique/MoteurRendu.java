@@ -52,7 +52,7 @@ public class MoteurRendu {
             //noinspection BusyWait
             Thread.sleep(100);
         }
-        JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
         System.exit(1);
     }
 

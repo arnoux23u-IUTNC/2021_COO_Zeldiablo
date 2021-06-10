@@ -1,6 +1,8 @@
 package jeu.cases;
 
 import jeu.Labyrinthe;
+import jeu.entites.Arme;
+import jeu.entites.Bouclier;
 
 import java.awt.*;
 import java.io.IOException;

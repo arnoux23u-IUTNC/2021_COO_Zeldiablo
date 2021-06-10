@@ -1,6 +1,8 @@
 package jeu.cases;
 
 import jeu.JeuPerso;
+import jeu.entites.Arme;
+import jeu.entites.Bouclier;
 import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
@@ -13,6 +15,16 @@ import java.io.*;
  * @author AGJMX
  */
 public class Chemin extends Case {
+
+    /**
+     * Arme sur la case
+     */
+    private Arme arme;
+
+    /**
+     * Bouclier
+     */
+    private Bouclier bouclier;
 
     /**
      * Texture du chemin
@@ -44,5 +56,46 @@ public class Chemin extends Case {
     @Override
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+        if (arme != null)
+            crayon.drawImage(arme.texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+        if (bouclier != null) {
+            crayon.drawImage(bouclier.texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+        }
+    }
+
+    /**
+     * Setter Arme
+     *
+     * @param arme nouvelle arme
+     */
+    public void setArme(Arme arme) {
+        this.arme = arme;
+    }
+
+    /**
+     * Setter bouclier
+     *
+     * @param bouclier nouveau bouclier
+     */
+    public void setBouclier(Bouclier bouclier) {
+        this.bouclier = bouclier;
+    }
+
+    /**
+     * Getter Arme
+     *
+     * @return Arme
+     */
+    public Arme getArme() {
+        return arme;
+    }
+
+    /**
+     * Getter bouclier
+     *
+     * @return Bouclier
+     */
+    public Bouclier getBouclier() {
+        return bouclier;
     }
 }
