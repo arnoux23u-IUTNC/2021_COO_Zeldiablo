@@ -3,14 +3,15 @@ package moteurgraphique;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-/***
+/**
  * Classe panelDessin servant a modeliser un dessin
+ *
  * @author vthomas
  * @author AGJMX
  */
 public class PanelDessin extends JPanel {
+
     /**
      * la clase chargee de Dessiner
      */
@@ -29,7 +30,7 @@ public class PanelDessin extends JPanel {
     /**
      * la taille des images
      */
-    private int width, height;
+    private final int width, height;
 
     /**
      * constructeur Il construit les images pour doublebuffering ainsi que le
