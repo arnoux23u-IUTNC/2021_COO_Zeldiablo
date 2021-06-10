@@ -58,6 +58,7 @@ public class Bouclier {
                 resistance -= degats;
             } else {
                 degatsjoueur = degats - resistance;
+                resistance=0;
             }
         }
         return degatsjoueur;

@@ -115,10 +115,10 @@ public class Joueur extends Personnage {
     public void diminuerVie(int vieDown) {
         if (bouclierEnMain != null) {
             int degatsubis = bouclierEnMain.diminuerResistance(vieDown);
+            super.diminuerVie(degatsubis);
             if (bouclierEnMain.etreCasseBouclier()) {
                 bouclierEnMain = null;
             }
-            super.diminuerVie(degatsubis);
         } else {
             super.diminuerVie(vieDown);
         }
