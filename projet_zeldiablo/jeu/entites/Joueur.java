@@ -19,9 +19,24 @@ import java.util.*;
 public class Joueur extends Personnage {
 
     /**
-     * Texture du Joueur
+     * Texture du Joueur vide
      */
-    private final Image texture;
+    private final Image textureVide;
+
+    /**
+     * Texture du Joueur avec arme
+     */
+    private final Image textureArme;
+
+    /**
+     * Texture du Joueur avec bouclier
+     */
+    private final Image textureBouclier;
+
+    /**
+     * Texture du Joueur avec bouclier et arme
+     */
+    private final Image textureBouclierArme;
 
     /**
      * Arme du joueur
@@ -44,7 +59,10 @@ public class Joueur extends Personnage {
         e.setFerme(true);
         armeEnMain = null;
         bouclierEnMain = null;
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "CharacterV2.png"));
+        textureVide = ImageIO.read(new File(JeuPerso.assetsDirectory, "CharacterV2.png"));
+        textureBouclier = ImageIO.read(new File(JeuPerso.assetsDirectory, "CharacterBouclierV2.png"));
+        textureArme = ImageIO.read(new File(JeuPerso.assetsDirectory, "CharacterArmeV2.png"));
+        textureBouclierArme = ImageIO.read(new File(JeuPerso.assetsDirectory, "CharacterFullV2.png"));
     }
 
     /**
@@ -97,7 +115,7 @@ public class Joueur extends Personnage {
         this.armeEnMain = arme;
     }
 
-    public Arme getArmeEnMain(){
+    public Arme getArmeEnMain() {
         return this.armeEnMain;
     }
 
@@ -160,8 +178,10 @@ public class Joueur extends Personnage {
     @Override
     public void dessiner(Graphics2D crayon) {
         getLabyrinthe().dessiner(crayon);
-        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
-
+        if (armeEnMain != null && bouclierEnMain != null)
+            crayon.drawImage(textureBouclierArme, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+        else
+            crayon.drawImage(armeEnMain != null ? textureArme : bouclierEnMain != null ? textureBouclier : textureVide, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
         crayon.setColor(Color.red);
         crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
         crayon.setColor(Color.black);
