@@ -264,13 +264,15 @@ public class Labyrinthe {
      * @return booleen, a vrai s'il peut bouger
      */
     private boolean peutBouger(Personnage p, Direction dir) {
+        Case actuel = p.getCase();
         Case destination;
         try {
             destination = trouverDestination(p, dir);
         } catch (IndexOutOfBoundsException e) {
             destination = null;
         }
-        if ((destination != null) && (estCaseVide(trouverDestination(p, dir)))) {
+        if ((destination != null) && (estCaseVide(destination))) {
+            System.out.println("Actuel : "+actuel.x+","+actuel.y+" -> personne en "+destination.x+"");
             switch (destination.getIdentifier()) {
                 case "P":
                     return p.peutTraverserPiege();
@@ -329,7 +331,7 @@ public class Labyrinthe {
     private Case trouverDestination(Personnage p, Direction d) {
         Case actuel = p.getCase();
         Case destination = null;
-        System.out.println(d);
+        //System.out.println(d);
         switch (d) {
             case NORTH:
                 destination = cases[actuel.y - 1][actuel.x];

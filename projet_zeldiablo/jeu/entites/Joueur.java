@@ -69,37 +69,10 @@ public class Joueur extends Personnage {
      * Methode pour attaquer tout autour de lui
      */
     public void attaquerAutour() {
-        Case c = this.getCase();
         Labyrinthe l = getLabyrinthe();
-        Case nord, sud, est, ouest;
-        try {
-            nord = l.getCase(Math.max(c.x, 0), Math.max(c.y - 1, 0));
-        } catch (IndexOutOfBoundsException ignored) {
-            nord = null;
-        }
-        try {
-            sud = l.getCase(Math.max(c.x, 0), Math.max(c.y + 1, 0));
-        } catch (IndexOutOfBoundsException ignored) {
-            sud = null;
-        }
-        try {
-            est = l.getCase(Math.max(c.x + 1, 0), Math.max(c.y, 0));
-        } catch (IndexOutOfBoundsException ignored) {
-            est = null;
-        }
-        try {
-            ouest = l.getCase(Math.max(c.x - 1, 0), Math.max(c.y, 0));
-        } catch (IndexOutOfBoundsException ignored) {
-            ouest = null;
-        }
-        ArrayList<Case> caseautour = new ArrayList<Case>();
-        caseautour.add(nord);
-        caseautour.add(sud);
-        caseautour.add(est);
-        caseautour.add(ouest);
         for (Monstre monstre : l.getlMonstre()) {
             Case n = monstre.getCase();
-            if (caseautour.contains(n)) {
+            if (trouverCasesAutour().contains(n)) {
                 this.attaquer(monstre);
             }
         }

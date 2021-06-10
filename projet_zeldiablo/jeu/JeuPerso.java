@@ -5,6 +5,7 @@ import jeu.utils.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Classe modelisant le jeu d'un personnage
@@ -44,6 +45,17 @@ public class JeuPerso implements Jeu {
         this.pj.seDeplacer(d);
         if (b) {
             this.pj.attaquerAutour();
+        }
+    }
+
+    @Override
+    public void evoluerMonstres() {
+        Labyrinthe l = pj.getLabyrinthe();
+        for (Monstre m : l.getlMonstre()) {
+            boolean deplace = false;
+            while (!deplace)
+                deplace = m.seDeplacerVersJoueur();
+            m.attaquerLeJoueur();
         }
     }
 

@@ -42,15 +42,24 @@ public class MoteurRendu {
         InterfaceGraphique gui = new InterfaceGraphique(this.dessin, width, height);
         Controleur controle = gui.getControleur();
 
+        int iterate = 0;
+
         // boucle de jeu
         while (!this.jeu.etreFini()) {
             // fait evoluer le jeu
             this.jeu.evoluer(controle.getDirection(), controle.getAttaque());
+            //on bouge les monstres a 10
+            if(iterate == 10){
+                iterate = 0;
+                this.jeu.evoluerMonstres();
+            }
             // affiche le jeu
             gui.dessiner();
             // met en attente
             //noinspection BusyWait
             Thread.sleep(100);
+            //on deplace
+            iterate++;
         }
         JOptionPane.showMessageDialog(new JPanel(), "Fin du jeu !", "Fin du jeu", JOptionPane.INFORMATION_MESSAGE);
         System.exit(1);

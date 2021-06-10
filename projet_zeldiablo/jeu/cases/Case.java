@@ -64,7 +64,7 @@ public abstract class Case {
         if (this == o) return true;
         if (!(o instanceof Case)) return false;
         Case aCase = (Case) o;
-        return x == aCase.x && y == aCase.y && getIdentifier().equals(aCase.getIdentifier());
+        return x == aCase.x && y == aCase.y;
     }
 
     /**

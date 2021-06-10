@@ -24,4 +24,8 @@ public interface Jeu {
      */
     boolean etreFini();
 
+    /**
+     * Methode d'evolution pour les monstres
+     */
+    void evoluerMonstres();
 }

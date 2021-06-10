@@ -29,7 +29,7 @@ public class Fantome extends Monstre {
      * @throws IOException texture
      */
     public Fantome(Labyrinthe l, Case depart) throws IOException {
-        super(l, depart, 5, 1, 3);
+        super(l, depart, 5, 1);
         texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "FantomeV2.png"));
     }
 
