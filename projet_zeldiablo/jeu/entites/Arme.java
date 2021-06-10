@@ -1,8 +1,6 @@
 package jeu.entites;
 
-import jeu.Jeu;
 import jeu.JeuPerso;
-import jeu.Labyrinthe;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,7 +15,6 @@ import java.io.IOException;
 public class Arme {
 
     //TODO POSITION
-    //TODO POSSEDEPARUNJOUEUR
 
     /**
      * Texture de l'arme

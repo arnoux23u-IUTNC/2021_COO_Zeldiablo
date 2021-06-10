@@ -48,7 +48,7 @@ public class Bouclier {
      * methode qui permets de diminuer la resistance du boucleir
      *
      * @param degats degats pris dans le bouclier
-     *               //TODO COMPRENDRE
+     *
      * @return degats du joueur
      */
     public int diminuerResistance(int degats) {
