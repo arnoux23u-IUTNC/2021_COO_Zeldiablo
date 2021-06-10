@@ -2,13 +2,13 @@ package moteurgraphique;
 
 import jeu.utils.Direction;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 /**
  * Classe modelisant le controlleur de jeu
  *
  * @author AGJMX
+ * @author vthomas
  */
 public class Controleur implements KeyListener {
 
@@ -49,7 +49,8 @@ public class Controleur implements KeyListener {
         this.aRetourner = enCours;
         return retour;
     }
-    public Boolean getAttaque(){
+
+    public Boolean getAttaque() {
         boolean retour = this.attaqueARetourner;
         this.attaqueARetourner = attaqueEnCours;
         return retour;
@@ -88,9 +89,9 @@ public class Controleur implements KeyListener {
                 this.enCours = Direction.SOUTH;
                 this.aRetourner = Direction.SOUTH;
                 break;
-            case ' ' :
-                this.attaqueEnCours=true;
-                this.attaqueARetourner=true;
+            case ' ':
+                this.attaqueEnCours = true;
+                this.attaqueARetourner = true;
         }
     }
 

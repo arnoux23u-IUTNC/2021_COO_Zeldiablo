@@ -2,15 +2,13 @@ package jeu.entites;
 
 import jeu.JeuPerso;
 import jeu.Labyrinthe;
-import jeu.cases.Case;
-import jeu.cases.Porte;
+import jeu.cases.*;
 import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 /**
  * Classe modelisant un Joueur
@@ -20,7 +18,10 @@ import java.util.ArrayList;
 
 public class Joueur extends Personnage {
 
-    Image texture;
+    /**
+     * Texture du Joueur
+     */
+    private final Image texture;
 
     /**
      * Arme du joueur
@@ -43,7 +44,7 @@ public class Joueur extends Personnage {
         e.setFerme(true);
         armeEnMain = null;
         bouclierEnMain = null;
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"CharacterContour.png"));
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "CharacterContour.png"));
     }
 
     /**
@@ -74,10 +75,10 @@ public class Joueur extends Personnage {
             ouest = null;
         }
         ArrayList<Case> caseautour = new ArrayList<Case>();
-        if (nord != null) caseautour.add(nord);
-        if (nord != sud) caseautour.add(sud);
-        if (nord != est) caseautour.add(est);
-        if (nord != ouest) caseautour.add(ouest);
+        caseautour.add(nord);
+        caseautour.add(sud);
+        caseautour.add(est);
+        caseautour.add(ouest);
         for (Monstre monstre : l.getlMonstre()) {
             Case n = monstre.getCase();
             if (caseautour.contains(n)) {
@@ -105,14 +106,19 @@ public class Joueur extends Personnage {
         this.bouclierEnMain = bouclier;
     }
 
+    /**
+     * Methode permettant de diminuer la vie du joueur
+     *
+     * @param vieDown retrait
+     */
     public void diminuerVie(int vieDown) {
         if (bouclierEnMain != null) {
             int degatsubis = bouclierEnMain.diminuerResistance(vieDown);
-            if (bouclierEnMain.etreCasserBouclier()) {
+            if (bouclierEnMain.etreCasseBouclier()) {
                 bouclierEnMain = null;
             }
             super.diminuerVie(degatsubis);
-        }else{
+        } else {
             super.diminuerVie(vieDown);
         }
     }
@@ -149,7 +155,7 @@ public class Joueur extends Personnage {
 
     @Override
     public void dessiner(Graphics2D crayon) {
-        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
+        crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
         crayon.setColor(Color.red);
         crayon.fillRect(DessinJeu.TAILLE_CASE, (Labyrinthe.TAILLE + 1) * DessinJeu.TAILLE_CASE, 20 * getPv(), 20);
         crayon.setColor(Color.black);

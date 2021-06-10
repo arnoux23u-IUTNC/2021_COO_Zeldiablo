@@ -1,13 +1,11 @@
 package jeu.cases;
 
 import jeu.JeuPerso;
-import jeu.Labyrinthe;
 import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Classe representant un chemin vide
@@ -17,24 +15,14 @@ import java.io.IOException;
 public class Chemin extends Case {
 
     /**
-     * Texture de l'image
+     * Texture du chemin
      */
-    Image texture;
+    private final Image texture;
 
     /**
      * Caractere permettant l'identification sur une map
      */
     private static final char IDENTIFIER = 'X';
-
-    /**
-     * Methode getIdentifier
-     *
-     * @return String, caractere d'identification
-     */
-    @Override
-    public String getIdentifier() {
-        return Character.toString(IDENTIFIER);
-    }
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -48,10 +36,15 @@ public class Chemin extends Case {
     }
 
     /**
-     * Methode dessiner
+     * Methode getIdentifier
      *
-     * @param crayon graphics
+     * @return String, caractere d'identification
      */
+    @Override
+    public String getIdentifier() {
+        return Character.toString(IDENTIFIER);
+    }
+
     @Override
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);

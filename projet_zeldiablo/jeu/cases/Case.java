@@ -33,6 +33,7 @@ public abstract class Case {
      *
      * @param x abscisse
      * @param y ordonnee
+     * @throws IOException File exception
      */
     public Case(int x, int y) throws IOException {
         this.x = x < 0 ? 0 : Math.min(x, Labyrinthe.TAILLE - 1);

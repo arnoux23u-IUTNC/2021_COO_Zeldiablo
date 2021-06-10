@@ -1,17 +1,16 @@
 package jeu;
 
-import jeu.cases.Case;
-import jeu.cases.Piege;
 import jeu.entites.*;
 import jeu.utils.*;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
  * Classe modelisant le jeu d'un personnage
  * Implemente Jeu
+ *
+ * @author AGJMX
  */
 public class JeuPerso implements Jeu {
 
@@ -35,7 +34,7 @@ public class JeuPerso implements Jeu {
      */
     public JeuPerso() throws IOException {
         this.l = new Labyrinthe(true);
-        this.pj = l.getJoueur();
+        this.pj = new Joueur(l, l.getEntree());
     }
 
     /**
@@ -88,7 +87,6 @@ public class JeuPerso implements Jeu {
      * Methode dessiner
      *
      * @param crayon graphics
-     * @throws IOException File Exception
      */
     public void dessiner(Graphics2D crayon) {
         l.dessiner(crayon);

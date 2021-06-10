@@ -15,13 +15,31 @@ import java.io.IOException;
  */
 public class Piege extends Obstacle {
 
-
-    Image texture;
+    /**
+     * Texture du piege
+     */
+    private final Image texture;
 
     /**
      * Caractere permettant l'identification sur une map
      */
     private static final char IDENTIFIER = 'P';
+
+    /**
+     * Constructeur public par defaut a deux parametres
+     *
+     * @param x abscisse
+     * @param y ordonnee
+     */
+    public Piege(int x, int y) throws IOException {
+        super(x, y);
+        texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "PiegeV2.png"));
+    }
+
+    @Override
+    public void dessiner(Graphics2D crayon) {
+        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+    }
 
     /**
      * Methode getIdentifier
@@ -33,25 +51,4 @@ public class Piege extends Obstacle {
         return Character.toString(IDENTIFIER);
     }
 
-    /**
-     * Constructeur public par defaut a deux parametres
-     *
-     * @param x abscisse
-     * @param y ordonnee
-     */
-    public Piege(int x, int y) throws IOException {
-        super(x, y);
-        texture = ImageIO.read(new File(JeuPerso.assetsDirectory,"PiegeV2.png"));
-    }
-
-    /**
-     * Methode dessiner
-     *
-     * @param crayon graphics du panel
-     * @throws IOException Exception de file
-     */
-    @Override
-    public void dessiner(Graphics2D crayon) {
-        crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE,DessinJeu.TAILLE_CASE,null);
-    }
 }

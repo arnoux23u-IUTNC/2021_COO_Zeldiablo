@@ -20,8 +20,11 @@ public abstract class Monstre extends Personnage {
     /**
      * Constructeur public par defaut a deux parametres
      *
-     * @param l      labyrinthe
-     * @param depart position de depart
+     * @param l            labyrinthe
+     * @param depart       position de depart
+     * @param pointsDeVie  Points de vie du monstre
+     * @param degats       degats engendres par ses attaques
+     * @param intelligence intelligence du monstre
      */
     public Monstre(Labyrinthe l, Case depart, int pointsDeVie, int degats, int intelligence) throws IOException {
         super(l, depart, pointsDeVie, degats);

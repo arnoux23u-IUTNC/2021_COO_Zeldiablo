@@ -1,7 +1,6 @@
 package tests;
 
 import jeu.entites.Bouclier;
-import org.junit.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,7 +17,7 @@ public class TestBouclier {
     public void test02_bouclier_diminuerResistance_Casse(){
         Bouclier b = new Bouclier(2);
         b.diminuerResistance(3);
-        assertTrue("Le bouclier doit etre casse",b.etreCasserBouclier());
+        assertTrue("Le bouclier doit etre casse",b.etreCasseBouclier());
     }
 
 }

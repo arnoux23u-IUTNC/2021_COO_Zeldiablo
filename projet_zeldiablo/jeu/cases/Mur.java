@@ -15,22 +15,15 @@ import java.io.IOException;
  */
 public class Mur extends Obstacle {
 
-    Image texture;
+    /**
+     * Texture du mur
+     */
+    private final Image texture;
 
     /**
      * Caractere permettant l'identification sur une map
      */
     private static final char IDENTIFIER = 'O';
-
-    /**
-     * Methode getIdentifier
-     *
-     * @return String, caractere d'identification
-     */
-    @Override
-    public String getIdentifier() {
-        return Character.toString(IDENTIFIER);
-    }
 
     /**
      * Constructeur public par defaut a deux parametres
@@ -43,13 +36,18 @@ public class Mur extends Obstacle {
         texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "MurV2.png"));
     }
 
-    /**
-     * Methode dessiner
-     *
-     * @param crayon graphics du panel
-     */
     @Override
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
+    }
+
+    /**
+     * Methode getIdentifier
+     *
+     * @return String, caractere d'identification
+     */
+    @Override
+    public String getIdentifier() {
+        return Character.toString(IDENTIFIER);
     }
 }
