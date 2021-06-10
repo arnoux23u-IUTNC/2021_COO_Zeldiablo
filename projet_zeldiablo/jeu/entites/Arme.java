@@ -33,7 +33,7 @@ public class Arme {
      */
     public Arme(int degats) throws IOException {
         this.degats = degats;
-        this.texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "Arme.png"));
+        this.texture = ImageIO.read(new File(JeuPerso.assetsDirectory, "ArmeFond.png"));
     }
 
     /**
