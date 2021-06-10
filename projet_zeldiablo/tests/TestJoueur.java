@@ -148,6 +148,11 @@ public class TestJoueur {
         assertEquals("Position y devrait etre egale a y", actuel.y, destination.y);
     }
 
+    /**
+     * Methode de test 06
+     * On test le fait que le joueur puisse bien attaquer autour de lui
+     * @throws IOException
+     */
     @Test
     public void test06_joueur_attaquerAutour_OK() throws IOException {
         Case casejoueur = l.getEntree();
@@ -167,13 +172,33 @@ public class TestJoueur {
 
     }
 
+    /**
+     * Methode de test 07
+     * On test le fait que le joueur ne puisse pas se trouver sur la meme case qu'un monstre
+     * @throws IOException
+     */
     @Test
-    public void test07_joueur_collisionMonstre_OK() throws IOException {
+    public void test07_joueur_collisionJoueurMonstre_OK() throws IOException {
         Case casejoueur = l.getEntree();
         Case casemonstre1 = l.getCase(casejoueur.x,casejoueur.y+1);
         Fantome f = new Fantome(l, casemonstre1);
         j.seDeplacer(Direction.WEST);
         assertEquals("Le joueur ne doit pas avoir bougé", l.getEntree(), j.getCase());
+    }
+
+    /**
+     * Methode de test 08
+     * On test le fait que les monstres ne puissent pas se trouver sur la meme case
+     * @throws IOException
+     */
+    @Test
+    public void test08_joueur_collisionMonstreMonstre_OK() throws IOException {
+        Case casemonstre1 = l.getEntree();
+        Case casemonstre2 = l.getCase(casemonstre1.x,casemonstre1.y+1);
+        Troll t1 = new Troll(l, casemonstre1);
+        Troll t2 = new Troll(l, casemonstre2);
+        j.seDeplacer(Direction.WEST);
+        assertEquals("Le troll t1 ne doit pas avoir bougé", l.getEntree(), t1.getCase());
     }
 
 }
