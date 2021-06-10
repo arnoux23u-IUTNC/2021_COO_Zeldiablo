@@ -173,15 +173,13 @@ class Porte extends Case{
     + dessiner(crayon : Graphics2D)
 }
 
-Personnage "1" -[hidden]down-> "1" Joueur
-Personnage "1" -[hidden]down-> "1" Monstre
 JeuPerso "1" -> "1" Joueur: " - pj "
 Labyrinthe "1" -> "1" Joueur: " - joueur "
 Labyrinthe "1" -> "*" Case: " - cases "
 Labyrinthe "1" -> "1" Porte: " - entree "
 Labyrinthe "1" -> "1" Porte: " - sortie "
 Labyrinthe "1" -> "*" Monstre: " - lMonstre "
-Personnage "1" -> "1" Case: " - position "
+Personnage "1" -right-> "1" Case: " - position "
 Personnage "1" -> "1" Labyrinthe: " - l "
 Joueur "1" -> "1" Bouclier: " - bouclierEnMain "
 Joueur "1" -> "1" Arme: " - armeEnMail "
