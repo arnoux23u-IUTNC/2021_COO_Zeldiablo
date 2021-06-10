@@ -138,7 +138,7 @@ public class Labyrinthe {
                             break;
                         case 'b':
                             c = new Chemin(pos, line);
-                            Bouclier b = new Bouclier(10);
+                            Bouclier b = new Bouclier(5);
                             break;
                     }
                     cases[line][pos] = c;
@@ -200,7 +200,7 @@ public class Labyrinthe {
                                 break;
                             case 'b':
                                 Case c5 = new Chemin(i, j);
-                                Bouclier b = new Bouclier(10);
+                                Bouclier b = new Bouclier(5);
                                 cases[i][j] = c5;
                                 break;
                         }
@@ -249,7 +249,7 @@ public class Labyrinthe {
                             break;
                         case 'b':
                             caseCursor = new Chemin(i, j);
-                            Bouclier b = new Bouclier(10);
+                            Bouclier b = new Bouclier(5);
                             break;
                     }
                     cases[i][j] = caseCursor;
