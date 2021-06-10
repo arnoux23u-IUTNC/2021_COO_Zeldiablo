@@ -298,14 +298,16 @@ public class Labyrinthe {
         if (peutBouger(p, d)) {
             Case destination = trouverDestination(p, d);
             p.setPosition(destination);
-            if(p.isJoueur()){
-                if(((Chemin)destination).getArme() != null){
-                    ((Joueur)p).ajouterArme(((Chemin)destination).getArme());
-                    ((Chemin)destination).setArme(null);
-                }
-                if(((Chemin)destination).getBouclier() != null){
-                    ((Joueur)p).ajouterBouclier(((Chemin)destination).getBouclier());
-                    ((Chemin)destination).setBouclier(null);
+            if("X".equals(p.getCase().getIdentifier())){
+                if(p.isJoueur()){
+                    if(((Chemin)destination).getArme() != null){
+                        ((Joueur)p).ajouterArme(((Chemin)destination).getArme());
+                        ((Chemin)destination).setArme(null);
+                    }
+                    if(((Chemin)destination).getBouclier() != null){
+                        ((Joueur)p).ajouterBouclier(((Chemin)destination).getBouclier());
+                        ((Chemin)destination).setBouclier(null);
+                    }
                 }
             }
             // on retire un pv si on tombe sur un piege
