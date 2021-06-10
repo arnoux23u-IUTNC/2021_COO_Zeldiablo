@@ -119,18 +119,13 @@ public abstract class Personnage {
      */
     public void attaquer(Personnage p) {
         if (this.isJoueur()) {
-            if (p.isTroll()) {
+            if (p.isTroll())
                 ((Troll) p).trollSeFaitAttaquer();
-            }
-            if(((Joueur)this).getArmeEnMain() != null){
-                p.diminuerVie(((Joueur)this).getArmeEnMain().getDegats());
-            }else{
-                p.diminuerVie(this.degats);
-            }
+            Arme arme = ((Joueur) this).getArmeEnMain();
+            p.diminuerVie(arme != null ? arme.getDegats() + this.degats : this.degats);
         } else {
-            if (p.isJoueur()) {
+            if (p.isJoueur())
                 p.diminuerVie(this.degats);
-            }
         }
     }
 
