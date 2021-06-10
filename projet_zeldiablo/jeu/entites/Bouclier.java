@@ -1,6 +1,8 @@
 package jeu.entites;
 
 import jeu.JeuPerso;
+import jeu.cases.Case;
+import moteurgraphique.DessinJeu;
 
 import java.awt.*;
 import java.io.File;
@@ -14,6 +16,8 @@ import static javax.imageio.ImageIO.read;
  * @author AGJMX
  */
 public class Bouclier {
+
+    private Case position;
 
     /**
      * attribut eniter correspondant a la resistance du bouclier
@@ -48,7 +52,6 @@ public class Bouclier {
      * methode qui permets de diminuer la resistance du boucleir
      *
      * @param degats degats pris dans le bouclier
-     *
      * @return degats du joueur
      */
     public int diminuerResistance(int degats) {
@@ -58,7 +61,7 @@ public class Bouclier {
                 resistance -= degats;
             } else {
                 degatsjoueur = degats - resistance;
-                resistance=0;
+                resistance = 0;
             }
         }
         return degatsjoueur;
@@ -74,6 +77,6 @@ public class Bouclier {
     }
 
     public void dessiner(Graphics2D crayon) {
-        //crayon.drawImage(this.texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
+        crayon.drawImage(this.texture, position.x * DessinJeu.TAILLE_CASE, position.y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 }

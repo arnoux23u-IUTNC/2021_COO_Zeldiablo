@@ -1,6 +1,8 @@
 package jeu.entites;
 
 import jeu.JeuPerso;
+import jeu.cases.Case;
+import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,7 +16,7 @@ import java.io.IOException;
  */
 public class Arme {
 
-    //TODO POSITION
+    private Case position;
 
     /**
      * Texture de l'arme
@@ -52,6 +54,6 @@ public class Arme {
      * @param crayon graphics du panel
      */
     public void dessiner(Graphics2D crayon) {
-        //crayon.drawImage(this.texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
+        crayon.drawImage(this.texture, position.x * DessinJeu.TAILLE_CASE, position.y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 }
