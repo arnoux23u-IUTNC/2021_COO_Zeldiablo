@@ -5,8 +5,7 @@ import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Classe modelisant un Piege
@@ -30,6 +29,7 @@ public class Piege extends Obstacle {
      *
      * @param x abscisse
      * @param y ordonnee
+     * @throws IOException texture
      */
     public Piege(int x, int y) throws IOException {
         super(x, y);
@@ -41,11 +41,6 @@ public class Piege extends Obstacle {
         crayon.drawImage(texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);
     }
 
-    /**
-     * Methode getIdentifier
-     *
-     * @return String, caractere d'identification
-     */
     @Override
     public String getIdentifier() {
         return Character.toString(IDENTIFIER);

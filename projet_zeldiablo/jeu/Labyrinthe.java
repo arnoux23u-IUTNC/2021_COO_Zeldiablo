@@ -124,13 +124,11 @@ public class Labyrinthe {
                             c = new Chemin(pos, line);
                             Monstre m2 = new Troll(this, c);
                             lMonstre.add(m2);
-                            c.setPersonnage(m2);
                             break;
                         case 'f':
                             c = new Chemin(pos, line);
                             Monstre m3 = new Fantome(this, c);
                             lMonstre.add(m3);
-                            c.setPersonnage(m3);
                             break;
                         case 'a':
                             c = new Chemin(pos, line);
@@ -184,14 +182,12 @@ public class Labyrinthe {
                                 Monstre m2 = new Troll(this, c2);
                                 lMonstre.add(m2);
                                 cases[i][j] = c2;
-                                c2.setPersonnage(m2);
                                 break;
                             case 'f':
                                 Case c3 = new Chemin(i, j);
                                 Monstre m3 = new Fantome(this, c3);
                                 lMonstre.add(m3);
                                 cases[i][j] = c3;
-                                c3.setPersonnage(m3);
                                 break;
                             case 'a':
                                 Case c4 = new Chemin(i, j);
@@ -235,13 +231,11 @@ public class Labyrinthe {
                             caseCursor = new Chemin(i, j);
                             Monstre m = new Troll(this, caseCursor);
                             lMonstre.add(m);
-                            caseCursor.setPersonnage(m);
                             break;
                         case 'f':
                             caseCursor = new Chemin(i, j);
                             Monstre m2 = new Fantome(this, caseCursor);
                             lMonstre.add(m2);
-                            caseCursor.setPersonnage(m2);
                             break;
                         case 'a':
                             caseCursor = new Chemin(i, j);
@@ -258,7 +252,6 @@ public class Labyrinthe {
             }
         }
         this.joueur = new Joueur(this, entree);
-        entree.setPersonnage(joueur);
     }
 
     /**
@@ -276,7 +269,7 @@ public class Labyrinthe {
         } catch (IndexOutOfBoundsException e) {
             destination = null;
         }
-        if ((destination != null) && (trouverDestination(p, dir).getPersonnage() == null)) {
+        if ((destination != null) && (estCaseVide(trouverDestination(p, dir)))) {
             switch (destination.getIdentifier()) {
                 case "P":
                     return p.peutTraverserPiege();
@@ -303,8 +296,6 @@ public class Labyrinthe {
     public boolean deplacerJoueur(Personnage p, Direction d) {
         if (peutBouger(p, d)) {
             Case destination = trouverDestination(p, d);
-            destination.setPersonnage(p);
-            p.getCase().setPersonnage(null);
             p.setPosition(destination);
             if ("P".equals(p.getCase().getIdentifier())) {
                 p.diminuerVie(1);
@@ -413,13 +404,33 @@ public class Labyrinthe {
         //On recupere tous les monstres morts
         ArrayList<Monstre> monstresMort = (ArrayList<Monstre>) getlMonstre().stream().filter(Personnage::etreMort).collect(Collectors.toList());
         for (Monstre m : monstresMort) {
-            m.getCase().setPersonnage(null);
             lMonstre.remove(m);
         }
     }
 
+    /**
+     * Getter joueur
+     *
+     * @return Joueur principal
+     */
     public Joueur getJoueur() {
         return joueur;
+    }
+
+    /**
+     * methode pour tester si il y a quelquun sur une case
+     *
+     * @param c case
+     * @return booleen, a vrai si vide
+     */
+    private boolean estCaseVide(Case c) {
+        if (joueur.getCase().equals(c))
+            return false;
+        for (Monstre m : lMonstre) {
+            if (m.getCase().equals(c))
+                return false;
+        }
+        return true;
     }
 }
 

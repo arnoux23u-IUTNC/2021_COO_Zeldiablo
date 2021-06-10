@@ -84,11 +84,6 @@ public class Troll extends Monstre {
         return false;
     }
 
-    /**
-     * Methode dessiner
-     *
-     * @param crayon graphics
-     */
     @Override
     public void dessiner(Graphics2D crayon) {
         crayon.drawImage(texture, getCase().x * DessinJeu.TAILLE_CASE, getCase().y * DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, DessinJeu.TAILLE_CASE, null);

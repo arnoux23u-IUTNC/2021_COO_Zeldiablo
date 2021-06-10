@@ -26,6 +26,8 @@ public class JeuPerso implements Jeu {
 
     /**
      * Constructeur public par defaut
+     *
+     * @throws IOException textures
      */
     public JeuPerso() throws IOException {
         Labyrinthe l = new Labyrinthe(true);

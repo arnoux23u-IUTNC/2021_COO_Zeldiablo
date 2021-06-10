@@ -25,6 +25,7 @@ public abstract class Monstre extends Personnage {
      * @param pointsDeVie  Points de vie du monstre
      * @param degats       degats engendres par ses attaques
      * @param intelligence intelligence du monstre
+     * @throws IOException texture
      */
     public Monstre(Labyrinthe l, Case depart, int pointsDeVie, int degats, int intelligence) throws IOException {
         super(l, depart, pointsDeVie, degats);

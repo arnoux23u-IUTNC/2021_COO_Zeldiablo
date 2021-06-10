@@ -6,8 +6,7 @@ import moteurgraphique.DessinJeu;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Classe modelisant une arme
@@ -16,6 +15,9 @@ import java.io.IOException;
  */
 public class Arme {
 
+    /**
+     * Position sur la carte
+     */
     private Case position;
 
     /**

@@ -26,6 +26,7 @@ public class Fantome extends Monstre {
      *
      * @param l      labyrinthe
      * @param depart position de depart
+     * @throws IOException texture
      */
     public Fantome(Labyrinthe l, Case depart) throws IOException {
         super(l, depart, 5, 1, 3);

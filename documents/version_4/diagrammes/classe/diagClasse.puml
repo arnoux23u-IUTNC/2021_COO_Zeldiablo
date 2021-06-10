@@ -11,8 +11,8 @@ class JeuPerso implements Jeu{
 }
 
 interface Jeu{
-    evoluer(d : Direction, b : boolean)
-    etreFini() : boolean
+    + evoluer(d : Direction, b : boolean)
+    + etreFini() : boolean
 }
 
 class Labyrinthe{
@@ -33,8 +33,8 @@ class Labyrinthe{
 }
 
 abstract class Personnage{
-       private int pv;
-       private final int degats;
+       - pv : int
+       - degats : int
        + Personnage(l : Labyrinthe, depart : Case, pointsDeVie : int, degats : int)
        +getCase() : Case
        +setPosition(position : Case)
@@ -128,8 +128,6 @@ abstract class Case{
     + Case(x:int, y : int)
     + {abstract} getIdentifier() : String
     + toString() : String
-    + setPersonnage(p : Personnage)
-    + getPersonnage() : Personnage
     + {abstract} dessiner(crayon : Graphics2D)
 }
 
@@ -185,6 +183,5 @@ Joueur "1" -> "1" Bouclier: " - bouclierEnMain "
 Joueur "1" -> "1" Arme: " - armeEnMail "
 Arme "1" -> "1" Case: " - position "
 Bouclier "1" -> "1" Case: " - position "
-Case "1" -> "1" Personnage: " - p "
 
 @enduml
