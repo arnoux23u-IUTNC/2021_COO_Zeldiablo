@@ -1,5 +1,13 @@
 package jeu.entites;
 
+import jeu.JeuPerso;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import static javax.imageio.ImageIO.read;
+
 /**
  * Classe modelisant un bouclier
  *
@@ -13,12 +21,18 @@ public class Bouclier {
     private int resistance;
 
     /**
+     * Texture du bouclier
+     */
+    private final Image texture;
+
+    /**
      * constructeur de bouclier
      *
      * @param resi resistance du bouclier
      */
-    public Bouclier(int resi) {
+    public Bouclier(int resi) throws IOException {
         this.resistance = resi;
+        texture = read(new File(JeuPerso.assetsDirectory, "Bouclier.png"));
     }
 
     /**
@@ -58,6 +72,7 @@ public class Bouclier {
         return resistance <= 0;
     }
 
-
-    //TODO DESSIN
+    public void dessiner(Graphics2D crayon) {
+        //crayon.drawImage(this.texture, x * DessinJeu.TAILLE_CASE, y * DessinJeu.TAILLE_CASE, null);
+    }
 }

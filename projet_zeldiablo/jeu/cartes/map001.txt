@@ -1,5 +1,5 @@
 exxooooooooooooooooooooooooooo
-xxxxxxoxxxxxxfxxxxxxxxxxoxxxxp
+xxxxxxoxxxxxxfxxxxxxxxxxoaxxxp
 oxxooooxxooooxxoooooooxxooooxx
 oxxxxxxxxoxxxxxxxxoxxopxxxxxxx
 oooooooxxooooooooooxxooooxxooo
@@ -13,7 +13,7 @@ oxxoxxoxxxxxxxxxxxxxxoxxoxxoxx
 oxxooooooooooxxoooooooxxoxxoxx
 opxxxxxxxoxxoxxxxxxxxoxxoxxofx
 oxxoooofxoxxoooooooxxoxxoxxoxx
-otxoxxoxxxxxxxxxxxxxxxxxoxxoxx
+otxobxoxxxxxxxxxxxxxxxxxoxxoxx
 oxxoxxoxxoxxoxxooooxpoxxoxxotx
 oxxxxxoxxoxxoxxoxxoxxoxxoxxxxx
 oooooooxxoxxooooxxoooooooxxooo

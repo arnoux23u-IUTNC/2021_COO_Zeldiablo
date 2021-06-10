@@ -47,7 +47,7 @@ public class Labyrinthe {
     private static final String lab = "exxooooooooooooooooooooooooooo" +
             "xxxoxxxxxxxxxxxoxpxxxoxxxxxxxx" +
             "oxxooootxoooooooxxooooxxoxxooo" +
-            "oxxxxxxxxxxxxxxxxxxxxoxxoxxxxx" +
+            "oxxxxxxxxxxxxxxxxxxxxoxxobxxxx" +
             "oxpoxxoxxooooxxoooooooxxoooooo" +
             "oxxoxxoxxxxxoxxoxxxxxotxxxxxxx" +
             "oxxofxoooooooooooooxxoooooooxx" +
@@ -61,7 +61,7 @@ public class Labyrinthe {
             "oooooooxxoxxoxxoxxoxxooooxxooo" +
             "oxxoxxxxxoxxxxxxxxoxxpxxoxxoxx" +
             "oxxoxxoxxooooxxooooxxooooxxoxx" +
-            "oxxxxxoxxxxxoxxoxxxxxtxxxxxxxx" +
+            "oxxxxxoxxxxaoxxoxxxxxtxxxxxxxx" +
             "oxxopxooooooooooooooooooooooxx" +
             "oxxoxxoxxxxxxxxoxxxxxxxxxxxoxx" +
             "oxxoooooooxxoxxoxxoxxooooxxopx" +
@@ -132,6 +132,14 @@ public class Labyrinthe {
                             lMonstre.add(m3);
                             c.setPersonnage(m3);
                             break;
+                        case 'a':
+                            c = new Chemin(pos, line);
+                            Arme a = new Arme(2);
+                            break;
+                        case 'b':
+                            c = new Chemin(pos, line);
+                            Bouclier b = new Bouclier(10);
+                            break;
                     }
                     cases[line][pos] = c;
                     pos++;
@@ -185,6 +193,16 @@ public class Labyrinthe {
                                 cases[i][j] = c3;
                                 c3.setPersonnage(m3);
                                 break;
+                            case 'a':
+                                Case c4 = new Chemin(i, j);
+                                Arme a = new Arme(2);
+                                cases[i][j] = c4;
+                                break;
+                            case 'b':
+                                Case c5 = new Chemin(i, j);
+                                Bouclier b = new Bouclier(10);
+                                cases[i][j] = c5;
+                                break;
                         }
                         cursor++;
                     }
@@ -224,6 +242,14 @@ public class Labyrinthe {
                             Monstre m2 = new Fantome(this, caseCursor);
                             lMonstre.add(m2);
                             caseCursor.setPersonnage(m2);
+                            break;
+                        case 'a':
+                            caseCursor = new Chemin(i, j);
+                            Arme a = new Arme(2);
+                            break;
+                        case 'b':
+                            caseCursor = new Chemin(i, j);
+                            Bouclier b = new Bouclier(10);
                             break;
                     }
                     cases[i][j] = caseCursor;
