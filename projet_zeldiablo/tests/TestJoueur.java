@@ -33,7 +33,7 @@ public class TestJoueur {
     @Before
     public void init() throws IOException {
         this.l = new Labyrinthe(false);
-        this.j = l.getJoueur();
+        this.j = new Joueur(l, l.getEntree());
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
     }
@@ -200,5 +200,29 @@ public class TestJoueur {
         j.seDeplacer(Direction.WEST);
         assertEquals("Le troll t1 ne doit pas avoir bougé", l.getEntree(), t1.getCase());
     }
+
+    /**
+     * Methode de test 09
+     * On teste le ramassage des armes par le joueur
+     */
+    @Test
+    public void test09_joueur_ramasserArme_OK(){
+        this.j.setPosition(l.getCase(11,18));
+        this.j.seDeplacer(Direction.WEST);
+        assertTrue("le joueur devrait avoir une arme",this.j.getArmeEnMain()!=null);
+    }
+
+
+    /**
+     * Methode de test 09
+     * On teste le ramassage des armes par le joueur
+     */
+    @Test
+    public void test10_joueur_ramasserBouclier_OK(){
+        this.j.setPosition(l.getCase(26,3));
+        this.j.seDeplacer(Direction.NORTH);
+        assertTrue("le joueur devrait avoir un bouclier",this.j.getBouclierEnMain()!=null);
+    }
+
 
 }

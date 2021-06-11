@@ -36,7 +36,7 @@ public class TestPersonnage {
     @Before
     public void init() throws IOException {
         this.l = new Labyrinthe(false);
-        this.j = l.getJoueur();
+        this.j = new Joueur(l,l.getEntree());
         porte= l.getEntree();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());

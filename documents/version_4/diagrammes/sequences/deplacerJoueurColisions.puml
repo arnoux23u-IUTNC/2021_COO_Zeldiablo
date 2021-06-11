@@ -1,0 +1,16 @@
+@startuml
+title "Déplacement avec colisions"
+participant "c1 : Case" as c1
+participant "c2 : Case" as c2
+
+activate c1
+activate c2
+c1 -> c2 :   equals(c1)
+alt true
+c2 --> c1 : false
+else
+c2 --> c1 : true
+end
+deactivate c1
+deactivate c2
+@enduml

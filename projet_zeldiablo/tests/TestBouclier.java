@@ -19,8 +19,9 @@ public class TestBouclier {
     @Test
     public void test02_bouclier_diminuerResistance_Casse() throws IOException {
         Bouclier b = new Bouclier(2);
-        b.diminuerResistance(3);
+        int degats = b.diminuerResistance(3);
         assertTrue("Le bouclier doit etre casse",b.etreCasseBouclier());
+        assertEquals("Le joueur doit prendre 1 de degat",1,degats);
     }
 
 }
