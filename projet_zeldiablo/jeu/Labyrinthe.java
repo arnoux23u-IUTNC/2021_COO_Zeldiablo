@@ -42,6 +42,11 @@ public class Labyrinthe {
     public static final int TAILLE = 30;
 
     /**
+     * Liste de monstre
+     */
+    private final ArrayList<Monstre> lMonstre;
+
+    /**
      * Seed default
      */
     private static final String LAB = "exxooooooooooooooooooooooooooo" +
@@ -74,11 +79,6 @@ public class Labyrinthe {
             "oxxoxxxxxxxxoxxoxxxxxxxxxxxoxx" +
             "oxpoxxoxxooooooooooxxooooxxoxx" +
             "oxxxxxoxxxxxxxxoxxxxxxxxoxxxxe";
-
-    /**
-     * Liste de monstre
-     */
-    private final ArrayList<Monstre> lMonstre;
 
     /**
      * Constructeur public par defaut
@@ -252,7 +252,6 @@ public class Labyrinthe {
                 }
             }
         }
-        this.joueur = new Joueur(this, entree);
     }
 
     /**
@@ -264,7 +263,6 @@ public class Labyrinthe {
      * @return booleen, a vrai s'il peut bouger
      */
     private boolean peutBouger(Personnage p, Direction dir) {
-        Case actuel = p.getCase();
         Case destination;
         try {
             destination = trouverDestination(p, dir);
@@ -272,7 +270,6 @@ public class Labyrinthe {
             destination = null;
         }
         if ((destination != null) && (estCaseVide(destination))) {
-            System.out.println("Actuel : " + actuel.x + "," + actuel.y + " -> personne en " + destination.x + "");
             switch (destination.getIdentifier()) {
                 case "P":
                     return p.peutTraverserPiege();
@@ -338,7 +335,6 @@ public class Labyrinthe {
     private Case trouverDestination(Personnage p, Direction d) {
         Case actuel = p.getCase();
         Case destination = null;
-        //System.out.println(d);
         switch (d) {
             case NORTH:
                 destination = cases[actuel.y - 1][actuel.x];
@@ -447,12 +443,20 @@ public class Labyrinthe {
      * @return booleen, a vrai si vide
      */
     private boolean estCaseVide(Case c) {
-        System.out.println(joueur.getCase().x + "," + joueur.getCase().y);
         for (Monstre m : lMonstre) {
             if (m.getCase().equals(c))
                 return false;
         }
         return !joueur.getCase().equals(c);
+    }
+
+    /**
+     * Setter joueur
+     *
+     * @param joueur Nouveau Joueur
+     */
+    public void setJoueur(Joueur joueur) {
+        this.joueur = joueur;
     }
 }
 
