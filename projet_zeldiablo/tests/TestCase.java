@@ -33,7 +33,7 @@ public class TestCase {
     @Before
     public void init() throws IOException {
         this.l = new Labyrinthe(false);
-        this.j = l.getJoueur();
+        this.j = new Joueur(l,l.getEntree());
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
     }
@@ -43,7 +43,7 @@ public class TestCase {
      * Verifie si un personnage peut traverser un chemin
      */
     @Test
-    public void test01_case_peutTraverserChemin_OK() throws IOException {
+    public void test01_case_peutTraverserChemin_OK() {
         assertTrue("Joueur devrait pouvoir aller dessus", j.peutTraverserChemin());
     }
 
@@ -52,7 +52,7 @@ public class TestCase {
      * Verifie si un personnage peut traverser un mur
      */
     @Test
-    public void test02_case_peutTravserserMur_OK() throws IOException {
+    public void test02_case_peutTravserserMur_OK() {
         assertFalse("Joueur ne devrait pas pouvoir aller dessus", j.peutTraverserMur());
     }
 
@@ -61,9 +61,8 @@ public class TestCase {
      * Verifie si un personnage peut traverser une porte
      */
     @Test
-    public void test03_case_peutTraverserPorte_OK() throws IOException {
+    public void test03_case_peutTraverserPorte_OK() {
         assertTrue("Joueur devrait pouvoir aller dessus", j.peutTraverserPorte());
-        assertFalse("Joueur ne devrait pas pouvoir aller dessus", j.peutTraverserPorte());
     }
 
     /**

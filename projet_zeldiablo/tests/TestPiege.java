@@ -41,7 +41,7 @@ public class TestPiege {
     @Before
     public void init() throws IOException {
         this.l = new Labyrinthe(false);
-        this.j = l.getJoueur();
+        this.j = new Joueur(l,l.getEntree());
         porte = l.getEntree();
         //On force un retour a la pos d'origine
         j.setPosition(l.getEntree());
@@ -63,14 +63,9 @@ public class TestPiege {
      */
     @Test
     public void test01_piege_prendDegats_OK() throws IOException {
-        Joueur j1 = new Joueur(l, porte);
-        j1.seDeplacer(Direction.EAST);
-        j1.seDeplacer(Direction.EAST);
-        j1.seDeplacer(Direction.SOUTH);
-        j1.seDeplacer(Direction.SOUTH);
-        j1.seDeplacer(Direction.SOUTH);
-        j1.seDeplacer(Direction.SOUTH);
-                assertEquals("Le Joueur doit prendre des dégats", 19, j1.getPv());
+        j.setPosition(l.getCase(16,1));
+        j.seDeplacer(Direction.SOUTH);
+        assertEquals("Le Joueur doit prendre des dégats", 19, j.getPv());
     }
 
     @Test

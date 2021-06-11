@@ -127,6 +127,14 @@ public class Joueur extends Personnage {
         }
     }
 
+    /**
+     * getter de bouclierenmain
+     * @return bouclierEnMain
+     */
+    public Bouclier getBouclierEnMain(){
+        return bouclierEnMain;
+    }
+
     @Override
     public boolean peutTraverserChemin() {
         return true;
