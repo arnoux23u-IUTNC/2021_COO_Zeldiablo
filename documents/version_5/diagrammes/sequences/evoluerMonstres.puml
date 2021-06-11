@@ -1,0 +1,49 @@
+@startuml
+title "Evolution des monstres"
+
+participant "moteur : MoteurRendu" as moteur
+participant "jeu : JeuPerso" as jeu
+participant "pj : Joueur" as pj
+participant "monstre : Monstre" as monstre
+participant "l : Labyrinthe" as l
+
+moteur -> jeu : evoluerMonstres()
+activate moteur
+activate jeu
+jeu -> pj : getLabyrinthe()
+activate pj
+jeu <--pj : l
+deactivate pj
+loop l.getMonstres()
+jeu -> monstre : seDeplacerVersJoueur()
+activate monstre
+monstre -> monstre : seDeplacer([RANDOM]NORTH)
+jeu <-- monstre
+deactivate monstre
+jeu-> monstre :attaquerLeJoueur()
+activate monstre
+monstre -> monstre : trouverCasesAutour()
+monstre --> monstre : cases
+monstre -> l : getJoueur()
+activate l
+l-> pj : getCase()
+activate pj
+l <-- pj : caseJoueur
+deactivate pj
+monstre <-- l : caseJoueur
+deactivate l
+alt cases.contains(caseJoueur)
+monstre -> monstre : attaquer(pj)
+end
+
+monstre -> l : supprimerLesMorts()
+activate l
+monstre <-- l
+deactivate l
+jeu <-- monstre
+deactivate monstre
+moteur <-- jeu
+deactivate jeu
+
+
+@enduml
