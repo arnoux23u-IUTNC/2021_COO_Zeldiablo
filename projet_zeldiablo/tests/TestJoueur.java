@@ -214,14 +214,39 @@ public class TestJoueur {
 
 
     /**
-     * Methode de test 09
-     * On teste le ramassage des armes par le joueur
+     * Methode de test 10
+     * On teste le ramassage des boucliers par le joueur
      */
     @Test
     public void test10_joueur_ramasserBouclier_OK(){
         this.j.setPosition(l.getCase(26,3));
         this.j.seDeplacer(Direction.NORTH);
         assertTrue("le joueur devrait avoir un bouclier",this.j.getBouclierEnMain()!=null);
+    }
+
+    /**
+     * Methode de test 11
+     * On teste les degats pris avec un bouclier
+     * @throws IOException
+     */
+    @Test
+    public void test11_joueur_prendreDegats_avecBouclier() throws IOException {
+        this.j.ajouterBouclier(new Bouclier(5));
+        this.j.diminuerVie(3);
+        assertEquals("Le joueur doit avoir 20hp",20,j.getPv());
+    }
+
+    /**
+     * Methode de test 12
+     * On teste les degats infligés avec une arme
+     * @throws IOException
+     */
+    @Test
+    public void test12_joueur_attaquer_avecArme() throws IOException {
+        this.j.ajouterArme(new Arme(2));
+        Fantome f = new Fantome(l,l.getCase(3,3));
+        this.j.attaquer(f);
+        assertEquals("Le fantome doit avoir 2 hp",2,f.getPv());
     }
 
 
