@@ -48,10 +48,11 @@ public class Bouclier {
     }
 
     /**
-     * methode qui permets de diminuer la resistance du boucleir
+     * methode qui permets de diminuer la resistance du bouclier
+     * si le bouclier est censé se casser durant la diminution de la resistance, il renvoie le reste des degats
      *
      * @param degats degats pris dans le bouclier
-     * @return degats du joueur
+     * @return degats pour le joueur
      */
     public int diminuerResistance(int degats) {
         int degatsjoueur = 0;

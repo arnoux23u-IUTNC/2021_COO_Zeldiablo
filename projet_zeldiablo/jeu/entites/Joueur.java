@@ -88,6 +88,10 @@ public class Joueur extends Personnage {
         this.armeEnMain = arme;
     }
 
+    /**
+     * getter de larme du joueur
+     * @return larmeEnMain du joueur
+     */
     public Arme getArmeEnMain() {
         return this.armeEnMain;
     }
@@ -103,8 +107,10 @@ public class Joueur extends Personnage {
 
     /**
      * Methode permettant de diminuer la vie du joueur
+     * si le joueur prend des degats et quil possede un bouclier, le bouclier va prendre les degats max quil peut prendre
+     * et renvoie le reste des degats au joueur si il se casse durant le coup
      *
-     * @param vieDown retrait
+     * @param vieDown degats pris
      */
     public void diminuerVie(int vieDown) {
         if (bouclierEnMain != null) {
