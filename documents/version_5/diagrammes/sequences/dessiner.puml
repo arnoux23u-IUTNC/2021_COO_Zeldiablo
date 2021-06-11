@@ -1,0 +1,52 @@
+@startuml
+title Dessiner
+
+participant "mg : MoteurRendu" as mg
+participant "gui : InterfaceGraphique" as gui
+participant "panel : PanelDessin" as panel
+participant "dessin : DessinPerso" as dessin
+participant "jeuEnCours : JeuPerso" as jeuEnCours
+participant "pj : Joueur" as pj
+participant "lab : Labyrinthe" as lab
+participant "c : Case" as c
+participant "m : Monstre" as m
+
+mg -> gui : dessiner()
+activate mg
+activate gui
+gui -> panel : dessinerJeu()
+activate panel
+panel -> dessin : dessiner(image)
+activate dessin
+dessin -> jeuEnCours : dessiner(crayon)
+activate jeuEnCours
+jeuEnCours -> pj : dessiner(crayon)
+activate pj
+pj -> pj : getLabyrinthe()
+pj <-- pj : lab
+pj -> lab : dessiner()
+activate lab
+loop cases
+lab -> c : dessiner()
+activate c
+lab <-- c
+deactivate c
+lab -> m : dessiner()
+activate m
+lab <-- m
+deactivate m
+pj <-- lab
+deactivate lab
+jeuEnCours <-- pj
+deactivate pj
+dessin <-- jeuEnCours
+deactivate jeuEnCours
+panel <-- dessin
+deactivate dessin
+panel -> panel : repaint()
+gui <-- panel
+deactivate panel
+mg <-- gui
+deactivate gui
+
+@enduml
