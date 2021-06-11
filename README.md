@@ -3,6 +3,9 @@ COO Project
 
 > Groupe AGJMX
 
+**:warning: Instructions pour lancer le projet**
+`Creez votre projet a la source de ce depot et definir projet_zeldiablo comme sources`
+
 Déroulement :
 ==
 
@@ -14,6 +17,8 @@ Déroulement :
     > Tristan a fait les maps des labyrinthes de test, Jules a fait les maps des labyrinthes utilisés, Alex a créé 2 monstres du labyrinthe : Un Troll et un Fantôme, ainsi qu'une gestion des dégâts, Antonin a ajouté des points de vie au personnage et Guillaume a géré la gestion des maps importées d'un fichier texte.
 - **Troisième itération - (10h ~+)**
     > Pour faire clair, on a du tout refaire car notre conception n'allait pas.
+- **Quatrième itération - (4h ~+)**
+    > Fin de projet, diagrammes et tests et préparation pour la soutenance.
 
 
 # Membres
