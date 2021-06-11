@@ -4,6 +4,7 @@ import jeu.entites.*;
 import jeu.utils.*;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class JeuPerso implements Jeu {
     /**
      * Repertoire des assets
      */
-    public static final String assetsDirectory = "projet_zeldiablo"+File.separator+"jeu"+File.separator+"utils"+File.separator+"assets"+File.separator;
+    public static final String assetsDirectory = "projet_zeldiablo"+ File.separator+"jeu"+File.separator+"utils"+File.separator+"assets"+File.separator;
 
     /**
      * Constructeur public par defaut
