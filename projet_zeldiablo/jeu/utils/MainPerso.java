@@ -30,11 +30,5 @@ public class MainPerso {
         MoteurRendu moteur = new MoteurRendu(jeu, aff);
         // lance la boucle de jeu qui tourne jusque la fin du jeu
         moteur.lancerJeu(750, 900);
-
-        // lorsque le jeu est fini
-        System.out.println("Fin du Jeu - appuyer sur entree");
-        Scanner sc = new Scanner(System.in);
-        sc.nextLine();
-        System.exit(1);
     }
 }
