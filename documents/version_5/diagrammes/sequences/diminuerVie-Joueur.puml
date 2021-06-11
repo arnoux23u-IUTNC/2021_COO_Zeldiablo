@@ -1,0 +1,21 @@
+@startuml
+title "Diminuer vie d'un joueur avec bouclier"
+
+participant "j : Joueur" as j
+participant "b : Bouclier" as b
+
+
+activate j
+-> j  : diminuerVie(7)
+alt bouclier!=null
+j  -> b   : diminuerResistance(7)
+activate b
+b --> j : 3
+deactivate b
+j  -> j : setPv(8-3)
+else
+j-> j : setPv(8-8)
+end
+<-- j
+deactivate j
+@enduml
