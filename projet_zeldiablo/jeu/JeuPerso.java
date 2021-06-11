@@ -23,7 +23,7 @@ public class JeuPerso implements Jeu {
     /**
      * Repertoire des assets
      */
-    public static final String assetsDirectory = "projet_zeldiablo\\jeu\\utils\\assets\\";
+    public static final String assetsDirectory = "projet_zeldiablo"+File.separator+"jeu"+File.separator+"utils"+File.separator+"assets"+File.separator;
 
     /**
      * Constructeur public par defaut
