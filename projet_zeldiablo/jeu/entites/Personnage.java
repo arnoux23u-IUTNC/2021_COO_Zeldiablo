@@ -5,9 +5,8 @@ import jeu.cases.Case;
 import jeu.utils.Direction;
 
 import java.awt.*;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Objects;
+import java.io.*;
+import java.util.*;
 
 /**
  * Classe modelisant un personnage, de type passif (joueur) ou actif (monstre)
@@ -211,7 +210,12 @@ public abstract class Personnage {
         return l;
     }
 
-    public ArrayList<Case> trouverCasesAutour(){
+    /**
+     * Methode pour trouver les cases autour du Joueur
+     *
+     * @return Cases autour du joueur
+     */
+    public ArrayList<Case> trouverCasesAutour() {
         Case c = this.getCase();
         Case nord, sud, est, ouest;
         try {

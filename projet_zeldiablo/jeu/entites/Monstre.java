@@ -29,7 +29,6 @@ public abstract class Monstre extends Personnage {
 
     /**
      * Methode de deplacement du monstre
-     *
      */
     public void seDeplacerVersJoueur() {
         Direction[] directions = Direction.values();

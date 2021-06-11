@@ -68,7 +68,7 @@ public class Bouclier {
     }
 
     /**
-     * methode qui permets de savoir si le bouclier est casse ou non
+     * Methode qui permets de savoir si le bouclier est casse ou non
      *
      * @return true si resistance est inferieure ou egale a zero
      */

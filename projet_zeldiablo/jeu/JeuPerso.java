@@ -73,7 +73,7 @@ public class JeuPerso implements Jeu {
         if (!pj.etreMort() && !pj.getCase().equals(pj.getLabyrinthe().getSortie())) {
             return false;
         }
-        System.out.println("Vous êtes mort");
+        System.out.println("Vous êtes mort ou vous avez gagné, à vous de voir !");
         return true;
     }
 
