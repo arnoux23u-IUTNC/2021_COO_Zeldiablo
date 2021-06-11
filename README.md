@@ -5,9 +5,11 @@ COO Project
 
 **:warning: Instructions pour lancer le projet**
 
-`Creez votre projet a la source de ce depot et definir projet_zeldiablo comme sources`
+`Ouvrez le projet directement a la source de ce depot et definir projet_zeldiablo comme sources`
 
 `Utilisez Java 11 et prenez soin d'ajouter JUnit au classpath`
+
+`Pour être sur d'avoir un projet fonctionnel, utilisez les commandes git (ne pas télécharger le projet en ZIP directement). Dans IntelliJ IDEA ou tout autre IDE, ouvrez directement le projet, il ne faut pas en creer un`
 
 Déroulement :
 ==
