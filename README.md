@@ -41,3 +41,8 @@ FROMENT Antonin
 # Liens utiles :
 
 [Framacalc](https://lite.framacalc.org/9nif-2021_zeldiablo_groupe_abbgf)
+
+# Aperçus : 
+
+![Capture](https://user-images.githubusercontent.com/37373941/121717904-03329b80-cae2-11eb-9ae3-947229a7f17a.JPG)
+
