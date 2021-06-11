@@ -263,7 +263,6 @@ public class Labyrinthe {
      * @return booleen, a vrai s'il peut bouger
      */
     private boolean peutBouger(Personnage p, Direction dir) {
-        Case actuel = p.getCase();
         Case destination;
         try {
             destination = trouverDestination(p, dir);
