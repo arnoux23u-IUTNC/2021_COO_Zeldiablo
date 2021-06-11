@@ -12,7 +12,7 @@
 - critères de validation :
     -critère 1 : - le bouclier a de la resistance
 
-- fonctionnalité 3 : inventaire du joueur
+- fonctionnalité 3 : inventaire du joueur (pas de diag car supprimé apres)
 - responsables [1] : Alexandre
 - descriptif texte : ajout d'un inventaire du joueur qui possede des boucliers et armes
 - critères de validation :
@@ -31,14 +31,14 @@
 - critere de validation :
     -critère 1 : il doit y avoir un joueur et un monstre
 
-- fonctionalité 6 : Refonte complete du modele COO
+- fonctionalité 6 : Refonte complete du modele COO (pas de diag car trop complexe)
 - responsables [1] : Guillaume
 - descriptif texte : Supression de tous les instanceof, getter inutiles, doubles dépendances ... (réécriture de toutes les classes)
 - critere de validation :
     -critère 1 : Il ne doit plus y avoir de doubles dépendances
     -critère 2 : On ne doit plus voir de instanceof
 
-- fonctionalité 7 : Ajouts graphiques
+- fonctionalité 7 : Ajouts graphiques (diagramme dans la version 5)
 - responsables [1] : Guillaume
 - descriptif texte : Ajout d'une barre de vie generale, du personnage avec son arme/bouclier
 - critere de validation :
