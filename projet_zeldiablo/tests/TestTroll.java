@@ -39,7 +39,11 @@ public class TestTroll {
         Case c = l.getCase(0, 0);
         Troll troll = new Troll(l, c);
         troll.seRegenerer();
-        assertEquals("Ses points devraient être à 4", 4, troll.getPv());
+        assertEquals("Ses points devraient être à 3", 3, troll.getPv());
+        troll.diminuerVie(1);
+        assertEquals("Ses points devraient être à 2", 2, troll.getPv());
+        troll.seRegenerer();
+        assertEquals("Ses points devraient être à 3", 3, troll.getPv());
     }
 
     /**
@@ -51,6 +55,19 @@ public class TestTroll {
         Case c = l.getCase(0, 0);
         Troll troll = new Troll(l, c);
         troll.trollSeFaitAttaquer();
+        troll.seRegenerer();
+        assertEquals("Ses points devraient être à 3", 3, troll.getPv());
+    }
+
+    /**
+     * Methode testRegenerationFull
+     * * Verifie si un troll ne regenere pas de la vie si il est a son maximum de pv
+     */
+    @Test
+    public void test02_troll_regeneration_etantFull() throws IOException {
+        Case c = l.getCase(0, 0);
+        Troll troll = new Troll(l, c);
+        assertEquals("Ses points devraient être à 3", 3, troll.getPv());
         troll.seRegenerer();
         assertEquals("Ses points devraient être à 3", 3, troll.getPv());
     }
