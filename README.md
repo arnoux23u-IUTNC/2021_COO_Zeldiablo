@@ -4,7 +4,10 @@ COO Project
 > Groupe AGJMX
 
 **:warning: Instructions pour lancer le projet**
+
 `Creez votre projet a la source de ce depot et definir projet_zeldiablo comme sources`
+
+`Utilisez Java 11 et prenez soin d'ajouter JUnit au classpath`
 
 Déroulement :
 ==
