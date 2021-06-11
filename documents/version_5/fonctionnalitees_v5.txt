@@ -1,0 +1,44 @@
+* Fonctionnalités version 5
+
+- fonctionnalité 1 : Affichage des armes et bouclier
+- responsables [1] : Jules
+- descriptif texte : Les armes et bouclier sont présents dans le labyrinthe, il sont
+utilisable et le personnage les porte.
+- critères de validation :
+    -critère 1 : l'arme et le bouclier sont affichés sur la map
+    -critère 2 : le joueur peut ramasser les objets et ils disparaissent de la map
+    -critère 3 : le joueur peut utiliser les objets et ils sont affichés sur son sprit
+
+- fonctionnalité 2 : Afficher de la barre de résistance
+- responsables [1] : Jules
+- descriptif texte : Une barre orange apparait en dessous de la barre de vie lorsque
+l'on ramasse une arme.
+- critères de validation :
+    -critère 1 : Une barre orange doit apparait au ramassage du bouclier, il représente la
+résistance du bouclier
+
+- fonctionnalité 3 : Correction des bugs
+- responsables [2] : Alexandre
+- descriptif texte : Apport de correctif sur l'ensemble du projet.
+- critères de validation :
+    -critère 1 : Le code doit être opérationnel avant la soutenance
+
+- fonctionnalité 4 : Ajout de nouveaux asset
+- responsables [3] : Tristan
+- descriptif texte : Amélioration de l'aspect graphique du jeu.
+- critères de validation :
+    -critère 1 : Le code doit être beau avant la soutenance
+
+- fonctionnalité 5 : Activation des monstres
+- responsables [4] : Guillaume
+- descriptif texte : Les monstres se déplacent sur la map et peuvent se déplacer.
+- critères de validation :
+    -critère 1 : Les monstres peuvent frapper le personnage
+    -critère 2 : Les monstres peuvent se déplacer sur la map
+
+- fonctionnalité 6 : Affichage barre de vie des monstres
+- responsables [4] : Guillaume
+- descriptif texte : Les monstres ont une barre de vie.
+- critères de validation :
+    -critère 1 : La vie des monstres s'affichent sous forme d'une barre au-dessus de
+leurs têtes
