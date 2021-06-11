@@ -17,6 +17,7 @@
 - descriptif texte : ajout d'un inventaire du joueur qui possede des boucliers et armes
 - critères de validation :
     -critère 1 : - si une arme est dans l'inventaire elle augmente les degats du joueur
+(fonctionnalité supprimée car pas assez de temps a lui donner)
 
 - fonctionnalité 4 : Fin du jeu si le personnage meurt
 - responsables [1] : Jules
