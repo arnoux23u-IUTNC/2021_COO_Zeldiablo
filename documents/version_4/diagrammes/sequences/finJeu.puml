@@ -1,0 +1,51 @@
+@startuml
+title Fin du Jeu
+
+participant "m : MoteurGraphique" as m
+participant "gui : IntefaceGraphique" as gui
+participant "con : Controleur" as con
+participant "jeu : JeuPerso" as jeu
+
+-> m : lancerJeu(750,900)
+activate m
+create gui
+m -> gui : new(dessin, 750, 900)
+m -> gui : getControleur()
+activate gui
+m <-- gui : con
+deactivate gui
+loop while ! etreFini()
+m -> con : getDirection()
+activate con
+m <-- con : direction
+deactivate con
+m -> con : getAttaque()
+activate con
+m <-- con : attaque
+deactivate con
+m -> jeu : evoluer(direction, attaque)
+activate jeu
+m <-- jeu
+deactivate jeu
+alt iterate == 10
+m -> jeu : evoluerMonstres()
+activate jeu
+m <-- jeu
+deactivate jeu
+end
+m -> gui : dessiner()
+activate gui
+m <-- gui
+deactivate gui
+m -> Thread : sleep(100)
+activate Thread
+m <-- Thread
+deactivate Thread
+end
+m -> JOptionPane : showMessage(jpanel, "Fin !" "Fin", INFORMATION)
+activate JOptionPane
+m <-- JOptionPane
+deactivate JOptionPane
+deactivate m
+<-- m : System.exit(1)
+@enduml
