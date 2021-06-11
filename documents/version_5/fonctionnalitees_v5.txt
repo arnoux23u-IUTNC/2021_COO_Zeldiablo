@@ -31,7 +31,7 @@ résistance du bouclier
 
 - fonctionnalité 5 : Activation des monstres
 - responsables [4] : Guillaume
-- descriptif texte : Les monstres se déplacent sur la map et peuvent se déplacer.
+- descriptif texte : Les monstres se déplacent sur la map et peuvent frapper le joueur.
 - critères de validation :
     -critère 1 : Les monstres peuvent frapper le personnage
     -critère 2 : Les monstres peuvent se déplacer sur la map
