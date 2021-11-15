@@ -3,6 +3,10 @@ COO Project
 
 > Groupe AGJMX
 
+#Lancement
+
+##Manuel
+
 **:warning: Instructions pour lancer le projet**
 
 `Ouvrez le projet directement a la source de ce depot et definir projet_zeldiablo comme sources`
@@ -10,6 +14,12 @@ COO Project
 `Utilisez Java 11 et prenez soin d'ajouter JUnit au classpath`
 
 `Pour être sur d'avoir un projet fonctionnel, utilisez les commandes git (ne pas télécharger le projet en ZIP directement). Dans IntelliJ IDEA ou tout autre IDE, ouvrez directement le projet, il ne faut pas en creer un`
+
+##JAR
+
+Il est possible d'utiliser le fichier JAR fourni dans les [releases](https://github.com/arnoux23u-IUTNC/2021_COO_Zeldiablo/releases).
+
+Pour le lancer, faites `java -jar zeldiablo.jar` dans votre terminal.
 
 Déroulement :
 ==
